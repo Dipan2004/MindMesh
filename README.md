@@ -1,4 +1,4 @@
-# graphrag-lite
+# MindMesh
 
 Lightweight graph-RAG: structural graph filtering + Zvec hybrid retrieval +
 small local LLM. Full context, gap analysis, and design rationale in
