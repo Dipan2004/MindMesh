@@ -1,0 +1,74 @@
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+.venv/
+venv/
+env/
+
+# ── Environment / secrets ─────────────────────────────────────────────────────
+.env
+# .env.example is intentionally kept — it documents required vars without values
+
+# ── Data ──────────────────────────────────────────────────────────────────────
+# Raw corpus documents are local; add them manually per deployment
+data/raw/*
+!data/raw/.gitkeep
+
+# Disk cache and extraction outputs are generated, not source-controlled
+data/cache/
+
+# ── Log and error files ───────────────────────────────────────────────────────
+*.log
+*.log.txt
+*_log.txt
+*_err.txt
+build_index_log.txt
+build_index_err.txt
+chunking_ablation_log.txt
+chunking_ablation_err.txt
+dedup_markdown_log.txt
+dedup_markdown_err.txt
+
+# ── Ablation / eval outputs (generated) ───────────────────────────────────────
+eval/ablations/chunking_results.json
+
+# ── OS and editor ─────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# ── uv / pip ──────────────────────────────────────────────────────────────────
+uv.lock
+.python-version
+
+# ── Test artifacts ────────────────────────────────────────────────────────────
+.pytest_cache/
+.coverage
+htmlcov/
+
+# ── What IS tracked ───────────────────────────────────────────────────────────
+# README.md          ✓
+# PRD.md             ✓
+# ARCHITECTURE.md    ✓
+# CONFIG.md          ✓
+# TASKS.md           ✓
+# DOCUMENT.md        ✓
+# .env.example       ✓
+# pyproject.toml     ✓
+# src/               ✓  (all source code)
+# scripts/           ✓
+# eval/              ✓  (scripts and gold set, not generated outputs)
+# tests/             ✓
+# data/raw/.gitkeep  ✓  (placeholder so the directory exists on clone)
