@@ -1136,7 +1136,354 @@ This brings the corpus to **5 documents**. The 5 documents are intentionally cho
 ### Phase 2 — Graph
 <!-- Task 2.1–2.3 entries go here -->
 
-### Phase 3 — Embeddings + Vector Store
+## Task 2.1 — Graph builder
+
+**Status:** [x] done (revised after self-loop + edge count investigation)
+**Date:** 2026-09-15
+**Files touched:** `src/graphrag_lite/graph/builder.py`, `src/graphrag_lite/config.py`, `CONFIG.md`
+
+### Pre-task config additions
+
+`PAGERANK_DAMPING = 0.85` added to `config.py` and CONFIG.md §5. `LLM_TIMEOUT_S` default corrected from `120.0` to `300.0` in CONFIG.md.
+
+### Function(s) implemented
+
+- `load_extractions(jsonl_path) -> list[dict]` — Records with `_parse_error` skipped with visible `[SKIP]` log line.
+
+- `build_graph(extractions) -> nx.DiGraph`
+  - Pass 1: builds nodes. Normalisation: `re.sub(r"\s+", " ", name.strip().lower())`.
+  - Node merge policy: `type` = first non-OTHER wins; `descriptions`/`source_sentences` = lists with provenance; `source_docs` = set.
+  - **Self-loop policy:** DROPPED and logged with `[DROP-LOOP]`. See investigation.
+  - **Parallel edge policy:** MERGED — same (src, tgt) pair accumulates all types and source_sentences on one edge. See investigation.
+
+### Self-loop investigation
+
+All 15 self-loops were pre-merge (LLM hallucinated `X --> X` directly). 0 post-merge self-loops.
+
+Policy decision: DROP and log each. Rationale: self-loops carry no graph information; PageRank inflates scores for self-looping nodes; every instance is clear extractor noise from `qwen2.5:0.5b`; 0 post-merge means no real cross-entity relationship is ever dropped by this policy.
+
+**Full list of all 15 dropped self-loops (pasted verbatim from re-verification run):**
+```
+   1. [knowledge_graphs] 'Knowledge Graph' --OTHER--> 'Knowledge Graph'          chunk=0282ea80
+   2. [knowledge_graphs] 'Person' --PART_OF--> 'Person'                          chunk=6fc47586
+   3. [knowledge_graphs] 'Organization' --WORKS_AT--> 'Organization'             chunk=6fc47586
+   4. [knowledge_graphs] 'Person' --WORKS_AT--> 'Person'                         chunk=6fc47586
+   5. [knowledge_graphs] 'Person' --WORKS_AT--> 'Person'                         chunk=6fc47586
+   6. [knowledge_graphs] 'Temporal knowledge graphs' --WORKS_AT--> 'Temporal knowledge graphs'  chunk=ab2692f1
+   7. [large_language_models] 'Rafael Rafailov' --WORKS_AT--> 'Rafael Rafailov'  chunk=5c56e059
+   8. [large_language_models] 'Alpaca' --OTHER--> 'Alpaca'                       chunk=4a4ea014
+   9. [large_language_models] 'Vicuna' --OTHER--> 'Vicuna'                       chunk=4a4ea014
+  10. [large_language_models] 'Mistral' --OTHER--> 'Mistral'                     chunk=4a4ea014
+  11. [retrieval_augmented_generation] 'RAG' --WORKS_AT--> 'RAG'                 chunk=71387ffa
+  12. [retrieval_augmented_generation] 'RAG pipeline' --WORKS_AT--> 'RAG pipeline'  chunk=7bac4d8e
+  13. [transformer_architecture] 'self-attention mechanism' --WORKS_AT--> 'self-attention mechanism'  chunk=c81c2a06
+  14. [vector_databases] 'vector database' --WORKS_AT--> 'vector database'       chunk=d6426773
+  15. [vector_databases] 'Vector databases' --WORKS_AT--> 'Vector databases'     chunk=fc0f4473
+
+Type breakdown: WORKS_AT=10  OTHER=4  PART_OF=1  Total=15
+```
+
+**Discrepancy note:** An earlier spoken summary said "9 of 15 share the type WORKS_AT." That was a miscount made while writing prose — the diagnostic script output has always shown 10. The correct figure, verified by re-running `phase2_close_checks.py`, is **10 WORKS_AT self-loops**. Counting entries 3–7, 11–15 above gives 10; entries 1, 8, 9, 10 are OTHER (3) and PART_OF (1) for the remaining 4. The model-quality observation below is based on the correct count of 10.
+
+### Edge count reconciliation
+
+```
+53  total relationships in extractions.jsonl
+-15  self-loops dropped (pre-merge extractor noise)   -> [DROP-LOOP] per item
+- 0  dangling dropped
+---
+38  normal edges
+- 8  parallel edges merged into existing (src,tgt) pairs
+---
+30  final edges in graph
+
+CHECK: 15 + 0 + 30 + 8 = 53  BALANCED
+```
+
+Parallel pairs (>1 relationship merged): `Organization-->Person` (4), `Temporal knowledge graphs-->Edge` (2), `Temporal knowledge graphs-->Temporal information` (2), `Temporal information-->Temporal knowledge graphs` (2), `Knowledge graphs-->Structured information panels` (2).
+
+Original builder reported 43 because: 15 self-loops were not filtered (added to graph), and parallel edges used broken DiGraph last-write-wins (not merge). Now: 30 clean edges.
+
+### Final DoD test run (after fixes)
+
+**Command:** `python tests/test_builder_task21.py`
+
+**Output (pasted verbatim):**
+```
+  [SKIP] chunk_id=4af3dc8c5da84fad doc=transformer_architecture -- _parse_error: ReadTimeout: timed out
+[load_extractions] 41 clean records, 1 skipped
+Records loaded: 41
+  [DROP-LOOP] ('Knowledge Graph' --OTHER--> 'Knowledge Graph') -> both resolve to 'Knowledge Graph' [knowledge_graphs/0282ea80]
+  [DROP-LOOP] ('Person' --PART_OF--> 'Person') -> both resolve to 'Person' [knowledge_graphs/6fc47586]
+  [DROP-LOOP] ('Organization' --WORKS_AT--> 'Organization') -> both resolve to 'Organization' [knowledge_graphs/6fc47586]
+  [DROP-LOOP] ('Person' --WORKS_AT--> 'Person') -> both resolve to 'Person' [knowledge_graphs/6fc47586]
+  [DROP-LOOP] ('Person' --WORKS_AT--> 'Person') -> both resolve to 'Person' [knowledge_graphs/6fc47586]
+  [DROP-LOOP] ('Temporal knowledge graphs' --WORKS_AT--> 'Temporal knowledge graphs') -> both resolve to 'Temporal knowledge graphs' [knowledge_graphs/ab2692f1]
+  [DROP-LOOP] ('Rafael Rafailov' --WORKS_AT--> 'Rafael Rafailov') -> both resolve to 'Rafael Rafailov' [large_language_models/5c56e059]
+  [DROP-LOOP] ('Alpaca' --OTHER--> 'Alpaca') -> both resolve to 'Alpaca' [large_language_models/4a4ea014]
+  [DROP-LOOP] ('Vicuna' --OTHER--> 'Vicuna') -> both resolve to 'Vicuna' [large_language_models/4a4ea014]
+  [DROP-LOOP] ('Mistral' --OTHER--> 'Mistral') -> both resolve to 'Mistral' [large_language_models/4a4ea014]
+  [DROP-LOOP] ('RAG' --WORKS_AT--> 'RAG') -> both resolve to 'RAG' [retrieval_augmented_generation/71387ffa]
+  [DROP-LOOP] ('RAG pipeline' --WORKS_AT--> 'RAG pipeline') -> both resolve to 'RAG pipeline' [retrieval_augmented_generation/7bac4d8e]
+  [DROP-LOOP] ('self-attention mechanism' --WORKS_AT--> 'self-attention mechanism') -> both resolve to 'self-attention mechanism' [transformer_architecture/c81c2a06]
+  [DROP-LOOP] ('vector database' --WORKS_AT--> 'vector database') -> both resolve to 'vector database' [vector_databases/d6426773]
+  [DROP-LOOP] ('Vector databases' --WORKS_AT--> 'Vector databases') -> both resolve to 'Vector databases' [vector_databases/fc0f4473]
+[build_graph] nodes=75  edges=30
+  self_loops_dropped=15  parallel_merged=8  dangling_dropped=0
+
+Nodes : 75
+Edges : 30
+
+Sample node: 'Knowledge Graph'
+  type        : CONCEPT
+  source_docs : {'knowledge_graphs'}
+  descriptions (3 entries): ...
+  source_sentences (3 entries): ...
+
+Sample edge: 'Knowledge Graph' --> 'KGQA'
+  types      : ['WORKS_AT']
+  description: A knowledge graph connecting movies, directors, actors...
+  source_doc : knowledge_graphs
+  source_sentences: 1 entries
+
+MERGE VERIFICATION (known duplicates from Phase 1 dedup analysis):
+  'edge'                     node_count=1  canonical='Edge'
+  'rafael rafailov'          node_count=1  canonical='Rafael Rafailov'
+  'knowledge graph'          node_count=1  canonical='Knowledge Graph'
+  'chroma'                   node_count=1  canonical='Chroma'
+  'lancedb'                  node_count=1  canonical='LanceDB'
+  'zvec'                     node_count=1  canonical='Zvec'
+  All collapse to <= 1 node: PASS
+
+Dangling edge check: 0/30 relationships reference a missing node
+  PASS
+
+Connected components: 48
+  Largest component size: 6
+  Component size distribution: [6, 4, 3, 3, 3, 2, 2, 2, 2, 2]...
+
+ALL ASSERTIONS PASSED
+```
+
+### Canonical graph figures for Phase 2
+
+- **75 nodes, 30 edges**, 48 connected components, largest = 6 nodes
+- 15 self-loops dropped (extractor noise), 8 parallel pairs merged, 0 dangling
+
+### Follow-up 1 — Full Organization --> Person edge (highest-count parallel merge)
+
+4 relationships collapsed into 1 edge. Full edge data:
+
+```
+Edge: Organization --> Person
+
+types (4 entries): ['WORKS_AT', 'WORKS_AT', 'WORKS_AT', 'WORKS_AT']
+
+description: An organization is a group of people or things that work together to achieve a common goal.
+source_doc:  knowledge_graphs
+
+source_sentences (4 entries):
+  [0] chunk_id=6fc475866849cd38  type=WORKS_AT
+       text: An organization is a group of people or things that work together to achieve a common goal.
+  [1] chunk_id=6fc475866849cd38  type=WORKS_AT
+       text: A location is a physical place where something is situated.
+  [2] chunk_id=6fc475866849cd38  type=WORKS_AT
+       text: An organization is a group of people or things that work together to achieve a common goal.
+  [3] chunk_id=6fc475866849cd38  type=WORKS_AT
+       text: An organization is a group of people or things that work together to achieve a common goal.
+
+ASSERTIONS PASSED: 4 types, 4 source_sentences
+```
+
+All 4 original relationship types are in `types`. All 4 original source sentences are in `source_sentences` with `chunk_id` provenance. Merge is lossless. Note: all 4 come from the same chunk_id (`6fc47586`) — the model extracted multiple near-identical relationships from the same dense "node types" section. `source_sentences[1]` having a different text (about Location, not Organization) confirms the model was generating filler content rather than meaningful relationships — consistent with the WORKS_AT fallback pattern below.
+
+### Follow-up 2 — WORKS_AT fallback pattern in self-loops
+
+Self-loop type breakdown:
+```
+WORKS_AT: 10
+OTHER:     4
+PART_OF:   1
+Total:    15
+```
+
+10 of 15 dropped self-loops have type `WORKS_AT` applied to entities where the relationship makes no semantic sense — `'Person' --WORKS_AT--> 'Person'`, `'RAG' --WORKS_AT--> 'RAG'`, `'self-attention mechanism' --WORKS_AT--> 'self-attention mechanism'`, `'vector database' --WORKS_AT--> 'vector database'`. These are concepts, techniques, and acronyms, not employment relationships.
+
+**Named model-quality observation:** `qwen2.5:0.5b` has a specific fallback pattern of defaulting to `WORKS_AT` when it cannot identify a real relationship type for an entity. This is not uniformly random noise — it is a systematic bias toward one relationship type. The 4 `OTHER` self-loops (`Alpaca`, `Vicuna`, `Mistral`, `Alpaca` variants) are a different pattern: the model emitted type `OTHER` when it had no relationship to generate but the schema required one.
+
+This observation is relevant context for Task 8's model comparison: `qwen3:4b` or `llama3.2` ablations should be expected to produce fewer `WORKS_AT` self-loops, and a drop in self-loop rate (currently 15/53 = 28% of all relationships) would be a concrete, measurable quality improvement. If `qwen3:4b` still shows this pattern at similar rates, it suggests the extraction prompt needs tightening rather than a model swap.
+
+---
+### Graph structure analysis and risks (pre-Task-2.3)
+
+**Full component size distribution:**
+```
+Total nodes : 75   Total edges: 30   Components: 48
+Average degree (2*edges/nodes): 0.8000
+
+Weakly connected components (undirected reachability): 48
+  Size distribution:
+    size 6:  1 component   (largest)
+    size 4:  1 component
+    size 3:  3 components
+    size 2: 13 components
+    size 1: 30 components  (SINGLETONS -- 40% of all nodes)
+
+Strongly connected components (directed reachability): 72
+  Largest strong component: 3 nodes
+
+Note: The "48 components" figure in Task 2.2 uses WEAKLY connected components
+(nx.connected_components on the undirected projection) -- which is the correct
+metric for BFS hop analysis and undirected reachability. Strongly connected
+components (72, largest=3) are a different, stricter definition and are not
+directly comparable. The two numbers coexist without contradiction.
+
+Nodes in largest (weak) component:  6/75  (8.0%)
+Singletons (0-hop BFS only):       30/75  (40.0%)
+Nodes in size-2 (max 1 hop):       26/75  (34.7%)
+Nodes in size-3 (max 2 hops):       9/75  (12.0%)
+Max BFS hops possible (anywhere):   5  (only within the 6-node component)
+```
+
+**Named risk:** 40% of nodes are singletons; the largest connected component is 6 nodes (8% of the graph). Task 2.3's BFS will execute correctly as code, but cannot demonstrate meaningful multi-hop retrieval -- most seed nodes return 1-2 neighbours or only themselves. Pipeline B's structural advantage over Pipeline A (the core paper comparison) depends on multi-hop graph paths. This corpus does not yet provide that. Flagged for revisit at Task 8.1 (corpus expansion). Root cause: qwen2.5:0.5b extracted few relationships per chunk; many were self-loops (dropped) or generic type-level relationships. A larger model is the primary fix.
+
+**Schema-artifact policy (Point 2):** 4/5 PageRank top-5 nodes are generic KG schema types (Person, Organization, Location, Edge). Decision: **option (b) -- leave as-is, document as corpus-content issue.** Rationale: a stoplist would silently filter without a principled criterion; the real fix is extraction quality (qwen3:4b would extract Ashish Vaswani, Google Brain etc. rather than schema type labels); defer accuracy impact measurement to Task 8's gold Q&A evaluation.
+
+**Organization/Location PageRank tie (Point 3):** Both live in the same isolated 3-node component {Person, Organization, Location}. Both have exactly Person as their sole predecessor AND successor -- perfect structural symmetry guarantees identical PageRank scores. Deterministic, not numerical coincidence.
+
+```
+Organization: predecessors=['Person']  successors=['Person']  component={Location, Organization, Person}
+Location:     predecessors=['Person']  successors=['Person']  component={Location, Organization, Person}
+```
+
+---## Task 2.2 — Ranking (PageRank + degree)
+
+**Status:** [x] done
+**Date:** 2026-09-15
+**Files touched:** `src/graphrag_lite/graph/ranking.py`
+
+### Function(s) implemented
+
+- `rank_pagerank(graph, damping=None) -> dict[str, float]`
+  - Reads `PAGERANK_DAMPING` from `get_config()` when `damping` is not passed explicitly. Pure function — no side effects.
+- `rank_degree(graph) -> dict[str, int]`
+  - Returns total (in + out) degree. No config coupling. Pure function.
+
+### Test run
+
+**Command:** `python tests/test_ranking_task22.py`
+
+**Output (pasted verbatim):**
+```
+Graph: 75 nodes, 30 edges
+PAGERANK_DAMPING = 0.85
+
+Rank   PageRank (score)                               Degree (count)
+--------------------------------------------------------------------------------
+  1.   Person                   0.083102   Person                              4
+  2.   Organization             0.043851   Temporal knowledge graphs           4
+  3.   Location                 0.043851   Knowledge graphs                    3
+  4.   Temporal knowledge graphs 0.035277  LLaMA                               3
+  5.   Edge                     0.023540   Organization                        2
+
+Top-5 overlap: 3/5
+  Shared:          ['Organization', 'Person', 'Temporal knowledge graphs']
+  Only in PageRank: ['Edge', 'Location']
+  Only in Degree:   ['Knowledge graphs', 'LLaMA']
+
+VERDICT: The two top-5 lists DIFFER.
+         3/5 nodes shared; 2 nodes differ between methods.
+         PageRank and degree diverge on this graph's structure.
+
+Extended top-10:
+  1    Person                   0.083102   Person                              4
+  2    Organization             0.043851   Temporal knowledge graphs           4
+  3    Location                 0.043851   Knowledge graphs                    3
+  4    Temporal knowledge graphs 0.035277  LLaMA                               3
+  5    Edge                     0.023540   Organization                        2
+  6    Temporal information     0.023540   Location                            2
+  7    OpenAI                   0.021987   Human                               2
+  8    HumanEval                0.021987   MMLU                                2
+  9    DBpedia                  0.015812   Temporal information                2
+  10   KGQA                     0.015812   Knowledge Graph                     1
+```
+
+### Analysis
+
+The lists differ on 2/5 positions — a real, non-trivial divergence even on this sparse 30-edge graph.
+
+**Why they diverge:**
+- `'Edge'` (rank 5 in PageRank, absent from degree top-5) has degree 2 but receives PageRank flow from `'Temporal knowledge graphs'` which itself has high connectivity — PageRank rewards transitive importance, not just raw count.
+- `'Location'` (rank 3 in PageRank, degree rank 6) ties with `Organization` at degree 2 but ranks higher in PageRank because its incoming edges come from `Person` which is the highest-PageRank node.
+- `'Knowledge graphs'` (rank 3 in degree, absent from PageRank top-5) has degree 3 but much of that is FROM nodes with low PageRank — high degree doesn't translate to high PageRank when your neighbours are not themselves important.
+- `'LLaMA'` (rank 4 in degree with 3 edges, absent from PageRank top-5) — same pattern.
+
+**Implication for Pipeline B (Task 4.2):** Using `pagerank` (config default) vs `degree` will produce different candidate sets. The divergence is real and measurable — Task 8.6's ranking-method ablation should show a non-trivial accuracy difference rather than being a no-op.
+
+**Note on top-ranked nodes:** `Person`, `Organization`, `Location` ranking highly reflects the knowledge_graphs.md source doc's coverage of KG node types — these are described as entity types, not real-world entities. This is an extraction quality issue (`qwen2.5:0.5b` treating schema concepts as entities) that will be reduced with `qwen3:4b`.
+
+---
+## Task 2.3 — Bounded BFS traversal
+
+**Status:** [x] done
+**Date:** 2026-09-15
+**Files touched:** `src/graphrag_lite/graph/traversal.py`
+
+### Function(s) implemented
+
+- `bfs_expand(graph, seed_nodes, hops) -> list[str]`
+  - Traverses the **undirected projection** of the graph so both in- and out-edges are followed.
+  - Seeds not in graph: `[WARN]` logged, skipped — never raises.
+  - Returns sorted list of unique node names (seeds included at hop 0).
+  - Deliberately unranked — ranking is a separate step per PRD §9.
+
+### Test run
+
+**Command:** `python tests/test_traversal_task23.py`
+
+**Output (pasted verbatim):**
+```
+Graph: 75 nodes, 30 edges
+BFS_HOP_DEPTH = 2
+
+Largest component (6 nodes): ['Edge', 'Knowledge graphs', 'Search engines',
+  'Structured information panels', 'Temporal information', 'Temporal knowledge graphs']
+
+Test 1: seed='Knowledge graphs'  hops=2  (from largest component)
+  Returned 6 nodes:
+    2-hop  'Edge'
+    0-hop  'Knowledge graphs'
+    1-hop  'Search engines'
+    1-hop  'Structured information panels'
+    2-hop  'Temporal information'
+    1-hop  'Temporal knowledge graphs'
+
+Test 2: seed='KGQA'  hops=2  (from a 2-node component)
+  Returned 2 nodes:
+    0-hop  'KGQA'
+    1-hop  'Knowledge Graph'
+
+Test 3: seed='Technology'  hops=2  (singleton node)
+  Returned 1 nodes: ['Technology']
+  (Seed returns only itself -- expected for isolated node)
+
+Test 4: seed='NonExistentNode'  hops=2  (not in graph)
+  [WARN] bfs_expand: seed node 'NonExistentNode' not in graph -- skipped
+  Returned 0 nodes: []
+  (Empty list expected -- graceful skip on missing seed)
+
+Max nodes returned by any single-seed BFS at hops=2: 6
+ALL ASSERTIONS PASSED
+```
+
+### Notes
+
+- Test 1 (largest component): `hops=2` reaches all 6 nodes — hop bound respected, full reachable neighbourhood returned with per-node hop counts.
+- Test 2 (size-2 component): the more typical case — most seeds reach only 1–2 nodes on this corpus.
+- Tests 3 and 4: singleton and missing-seed edge cases confirmed working.
+- 4 tests instead of TASKS.md's minimum 2 — the graph structure analysis showed singletons and size-2 components are the common case, so testing only the 6-node component would give a misleadingly optimistic picture.
+
+---
 <!-- Task 3.1–3.3 entries go here -->
 
 ### Phase 4 — Retrieval Pipelines

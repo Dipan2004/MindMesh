@@ -49,6 +49,7 @@ re-explaining the value.
 |---|---|---|
 | `BFS_HOP_DEPTH` | 2 | 2–3 |
 | `RANKING_METHOD` | `pagerank` | alt: `degree` — must A/B both, PRD §9 |
+| `PAGERANK_DAMPING` | 0.85 | standard NetworkX default; read from config for ablation |
 | `TOP_N_CANDIDATES_AFTER_RANKING` | 20 | before second Zvec pass |
 | `TOP_N_FINAL_EVIDENCE` | 6 | passed to the LLM |
 
@@ -65,7 +66,7 @@ re-explaining the value.
 | `LLM_MODE` | `local` | `local` or `api` — this single flag also drives tracing (see §8) |
 | `SLM_MODEL` (local mode) | `qwen3:4b` | ablation: `qwen3:1.7b`, `phi4-mini` |
 | `API_MODEL` (api mode) | Grok (model name TBD at build time — check current Grok API docs, don't hardcode a version that may be deprecated) | user-pasted key, session-only, never persisted to disk/log |
-| `LLM_TIMEOUT_S` | 120.0 | Seconds before an Ollama generate() call raises TimeoutError. Without this, an abandoned in-flight request from a killed process blocks Ollama's queue indefinitely (root cause of "silent hang" bug confirmed during Phase 1 chunking ablation). |
+| `LLM_TIMEOUT_S` | 300.0 | Seconds before an Ollama generate() call raises TimeoutError. Raised from 120s to 300s after httpcore.ReadTimeout failures — qwen2.5:0.5b on CPU can take 120s+ for high-entity-density gleaning prompts. |
 
 ## 8. Observability
 
