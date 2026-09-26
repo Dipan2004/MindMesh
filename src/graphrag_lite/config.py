@@ -141,6 +141,13 @@ class Config(BaseSettings):
         default="pagerank",
         description="Node-ranking strategy used in Pipeline B candidate selection.",
     )
+    PAGERANK_DAMPING: float = Field(
+        default=0.85,
+        description=(
+            "NetworkX PageRank damping factor. Standard default is 0.85. "
+            "Read from config so ablations can vary it without code changes."
+        ),
+    )
     TOP_N_CANDIDATES_AFTER_RANKING: int = Field(
         default=20,
         description="Candidates kept after structural ranking, before second Zvec pass.",
