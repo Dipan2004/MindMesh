@@ -1,0 +1,592 @@
+{
+  "k": 6,
+  "scopes": {
+    "docs": {
+      "avg_recall": 1.0,
+      "gold_at_rank1": 10,
+      "mean_best_gold_rank": 1.0,
+      "rows": [
+        {
+          "query_id": "Q01",
+          "query": "How does the self-attention mechanism compute attention scores?",
+          "gold": [
+            "c81c2a06"
+          ],
+          "b6": [
+            "c81c2a06",
+            "745e90bb",
+            "a5123f46",
+            "4af3dc8c",
+            "a885be6b",
+            "d49b99f9"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q02",
+          "query": "What is the Encoder-Decoder structure of the original Transformer?",
+          "gold": [
+            "a885be6b"
+          ],
+          "b6": [
+            "a885be6b",
+            "4af3dc8c",
+            "745e90bb",
+            "a5123f46",
+            "e146728c",
+            "efaf36ff"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q03",
+          "query": "How are entities and relationships extracted from text in GraphRAG?",
+          "gold": [
+            "6d878b7f"
+          ],
+          "b6": [
+            "6d878b7f",
+            "b744eeeb",
+            "6fc47586",
+            "3256abe3",
+            "4e802a79",
+            "0282ea80"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q04",
+          "query": "What is Wikidata and who maintains it?",
+          "gold": [
+            "3256abe3"
+          ],
+          "b6": [
+            "3256abe3",
+            "b76780cc",
+            "a04b3d90",
+            "025a4d30",
+            "0282ea80",
+            "d49b99f9"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q05",
+          "query": "What are knowledge graph embedding methods like TransE and RotatE?",
+          "gold": [
+            "4e802a79"
+          ],
+          "b6": [
+            "4e802a79",
+            "0282ea80",
+            "a09f4455",
+            "ab2692f1",
+            "b744eeeb",
+            "3256abe3"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q06",
+          "query": "What makes Zvec different from FAISS for hybrid search?",
+          "gold": [
+            "5a5f4b8a",
+            "895ee8b4",
+            "d49b99f9"
+          ],
+          "b6": [
+            "5a5f4b8a",
+            "895ee8b4",
+            "99f7ac4b",
+            "d49b99f9",
+            "e146728c",
+            "7bac4d8e"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q07",
+          "query": "What is Retrieval-Augmented Generation and why does it matter?",
+          "gold": [
+            "33d32892"
+          ],
+          "b6": [
+            "33d32892",
+            "b744eeeb",
+            "71387ffa",
+            "7bac4d8e",
+            "d49b99f9",
+            "895ee8b4"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q08",
+          "query": "How does HyDE improve retrieval quality in RAG systems?",
+          "gold": [
+            "b744eeeb"
+          ],
+          "b6": [
+            "b744eeeb",
+            "7bac4d8e",
+            "33d32892",
+            "f08417a7",
+            "71387ffa",
+            "4dcff615"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q09",
+          "query": "What is HNSW and how does it speed up approximate nearest neighbor search?",
+          "gold": [
+            "417905a7"
+          ],
+          "b6": [
+            "417905a7",
+            "e146728c",
+            "d49b99f9",
+            "99f7ac4b",
+            "d6426773",
+            "895ee8b4"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q10",
+          "query": "What is Direct Preference Optimization and how does it differ from RLHF?",
+          "gold": [
+            "5c56e059"
+          ],
+          "b6": [
+            "5c56e059",
+            "32c85d7e",
+            "d49b99f9",
+            "895ee8b4",
+            "3256abe3",
+            "310582c4"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        }
+      ]
+    },
+    "candidates": {
+      "avg_recall": 0.7333333333333334,
+      "gold_at_rank1": 8,
+      "mean_best_gold_rank": 1.0,
+      "rows": [
+        {
+          "query_id": "Q01",
+          "query": "How does the self-attention mechanism compute attention scores?",
+          "gold": [
+            "c81c2a06"
+          ],
+          "b6": [
+            "c81c2a06",
+            "745e90bb",
+            "d49b99f9",
+            "3256abe3",
+            "ba844007",
+            "ab2692f1"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q02",
+          "query": "What is the Encoder-Decoder structure of the original Transformer?",
+          "gold": [
+            "a885be6b"
+          ],
+          "b6": [
+            "745e90bb",
+            "e146728c",
+            "4dcff615",
+            "a04b3d90",
+            "5c56e059",
+            "c81c2a06"
+          ],
+          "recall": 0.0,
+          "best_gold_rank": null,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q03",
+          "query": "How are entities and relationships extracted from text in GraphRAG?",
+          "gold": [
+            "6d878b7f"
+          ],
+          "b6": [
+            "b744eeeb",
+            "0282ea80",
+            "3256abe3",
+            "a09f4455",
+            "fc0f4473",
+            "ba844007"
+          ],
+          "recall": 0.0,
+          "best_gold_rank": null,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q04",
+          "query": "What is Wikidata and who maintains it?",
+          "gold": [
+            "3256abe3"
+          ],
+          "b6": [
+            "3256abe3",
+            "b76780cc",
+            "a04b3d90",
+            "025a4d30",
+            "d49b99f9",
+            "b744eeeb"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q05",
+          "query": "What are knowledge graph embedding methods like TransE and RotatE?",
+          "gold": [
+            "4e802a79"
+          ],
+          "b6": [
+            "4e802a79",
+            "0282ea80",
+            "a09f4455",
+            "ab2692f1",
+            "b744eeeb",
+            "3256abe3"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q06",
+          "query": "What makes Zvec different from FAISS for hybrid search?",
+          "gold": [
+            "5a5f4b8a",
+            "895ee8b4",
+            "d49b99f9"
+          ],
+          "b6": [
+            "5a5f4b8a",
+            "99f7ac4b",
+            "e146728c",
+            "417905a7",
+            "b76780cc",
+            "ab2692f1"
+          ],
+          "recall": 0.3333333333333333,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q07",
+          "query": "What is Retrieval-Augmented Generation and why does it matter?",
+          "gold": [
+            "33d32892"
+          ],
+          "b6": [
+            "33d32892",
+            "b744eeeb",
+            "71387ffa",
+            "d49b99f9",
+            "745e90bb",
+            "a04b3d90"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q08",
+          "query": "How does HyDE improve retrieval quality in RAG systems?",
+          "gold": [
+            "b744eeeb"
+          ],
+          "b6": [
+            "b744eeeb",
+            "7bac4d8e",
+            "33d32892",
+            "71387ffa",
+            "e146728c",
+            "99f7ac4b"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q09",
+          "query": "What is HNSW and how does it speed up approximate nearest neighbor search?",
+          "gold": [
+            "417905a7"
+          ],
+          "b6": [
+            "417905a7",
+            "d49b99f9",
+            "e146728c",
+            "99f7ac4b",
+            "b744eeeb",
+            "0282ea80"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q10",
+          "query": "What is Direct Preference Optimization and how does it differ from RLHF?",
+          "gold": [
+            "5c56e059"
+          ],
+          "b6": [
+            "5c56e059",
+            "d49b99f9",
+            "745e90bb",
+            "b76780cc",
+            "a04b3d90",
+            "b744eeeb"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        }
+      ]
+    },
+    "verbalized": {
+      "avg_recall": 0.7333333333333334,
+      "gold_at_rank1": 4,
+      "mean_best_gold_rank": 1.875,
+      "rows": [
+        {
+          "query_id": "Q01",
+          "query": "How does the self-attention mechanism compute attention scores?",
+          "gold": [
+            "c81c2a06"
+          ],
+          "b6": [
+            "c81c2a06",
+            "745e90bb",
+            "3256abe3",
+            "0282ea80",
+            "417905a7",
+            "d49b99f9"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q02",
+          "query": "What is the Encoder-Decoder structure of the original Transformer?",
+          "gold": [
+            "a885be6b"
+          ],
+          "b6": [
+            "e146728c",
+            "4dcff615",
+            "745e90bb",
+            "d49b99f9",
+            "4e802a79",
+            "5c56e059"
+          ],
+          "recall": 0.0,
+          "best_gold_rank": null,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q03",
+          "query": "How are entities and relationships extracted from text in GraphRAG?",
+          "gold": [
+            "6d878b7f"
+          ],
+          "b6": [
+            "0282ea80",
+            "3256abe3",
+            "b744eeeb",
+            "a09f4455",
+            "ab2692f1",
+            "ba844007"
+          ],
+          "recall": 0.0,
+          "best_gold_rank": null,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q04",
+          "query": "What is Wikidata and who maintains it?",
+          "gold": [
+            "3256abe3"
+          ],
+          "b6": [
+            "3256abe3",
+            "b76780cc",
+            "a04b3d90",
+            "d49b99f9",
+            "025a4d30",
+            "b744eeeb"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q05",
+          "query": "What are knowledge graph embedding methods like TransE and RotatE?",
+          "gold": [
+            "4e802a79"
+          ],
+          "b6": [
+            "4e802a79",
+            "0282ea80",
+            "ab2692f1",
+            "3256abe3",
+            "a09f4455",
+            "ba844007"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q06",
+          "query": "What makes Zvec different from FAISS for hybrid search?",
+          "gold": [
+            "5a5f4b8a",
+            "895ee8b4",
+            "d49b99f9"
+          ],
+          "b6": [
+            "e146728c",
+            "5a5f4b8a",
+            "99f7ac4b",
+            "417905a7",
+            "b744eeeb",
+            "ab2692f1"
+          ],
+          "recall": 0.3333333333333333,
+          "best_gold_rank": 2,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q07",
+          "query": "What is Retrieval-Augmented Generation and why does it matter?",
+          "gold": [
+            "33d32892"
+          ],
+          "b6": [
+            "33d32892",
+            "b744eeeb",
+            "745e90bb",
+            "71387ffa",
+            "a04b3d90",
+            "d49b99f9"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 1,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q08",
+          "query": "How does HyDE improve retrieval quality in RAG systems?",
+          "gold": [
+            "b744eeeb"
+          ],
+          "b6": [
+            "33d32892",
+            "7bac4d8e",
+            "b744eeeb",
+            "71387ffa",
+            "e146728c",
+            "3256abe3"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 3,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q09",
+          "query": "What is HNSW and how does it speed up approximate nearest neighbor search?",
+          "gold": [
+            "417905a7"
+          ],
+          "b6": [
+            "e146728c",
+            "417905a7",
+            "b744eeeb",
+            "d49b99f9",
+            "99f7ac4b",
+            "0282ea80"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 2,
+          "n_evidence": 6
+        },
+        {
+          "query_id": "Q10",
+          "query": "What is Direct Preference Optimization and how does it differ from RLHF?",
+          "gold": [
+            "5c56e059"
+          ],
+          "b6": [
+            "745e90bb",
+            "a04b3d90",
+            "d49b99f9",
+            "5c56e059",
+            "417905a7",
+            "b744eeeb"
+          ],
+          "recall": 1.0,
+          "best_gold_rank": 4,
+          "n_evidence": 6
+        }
+      ]
+    }
+  },
+  "identical_scope_lists": 1,
+  "token_counts": {
+    "n_evidence": 6,
+    "with_text": {
+      "toon_tokens": 1131,
+      "json_tokens": 1327,
+      "saved_tokens": 196,
+      "saved_pct": 14.770158251695554,
+      "toon_chars": 5368,
+      "json_chars": 5966
+    },
+    "metadata_only": {
+      "toon_tokens": 191,
+      "json_tokens": 359,
+      "saved_tokens": 168,
+      "saved_pct": 46.796657381615596,
+      "toon_chars": 492,
+      "json_chars": 1017
+    }
+  }
+}

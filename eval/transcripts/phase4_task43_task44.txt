@@ -1,0 +1,216 @@
+====================================================================================================
+TASK 4.3 + 4.4 -- scoped re-query and serialization
+====================================================================================================
+CACHE_DIR              : data/cache/exp_phase4
+Cache entries at start : 0
+ZVEC_ROOT              : data/cache
+Gold file              : eval/gold_qa_set.json (10 queries)
+K                      : 6
+Tokenizer              : qwen (tiktoken cl100k_base)
+====================================================================================================
+
+====================================================================================================
+PART 1 -- the scope of the second (scoped) query, over the gold set
+====================================================================================================
+
+  scope = 'docs'
+    QID    recall@6   best gold rank  n_ev   evidence
+    Q01        1.00                1     6   ['c81c2a06', '745e90bb', 'a5123f46', '4af3dc8c', 'a885be6b', 'd49b99f9']
+    Q02        1.00                1     6   ['a885be6b', '4af3dc8c', '745e90bb', 'a5123f46', 'e146728c', 'efaf36ff']
+    Q03        1.00                1     6   ['6d878b7f', 'b744eeeb', '6fc47586', '3256abe3', '4e802a79', '0282ea80']
+    Q04        1.00                1     6   ['3256abe3', 'b76780cc', 'a04b3d90', '025a4d30', '0282ea80', 'd49b99f9']
+    Q05        1.00                1     6   ['4e802a79', '0282ea80', 'a09f4455', 'ab2692f1', 'b744eeeb', '3256abe3']
+    Q06        1.00                1     6   ['5a5f4b8a', '895ee8b4', '99f7ac4b', 'd49b99f9', 'e146728c', '7bac4d8e']
+    Q07        1.00                1     6   ['33d32892', 'b744eeeb', '71387ffa', '7bac4d8e', 'd49b99f9', '895ee8b4']
+    Q08        1.00                1     6   ['b744eeeb', '7bac4d8e', '33d32892', 'f08417a7', '71387ffa', '4dcff615']
+    Q09        1.00                1     6   ['417905a7', 'e146728c', 'd49b99f9', '99f7ac4b', 'd6426773', '895ee8b4']
+    Q10        1.00                1     6   ['5c56e059', '32c85d7e', 'd49b99f9', '895ee8b4', '3256abe3', '310582c4']
+    AVG        1.00             1.00   gold at rank 1: 10/10
+
+  scope = 'candidates'
+    QID    recall@6   best gold rank  n_ev   evidence
+    Q01        1.00                1     6   ['c81c2a06', '745e90bb', 'd49b99f9', '3256abe3', 'ba844007', 'ab2692f1']
+    Q02        0.00             None     6   ['745e90bb', 'e146728c', '4dcff615', 'a04b3d90', '5c56e059', 'c81c2a06']
+    Q03        0.00             None     6   ['b744eeeb', '0282ea80', '3256abe3', 'a09f4455', 'fc0f4473', 'ba844007']
+    Q04        1.00                1     6   ['3256abe3', 'b76780cc', 'a04b3d90', '025a4d30', 'd49b99f9', 'b744eeeb']
+    Q05        1.00                1     6   ['4e802a79', '0282ea80', 'a09f4455', 'ab2692f1', 'b744eeeb', '3256abe3']
+    Q06        0.33                1     6   ['5a5f4b8a', '99f7ac4b', 'e146728c', '417905a7', 'b76780cc', 'ab2692f1']
+    Q07        1.00                1     6   ['33d32892', 'b744eeeb', '71387ffa', 'd49b99f9', '745e90bb', 'a04b3d90']
+    Q08        1.00                1     6   ['b744eeeb', '7bac4d8e', '33d32892', '71387ffa', 'e146728c', '99f7ac4b']
+    Q09        1.00                1     6   ['417905a7', 'd49b99f9', 'e146728c', '99f7ac4b', 'b744eeeb', '0282ea80']
+    Q10        1.00                1     6   ['5c56e059', 'd49b99f9', '745e90bb', 'b76780cc', 'a04b3d90', 'b744eeeb']
+    AVG        0.73             1.00   gold at rank 1: 8/10
+
+  scope = 'verbalized'
+    QID    recall@6   best gold rank  n_ev   evidence
+    Q01        1.00                1     6   ['c81c2a06', '745e90bb', '3256abe3', '0282ea80', '417905a7', 'd49b99f9']
+    Q02        0.00             None     6   ['e146728c', '4dcff615', '745e90bb', 'd49b99f9', '4e802a79', '5c56e059']
+    Q03        0.00             None     6   ['0282ea80', '3256abe3', 'b744eeeb', 'a09f4455', 'ab2692f1', 'ba844007']
+    Q04        1.00                1     6   ['3256abe3', 'b76780cc', 'a04b3d90', 'd49b99f9', '025a4d30', 'b744eeeb']
+    Q05        1.00                1     6   ['4e802a79', '0282ea80', 'ab2692f1', '3256abe3', 'a09f4455', 'ba844007']
+    Q06        0.33                2     6   ['e146728c', '5a5f4b8a', '99f7ac4b', '417905a7', 'b744eeeb', 'ab2692f1']
+    Q07        1.00                1     6   ['33d32892', 'b744eeeb', '745e90bb', '71387ffa', 'a04b3d90', 'd49b99f9']
+    Q08        1.00                3     6   ['33d32892', '7bac4d8e', 'b744eeeb', '71387ffa', 'e146728c', '3256abe3']
+    Q09        1.00                2     6   ['e146728c', '417905a7', 'b744eeeb', 'd49b99f9', '99f7ac4b', '0282ea80']
+    Q10        1.00                4     6   ['745e90bb', 'a04b3d90', 'd49b99f9', '5c56e059', '417905a7', 'b744eeeb']
+    AVG        0.73             1.88   gold at rank 1: 4/10
+
+  Queries where 'docs' and 'candidates' return the SAME evidence list: 1/10
+
+  Queries where 'docs' and 'verbalized' return the SAME evidence list: 0/10
+
+  Queries where 'candidates' and 'verbalized' return the SAME evidence list: 0/10
+
+====================================================================================================
+PART 2 -- Pipeline A vs Pipeline B, side by side (Task 4.3 DoD)
+====================================================================================================
+
+----------------------------------------------------------------------------------------------------
+Q01: How does the self-attention mechanism compute attention scores?
+  gold chunk(s): ['c81c2a06']
+  entry points (7): ['self-attention mechanism', 'Transformer', 'Cosine similarity', 'Ontologies and Schemas', 'BART', 'Search engines', 'Approximate Nearest Neighbor Search']
+  BFS nodes: 13   ranked candidates: 13
+  top-5 candidates: [('self-attention mechanism', 0.8654), ('Transformer', 0.8517), ('Dot product', 0.7912), ('Cosine similarity', 0.7781), ('Temporal knowledge graphs', 0.4624)]
+
+  PIPELINE A (flat)                             | B (scope=docs)                                | B (scope=candidates)                          | B (scope=verbalized)
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  [1] c81c2a06e4ee9667 s=0.03279 GOLD ## Core Components  | [1] c81c2a06e4ee9667 s=0.03279 GOLD ## Core Components  | [1] c81c2a06e4ee9667 s=0.03279 GOLD ## Core Components  | [1] c81c2a06e4ee9667 s=0.03252 GOLD ## Core Components  
+  [2] a5123f467123650e s=0.03200      ### Multi-Head Atten| [2] 745e90bb807507b6 s=0.03200      # The Transformer Ar| [2] 745e90bb807507b6 s=0.03226      # The Transformer Ar| [2] 745e90bb807507b6 s=0.03252      # The Transformer Ar
+  [3] 745e90bb807507b6 s=0.03175      # The Transformer Ar| [3] a5123f467123650e s=0.03200      ### Multi-Head Atten| [3] d49b99f9a418a0fb s=0.03150      ### Distance Metrics| [3] 3256abe3c09bca47 s=0.03102      ### Ontologies and S
+  [4] 4af3dc8c5da84fad s=0.03077      ## Key Researchers a| [4] 4af3dc8c5da84fad s=0.03101      ## Key Researchers a| [4] 3256abe3c09bca47 s=0.03016      ### Ontologies and S| [4] 0282ea8070392cd0 s=0.03058      # Knowledge Graphs  
+  [5] 32c85d7ec02b6b19 s=0.01587      ### Fine-tuning and | [5] a885be6b749e39a1 s=0.03033      ### Positional Encod| [5] ba8440076ddd110a s=0.02988      ## History and Origi| [5] 417905a71f013c88 s=0.03031      ## Core Concepts  ##
+  [6] a885be6b749e39a1 s=0.01562      ### Positional Encod| [6] d49b99f9a418a0fb s=0.01538      ### Distance Metrics| [6] ab2692f1a112544f s=0.02988      ### Search Enhanceme| [6] d49b99f9a418a0fb s=0.03012      ### Distance Metrics
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  A@6 ids: ['c81c2a06', 'a5123f46', '745e90bb', '4af3dc8c', '32c85d7e', 'a885be6b']
+  B@6 (docs)        ids: ['c81c2a06', '745e90bb', 'a5123f46', '4af3dc8c', 'a885be6b', 'd49b99f9']
+  B@6 (candidates)  ids: ['c81c2a06', '745e90bb', 'd49b99f9', '3256abe3', 'ba844007', 'ab2692f1']
+  B@6 (verbalized)  ids: ['c81c2a06', '745e90bb', '3256abe3', '0282ea80', '417905a7', 'd49b99f9']
+  identical evidence sets A vs B(candidates): False
+
+----------------------------------------------------------------------------------------------------
+Q02: What is the Encoder-Decoder structure of the original Transformer?
+  gold chunk(s): ['a885be6b']
+  entry points (8): ['Dense Retriever', 'TransE', 'BART', 'self-attention mechanism', 'Transformer', 'Rafael Rafailov', 'Cyc', 'Cosine similarity']
+  BFS nodes: 11   ranked candidates: 11
+  top-5 candidates: [('Document Store / Vector Inde', 0.8785), ('Dense Retriever', 0.8654), ('TransE', 0.8513), ('BART', 0.8392), ('self-attention mechanism', 0.8199)]
+
+  PIPELINE A (flat)                             | B (scope=docs)                                | B (scope=candidates)                          | B (scope=verbalized)
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  [1] a885be6b749e39a1 s=0.03279 GOLD ### Positional Encod| [1] a885be6b749e39a1 s=0.03279 GOLD ### Positional Encod| [1] 745e90bb807507b6 s=0.03252      # The Transformer Ar| [1] e146728cdddcf0e5 s=0.03279      ## Core Components  
+  [2] 4af3dc8c5da84fad s=0.03200      ## Key Researchers a| [2] 4af3dc8c5da84fad s=0.03200      ## Key Researchers a| [2] e146728cdddcf0e5 s=0.03202      ## Core Components  | [2] 4dcff615e7a2ceff s=0.03150      ### Reader / Generat
+  [3] 745e90bb807507b6 s=0.03151      # The Transformer Ar| [3] 745e90bb807507b6 s=0.03151      # The Transformer Ar| [3] 4dcff615e7a2ceff s=0.03175      ### Reader / Generat| [3] 745e90bb807507b6 s=0.03128      # The Transformer Ar
+  [4] a5123f467123650e s=0.03078      ### Multi-Head Atten| [4] a5123f467123650e s=0.03078      ### Multi-Head Atten| [4] a04b3d90e2da113b s=0.03083      ### Cyc  Cyc is a lo| [4] d49b99f9a418a0fb s=0.03128      ### Distance Metrics
+  [5] e146728cdddcf0e5 s=0.03037      ## Core Components  | [5] e146728cdddcf0e5 s=0.03037      ## Core Components  | [5] 5c56e059e8cebff9 s=0.03078      ### Direct Preferenc| [5] 4e802a799a872699 s=0.03080      ## Knowledge Graph E
+  [6] efaf36ff59adbf7d s=0.02985      # Large Language Mod| [6] efaf36ff59adbf7d s=0.02985      # Large Language Mod| [6] c81c2a06e4ee9667 s=0.03077      ## Core Components  | [6] 5c56e059e8cebff9 s=0.03055      ### Direct Preferenc
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  A@6 ids: ['a885be6b', '4af3dc8c', '745e90bb', 'a5123f46', 'e146728c', 'efaf36ff']
+  B@6 (docs)        ids: ['a885be6b', '4af3dc8c', '745e90bb', 'a5123f46', 'e146728c', 'efaf36ff']
+  B@6 (candidates)  ids: ['745e90bb', 'e146728c', '4dcff615', 'a04b3d90', '5c56e059', 'c81c2a06']
+  B@6 (verbalized)  ids: ['e146728c', '4dcff615', '745e90bb', 'd49b99f9', '4e802a79', '5c56e059']
+  identical evidence sets A vs B(candidates): False
+
+----------------------------------------------------------------------------------------------------
+Q03: How are entities and relationships extracted from text in GraphRAG?
+  gold chunk(s): ['6d878b7f']
+  entry points (8): ['Graph RAG', 'Ontologies and Schemas', 'Knowledge Graph', 'DBpedia', 'Vector databases', 'Microsoft Research', 'Structured information panels', 'Traditional search results']
+  BFS nodes: 15   ranked candidates: 14
+  top-5 candidates: [('Temporal knowledge graphs', 0.887), ('Temporal information', 0.8695), ('Graph RAG', 0.8654), ('Knowledge Graph', 0.8582), ('KGQA', 0.8532)]
+
+  PIPELINE A (flat)                             | B (scope=docs)                                | B (scope=candidates)                          | B (scope=verbalized)
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  [1] 6d878b7f56a99aa2 s=0.03252 GOLD ### Automated Extrac| [1] 6d878b7f56a99aa2 s=0.03252 GOLD ### Automated Extrac| [1] b744eeebc1934b70 s=0.03252      ### Advanced RAG  Ad| [1] 0282ea8070392cd0 s=0.03227      # Knowledge Graphs  
+  [2] b744eeebc1934b70 s=0.03200      ### Advanced RAG  Ad| [2] b744eeebc1934b70 s=0.03200      ### Advanced RAG  Ad| [2] 0282ea8070392cd0 s=0.03200      # Knowledge Graphs  | [2] 3256abe3c09bca47 s=0.03227      ### Ontologies and S
+  [3] 6fc475866849cd38 s=0.03150      ## Structure and Rep| [3] 6fc475866849cd38 s=0.03150      ## Structure and Rep| [3] 3256abe3c09bca47 s=0.03178      ### Ontologies and S| [3] b744eeebc1934b70 s=0.03128      ### Advanced RAG  Ad
+  [4] 3256abe3c09bca47 s=0.03110      ### Ontologies and S| [4] 3256abe3c09bca47 s=0.03110      ### Ontologies and S| [4] a09f4455b7fef7fa s=0.03125      ## Applications  ###| [4] a09f4455b7fef7fa s=0.03125      ## Applications  ###
+  [5] 4e802a799a872699 s=0.03078      ## Knowledge Graph E| [5] 4e802a799a872699 s=0.03078      ## Knowledge Graph E| [5] fc0f4473d792a08f s=0.03054      ## Why Vector Databa| [5] ab2692f1a112544f s=0.03083      ### Search Enhanceme
+  [6] 0282ea8070392cd0 s=0.03077      # Knowledge Graphs  | [6] 0282ea8070392cd0 s=0.03077      # Knowledge Graphs  | [6] ba8440076ddd110a s=0.03008      ## History and Origi| [6] ba8440076ddd110a s=0.03054      ## History and Origi
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  A@6 ids: ['6d878b7f', 'b744eeeb', '6fc47586', '3256abe3', '4e802a79', '0282ea80']
+  B@6 (docs)        ids: ['6d878b7f', 'b744eeeb', '6fc47586', '3256abe3', '4e802a79', '0282ea80']
+  B@6 (candidates)  ids: ['b744eeeb', '0282ea80', '3256abe3', 'a09f4455', 'fc0f4473', 'ba844007']
+  B@6 (verbalized)  ids: ['0282ea80', '3256abe3', 'b744eeeb', 'a09f4455', 'ab2692f1', 'ba844007']
+  identical evidence sets A vs B(candidates): False
+
+====================================================================================================
+PART 3 -- serialization of Task 4.3's evidence (Task 4.4 DoD)
+====================================================================================================
+
+--- TOON ---
+evidence[6]{chunk_id,source_doc,chunk_index,score,source,text}:
+  c81c2a06e4ee9667,transformer_architecture,1,0.032786883413791656,structural,"## Core Components\n\n### Self-Attention Mechanism\n\nThe self-attention mechanism allows the model to weigh the importance of different tokens in a sequence when encoding a particular token. For each token, the model computes three vectors: a Query (Q), a Key (K), and a Value (V). The attention score between two tokens is computed as the dot product of their Query and Key vectors, scaled by the square root of the key dimension.\n\nThe output for each position is a weighted sum of Value vectors, where the weights come from the softmax of the scaled dot-product attention scores. This lets every token directly attend to every other token, regardless of their distance in the sequence."
+  745e90bb807507b6,transformer_architecture,0,0.032258063554763794,structural,"# The Transformer Architecture\n\n## Overview\n\nThe Transformer is a deep learning model architecture introduced by Vaswani et al. in the 2017 paper \"Attention Is All You Need.\" It was originally designed for sequence-to-sequence tasks in natural language processing but has since become the dominant architecture for a wide range of AI tasks.\n\nUnlike its predecessors, the Transformer does not use recurrent neural networks (RNNs) or convolutional neural networks (CNNs) for processing sequences. Instead, it relies entirely on a mechanism called self-attention to capture relationships between all positions in an input sequence simultaneously."
+  d49b99f9a418a0fb,vector_databases,3,0.0314980149269104,structural,"### Distance Metrics\n\nCosine similarity measures the angle between two vectors, capturing directional similarity regardless of magnitude. It is the standard metric for text embedding similarity. Dot product (inner product) similarity is equivalent to cosine similarity when vectors are normalized. Euclidean (L2) distance measures straight-line distance between points and is common in image embedding applications.\n\n## Major Vector Database Systems\n\n### FAISS\n\nFAISS (Facebook AI Similarity Search) is an open-source library developed by Meta AI Research for efficient similarity search and clustering of dense vectors. It supports multiple index types including IVF, HNSW, and PQ (Product Quantization). FAISS runs entirely in-process — there is no server component — making it suitable for embedded applications and research prototypes. It does not natively support metadata filtering."
+  3256abe3c09bca47,knowledge_graphs,3,0.03015873022377491,structural,"### Ontologies and Schemas\n\nAn ontology defines the types of entities and relationships that can exist in a knowledge graph and the logical constraints on how they relate. Widely-used ontologies include Schema.org (used for web markup), DBpedia (extracted from Wikipedia infoboxes), and domain-specific ontologies in healthcare (SNOMED CT), biology (Gene Ontology), and finance.\n\n## Major Knowledge Graphs\n\n### Wikidata\n\nWikidata is a free, collaboratively edited knowledge base maintained by the Wikimedia Foundation. It serves as a central storage hub for structured data across all Wikimedia projects, including Wikipedia. Wikidata contains over 100 million data items and supports multiple languages. It was founded in 2012 with support from Google, Microsoft, and the Allen Institute for Artificial Intelligence."
+  ba8440076ddd110a,knowledge_graphs,1,0.029877368360757828,structural,"## History and Origins\n\nEarly knowledge representation systems include semantic networks from the 1960s and frame-based systems from the 1970s. The Resource Description Framework (RDF), standardized by the W3C in 1999, provided a formal model for representing knowledge as subject-predicate-object triples.\n\nGoogle popularized the term \"knowledge graph\" in 2012 when it launched the Google Knowledge Graph to enhance search results with structured entity information. This system contained over 500 million entities at launch and drew from sources including Freebase, Wikipedia, and the CIA World Factbook."
+  ab2692f1a112544f,knowledge_graphs,9,0.029877368360757828,structural,"### Search Enhancement\n\nSearch engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph.\n\n## Key Challenges\n\n### Incompleteness\n\nMost real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this.\n\n### Noise and Inconsistency\n\nAutomated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources.\n\n### Temporal Dynamics\n\nReal-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging."
+
+
+--- JSON ---
+[
+  {
+    "chunk_id": "c81c2a06e4ee9667",
+    "source_doc": "transformer_architecture",
+    "chunk_index": 1,
+    "text": "## Core Components\n\n### Self-Attention Mechanism\n\nThe self-attention mechanism allows the model to weigh the importance of different tokens in a sequence when encoding a particular token. For each token, the model computes three vectors: a Query (Q), a Key (K), and a Value (V). The attention score between two tokens is computed as the dot product of their Query and Key vectors, scaled by the square root of the key dimension.\n\nThe output for each position is a weighted sum of Value vectors, where the weights come from the softmax of the scaled dot-product attention scores. This lets every token directly attend to every other token, regardless of their distance in the sequence.",
+    "score": 0.032786883413791656,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "745e90bb807507b6",
+    "source_doc": "transformer_architecture",
+    "chunk_index": 0,
+    "text": "# The Transformer Architecture\n\n## Overview\n\nThe Transformer is a deep learning model architecture introduced by Vaswani et al. in the 2017 paper \"Attention Is All You Need.\" It was originally designed for sequence-to-sequence tasks in natural language processing but has since become the dominant architecture for a wide range of AI tasks.\n\nUnlike its predecessors, the Transformer does not use recurrent neural networks (RNNs) or convolutional neural networks (CNNs) for processing sequences. Instead, it relies entirely on a mechanism called self-attention to capture relationships between all positions in an input sequence simultaneously.",
+    "score": 0.032258063554763794,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "d49b99f9a418a0fb",
+    "source_doc": "vector_databases",
+    "chunk_index": 3,
+    "text": "### Distance Metrics\n\nCosine similarity measures the angle between two vectors, capturing directional similarity regardless of magnitude. It is the standard metric for text embedding similarity. Dot product (inner product) similarity is equivalent to cosine similarity when vectors are normalized. Euclidean (L2) distance measures straight-line distance between points and is common in image embedding applications.\n\n## Major Vector Database Systems\n\n### FAISS\n\nFAISS (Facebook AI Similarity Search) is an open-source library developed by Meta AI Research for efficient similarity search and clustering of dense vectors. It supports multiple index types including IVF, HNSW, and PQ (Product Quantization). FAISS runs entirely in-process — there is no server component — making it suitable for embedded applications and research prototypes. It does not natively support metadata filtering.",
+    "score": 0.0314980149269104,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "3256abe3c09bca47",
+    "source_doc": "knowledge_graphs",
+    "chunk_index": 3,
+    "text": "### Ontologies and Schemas\n\nAn ontology defines the types of entities and relationships that can exist in a knowledge graph and the logical constraints on how they relate. Widely-used ontologies include Schema.org (used for web markup), DBpedia (extracted from Wikipedia infoboxes), and domain-specific ontologies in healthcare (SNOMED CT), biology (Gene Ontology), and finance.\n\n## Major Knowledge Graphs\n\n### Wikidata\n\nWikidata is a free, collaboratively edited knowledge base maintained by the Wikimedia Foundation. It serves as a central storage hub for structured data across all Wikimedia projects, including Wikipedia. Wikidata contains over 100 million data items and supports multiple languages. It was founded in 2012 with support from Google, Microsoft, and the Allen Institute for Artificial Intelligence.",
+    "score": 0.03015873022377491,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "ba8440076ddd110a",
+    "source_doc": "knowledge_graphs",
+    "chunk_index": 1,
+    "text": "## History and Origins\n\nEarly knowledge representation systems include semantic networks from the 1960s and frame-based systems from the 1970s. The Resource Description Framework (RDF), standardized by the W3C in 1999, provided a formal model for representing knowledge as subject-predicate-object triples.\n\nGoogle popularized the term \"knowledge graph\" in 2012 when it launched the Google Knowledge Graph to enhance search results with structured entity information. This system contained over 500 million entities at launch and drew from sources including Freebase, Wikipedia, and the CIA World Factbook.",
+    "score": 0.029877368360757828,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "ab2692f1a112544f",
+    "source_doc": "knowledge_graphs",
+    "chunk_index": 9,
+    "text": "### Search Enhancement\n\nSearch engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph.\n\n## Key Challenges\n\n### Incompleteness\n\nMost real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this.\n\n### Noise and Inconsistency\n\nAutomated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources.\n\n### Temporal Dynamics\n\nReal-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging.",
+    "score": 0.029877368360757828,
+    "source": "structural"
+  }
+]
+
+--- TOKEN COUNTS (real tokenizer: tiktoken cl100k_base) ---
+  TOON  full payload :   1131 tokens (  5368 chars)
+  JSON  full payload :   1327 tokens (  5966 chars)
+  TOON  metadata only:    191 tokens (   492 chars)
+  JSON  metadata only:    359 tokens (  1017 chars)
+  saved on the full payload : 196 tokens (14.8%)
+  saved on the metadata only: 168 tokens (46.8%)
+
+--- ROUND TRIP (must be lossless) ---
+  from_toon(to_toon(e)) == e        : True
+  from_json(to_json(e)) == e        : True
+  metadata-only round trip (text=''): True
+
+CACHE_DIR              : data/cache/exp_phase4
+Cache entries at end   : 0
+Wrote data/cache/exp_phase4_task43_task44.json
+TASK 4.3 + 4.4 DoD complete.

@@ -32,6 +32,8 @@ are HISTORICAL and are marked SUPERSEDED where they conflict with this table.
 | Extraction model (pilot, 2 docs) | `qwen2.5:1.5b`, re-measured 2026-10-22 over 13 chunks: **60 raw entities / 33 raw rels (MAX_GLEANINGS=1) vs 48/28 (MAX_GLEANINGS=0)** → **+12 / +5**. Earlier pilot run (same model, cache since destroyed): 82/55 vs 68/39 — the absolute counts differ because the two runs cover a different chunk set; the *direction* is the same in both. |
 | PageRank floor / max (canonical graph) | 0.00900 (44 of 72 nodes) / 0.08753 |
 | Local models available | `qwen2.5:0.5b`, `qwen2.5:1.5b`, `qwen3:4b` (pulled 2026-10-22, 2.5 GB), `qwen3.5:2b`, `qwen3.5:9b`, `nomic-embed-text` |
+| Answer-layer model (`SLM_MODEL`) | **`qwen2.5:1.5b`** (2026-10-22; was `qwen3:4b`). See the limitation row below. |
+| KNOWN LIMITATION — the paper's primary model | **The paper's primary model could not be run locally.** The PRD's answer-layer model is `qwen3:4b`; this machine cannot run it (nor `qwen3.5:2b` / `qwen3.5:9b`), and the work order forbids any cloud model for the paper's runs. `SLM_MODEL` therefore defaults to `qwen2.5:1.5b` — the largest model that runs here in reasonable time — with `qwen2.5:0.5b` as the documented fallback (and the model the **canonical** extraction actually used, so the canonical graph stays reproducible). The PRD's **API mode** (`LLM_MODE=api`, key pasted at runtime) could supply a larger-model arm later; **it is not used now**, and no API-mode numbers appear anywhere in this document. Every retrieval/answer number here is therefore a `qwen2.5:1.5b` result and must be read as such. |
 | Canonical LLM-response cache | **GONE.** `data/cache` holds 11 disk-cache entries. The 41 extraction + 41 gleaning raw responses of the canonical run can no longer be inspected or re-derived. Cause: `tests/recursive_char_response_length.py` called `clear_cache()` against the canonical `CACHE_DIR`. Guarded since 2026-10-22 (see `src/graphrag_lite/cache/llm_cache.py`). |
 | Ollama runtime context (`num_ctx`) | `ollama ps` reports **4096** (the Ollama 0.40.2 default) — *not* the models' declared context (`qwen3.5:2b` declares 262144). **SUPERSEDED 2026-10-22 (later):** 4096 is *not* a hard wall on generation — PROBE A generated **8750 tokens in one request** (`prompt_eval_count=558` + `eval_count=8192`); Ollama grows the runtime context to fit `num_predict`. But the context bound *is* real when a request is served by a runner still at 4096: `qwen3.5:2b` chunk 0 stopped at `eval_count=3693` (= 4096 − its 403-token prompt). Raising `num_ctx` to **8192** moved that same request to the full `eval_count=4096` (PROBE B). `LLM_NUM_CTX=8192` (2026-10-22). See Item 9. |
 | LLM call flags (2026-10-22) | `LLM_THINK=auto` (`think` is a **top-level** Ollama param, sibling of `options`) · `LLM_NUM_CTX=8192` (`num_ctx` lives **inside** `options`) · `LLM_NUM_PREDICT=4096` · `LLM_FREQUENCY_PENALTY=0.25` (also inside `options`; breaks degenerate repetition loops) · `LLM_RETRY_FREQUENCY_PENALTIES=[0.5,1.0]` (escalation ladder applied to a chunk whose extraction fails to parse; each rung is a different decode = a different attractor). `qwen3.5:2b` with `think=False` + 4096 → 2/3 chunks parsed (0/3 with thinking on). |
@@ -5207,6 +5209,380 @@ and the human-labelled-noise criterion still needs the 20 labels in
 `eval/judge_sheet.csv`. Nothing canonical has moved.
 
 ---
+
+### Item 14 — Phase 4 closed: Tasks 4.3 and 4.4, the PRD Pipeline B gap, and the deviation log
+
+**Status:** [x] done (with deviations recorded)
+**Date:** 2026-10-22
+**Files touched:** `src/graphrag_lite/retrieval/serialize.py` (new),
+`src/graphrag_lite/retrieval/pipeline_b.py`, `src/graphrag_lite/config.py`,
+`tests/test_serialize.py` (new), `tests/test_pipeline_b_scope.py` (new),
+`tests/exp_phase4_task43_task44.py`, `CONFIG.md`, `.env.example`
+**Artefacts:** `data/cache/exp_phase4_task43_task44.txt` (the full transcript
+below; a tracked copy is at `eval/transcripts/phase4_task43_task44.txt`, with
+the machine-readable summary at `eval/transcripts/phase4_task43_task44.json`
+— `data/cache/` is git-ignored, so the tracked copy is the durable one)
+
+#### 14.1 — What the two tasks and the PRD actually ask for
+
+**TASKS.md Task 4.3 — "Pipeline B step 3 — scoped re-query"** (verbatim):
+> **Build:** `retrieve_structural(query: str) -> list[Evidence]` — calls
+> `get_candidates`, verbalizes each candidate node, runs a second
+> `hybrid_query` scoped to just those candidates (via scalar filter or
+> pre-filtered subset), returns top `TOP_N_FINAL_EVIDENCE`.
+> **DoD:** paste the Pipeline A vs Pipeline B evidence side-by-side for all 3
+> queries.
+
+**TASKS.md Task 4.4 — "Serialization (TOON + JSON)"** (verbatim):
+> **Build:** `to_toon(evidence: list[Evidence]) -> str`,
+> `to_json(evidence: list[Evidence]) -> str`. Both must round-trip losslessly
+> (a `from_toon`/`from_json` parse-back check counts as part of the test).
+> **DoD:** paste both serialized strings + both token counts — this is the
+> first real data point for the TOON-vs-JSON ablation, log it as such.
+
+**PRD §9 Step 3** (verbatim):
+> **Step 3 — re-narrow with Zvec:** verbalize the ranked candidates, run a
+> second Zvec hybrid query scoped to just those candidates, keep the top-N
+> final evidence pieces. This two-stage narrowing (structural, then semantic)
+> is the core mechanism the paper tests.
+
+**PRD §11**: TOON instead of raw JSON for the SLM's input; ~42.6% fewer
+tokens than JSON is the *published* figure and must be **measured**, not
+assumed.
+
+#### 14.2 — What was ALREADY satisfied by `retrieve_structural` (no work needed)
+
+| Requirement | Status before this item |
+|---|---|
+| `retrieve_structural(query) -> list[Evidence]` exists and calls `get_candidates` | **already done** |
+| a **second** `hybrid_query` is run, on the chunks collection, with a **scalar filter** | **already done** (the "via scalar filter" option the task allows) |
+| the result is truncated to `TOP_N_FINAL_EVIDENCE` | **already done** |
+| the returned objects are `Evidence` — the same type as Pipeline A's, so serialization and generation are shared | **already done** |
+| `retrieve_structural(query, top_k=None)` takes an explicit k, so A and B can be compared at the same k | **already done** |
+| steps 1–2 (entry points, BFS, PageRank ranking) | **already done** (Task 4.2), with the query-weighted-ranking deviation recorded in the Phase 4 closure, Item 5 |
+
+So Task 4.3 was **~80% implemented**; what was missing was the *scope* of the
+second query and the *verbalization*.
+
+#### 14.3 — What was NOT satisfied, and what was implemented now
+
+**(a) Task 4.4 did not exist at all.** There was no
+`src/graphrag_lite/retrieval/serialize.py`; `SERIALIZATION_FORMAT=toon` was a
+config value with no implementation behind it. Implemented now:
+
+- `to_toon(evidence, include_text=True) -> str` — TOON (Token-Oriented
+  Object Notation): one header line naming the columns once
+  (`evidence[N]{chunk_id,source_doc,chunk_index,score,source,text}:`) and one
+  indented row per record. Fields that contain a comma, a quote or a newline
+  are quoted with JSON escaping; `from_toon` parses it back.
+- `to_json(evidence, include_text=True) -> str` / `from_json` — the same
+  record set, pretty-printed.
+- `count_tokens(text, tokenizer=None)` — uses the **real tokenizer from
+  config** (`TOKENIZER=qwen` → tiktoken `cl100k_base`), not a character
+  count, as the task requires.
+- `compare_formats(evidence, tokenizer)` — returns the token counts and the
+  saving for both the full payload and the metadata-only payload.
+- `from_toon` / `from_json` are **lossless**: every field of every
+  `Evidence` survives the round trip, verified in the transcript below and in
+  `tests/test_serialize.py` (7 offline tests).
+
+**(b) Task 4.3 — the scope of the second query was the candidates' source
+*documents*, not the candidates.** The implementation in place scoped the
+re-query to `source_doc = '...'` for the documents the candidates were
+mentioned in. That is a document-level pre-filter — a *weaker* thing than
+"scoped to just those candidates". PRD §9 Step 3 asks for two things: the
+scope must be the candidates, **and** the candidates must be verbalized.
+Neither was true.
+
+All three scopes are now implemented and selectable with
+`PIPELINE_B_SCOPE` (`src/graphrag_lite/config.py`):
+
+| `PIPELINE_B_SCOPE` | The second query is scoped to | The **dense** side of the second query is | The **lexical** (BM25) side is |
+|---|---|---|---|
+| `docs` (default) | the candidates' source **documents** | the user's query | the user's query |
+| `candidates` | the **chunks in which the ranked candidates were mentioned** | the user's query | the user's query |
+| `verbalized` (**PRD §9 Step 3 verbatim**) | the same candidate chunks | the **verbalized candidates** (`name (TYPE): description`, one per line) | the user's query |
+
+`verbalized` is the PRD's "verbalize the ranked candidates" step, and it is
+the piece that actually carries the *structural* stage's output into the
+*semantic* stage: in the other two scopes the graph contributes only a
+**filter**, and the second query is still driven entirely by the user's
+question. The lexical side stays the user's query in all three scopes
+deliberately — the candidate descriptions are text *about entities*, and
+matching them against chunk text with BM25 would match the entity's
+description rather than the question.
+
+The new helper is `pipeline_b._verbalize_candidates(G, ranked)`; the scope
+switch is in `pipeline_b.retrieve_structural`.
+
+#### 14.4 — The DoD, pasted output
+
+**Command:**
+```
+python tests/exp_phase4_task43_task44.py > data/cache/exp_phase4_task43_task44.txt 2>&1
+```
+Isolated: `CACHE_DIR=data/cache/exp_phase4` (own), `ZVEC_ROOT=data/cache`
+(the canonical collections, read-only). **0 cache entries at start, 0 at end**
+— this script makes no LLM calls at all. Exit code 0.
+
+**PART 1 — the three scopes over the 10-query gold set** (`eval/gold_qa_set.json`, K=6):
+
+```
+  scope = 'docs'
+    QID    recall@6   best gold rank  n_ev   evidence
+    Q01        1.00                1     6   ['c81c2a06', '745e90bb', 'a5123f46', '4af3dc8c', 'a885be6b', 'd49b99f9']
+    Q02        1.00                1     6   ['a885be6b', '4af3dc8c', '745e90bb', 'a5123f46', 'e146728c', 'efaf36ff']
+    Q03        1.00                1     6   ['6d878b7f', 'b744eeeb', '6fc47586', '3256abe3', '4e802a79', '0282ea80']
+    Q04        1.00                1     6   ['3256abe3', 'b76780cc', 'a04b3d90', '025a4d30', '0282ea80', 'd49b99f9']
+    Q05        1.00                1     6   ['4e802a79', '0282ea80', 'a09f4455', 'ab2692f1', 'b744eeeb', '3256abe3']
+    Q06        1.00                1     6   ['5a5f4b8a', '895ee8b4', '99f7ac4b', 'd49b99f9', 'e146728c', '7bac4d8e']
+    Q07        1.00                1     6   ['33d32892', 'b744eeeb', '71387ffa', '7bac4d8e', 'd49b99f9', '895ee8b4']
+    Q08        1.00                1     6   ['b744eeeb', '7bac4d8e', '33d32892', 'f08417a7', '71387ffa', '4dcff615']
+    Q09        1.00                1     6   ['417905a7', 'e146728c', 'd49b99f9', '99f7ac4b', 'd6426773', '895ee8b4']
+    Q10        1.00                1     6   ['5c56e059', '32c85d7e', 'd49b99f9', '895ee8b4', '3256abe3', '310582c4']
+    AVG        1.00             1.00   gold at rank 1: 10/10
+
+  scope = 'candidates'
+    QID    recall@6   best gold rank  n_ev   evidence
+    Q01        1.00                1     6   ['c81c2a06', '745e90bb', 'd49b99f9', '3256abe3', 'ba844007', 'ab2692f1']
+    Q02        0.00             None     6   ['745e90bb', 'e146728c', '4dcff615', 'a04b3d90', '5c56e059', 'c81c2a06']
+    Q03        0.00             None     6   ['b744eeeb', '0282ea80', '3256abe3', 'a09f4455', 'fc0f4473', 'ba844007']
+    Q04        1.00                1     6   ['3256abe3', 'b76780cc', 'a04b3d90', '025a4d30', 'd49b99f9', 'b744eeeb']
+    Q05        1.00                1     6   ['4e802a79', '0282ea80', 'a09f4455', 'ab2692f1', 'b744eeeb', '3256abe3']
+    Q06        0.33                1     6   ['5a5f4b8a', '99f7ac4b', 'e146728c', '417905a7', 'b76780cc', 'ab2692f1']
+    Q07        1.00                1     6   ['33d32892', 'b744eeeb', '71387ffa', 'd49b99f9', '745e90bb', 'a04b3d90']
+    Q08        1.00                1     6   ['b744eeeb', '7bac4d8e', '33d32892', '71387ffa', 'e146728c', '99f7ac4b']
+    Q09        1.00                1     6   ['417905a7', 'd49b99f9', 'e146728c', '99f7ac4b', 'b744eeeb', '0282ea80']
+    Q10        1.00                1     6   ['5c56e059', 'd49b99f9', '745e90bb', 'b76780cc', 'a04b3d90', 'b744eeeb']
+    AVG        0.73             1.00   gold at rank 1: 8/10
+
+  scope = 'verbalized'
+    QID    recall@6   best gold rank  n_ev   evidence
+    Q01        1.00                1     6   ['c81c2a06', '745e90bb', '3256abe3', '0282ea80', '417905a7', 'd49b99f9']
+    Q02        0.00             None     6   ['e146728c', '4dcff615', '745e90bb', 'd49b99f9', '4e802a79', '5c56e059']
+    Q03        0.00             None     6   ['0282ea80', '3256abe3', 'b744eeeb', 'a09f4455', 'ab2692f1', 'ba844007']
+    Q04        1.00                1     6   ['3256abe3', 'b76780cc', 'a04b3d90', 'd49b99f9', '025a4d30', 'b744eeeb']
+    Q05        1.00                1     6   ['4e802a79', '0282ea80', 'ab2692f1', '3256abe3', 'a09f4455', 'ba844007']
+    Q06        0.33                2     6   ['e146728c', '5a5f4b8a', '99f7ac4b', '417905a7', 'b744eeeb', 'ab2692f1']
+    Q07        1.00                1     6   ['33d32892', 'b744eeeb', '745e90bb', '71387ffa', 'a04b3d90', 'd49b99f9']
+    Q08        1.00                3     6   ['33d32892', '7bac4d8e', 'b744eeeb', '71387ffa', 'e146728c', '3256abe3']
+    Q09        1.00                2     6   ['e146728c', '417905a7', 'b744eeeb', 'd49b99f9', '99f7ac4b', '0282ea80']
+    Q10        1.00                4     6   ['745e90bb', 'a04b3d90', 'd49b99f9', '5c56e059', '417905a7', 'b744eeeb']
+    AVG        0.73             1.88   gold at rank 1: 4/10
+
+  Queries where 'docs' and 'candidates' return the SAME evidence list: 1/10
+
+  Queries where 'docs' and 'verbalized' return the SAME evidence list: 0/10
+
+  Queries where 'candidates' and 'verbalized' return the SAME evidence list: 0/10
+```
+
+**The measured ranking of the three scopes:**
+
+| scope | recall@6 | gold at rank 1 | mean best gold rank |
+|---|---|---|---|
+| `docs` (default) | **1.00** | **10/10** | 1.00 |
+| `candidates` | 0.73 | 8/10 | 1.00 |
+| `verbalized` (PRD verbatim) | 0.73 | 4/10 | 1.88 |
+
+**PART 2 — Pipeline A vs Pipeline B, side by side, for 3 queries** (the Task 4.3 DoD). The four columns are Pipeline A (flat) and Pipeline B under each of the three scopes; `GOLD` marks the gold chunk.
+
+```
+Q01: How does the self-attention mechanism compute attention scores?
+  gold chunk(s): ['c81c2a06']
+  entry points (7): ['self-attention mechanism', 'Transformer', 'Cosine similarity', 'Ontologies and Schemas', 'BART', 'Search engines', 'Approximate Nearest Neighbor Search']
+  BFS nodes: 13   ranked candidates: 13
+  top-5 candidates: [('self-attention mechanism', 0.8654), ('Transformer', 0.8517), ('Dot product', 0.7912), ('Cosine similarity', 0.7781), ('Temporal knowledge graphs', 0.4624)]
+
+  PIPELINE A (flat)                             | B (scope=docs)                                | B (scope=candidates)                          | B (scope=verbalized)
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  [1] c81c2a06e4ee9667 s=0.03279 GOLD ## Core Components  | [1] c81c2a06e4ee9667 s=0.03279 GOLD ## Core Components  | [1] c81c2a06e4ee9667 s=0.03279 GOLD ## Core Components  | [1] c81c2a06e4ee9667 s=0.03252 GOLD ## Core Components
+  [2] a5123f467123650e s=0.03200      ### Multi-Head Atten| [2] 745e90bb807507b6 s=0.03200      # The Transformer Ar| [2] 745e90bb807507b6 s=0.03226      # The Transformer Ar| [2] 745e90bb807507b6 s=0.03252      # The Transformer Ar
+  [3] 745e90bb807507b6 s=0.03175      # The Transformer Ar| [3] a5123f467123650e s=0.03200      ### Multi-Head Atten| [3] d49b99f9a418a0fb s=0.03150      ### Distance Metrics| [3] 3256abe3c09bca47 s=0.03102      ### Ontologies and S
+  [4] 4af3dc8c5da84fad s=0.03077      ## Key Researchers a| [4] 4af3dc8c5da84fad s=0.03101      ## Key Researchers a| [4] 3256abe3c09bca47 s=0.03016      ### Ontologies and S| [4] 0282ea8070392cd0 s=0.03058      # Knowledge Graphs
+  [5] 32c85d7ec02b6b19 s=0.01587      ### Fine-tuning and | [5] a885be6b749e39a1 s=0.03033      ### Positional Encod| [5] ba8440076ddd110a s=0.02988      ## History and Origi| [5] 417905a71f013c88 s=0.03031      ## Core Concepts
+  [6] a885be6b749e39a1 s=0.01562      ### Positional Encod| [6] d49b99f9a418a0fb s=0.01538      ### Distance Metrics| [6] ab2692f1a112544f s=0.02988      ### Search Enhanceme| [6] d49b99f9a418a0fb s=0.03012      ### Distance Metrics
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  A@6 ids: ['c81c2a06', 'a5123f46', '745e90bb', '4af3dc8c', '32c85d7e', 'a885be6b']
+  B@6 (docs)        ids: ['c81c2a06', '745e90bb', 'a5123f46', '4af3dc8c', 'a885be6b', 'd49b99f9']
+  B@6 (candidates)  ids: ['c81c2a06', '745e90bb', 'd49b99f9', '3256abe3', 'ba844007', 'ab2692f1']
+  B@6 (verbalized)  ids: ['c81c2a06', '745e90bb', '3256abe3', '0282ea80', '417905a7', 'd49b99f9']
+  identical evidence sets A vs B(candidates): False
+
+Q02: What is the Encoder-Decoder structure of the original Transformer?
+  gold chunk(s): ['a885be6b']
+  entry points (8): ['Dense Retriever', 'TransE', 'BART', 'self-attention mechanism', 'Transformer', 'Rafael Rafailov', 'Cyc', 'Cosine similarity']
+  BFS nodes: 11   ranked candidates: 11
+  top-5 candidates: [('Document Store / Vector Inde', 0.8785), ('Dense Retriever', 0.8654), ('TransE', 0.8513), ('BART', 0.8392), ('self-attention mechanism', 0.8199)]
+
+  PIPELINE A (flat)                             | B (scope=docs)                                | B (scope=candidates)                          | B (scope=verbalized)
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  [1] a885be6b749e39a1 s=0.03279 GOLD ### Positional Encod| [1] a885be6b749e39a1 s=0.03279 GOLD ### Positional Encod| [1] 745e90bb807507b6 s=0.03252      # The Transformer Ar| [1] e146728cdddcf0e5 s=0.03279      ## Core Components
+  [2] 4af3dc8c5da84fad s=0.03200      ## Key Researchers a| [2] 4af3dc8c5da84fad s=0.03200      ## Key Researchers a| [2] e146728cdddcf0e5 s=0.03202      ## Core Components  | [2] 4dcff615e7a2ceff s=0.03150      ### Reader / Generat
+  [3] 745e90bb807507b6 s=0.03151      # The Transformer Ar| [3] 745e90bb807507b6 s=0.03151      # The Transformer Ar| [3] 4dcff615e7a2ceff s=0.03175      ### Reader / Generat| [3] 745e90bb807507b6 s=0.03128      # The Transformer Ar
+  [4] a5123f467123650e s=0.03078      ### Multi-Head Atten| [4] a5123f467123650e s=0.03078      ### Multi-Head Atten| [4] a04b3d90e2da113b s=0.03083      ### Cyc  Cyc is a lo| [4] d49b99f9a418a0fb s=0.03128      ### Distance Metrics
+  [5] e146728c6ddcf0e5 s=0.03037      ## Core Components  | [5] e146728c6ddcf0e5 s=0.03037      ## Core Components  | [5] 5c56e059e8cebff9 s=0.03078      ### Direct Preferenc| [5] 4e802a799a872699 s=0.03080      ## Knowledge Graph E
+  [6] efaf36ff59adbf7d s=0.02985      # Large Language Mod| [6] efaf36ff59adbf7d s=0.02985      # Large Language Mod| [6] c81c2a06e4ee9667 s=0.03077      ## Core Components  | [6] 5c56e059e8cebff9 s=0.03055      ### Direct Preferenc
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  A@6 ids: ['a885be6b', '4af3dc8c', '745e90bb', 'a5123f46', 'e146728c', 'efaf36ff']
+  B@6 (docs)        ids: ['a885be6b', '4af3dc8c', '745e90bb', 'a5123f46', 'e146728c', 'efaf36ff']
+  B@6 (candidates)  ids: ['745e90bb', 'e146728c', '4dcff615', 'a04b3d90', '5c56e059', 'c81c2a06']
+  B@6 (verbalized)  ids: ['e146728c', '4dcff615', '745e90bb', 'd49b99f9', '4e802a79', '5c56e059']
+  identical evidence sets A vs B(candidates): False
+
+Q03: How are entities and relationships extracted from text in GraphRAG?
+  gold chunk(s): ['6d878b7f']
+  entry points (8): ['Graph RAG', 'Ontologies and Schemas', 'Knowledge Graph', 'DBpedia', 'Vector databases', 'Microsoft Research', 'Structured information panels', 'Traditional search results']
+  BFS nodes: 15   ranked candidates: 14
+  top-5 candidates: [('Temporal knowledge graphs', 0.887), ('Temporal information', 0.8695), ('Graph RAG', 0.8654), ('Knowledge Graph', 0.8582), ('KGQA', 0.8532)]
+
+  PIPELINE A (flat)                             | B (scope=docs)                                | B (scope=candidates)                          | B (scope=verbalized)
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  [1] 6d878b7f56a99aa2 s=0.03252 GOLD ### Automated Extrac| [1] 6d878b7f56a99aa2 s=0.03252 GOLD ### Automated Extrac| [1] b744eeebc1934b70 s=0.03252      ### Advanced RAG  Ad| [1] 0282ea8070392cd0 s=0.03227      # Knowledge Graphs
+  [2] b744eeebc1934b70 s=0.03200      ### Advanced RAG  Ad| [2] b744eeebc1934b70 s=0.03200      ### Advanced RAG  Ad| [2] 0282ea8070392cd0 s=0.03200      # Knowledge Graphs  | [2] 3256abe3c09bca47 s=0.03227      ### Ontologies and S
+  [3] 6fc475866849cd38 s=0.03150      ## Structure and Rep| [3] 6fc475866849cd38 s=0.03150      ## Structure and Rep| [3] 3256abe3c09bca47 s=0.03178      ### Ontologies and S| [3] b744eeebc1934b70 s=0.03128      ### Advanced RAG  Ad
+  [4] 3256abe3c09bca47 s=0.03110      ### Ontologies and Sch| [4] 3256abe3c09bca47 s=0.03110      ### Ontologies and Sch| [4] a09f4455b7fef7fa s=0.03125      ## Applications  ###| [4] a09f4455b7fef7fa s=0.03125      ## Applications  ###
+  [5] 4e802a799a872699 s=0.03078      ## Knowledge Graph E| [5] 4e802a799a872699 s=0.03078      ## Knowledge Graph E| [5] fc0f4473d792a08f s=0.03054      ## Why Vector Databa| [5] ab2692f1a112544f s=0.03083      ### Search Enhanceme
+  [6] 0282ea8070392cd0 s=0.03077      # Knowledge Graphs  | [6] 0282ea8070392cd0 s=0.03077      # Knowledge Graphs  | [6] ba8440076ddd110a s=0.03008      ## History and Origi| [6] ba8440076ddd110a s=0.03054      ## History and Origi
+  ----------------------------------------------+----------------------------------------------+----------------------------------------------+----------------------------------------------
+  A@6 ids: ['6d878b7f', 'b744eeeb', '6fc47586', '3256abe3', '4e802a79', '0282ea80']
+  B@6 (docs)        ids: ['6d878b7f', 'b744eeeb', '6fc47586', '3256abe3', '4e802a79', '0282ea80']
+  B@6 (candidates)  ids: ['b744eeeb', '0282ea80', '3256abe3', 'a09f4455', 'fc0f4473', 'ba844007']
+  B@6 (verbalized)  ids: ['0282ea80', '3256abe3', 'b744eeeb', 'a09f4455', 'ab2692f1', 'ba844007']
+  identical evidence sets A vs B(candidates): False
+```
+
+**PART 3 — serialization of Task 4.3's evidence (the Task 4.4 DoD).** The
+TOON string, verbatim from the transcript:
+
+```
+evidence[6]{chunk_id,source_doc,chunk_index,score,source,text}:
+  c81c2a06e4ee9667,transformer_architecture,1,0.032786883413791656,structural,"## Core Components\n\n### Self-Attention Mechanism\n\nThe self-attention mechanism allows the model to weigh the importance of different tokens in a sequence when encoding a particular token. For each token, the model computes three vectors: a Query (Q), a Key (K), and a Value (V). The attention score between two tokens is computed as the dot product of their Query and Key vectors, scaled by the square root of the key dimension.\n\nThe output for each position is a weighted sum of Value vectors, where the weights come from the softmax of the scaled dot-product attention scores. This lets every token directly attend to every other token, regardless of their distance in the sequence."
+  745e90bb807507b6,transformer_architecture,0,0.032258063554763794,structural,"# The Transformer Architecture\n\n## Overview\n\nThe Transformer is a deep learning model architecture introduced by Vaswani et al. in the 2017 paper \"Attention Is All You Need.\" It was originally designed for sequence-to-sequence tasks in natural language processing but has since become the dominant architecture for a wide range of AI tasks.\n\nUnlike its predecessors, the Transformer does not use recurrent neural networks (RNNs) or convolutional neural networks (CNNs) for processing sequences. Instead, it relies entirely on a mechanism called self-attention to capture relationships between all positions in an input sequence simultaneously."
+  d49b99f9a418a0fb,vector_databases,3,0.0314980149269104,structural,"### Distance Metrics\n\nCosine similarity measures the angle between two vectors, capturing directional similarity regardless of magnitude. It is the standard metric for text embedding similarity. Dot product (inner product) similarity is equivalent to cosine similarity when vectors are normalized. Euclidean (L2) distance measures straight-line distance between points and is common in image embedding applications.\n\n## Major Vector Database Systems\n\n### FAISS\n\nFAISS (Facebook AI Similarity Search) is an open-source library developed by Meta AI Research for efficient similarity search and clustering of dense vectors. It supports multiple index types including IVF, HNSW, and PQ (Product Quantization). FAISS runs entirely in-process — there is no server component — making it suitable for embedded applications and research prototypes. It does not natively support metadata filtering."
+  3256abe3c09bca47,knowledge_graphs,3,0.03015873022377491,structural,"### Ontologies and Schemas\n\nAn ontology defines the types of entities and relationships that can exist in a knowledge graph and the logical constraints on how they relate. Widely-used ontologies include Schema.org (used for web markup), DBpedia (extracted from Wikipedia infoboxes), and domain-specific ontologies in healthcare (SNOMED CT), biology (Gene Ontology), and finance.\n\n## Major Knowledge Graphs\n\n### Wikidata\n\nWikidata is a free, collaboratively edited knowledge base maintained by the Wikimedia Foundation. It serves as a central storage hub for structured data across all Wikimedia projects, including Wikipedia. Wikidata contains over 100 million data items and supports multiple languages. It was founded in 2012 with support from Google, Microsoft, and the Allen Institute for Artificial Intelligence."
+  ba8440076ddd110a,knowledge_graphs,1,0.029877368360757828,structural,"## History and Origins\n\nEarly knowledge representation systems include semantic networks from the 1960s and frame-based systems from the 1970s. The Resource Description Framework (RDF), standardized by the W3C in 1999, provided a formal model for representing knowledge as subject-predicate-object triples.\n\nGoogle popularized the term \"knowledge graph\" in 2012 when it launched the Google Knowledge Graph to enhance search results with structured entity information. This system contained over 500 million entities at launch and drew from sources including Freebase, Wikipedia, and the CIA World Factbook."
+  ab2692f1a112544f,knowledge_graphs,9,0.029877368360757828,structural,"### Search Enhancement\n\nSearch engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph.\n\n## Key Challenges\n\n### Incompleteness\n\nMost real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in their database. Link prediction and knowledge base completion are active research areas addressing this.\n\n### Noise and Inconsistency\n\nAutomated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources.\n\n### Temporal Dynamics\n\nReal-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, while maintaining temporal consistency at scale remains challenging."
+```
+
+The JSON string, verbatim (the same six records):
+
+```
+[
+  {
+    "chunk_id": "c81c2a06e4ee9667",
+    "source_doc": "transformer_architecture",
+    "chunk_index": 1,
+    "text": "## Core Components\n\n### Self-Attention Mechanism\n\nThe self-attention mechanism allows the model to weigh the importance of different tokens in a sequence when encoding a particular token. For each token, the model computes three vectors: a Query (Q), a Key (K), and a Value (V). The attention score between two tokens is computed as the dot product of their Query and Key vectors, scaled by the square root of the key dimension.\n\nThe output for each position is a weighted sum of Value vectors, where the weights come from the softmax of the scaled dot-product attention scores. This lets every token directly attend to every other token, regardless of their distance in the sequence.",
+    "score": 0.032786883413791656,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "745e90bb807507b6",
+    "source_doc": "transformer_architecture",
+    "chunk_index": 0,
+    "text": "# The Transformer Architecture\n\n## Overview\n\nThe Transformer is a deep learning model architecture introduced by Vaswani et al. in the 2017 paper \"Attention Is All You Need.\" It was originally designed for sequence-to-sequence tasks in natural language processing but has since become the dominant architecture for a wide range of AI tasks.\n\nUnlike its predecessors, the Transformer does not use recurrent neural networks (RNNs) or convolutional neural networks (CNNs) for processing sequences. Instead, it relies entirely on a mechanism called self-attention to capture relationships between all positions in an input sequence simultaneously.",
+    "score": 0.032258063554763794,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "d49b99f9a418a0fb",
+    "source_doc": "vector_databases",
+    "chunk_index": 3,
+    "text": "### Distance Metrics\n\nCosine similarity measures the angle between two vectors, capturing directional similarity regardless of magnitude. It is the standard metric for text embedding similarity. Dot product (inner product) similarity is equivalent to cosine similarity when vectors are normalized. Euclidean (L2) distance measures straight-line distance between points and is common in image embedding applications.\n\n## Major Vector Database Systems\n\n### FAISS\n\nFAISS (Facebook AI Similarity Search) is an open-source library developed by Meta AI Research for efficient similarity search and clustering of dense vectors. It supports multiple index types including IVF, HNSW, and PQ (Product Quantization). FAISS runs entirely in-process — there is no server component — making it suitable for embedded applications and research prototypes. It does not natively support metadata filtering.",
+    "score": 0.0314980149269104,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "3256abe3c09bca47",
+    "source_doc": "knowledge_graphs",
+    "chunk_index": 3,
+    "text": "### Ontologies and Schemas\n\nAn ontology defines the types of entities and relationships that can exist in a knowledge graph and the logical constraints on how they relate. Widely-used ontologies include Schema.org (used for web markup), DBpedia (extracted from Wikipedia infoboxes), and domain-specific ontologies in healthcare (SNOMED CT), biology (Gene Ontology), and finance.\n\n## Major Knowledge Graphs\n\n### Wikidata\n\nWikidata is a free, collaboratively edited knowledge base maintained by the Wikimedia Foundation. It serves as a central storage hub for structured data across all Wikimedia projects, including Wikipedia. Wikidata contains over 100 million data items and supports multiple languages. It was founded in 2012 with support from Google, Microsoft, and the Allen Institute for Artificial Intelligence.",
+    "score": 0.03015873022377491,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "ba8440076ddd110a",
+    "source_doc": "knowledge_graphs",
+    "chunk_index": 1,
+    "text": "## History and Origins\n\nEarly knowledge representation systems include semantic networks from the 1960s and frame-based systems from the 1970s. The Resource Description Framework (RDF), standardized by the W3C in 1999, provided a formal model for representing knowledge as subject-predicate-object triples.\n\nGoogle popularized the term \"knowledge graph\" in 2012 when it launched the Google Knowledge Graph to enhance search results with structured entity information. This system contained over 500 million entities at launch and drew from sources including Freebase, Wikipedia, and the CIA World Factbook.",
+    "score": 0.029877368360757828,
+    "source": "structural"
+  },
+  {
+    "chunk_id": "ab2692f1a112544f",
+    "source_doc": "knowledge_graphs",
+    "chunk_index": 9,
+    "text": "### Search Enhancement\n\nSearch engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph.\n\n## Key Challenges\n\n### Incompleteness\n\nMost real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in their database. Link prediction and knowledge base completion are active research areas addressing this.\n\n### Noise and Inconsistency\n\nAutomated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources.\n\n### Temporal Dynamics\n\nReal-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, while maintaining temporal consistency at scale remains challenging.",
+    "score": 0.029877368360757828,
+    "source": "structural"
+  }
+]
+```
+
+**Token counts (real tokenizer from config — `TOKENIZER=qwen` → tiktoken
+`cl100k_base`) and the round trip:**
+
+```
+--- TOKEN COUNTS (real tokenizer: tiktoken cl100k_base) ---
+  TOON  full payload :   1131 tokens (  5368 chars)
+  JSON  full payload :   1327 tokens (  5966 chars)
+  TOON  metadata only:    191 tokens (   492 chars)
+  JSON  metadata only:    359 tokens (  1017 chars)
+  saved on the full payload : 196 tokens (14.8%)
+  saved on the metadata only: 168 tokens (46.8%)
+
+--- ROUND TRIP (must be lossless) ---
+  from_toon(to_toon(e)) == e        : True
+  from_json(to_json(e)) == e        : True
+  metadata-only round trip (text=''): True
+```
+
+**Reading the TOON number honestly.** The published TOON figure is ~42.6%
+fewer tokens than JSON. The measured **metadata-only** payload lands at
+**46.8%** — in that range. The **full** payload saves only **14.8%**, and
+the reason is visible in the two strings: the evidence *text* is the
+dominant term in both formats and is byte-identical in both, so the saving
+can only come from the structural overhead. With 6 pieces of prose the
+overhead is a small fraction of the total. **The honest statement is: TOON's
+saving is proportional to how much of the payload is structure, not text** —
+46.8% on a metadata-only payload, 14.8% on a payload dominated by the
+evidence text. This is the first real data point for the TOON-vs-JSON
+ablation, and it is the *only* one; the accuracy/latency half of the
+ablation is Phase 8's job and has not been run.
+
+#### 14.5 — The deviation log (every deviation from the PRD / the original design)
+
+| # | Deviation | What it is | Why | Effect on the numbers |
+|---|---|---|---|---|
+| D1 | **Query-weighted ranking** | The candidate score is `0.85 * sim_norm + 0.15 * pagerank_norm`, not PageRank alone. | The original mix compared a raw Zvec RRF score (~0.016–0.033) with a normalised PageRank (0–1); PageRank dominated ~30:1 and *the same* high-PageRank node won 5 of 10 gold queries, i.e. the ranking was query-independent. | Distinct top-1 candidate across the 10 gold queries: **3 → 6**. Type-label nodes surviving into the ranking: **2 queries → 0**. |
+| D2 | **`0.85 / 0.15` weights — TUNED ON THE DEV SET** | The two weights were chosen by hand, by inspection, on the **10-query gold set** (`eval/gold_qa_set.json`), which *is* the dev set. | There was no principled derivation available and no larger labelled set. | **Every retrieval number in this document measured with these weights is a dev-set number.** The 40-question gold set (Item 15) splits 20 dev / 20 frozen test; the test half has not been built and no number has been measured on it. Any number here must not be quoted as a held-out result. |
+| D3 | **`think` / `num_ctx` / `frequency_penalty` settings** | `LLM_THINK=auto`, `LLM_NUM_CTX=8192`, `LLM_NUM_PREDICT=4096`, `LLM_FREQUENCY_PENALTY=0.25` + the retry ladder `[0.5, 1.0]`. | The defaults were truncating extractions, not timing them out: at `num_predict=2048` chunk `a885be6b` came back `done_reason='length'` with unparseable JSON; `num_ctx=4096` is the Ollama default and a request served by a runner still at 4096 can only generate `4096 - prompt` tokens; `fp=0.25` breaks the degenerate repetition loop that broke chunk `4af3dc8c`. | The corpus parses **42/42** chunks (0 failures) through the production path with the ladder. But the model is **bistable** — the same chunk with the same settings can loop on one call and parse on the next — so a failure rate is a *sample*, not a constant, and `fp=0.25`'s own contribution is smaller than first claimed: **35/42** parse with no penalty at all, so the penalty is worth **+4 chunks net**, and the earlier "3 failures → 0" was an inference that is now marked CORRECTED. |
+| D4 | **`SLM_MODEL` changed** | `qwen3:4b` → `qwen2.5:1.5b`. | The paper's primary model cannot run on this machine and no cloud model may be used. | Every answer-layer number is a 1.5b number. See "Canonical State" and CONFIG.md §7. `EXTRACTION_MODEL` stays `qwen2.5:0.5b` so the canonical graph stays reproducible. |
+| D5 | **The scope of the second query (new)** | The default is `PIPELINE_B_SCOPE=docs`, not the PRD's candidate scope. | Measured, not asserted: the PRD-faithful scopes are strictly narrower and measurably worse (see 14.4). The chunk that answers a question often does not contain the candidate entity itself. | `docs` recall@6 **1.00** vs `candidates`/`verbalized` **0.73**; gold at rank 1 **10/10** vs **8/10** vs **4/10**. |
+| D6 | **The verbalization is used for the dense side only** | In `verbalized` scope, the candidate verbalization is the dense query; the BM25 query text stays the user's query. | The candidate descriptions are text *about entities*; running BM25 over them against chunk text would match the entity's description rather than the question. | Part of why `verbalized` scores 4/10 at rank 1 while `candidates` (same scope, no verbalization) scores 8/10. |
+| D7 | **The graph v2 build is a sensitivity run, not an ablation** | The v2 graph was built with `qwen2.5:1.5b`, gleaning OFF and a different chunking, against a canonical graph built with `qwen2.5:0.5b`, gleaning ON and the current chunking. | The canonical cache is gone (Item 1 of the Phase 4 closure), so the canonical graph could not be re-extracted to match. | v2 is **not** attributable to any single change. The v2 numbers (Item 13) are reported as a *sensitivity* result and the promotion decision is still pending. |
+
+#### 14.6 — Running Summary, updated honestly
+
+Phase 4 is now **4 of 4** tasks done, with the deviations above attached to
+it. The honest caveats that belong next to that number:
+
+- Phase 4 is **done**, but its headline retrieval numbers (recall@6 = 1.00 on
+  the `docs` scope) are measured on **10 queries that were also used to
+  choose the ranking weights** — a dev set, and a small one. Task 8's
+  evaluation on the frozen 20-question test half has not been run.
+- Task 4.4's DoD is complete for the **token** half of the TOON ablation.
+  The **accuracy** half (does the SLM answer better from TOON than from
+  JSON?) is Phase 8's and is **not** done.
+- The graph the retrieval runs against is the **canonical** one (72 nodes,
+  30 edges), which was extracted with a **0.5b** model. The stronger v2 graph
+  (224 nodes, 157 edges) is built and measured but **not** promoted, because
+  the promotion rule's third criterion is still waiting on 20 human labels.
+  Every retrieval number here is therefore a number **against the weaker
+  graph**.
+
+---
 ### Phase 5 — LLM Layer
 <!-- Task 5.1–5.2 entries go here -->
 
@@ -5235,11 +5611,29 @@ and the human-labelled-noise criterion still needs the 20 labels in
 | 1 — Ingestion | 5 | 5 | 0 |
 | 2 — Graph | 3 | 3 | 0 |
 | 3 — Embeddings/Vector Store | 3 | 3 | 0 |
-| 4 — Retrieval Pipelines | 4 | 2 | 0 |
+| 4 — Retrieval Pipelines | 4 | 4 | 0 |
 | 5 — LLM Layer | 2 | 0 | 0 |
 | 6 — Mode Toggle | 2 | 0 | 0 |
 | 7 — API/Hardening | 3 | 0 | 0 |
 | 8 — Evaluation | 6 | 0 | 0 |
 | 9 — Stress Test | 1 | 0 | 0 |
 | 10 — Paper Artifacts | 2 | 0 | 0 |
-| **Total** | **33** | **15** | **0** |
+| **Total** | **33** | **17** | **0** |
+
+**What "Phase 4 = 4/4" does and does not mean (2026-10-22).** All four
+Phase 4 tasks are implemented, tested and have their DoD pasted above. Three
+caveats travel with the number:
+
+1. **The retrieval numbers are dev-set numbers.** The ranking weights
+   (0.85/0.15) were chosen on the same 10 queries the retrieval is measured
+   on. The frozen 20-question test half of the 40-question gold set does not
+   exist yet — Task 8.1, not Phase 4.
+2. **The TOON ablation is half done.** The token half is measured
+   (14.8% on the full payload, 46.8% on metadata-only, round trips
+   lossless). The accuracy half — does the SLM answer better from TOON? — is
+   Phase 8.
+3. **Every retrieval number is against the canonical (72-node, 30-edge)
+   graph**, not the v2 graph (224 nodes, 157 edges). v2 is built and
+   measured but not promoted: the promotion rule's third criterion is
+   waiting on 20 human labels in `eval/judge_sheet.csv`. The deviations
+   behind Phase 4 are logged in Item 14.5.
