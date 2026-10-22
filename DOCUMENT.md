@@ -5022,6 +5022,68 @@ the per-stratum breakdown, and every disagreement printed with the
 agent's note. `eval/judge_sheet_README.md` holds the labelling
 instructions.
 
+### Item 12 — The promotion rule for graph v2 (WRITTEN AND COMMITTED BEFORE THE v2 BUILD RUNS)
+
+This section is committed **before** the graph-v2 build is executed, so the
+decision rule cannot be fitted to the numbers it is applied to. The build
+that follows it is Item 13.
+
+**The rule, verbatim from the work order.** *"Promote v2 only if usable
+chunks >= 90%, human-labelled noise <= 40%, and the largest component is
+at least double canonical's (7). Otherwise keep canonical and document v2
+as the sensitivity run. Back up first if promoting."*
+
+**Operational definitions** (fixed now, before the numbers exist):
+
+| term | definition |
+|---|---|
+| **usable chunk** | a chunk that contributes **>= 1 relationship that survives into the graph** — i.e. it passes the endpoint filter, both endpoints resolve to a node, and it is not dropped as a self-loop. Counted over the 42 chunks of the corpus. |
+| **usable-chunk rate** | usable chunks / 42. Threshold **>= 90%** → **>= 38 of 42**. |
+| **human-labelled noise** | the share of the **20 human-labelled rows** of `eval/judge_sheet.csv` whose `human_label` is `NOISE`. Threshold **<= 40%** → **<= 8 of 20**. |
+| **largest component** | the size of the largest weakly-connected component of the graph, counted **after** the alias-merge pass. Canonical's is **7**, so the threshold is **>= 14**. |
+| **canonical** | the current graph, built from `data/cache/extractions.jsonl` (qwen2.5:0.5b, gleaning ON) into `entities_v1` / `chunks_v1`. **Untouched by this work.** |
+
+**Decision procedure.**
+
+1. All three criteria must hold:
+   * usable-chunk rate >= 90% (>= 38/42),
+   * human-labelled noise <= 40% (<= 8/20),
+   * largest component >= 14.
+2. If all three hold → **promote v2**: back up the canonical artefacts
+   (`extractions.jsonl`, `entities_v1/`, `chunks_v1/`) into `backups/`
+   **first**, then swap v2 in as the canonical graph.
+3. If any one fails → **keep canonical** and document v2 as the
+   **sensitivity run** — its numbers are reported, but nothing canonical
+   moves.
+4. The two v2 arms (the endpoint filter OFF and ON) are reported
+   **separately**. The rule is applied to the arm that would actually be
+   promoted, and the arm choice is itself a decision: the ON arm is only
+   eligible if the human labels show its recovered relationships are not
+   net noise. **The OFF arm is the default candidate**, because the filter
+   is a safety property and relaxing it is opt-in.
+
+**Two honesty clauses, fixed now so they cannot be argued later.**
+
+* **Uncertainty.** The noise criterion is decided on the **point estimate**,
+  as written. But n = 20, so a point estimate of 40% carries a 95% Wilson
+  interval of roughly [19%, 64%]. The interval is reported next to every
+  decision. If the **upper bound** of the interval exceeds 40%, the
+  promotion is recorded as **PROVISIONAL** and the paper reports the
+  interval rather than the point estimate.
+* **WEAK.** `WEAK` means "true in substance, but the relation type is a
+  mis-typing" — it is not noise, so it does not count towards the 40%.
+  It is reported separately. If the human NOISE rate is <= 40% but the
+  **(NOISE + WEAK)** rate exceeds 40%, the rule is satisfied on the
+  primary metric and the promotion is recorded as **promote with a
+  documented caveat**, with the caveat stated wherever the promotion is
+  reported.
+
+**Current state: the rule is committed; the decision is not yet made.**
+The human-labelled-noise criterion cannot be evaluated until the 20 rows
+of `eval/judge_sheet.csv` are labelled. Until then the decision is
+**PENDING**, and the safe default — which the rule itself prescribes for a
+failed criterion — is **keep canonical**.
+
 ---
 ### Phase 5 — LLM Layer
 <!-- Task 5.1–5.2 entries go here -->
