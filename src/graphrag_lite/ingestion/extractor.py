@@ -97,6 +97,7 @@ def _extract_json(raw: str) -> dict:
     Handles common LLM failures:
     - Leading/trailing prose around the JSON
     - Markdown code fences (```json ... ```)
+    - Trailing commas before a closing ] or } (repaired and re-parsed)
     - Truncated responses (raises ValueError so caller can see the failure)
     """
     # Strip markdown fences if present
@@ -114,13 +115,42 @@ def _extract_json(raw: str) -> dict:
     try:
         return json.loads(json_str)
     except json.JSONDecodeError as exc:
+        # Retry once with trailing commas removed.
+        #
+        # Small models very often emit a trailing comma before the closing
+        # ] or }, which strict json.loads rejects. Measured case (2026-10-22,
+        # qwen2.5:1.5b, chunk a4a679c4, num_predict=4096): the response was a
+        # COMPLETE 20-entity / 20-relationship extraction whose only defect
+        # was one trailing comma -- strict parsing threw the whole thing away
+        # and the chunk was recorded as a parse failure.
+        #
+        # The repair is a strict improvement: it can only turn a failure into
+        # a success, and it never changes a response that already parsed.
+        repaired = re.sub(r",(\s*[}\]])", r"\1", json_str)
+        if repaired != json_str:
+            try:
+                return json.loads(repaired)
+            except json.JSONDecodeError:
+                pass
         raise ValueError(
             f"JSON parse error: {exc}\nExtracted string:\n{json_str[:500]}"
         ) from exc
 
 
-def _parse_extraction(raw_json: dict, chunk_id: str, doc_id: str) -> ExtractionResult:
-    """Validate and normalise the parsed JSON into typed ExtractionResult."""
+def _parse_extraction(raw_json: dict, chunk_id: str, doc_id: str,
+                      prior_entity_names: set[str] | None = None) -> ExtractionResult:
+    """Validate and normalise the parsed JSON into typed ExtractionResult.
+
+    Parameters
+    ----------
+    prior_entity_names:
+        Optional set of lowercased entity names already known for this chunk
+        (e.g. from the first extraction pass). When provided, relationship
+        endpoint validation uses (current_entities | prior_entity_names) so
+        gleaning relationships that reference first-pass entities are not
+        incorrectly dropped just because the gleaning response didn't
+        re-declare those entities.
+    """
     entities: list[Entity] = []
     for e in raw_json.get("entities") or []:
         if not isinstance(e, dict):
@@ -131,11 +161,14 @@ def _parse_extraction(raw_json: dict, chunk_id: str, doc_id: str) -> ExtractionR
             "description": str(e.get("description") or "").strip(),
             "source_sentence": str(e.get("source_sentence") or "").strip(),
         }
-        if entity["name"]:          # skip nameless entries silently
+        if entity["name"]:
             entities.append(entity)
 
-    # Build a normalised set of entity names for relationship validation
+    # Build a normalised set of entity names for relationship validation.
+    # Merge with prior_entity_names when provided (gleaning fix).
     entity_names: set[str] = {e["name"].lower() for e in entities}
+    if prior_entity_names:
+        entity_names = entity_names | prior_entity_names
 
     relationships: list[Relationship] = []
     for r in raw_json.get("relationships") or []:
@@ -192,7 +225,23 @@ def extract_entities_relationships(
     Extract entities and relationships from a single Chunk using the LLM.
 
     The call is routed through ``cached_call`` so identical (chunk_text,
-    model) pairs are served from disk cache without a live LLM call.
+    model, settings) triples are served from disk cache without a live LLM
+    call.
+
+    RETRY WITH ESCALATION (2026-10-22). A parse failure is not always a
+    hopeless chunk: on a small model the dominant failure mode is a
+    *degenerate repetition loop*, and the model is **bistable** — it
+    settles into one of several stable attractors depending on the
+    server's numeric state, so the same chunk and the same settings can
+    parse in one run and loop in the next. A retry that changes the
+    generation settings lands in a different attractor, and therefore has
+    a good chance of succeeding.
+
+    The ladder is ``LLM_RETRY_FREQUENCY_PENALTIES``: after the first
+    attempt fails to parse, retry with each listed ``frequency_penalty``
+    in order. Each attempt is a distinct decode and therefore a distinct
+    cache entry, so a retry is never served the first attempt's failed
+    response.
 
     Parameters
     ----------
@@ -200,6 +249,9 @@ def extract_entities_relationships(
         A Chunk as returned by ``chunk_document``.
     llm_client:
         Any object with a ``generate(prompt: str) -> str`` method.
+        Objects that also provide ``with_overrides(**kw)`` and
+        ``cache_tag`` participate in the retry ladder; for any other
+        client only the first attempt is made.
 
     Returns
     -------
@@ -218,11 +270,67 @@ def extract_entities_relationships(
 
     prompt = _EXTRACTION_PROMPT_TEMPLATE.format(chunk_text=chunk["text"])
 
-    raw_response = cached_call(
-        prompt=prompt,
-        model=model,
-        fn=lambda p: llm_client.generate(p),
-    )
+    # Attempt 0 uses the client as configured; each later attempt
+    # escalates the frequency penalty. ``with_overrides`` is optional --
+    # a client without it simply gets one attempt.
+    #
+    # A rung whose value EQUALS the client's current penalty is skipped:
+    # it would be the same decode under the same cache key, so the "retry"
+    # would be handed the first attempt's failed response from the cache
+    # and change nothing.
+    can_escalate = hasattr(llm_client, "with_overrides")
+    current_penalty = getattr(llm_client, "frequency_penalty", None)
+    ladder: list[float | None] = [None]
+    if can_escalate:
+        for value in cfg.LLM_RETRY_FREQUENCY_PENALTIES:
+            if current_penalty is not None and float(value) == float(current_penalty):
+                continue
+            ladder.append(float(value))
 
-    raw_json = _extract_json(raw_response)
-    return _parse_extraction(raw_json, chunk["chunk_id"], chunk["doc_id"])
+    last_error: Exception | None = None
+
+    for attempt, penalty in enumerate(ladder):
+        client = llm_client
+        if penalty is not None:
+            client = llm_client.with_overrides(frequency_penalty=penalty)
+
+        # The cache key must distinguish this attempt's settings from the
+        # previous attempt's, or the retry returns the failed response it
+        # is supposed to replace.
+        cache_tag = getattr(client, "cache_tag", "")
+
+        raw_response = cached_call(
+            prompt=prompt,
+            model=model,
+            fn=lambda p, _client=client: _client.generate(p),
+            cache_tag=cache_tag,
+        )
+
+        try:
+            raw_json = _extract_json(raw_response)
+            return _parse_extraction(raw_json, chunk["chunk_id"], chunk["doc_id"])
+        except ValueError as exc:
+            last_error = exc
+            if attempt + 1 < len(ladder):
+                warnings.warn(
+                    f"[extractor] chunk {chunk['chunk_id']} failed to parse "
+                    f"(attempt {attempt + 1}/{len(ladder)}, "
+                    f"frequency_penalty="
+                    f"{getattr(client, 'frequency_penalty', 'n/a')}): "
+                    f"{str(exc)[:120]} — retrying with a higher penalty",
+                    UserWarning,
+                    stacklevel=2,
+                )
+                continue
+            break
+
+    # The ladder is exhausted. Re-raise the LAST error so the caller sees
+    # the most recent failure (the highest penalty, which is the attempt
+    # most likely to have produced a different response). Not an assert:
+    # `python -O` strips asserts, and `raise None` would be a TypeError
+    # rather than the parse failure the caller needs to see.
+    if last_error is None:      # unreachable: the ladder always has >= 1 rung
+        raise ValueError(
+            f"[extractor] chunk {chunk['chunk_id']}: no attempt was made"
+        )
+    raise last_error

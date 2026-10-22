@@ -21,6 +21,7 @@ from __future__ import annotations
 
 import hashlib
 import os
+from pathlib import Path
 from typing import Callable
 
 import diskcache
@@ -55,9 +56,19 @@ def _get_cache() -> diskcache.Cache:
 # Public API
 # ------------------------------------------------------------------ #
 
-def _make_key(prompt: str, model: str) -> str:
-    """Return a stable sha256 hex digest for (prompt, model)."""
-    raw = f"{model}\x00{prompt}"          # null byte separator avoids collisions
+def _make_key(prompt: str, model: str, cache_tag: str = "") -> str:
+    """
+    Return a stable sha256 hex digest for (prompt, model, cache_tag).
+
+    With an EMPTY ``cache_tag`` this is exactly the historical key,
+    sha256(model + "\\x00" + prompt), so the cache entries that survived
+    the 2026-10-22 wipe stay reachable. A non-empty tag adds a second
+    separator, keeping tagged entries in their own namespace.
+    """
+    if not cache_tag:
+        raw = f"{model}\x00{prompt}"   # historical key — do not change
+    else:
+        raw = f"{model}\x00{cache_tag}\x00{prompt}"
     return hashlib.sha256(raw.encode("utf-8")).hexdigest()
 
 
@@ -65,6 +76,7 @@ def cached_call(
     prompt: str,
     model: str,
     fn: Callable[[str], str],
+    cache_tag: str = "",
 ) -> str:
     """
     Return the cached LLM response for (prompt, model), calling fn on a miss.
@@ -80,6 +92,14 @@ def cached_call(
     fn:
         A callable that accepts the prompt string and returns the LLM
         response string. Only called on a cache miss.
+    cache_tag:
+        Optional extra discriminator folded into the cache key. Use it when
+        the SAME (prompt, model) pair can legitimately be answered with
+        DIFFERENT generation settings — for example a retry that escalates
+        ``frequency_penalty`` after a parse failure. Without a tag the
+        retry would hit the first attempt's cached (failed) response and
+        change nothing. The default "" keeps the historical key exactly, so
+        existing cache entries stay reachable.
 
     Returns
     -------
@@ -99,7 +119,7 @@ def cached_call(
         raise ValueError("model must not be empty")
 
     cache = _get_cache()
-    key = _make_key(prompt, model)
+    key = _make_key(prompt, model, cache_tag)
 
     result: str | None = cache.get(key, default=None)
     if result is not None:
@@ -134,14 +154,59 @@ def cache_stats() -> dict[str, int]:
     }
 
 
-def clear_cache() -> None:
+def _protected_paths(cache_dir: str) -> list[str]:
+    """
+    Return names inside ``cache_dir`` that must never be wiped by a blind
+    cache clear.
+
+    A directory qualifies as protected if it holds a Zvec collection (any
+    ``manifest.*`` file) or if it holds a canonical extraction dump. Those
+    are expensive to rebuild and are not LLM-response cache entries.
+    """
+    root = Path(cache_dir)
+    if not root.exists():
+        return []
+    protected: list[str] = []
+    for p in sorted(root.iterdir()):
+        if p.is_dir() and any(p.glob("manifest.*")):
+            protected.append(p.name + "/")
+        elif p.is_file() and p.name.startswith("extractions") and p.suffix == ".jsonl":
+            protected.append(p.name)
+    return protected
+
+
+def clear_cache(force: bool = False) -> None:
     """
     Wipe all entries from the disk cache.
 
     Intended for test teardown or forced re-extraction. Not called during
     normal pipeline operation.
+
+    Parameters
+    ----------
+    force:
+        When False (the default) this refuses to clear a cache directory
+        that also holds Zvec collections or canonical extraction dumps —
+        clearing those directories blind destroyed the canonical LLM
+        response cache on 2026-10-22. Pass ``force=True`` only when you
+        have confirmed the directory holds nothing but LLM responses.
+
+    Raises
+    ------
+    RuntimeError
+        If the directory holds protected artefacts and ``force`` is False.
     """
-    _get_cache().clear()
+    cache = _get_cache()
+    protected = _protected_paths(cache.directory)
+    if protected and not force:
+        raise RuntimeError(
+            f"clear_cache: refusing to wipe {cache.directory!r} — it also holds "
+            f"protected artefacts: {protected}. The canonical LLM response "
+            f"cache was destroyed this way before. Point CACHE_DIR at a "
+            f"private directory, or call clear_cache(force=True) if you are "
+            f"certain."
+        )
+    cache.clear()
 
 
 def reset_stats() -> None:

@@ -76,7 +76,7 @@ assert all(
     sum(1 for n in G.nodes() if _norm(n) == _norm(name)) <= 1
     for name in known_dupes
 ), "Merge failed — duplicate nodes found!"
-print("  All collapse to ≤ 1 node: PASS")
+print("  All collapse to <= 1 node: PASS")
 print()
 
 # ── Dangling edge check ───────────────────────────────────────────────────────

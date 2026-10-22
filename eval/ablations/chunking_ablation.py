@@ -22,6 +22,15 @@ import warnings
 # Make sure src/ is importable when run as a script
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
+# ── Isolation: this script CLEARS its cache between strategies, so it must
+# never point at the canonical cache at data/cache. Give it a private
+# directory and keep the canonical Zvec collections reachable via ZVEC_ROOT.
+# Set before importing graphrag_lite so get_config() sees it.
+CACHE_DIR = "data/cache/exp_chunking_ablation"
+os.makedirs(CACHE_DIR, exist_ok=True)
+os.environ["CACHE_DIR"] = CACHE_DIR
+os.environ["ZVEC_ROOT"] = "data/cache"      # canonical collections, read-only
+
 from graphrag_lite.ingestion.loader import load_documents
 from graphrag_lite.ingestion.chunker import chunk_document, get_tokenizer
 from graphrag_lite.ingestion.extractor import (
@@ -32,7 +41,7 @@ from graphrag_lite.ingestion.extractor import (
 )
 from graphrag_lite.ingestion.gleaning import glean
 from graphrag_lite.llm.ollama_client import OllamaClient
-from graphrag_lite.cache.llm_cache import clear_cache, reset_stats, cache_stats
+from graphrag_lite.cache.llm_cache import clear_cache, reset_stats, cache_stats, _get_cache
 from graphrag_lite.config import get_config
 
 # ── Spot-check sentences ────────────────────────────────────────────────────
@@ -197,6 +206,9 @@ def print_table(results: list[dict]) -> None:
 def main():
     tokenizer = get_tokenizer("qwen")
     docs = load_documents("data/raw")
+    print(f"CACHE_DIR              : {get_config().CACHE_DIR}")
+    print(f"Cache entries at start : {len(_get_cache())}")
+    print(f"Output file            : eval/ablations/chunking_results.json")
     print(f"Corpus: {len(docs)} documents")
     print(f"temperature=0.0  seed=42  (pinned)")
     print()
@@ -253,6 +265,8 @@ def main():
     with open(out_path, "w") as f:
         json.dump(results, f, indent=2)
     print(f"\nFull results saved to {out_path}")
+    print(f"CACHE_DIR              : {get_config().CACHE_DIR}")
+    print(f"Cache entries at end   : {len(_get_cache())}")
 
 
 if __name__ == "__main__":

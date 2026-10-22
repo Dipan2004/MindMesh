@@ -25,6 +25,15 @@ data/raw/*
 
 # Disk cache and extraction outputs are generated, not source-controlled
 data/cache/
+data/cache_v2/
+
+# Graphify knowledge-graph output is generated, not source-controlled
+graphify-out/
+
+# Ad-hoc editor/document backups
+*.bak
+*.bak_*
+DOCUMENT.md.bak_20261013
 
 # ── Log and error files ───────────────────────────────────────────────────────
 *.log

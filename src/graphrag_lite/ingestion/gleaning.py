@@ -167,15 +167,27 @@ def glean(
         # Cache key includes pass_num so each gleaning pass is cached independently
         cache_prompt = f"GLEANING_PASS_{pass_num}::{prompt}"
 
+        # The cache key must also distinguish the generation SETTINGS, not
+        # just the prompt and model: a response generated under a different
+        # num_predict / num_ctx / frequency_penalty is a different answer,
+        # and serving it from the cache would silently ignore the current
+        # configuration. See OllamaClient.cache_tag.
+        cache_tag = getattr(llm_client, "cache_tag", "")
+
         raw_response = cached_call(
             prompt=cache_prompt,
             model=model,
             fn=lambda p, _client=llm_client, _prompt=prompt: _client.generate(_prompt),
+            cache_tag=cache_tag,
         )
 
         try:
             raw_json = _extract_json(raw_response)
-            new_result = _parse_extraction(raw_json, chunk["chunk_id"], chunk["doc_id"])
+            # Pass prior entity names so gleaning relationships referencing
+            # first-pass entities are not dropped (gleaning validation bug fix).
+            prior_names = {e["name"].lower() for e in result["entities"]}
+            new_result = _parse_extraction(raw_json, chunk["chunk_id"], chunk["doc_id"],
+                                           prior_entity_names=prior_names)
         except ValueError:
             # Unparseable gleaning response — treat as "nothing new found"
             # and stop gleaning rather than crashing the whole pipeline.
