@@ -10,7 +10,7 @@ delete it and redo it properly.
 
 ---
 
-## Canonical State (2026-10-13; cache status updated 2026-10-22)
+## Canonical State (2026-10-13; updated 2026-10-22)
 
 This table is the authoritative snapshot. All earlier figures in this document
 are HISTORICAL and are marked SUPERSEDED where they conflict with this table.
@@ -39,6 +39,89 @@ are HISTORICAL and are marked SUPERSEDED where they conflict with this table.
 | LLM call flags (2026-10-22) | `LLM_THINK=auto` (`think` is a **top-level** Ollama param, sibling of `options`) · `LLM_NUM_CTX=8192` (`num_ctx` lives **inside** `options`) · `LLM_NUM_PREDICT=4096` · `LLM_FREQUENCY_PENALTY=0.25` (also inside `options`; breaks degenerate repetition loops) · `LLM_RETRY_FREQUENCY_PENALTIES=[0.5,1.0]` (escalation ladder applied to a chunk whose extraction fails to parse; each rung is a different decode = a different attractor). `qwen3.5:2b` with `think=False` + 4096 → 2/3 chunks parsed (0/3 with thinking on). |
 | LLM cache key (2026-10-22) | `sha256(model + "\x00" + cache_tag + "\x00" + prompt)`. The `cache_tag` carries the generation settings; an **empty** tag reproduces the historical key exactly (`sha256(model + "\x00" + prompt)`) so the 11 surviving canonical entries stay reachable. This was necessary, not cosmetic: the old key could not tell two calls with the same prompt and model but different settings apart, so a retry with an escalated penalty was served the **first attempt's failed response** and changed nothing. |
 | Open decisions | Degenerate-name filter proposed, not applied; Task 8.1 questions tagged by doc. **Extraction now parses 42/42 chunks — 0 failures** (full-corpus run through the *production* path with the retry ladder, `qwen2.5:1.5b`, `fp=0.25` + ladder `[0.5, 1.0]`, `data/cache/exp_reextract_ladder.jsonl`): 2 chunks entered the ladder and were rescued; the third arm-A failure passed on attempt 0. On the 4 known-hard chunks, repeated 3× with a fresh cache per repetition, **P(attempt 0 fails) = 4/12 = 33%, P(rescued given attempt 0 failed) = 4/4 = 100%, P(chunk ultimately fails) = 0/12** — every rescue at the `fp=0.5` rung; the `fp=1.0` rung was never needed. **The ladder, not the penalty, is the fix.** The penalty's own contribution is smaller than once claimed: with **no penalty at all** the corpus parses **35/42**, not 39/42, and the two arms disagree on **8 of 42 chunks in both directions** (`4af3dc8c` and `f08417a7` failed under `fp=0.25` and **passed** under `fp=0`) — the penalty is worth **+4 chunks net**, and the earlier "3 failures → 0" was an inference that is now marked **CORRECTED**. The model is **bistable** (the same chunk with the same settings looped on one call and parsed on the next, back-to-back in one process), so a failure rate is itself a sample. Two failure modes: repetition loops (loud, 250–330 s) and **malformed JSON** (quiet, 35 s, a *missing* comma) — 1 of the 7 `fp=0` failures. **Two caveats survive the good result:** (i) a *parse* success is not a *content* success — one of the four rescues (`4af3dc8c` at `fp=0.5`) came back with 8 entities and 8 **empty** relationship objects, so the chunk parses and yields no edges; (ii) the extractor's endpoint-consistency filter drops **53 of 171 relationships (31%)**, 45 of them because the model named an entity in a relationship that it did not also list as an entity — a separate, unaddressed content defect (open item 8). A regression in `OllamaClient` that dropped `prompt` from the request (2026-10-22) is **fixed** — see Item 3. |
+
+### The current graph — canonical vs v2 (2026-10-22)
+
+Two graphs exist. **Canonical** is the one every number in this document is
+measured against. **v2** was built in `data/cache_v2` with its own
+`ZVEC_ROOT` and is **not promoted** — it is a *sensitivity run*, because
+several things changed at once (model, gleaning, chunking), so it cannot be
+attributed to any single change. The promotion rule (Item 12) is written and
+committed; its third criterion is still waiting on 20 human labels.
+
+| | **canonical** | **v2 (stub filter OFF)** | **v2 (stub filter ON)** |
+|---|---|---|---|
+| Where | `data/cache` — `entities_v1`, `chunks_v1` | `data/cache_v2` — `entities_v2` | `data/cache_v2` — `entities_v2_stub` |
+| Extraction model | `qwen2.5:0.5b` | `qwen2.5:1.5b` | `qwen2.5:1.5b` |
+| Gleaning | `MAX_GLEANINGS=1` | **off** | **off** |
+| Nodes / edges | **72 / 30** | 209 / 112 | 224 / 157 |
+| Components / largest / singletons | 45 / **7** / 29 | 103 / 15 / 75 | 75 / **29** / 43 |
+| Cross-document nodes / edges | 0 / 0 | 9 / 0 | 9 / 0 |
+| Stub nodes | 0 | 0 | 15 |
+| Usable chunks (≥1 valid relationship) | 17/41 = **41.5%** | 36/42 = **85.7%** | 40/42 = **95.2%** |
+| Relationship types | 3 | 30 | 37 |
+| Dominant type | `WORKS_AT` 34/38 = 89% | `DEVELOPED_BY` 19 | `DEVELOPED_BY` 26 |
+| Build time | — | 29.5 s | 36.5 s |
+
+Both v2 arms were built from the **same cached raw responses** (no new LLM
+calls; the extraction took 2369.3 s once and was reused for both), and the
+canonical graph was **re-measured with the identical code** so the counts
+are like-for-like. Full report: `eval/transcripts/graph_v2_report.json`;
+narrative: Item 13.
+
+**Extraction settings in force (2026-10-22).** `markdown_aware` chunking,
+`CHUNK_SIZE_EXTRACTION=450`, `CHUNK_OVERLAP_PCT=0.12` → 42 chunks from 5
+documents; `EXTRACTION_MODEL=qwen2.5:0.5b` (canonical) with
+`EXTRACTION_TEMPERATURE=0.0`, `EXTRACTION_SEED=42`;
+`LLM_NUM_PREDICT=4096`, `LLM_NUM_CTX=8192`, `LLM_FREQUENCY_PENALTY=0.25`,
+`LLM_RETRY_FREQUENCY_PENALTIES=[0.5,1.0]`, `LLM_THINK=auto`;
+`EXTRACTION_STUB_ENDPOINTS=false` (the default — the conditional endpoint
+filter is **off**, so the canonical graph is the unrelaxed one).
+Embedding: `nomic-embed-text` / 768 dims. Retrieval:
+`BFS_HOP_DEPTH=2`, `RANKING_METHOD=pagerank`,
+`TOP_N_CANDIDATES_AFTER_RANKING=20`, `TOP_N_FINAL_EVIDENCE=6`,
+`PIPELINE_B_SIM_WEIGHT=0.85`, `PIPELINE_B_PR_WEIGHT=0.15`,
+`PIPELINE_B_SCOPE=docs`, `SERIALIZATION_FORMAT=toon`.
+
+### Known limitations (2026-10-22) — the short list
+
+1. **The paper's primary model could not be run locally.** `qwen3:4b` does
+   not run on this machine and no cloud model may be used, so the answer
+   layer is `qwen2.5:1.5b` and the extraction layer is `qwen2.5:0.5b`. The
+   PRD's API mode could supply a larger-model arm later; it is not used
+   now. See the "KNOWN LIMITATION" row in the table above.
+2. **The canonical raw LLM responses are gone** (destroyed by a
+   `clear_cache()` call with no `CACHE_DIR` override; now guarded). The
+   canonical graph survives; its raw extraction and gleaning responses do
+   not, so the "41 gleaning calls" figure is UNVERIFIED and the canonical
+   run cannot be re-parsed at a different setting.
+3. **The extraction quality is weak and honestly labelled.** On a 15-chunk
+   sample the agent's own adjudication called **3/15 REAL, 2/15 WEAK,
+   10/15 NOISE (66.7%)**. The mechanical screen called 10/15 REAL — the two
+   stages disagree, and the human judge sheet (`eval/judge_sheet.csv`, 20
+   rows awaiting a human) is what settles it.
+4. **The endpoint-consistency filter drops 31% of the relationships the
+   model emits** (53 of 171), 45 of them because the model named an entity
+   in a relationship without also listing it as an entity. The conditional
+   `EXTRACTION_STUB_ENDPOINTS` option recovers 45 of those as stub nodes
+   (loss 31.0% → 4.7%) but is **off by default**; the recovered set is
+   still ~38% noise / ~18% weak by the agent's own judgement.
+5. **Every retrieval number is a dev-set number** and is measured against
+   the **weaker canonical graph** (72 nodes, 30 edges). The ranking weights
+   were chosen on the same 10 queries the numbers are reported on, and the
+   frozen 20-question test half of the 40-question gold set does not exist
+   yet.
+6. **Cross-document edges are 0 in every graph** (canonical, v2-OFF, v2-ON).
+   The graph is not connecting the corpus; it is five disconnected
+   sub-graphs. This is a headline result in the negative direction and is
+   not yet explained.
+7. **The v2 graph is not promoted.** It is larger and better-connected
+   (largest component 29 vs 7; 95.2% usable chunks vs 41.5%) but the
+   promotion rule's third criterion — human-labelled noise ≤ 40% — is
+   still waiting on 20 human labels.
+8. **The TOON ablation is half done.** The token half is measured
+   (14.8% saved on the full payload, 46.8% on metadata-only); the accuracy
+   half is Phase 8's and has not been run.
 
 ### Note on the 23-vs-41 gleaning call count — UNVERIFIED
 
@@ -133,6 +216,14 @@ from what TASKS.md specified, and why>
 
 ## Build Log
 
+> **Entries below this line are HISTORICAL** (2026-10-22). They are the
+> record of what was built, in the order it was built, and they are kept
+> because the *reasoning* is part of the result — but where an entry
+> conflicts with the **Canonical State** table at the top of this file, the
+> Canonical State wins. Several earlier entries have been superseded by
+> later measurements; each such entry says so where it was changed, and
+> where it could not be changed in place it is marked SUPERSEDED in the
+> Canonical State table.
 
 (Entries go below, in task order. Nothing pre-filled — this section starts
 empty and fills in as `TASKS.md` is worked through.)
@@ -5556,7 +5647,7 @@ ablation is Phase 8's job and has not been run.
 | # | Deviation | What it is | Why | Effect on the numbers |
 |---|---|---|---|---|
 | D1 | **Query-weighted ranking** | The candidate score is `0.85 * sim_norm + 0.15 * pagerank_norm`, not PageRank alone. | The original mix compared a raw Zvec RRF score (~0.016–0.033) with a normalised PageRank (0–1); PageRank dominated ~30:1 and *the same* high-PageRank node won 5 of 10 gold queries, i.e. the ranking was query-independent. | Distinct top-1 candidate across the 10 gold queries: **3 → 6**. Type-label nodes surviving into the ranking: **2 queries → 0**. |
-| D2 | **`0.85 / 0.15` weights — TUNED ON THE DEV SET** | The two weights were chosen by hand, by inspection, on the **10-query gold set** (`eval/gold_qa_set.json`), which *is* the dev set. | There was no principled derivation available and no larger labelled set. | **Every retrieval number in this document measured with these weights is a dev-set number.** The 40-question gold set (Item 15) splits 20 dev / 20 frozen test; the test half has not been built and no number has been measured on it. Any number here must not be quoted as a held-out result. |
+| D2 | **`0.85 / 0.15` weights — TUNED ON THE DEV SET** | The two weights were chosen by hand, by inspection, on the **10-query gold set** (`eval/gold_qa_set.json`), which *is* the dev set. | There was no principled derivation available and no larger labelled set. | **Every retrieval number in this document measured with these weights is a dev-set number.** The 40-question gold set (Item 15) splits 20 dev / 20 frozen test; the set is now written, but **no number has been measured on either half of it** — in particular nothing has been measured on the frozen test half. Any number here must not be quoted as a held-out result. |
 | D3 | **`think` / `num_ctx` / `frequency_penalty` settings** | `LLM_THINK=auto`, `LLM_NUM_CTX=8192`, `LLM_NUM_PREDICT=4096`, `LLM_FREQUENCY_PENALTY=0.25` + the retry ladder `[0.5, 1.0]`. | The defaults were truncating extractions, not timing them out: at `num_predict=2048` chunk `a885be6b` came back `done_reason='length'` with unparseable JSON; `num_ctx=4096` is the Ollama default and a request served by a runner still at 4096 can only generate `4096 - prompt` tokens; `fp=0.25` breaks the degenerate repetition loop that broke chunk `4af3dc8c`. | The corpus parses **42/42** chunks (0 failures) through the production path with the ladder. But the model is **bistable** — the same chunk with the same settings can loop on one call and parse on the next — so a failure rate is a *sample*, not a constant, and `fp=0.25`'s own contribution is smaller than first claimed: **35/42** parse with no penalty at all, so the penalty is worth **+4 chunks net**, and the earlier "3 failures → 0" was an inference that is now marked CORRECTED. |
 | D4 | **`SLM_MODEL` changed** | `qwen3:4b` → `qwen2.5:1.5b`. | The paper's primary model cannot run on this machine and no cloud model may be used. | Every answer-layer number is a 1.5b number. See "Canonical State" and CONFIG.md §7. `EXTRACTION_MODEL` stays `qwen2.5:0.5b` so the canonical graph stays reproducible. |
 | D5 | **The scope of the second query (new)** | The default is `PIPELINE_B_SCOPE=docs`, not the PRD's candidate scope. | Measured, not asserted: the PRD-faithful scopes are strictly narrower and measurably worse (see 14.4). The chunk that answers a question often does not contain the candidate entity itself. | `docs` recall@6 **1.00** vs `candidates`/`verbalized` **0.73**; gold at rank 1 **10/10** vs **8/10** vs **4/10**. |
@@ -5581,6 +5672,188 @@ it. The honest caveats that belong next to that number:
   the promotion rule's third criterion is still waiting on 20 human labels.
   Every retrieval number here is therefore a number **against the weaker
   graph**.
+
+---
+### Item 15 — The 40-question gold set (20 dev / 20 frozen test)
+
+#### 15.1 — What was asked, and what the PRD says
+
+The work order (step 8) asked for **40 questions tagged by doc and type
+(single-chunk, two-chunk, cross-doc, paraphrase with no lexical overlap,
+no-answer), dev 20 / test 20 (test frozen)**, plus a recorded
+corpus-expansion decision, and it required the **PRD non-goals to be read
+first**. Read: **PRD §18** (evaluation methodology) and **PRD §19**
+(non-goals / known limitations).
+
+**PRD §19 (verbatim, and it constrains this item):**
+
+- No global-search equivalent — no query-focused summarization over
+  community themes, since no community reports exist in this design.
+- No trained GNN retriever — structural filtering uses classic graph
+  algorithms (PageRank/degree), not a learned model. A deliberate scope
+  decision, to be named as a documented trade-off in the paper.
+- Not a production multi-tenant system — no auth, no persistent user
+  accounts, no billing.
+- Elliptic++/AML framing dropped per project decision — the domain is
+  intentionally left neutral; **any document/entity corpus works**.
+
+**PRD §18 (the part that sets the size):** *"30-50 gold Q&A pairs (with
+ground-truth answers and, ideally, ground-truth evidence nodes) run through
+both Pipeline A and Pipeline B."* 40 questions is inside that band, and the
+set carries **both** things §18 asks for: a reference `gold_answer` per
+answerable question, and the `gold_chunk_ids` (evidence nodes).
+
+Two consequences of §19 are baked into the design:
+
+- **No global-search questions.** There are no community reports in this
+  design, so a "summarise the themes of this corpus" question would have no
+  correct answer anywhere in the system. None is asked.
+- **No GNN-dependent questions.** The set never asks something that only a
+  learned retriever could answer; the "two-chunk" and "cross-doc" types ask
+  for the multi-hop reasoning that the *graph* is supposed to support, which
+  is exactly what Pipeline B's structural filter claims to add over the flat
+  Pipeline A. That is the comparison the set exists to make.
+
+#### 15.2 — The corpus-expansion decision
+
+**Decision: the corpus is NOT expanded. It stays at the 5 documents in
+`data/raw/` (42 chunks), and the gold set is written against that corpus
+only.**
+
+Why, and what it costs:
+
+| Option | What it buys | What it costs | Verdict |
+|---|---|---|---|
+| **Keep 5 documents** (chosen) | Every existing number in this document stays comparable; the graph, the retrieval runs and the gold set all describe the same 42 chunks. | 5 documents is a narrow world. "no-answer" questions can only be un-answerable in ways this corpus happens to leave out (pricing, benchmarks, training details) — a bigger corpus would need more of them. | **CHOSEN** |
+| Add documents (e.g. a 6th–10th markdown file) | More realistic retrieval, more cross-document edges, a fairer test of the "cross-doc" type. | The corpus is the *input* to extraction. Adding documents invalidates the canonical graph, the v2 graph and every retrieval number in this document, and re-extraction costs ~40 min of LLM time on a machine that is already the bottleneck. It would also mean the graph-v2 promotion decision (Item 12) is measured on a different corpus than the rule was written for. | **REJECTED for now** |
+
+The decision is **revisitable and is not a claim that 5 documents is enough**.
+It is a claim that *a gold set is not the place to change the corpus*: the
+corpus and the labels are two different variables, and changing both at once
+makes every number in this document uninterpretable. If the corpus is
+expanded later, the gold set must be **rewritten against the new chunk
+ids** (the integrity test below will tell you exactly which ids are stale),
+and the expansion must be recorded as its own item — not folded into an
+evaluation run.
+
+#### 15.3 — The two files
+
+| | dev | test |
+|---|---|---|
+| File | `eval/gold_dev_set.json` | `eval/gold_test_set_frozen.json` |
+| Questions | 20 | 20 |
+| Ids | D01–D20 | T01–T20 |
+| Frozen | no — this is the set to develop against | **yes** — `frozen: true`, `frozen_on: 2026-10-22`, and a self-SHA256 |
+| Use | tuning, prompts, retrieval changes | **one** held-out run, at the end |
+
+**The historical 10-question set is left exactly where it was.**
+`eval/gold_qa_set.json` (Q01–Q10) is untouched, because the Phase 4
+numbers published above were measured on it. Nine of its questions are
+reused **verbatim** as D01–D09 so the old numbers and the new set describe
+the same questions. The historical Q06 is *not* reused: it has three gold
+chunks in one document, which the type taxonomy here does not allow (a
+same-document question may need at most two chunks). Q06's three chunks are
+instead covered one at a time by T10, T12 and T13, which between them ask
+about the same three passages. The integrity test asserts that the old file
+is still there with its 10 ids intact.
+
+**The type taxonomy, and the count of each:**
+
+| Type | Meaning | Total | dev | test |
+|---|---|---|---|---|
+| `single-chunk` | the answer lives in exactly one chunk | 14 | 9 | 5 |
+| `two-chunk` | the answer needs two chunks of the **same** document | 8 | 3 | 5 |
+| `cross-doc` | the answer needs chunks from **two or more** documents | 6 | 3 | 3 |
+| `paraphrase` | one gold chunk, but the query shares **no stemmed content word** with it | 6 | 3 | 3 |
+| `no-answer` | the corpus does not contain the answer; the system must say so | 6 | 2 | 4 |
+| **Total** | | **40** | **20** | **20** |
+
+Every question also carries its **source document(s)**, a **reference
+answer** (`gold_answer`, null for no-answer) and a `note` saying which
+section of which document it was written from. The `no-answer` notes say
+explicitly **why** the corpus cannot answer it (e.g. T20: the corpus
+describes the open-weight, cloud-free deployment story and contains no
+per-token price for any model, hosted or not) — so that a later run can
+distinguish "the corpus does not say" from "the system did not look".
+
+**The 5 documents are used unevenly on purpose.** 42 chunks; the gold set
+points at 36 of them. The unevenness follows the corpus, not the other way
+round: `large_language_models` (10 chunks) and `knowledge_graphs` (10) have
+the most questions because they have the most distinct facts, and
+`transformer_architecture` (5 chunks) has the fewest.
+
+#### 15.4 — The paraphrase property, and why it is checked mechanically
+
+A paraphrase question is only a paraphrase if it does not smuggle the
+answer's vocabulary in. The test is mechanical, not editorial:
+
+> **A `paraphrase` question shares NO stemmed content word with its gold
+> chunk.** Stopwords are excluded; a conservative suffix stripper is
+> applied identically to both sides, and it is deliberately crude — it
+> collapses `structure` and `structured` to the same stem, which is exactly
+> the kind of near-miss a paraphrase has to avoid.
+
+Six questions are written this way, e.g. D18 asks *"When one technique
+copes with codes and the second copes with meaning, how can the two be
+merged so that neither blind spot dominates?"* about a chunk that talks
+about pure vector search, BM25, exact matches for identifiers, and hybrid
+search. It shares no content word with that chunk — but it is still
+answerable from it, because a human can work out that "codes" is the
+keyword side, "meaning" is the dense side, and "merged" is the fusion.
+
+That is the point of the type: it is the one question shape where a
+keyword-matched retriever and a semantic one behave differently, so it is
+where the dense half of the hybrid store earns its keep. It is also the
+type most likely to expose the graph's weakness: the answer chunk often
+contains no entity the graph knows about, so Pipeline B's structural filter
+has nothing to traverse.
+
+#### 15.5 — The integrity test
+
+`tests/test_gold_set_integrity.py` — **21 offline tests, no LLM, no
+embedding, no retrieval.** It re-chunks `data/raw/` with the same settings
+the set was written against (`markdown_aware`, size 450, overlap 0.12) and
+checks that:
+
+- the split is 20 + 20, the ids are unique and prefixed by split, the two
+  halves share no query text, and the type mix is the advertised one
+  (14/8/6/6/6 across the 40);
+- the frozen test file still hashes to its recorded SHA256 — **if this
+  fails, the held-out run is no longer a held-out run** and the file must
+  be restored (or deliberately re-frozen and the change said so here);
+- every `gold_chunk_id` exists in the corpus, at the stated document and
+  chunk index, and the `source_docs` field agrees with the chunks;
+- every `required_term` really occurs in its gold chunk's text;
+- the structural rules per type hold (1 chunk / 2 chunks of one document /
+  chunks of ≥2 documents / 1 chunk with zero overlap / 0 chunks and a null
+  answer);
+- **every paraphrase question shares no content word with its gold chunk**;
+- the historical `eval/gold_qa_set.json` is still intact with its 10 ids.
+
+```
+$ python -m pytest tests/test_gold_set_integrity.py -q
+.....................                                                     [100%]
+21 passed in 0.43s
+```
+
+The chunk ids are not hand-written: `tests/dump_chunk_inventory.py`
+re-chunks the corpus and prints the full text of every chunk, and the gold
+ids were read off that inventory **after** each question was written. The
+questions were written from the source documents, never from a retrieval
+output — so the set cannot be contaminated by the system it will measure.
+
+#### 15.6 — What has NOT been done
+
+- **No number has been measured on the new set.** Not retrieval recall, not
+  A@6 vs B@6, not correctness, not groundedness, not latency. The set is
+  an instrument, not a result. Every retrieval number in this document is
+  still measured on the 10-question historical dev set.
+- **The test half has not been read by a run.** It is frozen. Task 8.1
+  (`eval/` evaluation harness) is what opens it, and it should be opened
+  **once**, after the retrieval and prompt work is finished.
+- **The judge sheet's 20 human labels are still outstanding** (Item 11),
+  and the graph-v2 promotion decision (Item 12) is still waiting on them.
+  Writing the gold set does not change that.
 
 ---
 ### Phase 5 — LLM Layer
@@ -5626,8 +5899,10 @@ caveats travel with the number:
 
 1. **The retrieval numbers are dev-set numbers.** The ranking weights
    (0.85/0.15) were chosen on the same 10 queries the retrieval is measured
-   on. The frozen 20-question test half of the 40-question gold set does not
-   exist yet — Task 8.1, not Phase 4.
+   on. The 40-question gold set (Item 15) — 20 dev + 20 frozen test — is
+   written and integrity-checked, but **no run has been measured on it at
+   all**, and the frozen test half has not been opened. Opening it is
+   Task 8.1, not Phase 4.
 2. **The TOON ablation is half done.** The token half is measured
    (14.8% on the full payload, 46.8% on metadata-only, round trips
    lossless). The accuracy half — does the SLM answer better from TOON? — is
