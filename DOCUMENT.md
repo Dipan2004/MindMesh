@@ -5084,6 +5084,128 @@ of `eval/judge_sheet.csv` are labelled. Until then the decision is
 **PENDING**, and the safe default — which the rule itself prescribes for a
 failed criterion — is **keep canonical**.
 
+> **UPDATE after the v2 build (Item 13, same day).** Two of the three
+> criteria are now decided, because they do not depend on the human labels:
+>
+> | criterion | threshold | v2 OFF | v2 ON |
+> |---|---|---|---|
+> | usable-chunk rate | >= 90% (>= 38/42) | 36/42 = **85.7% — FAILS** | 40/42 = **95.2% — passes** |
+> | largest component | >= 14 | 15 — **passes** | 29 — **passes** |
+> | human-labelled noise | <= 40% (<= 8/20) | pending | pending |
+>
+> The **OFF arm — the default promotion candidate — already fails the
+> usable-chunk criterion**, so on the rule as written it cannot be
+> promoted even if its human labels come back clean. The **ON arm** passes
+> both measurable criteria and is waiting only on the 20 human labels.
+> The decision therefore still rests on the human labels, and the safe
+> default remains **keep canonical**.
+
+---
+### Item 13 — Graph v2 built in `data/cache_v2`: two arms, canonical untouched
+
+Work-order step 4. The build was executed **after** the promotion rule of
+Item 12 was committed, and it does not write, move or delete anything under
+`data/cache/`. The canonical graph was re-measured read-only with the same
+code, so the comparison is like-for-like (count like with like) rather than
+a quotation from an earlier run.
+
+**What was built** (`scripts/build_graph_v2.py`, 97.6 s end to end):
+
+| artefact | path | contents |
+|---|---|---|
+| extraction records, filter OFF | `data/cache_v2/extractions_v2_off.jsonl` | 42 chunks, 118 relationships |
+| extraction records, filter ON | `data/cache_v2/extractions_v2_on.jsonl` | 42 chunks, 163 relationships |
+| entities collection, OFF | `data/cache_v2/entities_v2/` | 209 entities, HNSW + FTS on `description` |
+| entities collection, ON | `data/cache_v2/entities_v2_stub/` | 224 entities (15 of them stub nodes) |
+| chunks collection | `data/cache_v2/chunks_v2/` | 42 chunks, HNSW + FTS on `text` |
+| machine-readable report | `data/cache_v2/graph_v2_report.json` | every number below |
+
+Both arms are built from **the same cached raw responses** of the ladder arm
+(`data/cache/exp_reextract_ladder`, its own `CACHE_DIR`), re-parsed once per
+arm with the flag off and once with it on. **No new LLM calls were made**,
+so the flag is the only difference between the two arms.
+
+**The comparison.** Canonical is re-measured with the identical code and
+the identical definitions.
+
+| metric | canonical | v2 OFF | v2 ON |
+|---|---|---|---|
+| nodes | 72 | 209 | 224 |
+| edges | 30 | 112 | 157 |
+| components (weakly connected) | 45 | 103 | 75 |
+| largest component | 7 | 15 | 29 |
+| singletons (degree 0) | 29 | 75 | 43 |
+| cross-document nodes | 0 | 9 | 9 |
+| cross-document edges | 0 | 0 | 0 |
+| stub nodes | 0 | 0 | 15 |
+| **usable chunks (>= 1 surviving relationship)** | **17 / 41 = 41.5%** | **36 / 42 = 85.7%** | **40 / 42 = 95.2%** |
+| distinct relationship types | 3 | 30 | 37 |
+| extraction seconds (LLM) | — | 2369.3 | 2369.3 |
+| build seconds (embed + insert) | — | 29.5 | 36.5 |
+
+Relationship-type shares: canonical is 89.5% `WORKS_AT` with only three
+types in the whole graph — a degenerate graph produced by the 0.5b model.
+v2 OFF leads with `DEVELOPED_BY` 16.4%, `SUCCESSOR_OF` 13.8%, `USED_FOR`
+11.2%; v2 ON leads with `DEVELOPED_BY` 16.1%, `ACQUIRED_BY` 12.4%,
+`SUCCESSOR_OF` 10.6% and adds `CONTRIBUTED_TO` 5.0% — the type that the
+recovered relationships bring in.
+
+**Cross-document edges are 0 in all three graphs.** The definition is
+strict: an edge counts as cross-document only when the two endpoints share
+*no* document. Nine v2 nodes span more than one document, but every edge
+that touches them also touches a common document, so the graph is still
+essentially single-document in its edges. This is a property of a 7-document
+corpus where the documents describe the same topic area, and it is reported
+rather than explained away.
+
+**Three things this build exposed.**
+
+1. **Canonical is far weaker than the v2 arms, and that is not only the
+   model.** Canonical's usable-chunk rate is 41.5% — 17 of 41 chunks
+   contribute a surviving relationship. The confounds are real and are
+   named here rather than buried: canonical was built with **qwen2.5:0.5b**,
+   with **gleaning on**, and with different chunking settings; v2 is
+   **qwen2.5:1.5b**, **first pass only** (the ladder arm's gleaning pass was
+   driven by a first pass that differs between the arms, so including it
+   would cost fresh LLM calls and destroy the like-for-like comparison), and
+   `markdown_aware` chunking at 450 tokens. The v2 numbers are therefore
+   **a sensitivity run, not a clean model ablation**.
+2. **The gleaning pass is not in v2**, so v2 is not a drop-in replacement
+   for a canonical build that has gleaning. Making the ON arm match
+   canonical's pipeline exactly would require re-running gleaning with the
+   flag on — new LLM calls, ~40 minutes.
+3. **A real bug in the vector store, found by this build and fixed.**
+   `zvec` rejects a whole insert batch when a doc ID contains a character it
+   does not accept, or is longer than 64 characters. The old
+   `_to_doc_id()` only replaced spaces and `/`, so an entity named
+   *"Resource Description Framework (RDF)"* or *"Subjective quality
+   judgments beyond what automated benchmarks measure"* made the entire
+   insert fail with `Invalid doc: ... contains invalid characters`. The
+   accepted set was measured against the installed build
+   (`tests/probe_zvec_docid.py`): letters, digits, `_`, `-` and `.` are
+   accepted; `:`, `,`, parentheses, `/` and spaces are not; the ID limit is
+   64 characters. `src/graphrag_lite/vectorstore/zvec_client.py` now
+   sanitises to that set, truncates long IDs with a digest of the original
+   name, and disambiguates IDs that collide after sanitising.
+   **The canonical collection is unaffected**: the 72 canonical entity names
+   produce byte-identical IDs under the old and the new rule
+   (`tests/check_docid_canonical_stability.py`).
+
+**The v2 collections are usable by the retrieval layer** — this was checked
+with the real `hybrid_query` (dense HNSW + BM25 FTS, RRF fusion) against all
+three collections (`tests/probe_v2_collections.py`, transcript in
+`data/cache_v2/v2_query_probe.txt`): *"Who developed the Transformer
+architecture?"* returns `Vaswani et al.` / `Transformer architecture` /
+`Ashish Vaswani` from both entity arms, and the chunk collection returns the
+matching chunks. The ON arm's stub nodes appear in the hits with their
+`Recovered as a relationship endpoint: ...` description, which is what they
+are.
+
+**Status of the promotion decision: unchanged — still PENDING.** The rule
+now has two of its three criteria decided (see the update box in Item 12),
+and the human-labelled-noise criterion still needs the 20 labels in
+`eval/judge_sheet.csv`. Nothing canonical has moved.
+
 ---
 ### Phase 5 — LLM Layer
 <!-- Task 5.1–5.2 entries go here -->

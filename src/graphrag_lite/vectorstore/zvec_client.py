@@ -4,6 +4,8 @@ zvec_client.py -- Zvec collection management for entities and chunks.
 
 from __future__ import annotations
 
+import hashlib
+import re
 import shutil
 from dataclasses import dataclass
 from pathlib import Path
@@ -13,10 +15,24 @@ import zvec
 
 from graphrag_lite.config import get_config
 
+# Zvec doc IDs accept letters, digits, underscore, hyphen and period, and are
+# at most 64 characters long.  Anything else (parentheses, commas, colons,
+# spaces, slashes ...) makes the native insert reject the whole batch, and an
+# over-long ID is rejected the same way.  Both rules were measured against the
+# installed zvec build by tests/probe_zvec_docid.py.
+_DOC_ID_UNSAFE = re.compile(r"[^A-Za-z0-9_.\-]")
+_DOC_ID_MAX = 64
+
 
 def _to_doc_id(name: str) -> str:
     """Convert entity name to a valid Zvec doc ID (spaces and / -> _)."""
-    return name.replace(" ", "_").replace("/", "_")
+    doc_id = _DOC_ID_UNSAFE.sub("_", name.replace(" ", "_").replace("/", "_"))
+    if len(doc_id) > _DOC_ID_MAX:
+        # Truncating alone would make two long names collide, so the tail
+        # carries a digest of the ORIGINAL name.
+        digest = hashlib.sha1(name.encode("utf-8")).hexdigest()[:8]
+        doc_id = doc_id[: _DOC_ID_MAX - len(digest) - 1] + "_" + digest
+    return doc_id
 
 
 @dataclass
@@ -196,14 +212,22 @@ def insert_entities(
     col = get_entities_collection()
     pr = pagerank_scores or {}
     docs = []
+    used_ids: set[str] = set()
     for entity, vec in zip(entities, embeddings):
         name = entity.get("name", "")
         descs = entity.get("descriptions", [])
         first_desc = descs[0]["text"] if descs else ""
         src_docs = entity.get("source_docs", set())
         primary = next(iter(src_docs)) if src_docs else ""
+        doc_id = _to_doc_id(name)
+        if doc_id in used_ids:
+            # Two different names can sanitise to the same ID ("A B" / "A_B").
+            # Zvec rejects a duplicate ID, so disambiguate deterministically.
+            digest = hashlib.sha1(name.encode("utf-8")).hexdigest()[:8]
+            doc_id = f"{doc_id}_{digest}"
+        used_ids.add(doc_id)
         docs.append(zvec.Doc(
-            id=_to_doc_id(name),
+            id=doc_id,
             vectors={"text_vec": vec},
             fields={
                 "name": name, "entity_type": entity.get("type", "OTHER"),
