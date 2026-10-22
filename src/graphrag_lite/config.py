@@ -391,6 +391,23 @@ class Config(BaseSettings):
             "graph and are never meaningful retrieval targets."
         ),
     )
+    PIPELINE_B_SCOPE: Literal["candidates", "docs", "verbalized"] = Field(
+        default="docs",
+        description=(
+            "Scope of Pipeline B's second (scoped) Zvec query. "
+            "'docs' (default) = the re-query is restricted to the source "
+            "DOCUMENTS of the ranked candidates -- a document-level "
+            "pre-filter. 'candidates' = the re-query is restricted to the "
+            "chunks in which the ranked CANDIDATE nodes were actually "
+            "mentioned, i.e. scoped to the candidates themselves; the "
+            "query text is still the user's query. 'verbalized' = PRD S9 "
+            "Step 3 verbatim: the candidates are VERBALIZED ('name (TYPE): "
+            "description') and that text becomes the DENSE side of the "
+            "second query, while the lexical (BM25) side stays the user's "
+            "query. All three are implemented; the measured numbers and the "
+            "deviation from the PRD text are recorded in DOCUMENT.md Item 14."
+        ),
+    )
 
     # ------------------------------------------------------------------ #
     # §6  Serialization
@@ -411,8 +428,18 @@ class Config(BaseSettings):
         ),
     )
     SLM_MODEL: str = Field(
-        default="qwen3:4b",
-        description="Ollama model tag used in local mode.",
+        default="qwen2.5:1.5b",
+        description=(
+            "Ollama model tag used in local mode. Changed from 'qwen3:4b' on "
+            "2026-10-22: this machine cannot run the 4B model (no GPU with "
+            "enough memory, and CPU inference on it is not viable for the "
+            "ablation runs). qwen2.5:1.5b is the largest model that runs "
+            "here in reasonable time and is the model every number in this "
+            "repository was measured with. The paper's primary model could "
+            "not be run locally -- see the limitation in DOCUMENT.md "
+            "'Canonical State'. The PRD's API mode could supply a "
+            "larger-model arm later; it is not used now."
+        ),
     )
     API_MODEL: str = Field(
         default="",

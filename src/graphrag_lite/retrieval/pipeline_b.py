@@ -9,8 +9,13 @@ Steps per PRD S9:
              + pagerank_norm * PIPELINE_B_PR_WEIGHT, where sim_norm is the
              entry-point similarity normalised to [0,1]. Keep
              TOP_N_CANDIDATES.
-  Step 4 -- Scoped re-query: hybrid_query on chunks_v1 scoped to candidate docs,
-             keep TOP_N_FINAL_EVIDENCE
+  Step 4 -- Scoped re-query: hybrid_query on chunks_v1 scoped to the ranked
+             CANDIDATES -- the chunks in which those candidate nodes were
+             mentioned (PIPELINE_B_SCOPE='candidates') -- with the candidates
+             VERBALIZED and used as the dense side of the second query
+             (PIPELINE_B_SCOPE='verbalized', PRD S9 Step 3 verbatim) -- or to
+             their source documents (PIPELINE_B_SCOPE='docs', the earlier,
+             weaker implementation). Keep TOP_N_FINAL_EVIDENCE.
 
 Evidence type is the same as Pipeline A so serialisation/generation are shared.
 
@@ -76,6 +81,38 @@ def _get_graph():
             _PR = rank_pagerank(_G)
         _PR_MAX = max(_PR.values()) if _PR else 1.0
     return _G, _PR, _PR_MAX
+
+
+def _verbalize_candidates(G, ranked: list[tuple[str, float]]) -> str:
+    """
+    Verbalize the ranked candidate nodes into one text block.
+
+    PRD S9 Step 3 asks for the candidates to be verbalized before the
+    second Zvec query.  The recipe is "name (TYPE): description", one
+    candidate per line -- the same shape the entity collection stores and
+    embeds, so a candidate verbalized here is comparable with the entity
+    text that step 1 already matched against.
+
+    Only the first description of each node is used (the longest-mentioned
+    one is not tracked; the first occurrence in extraction order is
+    deterministic and reproducible).
+    """
+    lines: list[str] = []
+    for node_name, _ in ranked:
+        if node_name not in G:
+            continue
+        nd = G.nodes[node_name]
+        etype = nd.get("type", "OTHER")
+        descs = nd.get("descriptions", [])
+        desc = ""
+        if descs:
+            first = descs[0]
+            desc = (first.get("text") or "").strip() if isinstance(first, dict) else str(first)
+        if desc:
+            lines.append(f"{node_name} ({etype}): {desc}")
+        else:
+            lines.append(f"{node_name} ({etype})")
+    return "\n".join(lines)
 
 
 def get_candidates(query: str) -> dict:
@@ -207,8 +244,47 @@ def retrieve_structural(query: str, top_k: int | None = None) -> list[Evidence]:
     if not candidate_docs:
         return []
 
-    q_vec = embed_batch([query])[0]
-    doc_filter = " OR ".join(f"source_doc = '{d}'" for d in sorted(candidate_docs))
+    # The scope of the second query.  PRD S9 Step 3 wants it scoped to the
+    # CANDIDATES themselves: the chunks in which the ranked candidate nodes
+    # were actually mentioned, and the candidates VERBALIZED as the query.
+    # The earlier implementation scoped it to the candidates' source
+    # DOCUMENTS, which is a document-level pre-filter -- a weaker thing than
+    # the two-stage narrowing the PRD describes.
+    scope = cfg.PIPELINE_B_SCOPE
+    candidate_chunks: list[str] = []
+    if scope in ("candidates", "verbalized"):
+        seen: set[str] = set()
+        for node_name, _ in ranked:
+            if node_name not in G:
+                continue
+            nd = G.nodes[node_name]
+            mentions = list(nd.get("source_sentences", [])) + \
+                list(nd.get("descriptions", []))
+            for m in mentions:
+                cid = m.get("chunk_id")
+                if cid and cid not in seen:
+                    seen.add(cid)
+                    candidate_chunks.append(cid)
+
+    # PRD S9 Step 3: "verbalize the ranked candidates, run a second Zvec
+    # hybrid query scoped to just those candidates".  The verbalization is
+    # the bridge that carries the STRUCTURAL stage's output into the
+    # SEMANTIC stage.  It is used as the DENSE side of the second query
+    # (the lexical/BM25 side stays the user's query, because the candidate
+    # descriptions are about entities, not about the chunk text that BM25
+    # would match against).
+    if scope == "verbalized":
+        verbalization = _verbalize_candidates(G, ranked)
+        q_vec = embed_batch([verbalization])[0]
+    else:
+        q_vec = embed_batch([query])[0]
+
+    if candidate_chunks:
+        doc_filter = " OR ".join(f"chunk_id = '{c}'" for c in candidate_chunks)
+    else:
+        # No candidate mention survives in the graph (or the docs scope was
+        # asked for): fall back to the document-level scope.
+        doc_filter = " OR ".join(f"source_doc = '{d}'" for d in sorted(candidate_docs))
 
     raw_results = hybrid_query(
         collection_name=cfg.ZVEC_COLLECTION_CHUNKS,
