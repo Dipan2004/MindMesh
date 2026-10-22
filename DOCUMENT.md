@@ -3990,6 +3990,72 @@ The `fp=0.25` and `fp=0` corpus arms are **not** affected: both call
 `ollama.Client.generate(...)` directly, not through `OllamaClient`, so
 they never touched the bug.
 
+##### Blast radius: the full list of results produced with a broken client
+
+Audited on 2026-10-22 (after the `baseline-2026-10-22` tag), by
+classifying every experiment script by **which client path it uses** and
+then checking each output file for the broken-client signature (an empty
+raw response / a `No JSON object found in LLM response` error / a
+sub-second failure).
+
+**How the bug was introduced and when it was fixed.** The `_kwargs()`
+refactor is the cause. It was written during this session's own work on
+2026-10-22, as part of adding `frequency_penalty`, `cache_tag` and
+`with_overrides` to `OllamaClient`. **It was never committed** — no
+commit in this repository has ever contained the prompt-less `_kwargs`
+(verified: `git rev-list --all` shows `_kwargs` in exactly one commit,
+`379909c` "Baseline 2026-10-22", which is the *fixed* version; the
+`phase 2` commit `7f23b98` still has the original explicit
+`prompt=prompt` call). The bug therefore existed only in the working
+tree, between the refactor and the fix.
+
+| | |
+|---|---|
+| **Introduced** | 2026-10-22, working tree only, by the `_kwargs()` refactor |
+| **Fixed** | 2026-10-22, `_kwargs(prompt)` now takes the prompt and includes it as a top-level field |
+| **Fixed in commit** | `379909c` (baseline-2026-10-22) — the fix predates the commit |
+| **Regression test** | `tests/test_ollama_client_prompt.py` (5 tests, passing) |
+| **Blast radius** | **two runs, both discarded and re-run** |
+
+**Every result in DOCUMENT.md that was produced with a broken client:**
+
+| # | Result | Output | Disposition |
+|---|---|---|---|
+| 1 | The first corpus ladder run — **42/42 chunks failed in 9.6 s** (every chunk in 0.2 s) | overwritten by the re-run | **DISCARDED** — re-run from scratch with the fixed client; the re-run produced 42/42 parsed |
+| 2 | The first hard-chunk ladder run | overwritten by the re-run | **DISCARDED** — re-run from scratch; the re-run produced the 4/4 = 100% rescue rate |
+
+That is the complete list. Two further observations close the audit:
+
+- **No output file on disk carries the broken-client signature.** A scan
+  of every `data/cache/*.jsonl` and `*.json` for empty raw responses,
+  `No JSON object found in LLM response` errors and sub-second failures
+  returns **zero hits** in any experiment output. The only two files
+  containing that error string are `data/cache/exp_qwen35_2b.json` and
+  its log — and those are a *different* fault (the qwen3.5 thinking
+  field eating the `num_predict` budget, Item 7), not this bug; they
+  call the SDK directly and were never on the `OllamaClient` path.
+- **The scripts that could have been affected were checked
+  individually.** `tests/exp_reextract_corpus.py` (arms A and B) and
+  `tests/exp_reextract_failures.py` all use `ollama.Client(timeout=...)
+  .generate(...)` **directly** and never construct an `OllamaClient`
+  (`grep -n "OllamaClient" tests/exp_reextract_corpus.py` → no match).
+  The scripts that *do* go through `OllamaClient` — `exp_determinism.py`,
+  `exp_pilot_15b.py`, `exp_reextract_corpus_ladder.py`,
+  `exp_ladder_hard.py` — all have output files dated either **before**
+  the refactor (10:13 pilot, 11:10 determinism) or **after** the fix
+  (15:20 ladder, 15:46 hard-chunk), with the two exceptions above
+  listed as discarded.
+
+**Which headline numbers survive:** **all of them.** The ladder's
+42/42, the 4/4 rescue rate, the 39/42 and 35/42 control arms, the
+245-entity/171-relationship raw counts, the 31% filter-loss finding,
+the 15-relationship judgement, the determinism result and the
+gleaning on/off comparison were all produced either by code paths that
+never touched `OllamaClient` or by runs made after the fix. The bug's
+only lasting effect on the record is that it **cost time** (two runs had
+to be redone) and that it is the reason the `tests/test_ollama_client_prompt.py`
+regression test now exists.
+
 **And it explains a cache-pollution finding.** While auditing the
 canonical cache before the re-run, `data/cache` held **15** entries
 rather than the documented 11. Four of them were test stubs — the exact
@@ -4740,6 +4806,221 @@ to the effective context — tells them apart.
    arms is a pre-filter number and is not comparable to a post-filter
    one. That mistake was made and caught in this session; see "A
    measurement artefact I had to correct" in Item 3.
+   **UPDATE 2026-10-22 (later): candidate fix (a) is now IMPLEMENTED and
+   MEASURED — see Item 10 below. The filter is still on by default; the
+   conditional version is a flagged option.**
+
+### Item 10 — The conditional endpoint filter: implemented, default OFF, measured
+
+**What was built.** The endpoint-consistency filter now has a flagged
+option, `EXTRACTION_STUB_ENDPOINTS` (default **False**), in
+`src/graphrag_lite/config.py` §2. When it is on, a relationship endpoint
+that is **not** in the chunk's entity list is **recovered** instead of
+dropped, *provided its name occurs verbatim in the chunk text* (casefold,
+whitespace-normalised, word-boundary bounded). The recovered endpoint is
+added to the entity list with `type="OTHER"` and the marker attribute
+`stub=True`, and the relationship is kept. An endpoint whose name does
+**not** occur in the text is still dropped, with the same warning as
+before. The rule is deliberately *conditional*: a dangling edge is a
+hallucination, and the verbatim check is the guard that keeps genuinely
+fabricated endpoints out.
+
+```
+src/graphrag_lite/ingestion/extractor.py
+    _name_occurs_verbatim(name, text) -> bool
+        lookarounds  (?<!\w) ... (?!\w)   -- not \b
+        "AI" must not match "AIDS"; "Graph" must not match "GraphQL";
+        "U.S." matches "the U.S. economy" but not "the U.S.A economy"
+    _find_sentence_with(text, name) -> str
+    _parse_extraction(raw_json, chunk_id, doc_id,
+                      prior_entity_names=None, chunk_text=None,
+                      allow_stub_endpoints=False)
+    Entity: + optional key `stub: bool`  (via a `total=False` base class,
+            because the project's Python floor is 3.10 and there is no
+            typing.NotRequired there)
+```
+
+Wired through the extractor, the **gleaning** pass (same flag, same
+`chunk_text`) and the **graph builder** (node attribute `stub`; a node is
+a stub node only if *every* occurrence of it was a stub; an alias merge
+propagates `stub=False` from the non-stub twin). The graph builder's
+`dangling_dropped` counter still fires for genuinely dangling edges.
+
+**Why default OFF.** The endpoint filter is a safety property, not a
+quality knob: a relationship whose endpoint the model never mentioned as
+an entity is exactly the shape a hallucinated edge takes. Turning that
+off silently is not an option, so the relaxation is opt-in, named, and
+carries the recovered entity's weaker provenance (`stub=True`) all the
+way into the graph.
+
+**Measurement — same raw responses parsed twice, NO new LLM calls**
+(`tests/exp_stub_endpoints_measure.py`, read-only against the ladder arm's
+own cache `data/cache/exp_reextract_ladder`; the two arms are the *same*
+responses with the flag as the only difference, so this is like-for-like):
+
+```
+chunks audited                     : 42
+relationship objects emitted        : 171
+kept, flag OFF (today)              : 118
+kept, flag ON                       : 163
+RECOVERED by the flag               :  45
+loss rate to the filter, flag OFF   :  31.0%
+loss rate to the filter, flag ON    :   4.7%
+stub entities added                 :  18
+entity records, flag ON             : 263
+endpoint names unknown to the entity list:
+  present verbatim in the chunk text (recoverable) : 18
+  ABSENT from the chunk text (dropped either way)  :  0
+chunks whose relationship count changed : 12 of 42
+```
+
+Per-chunk gain: `a4a679c4` +20, `310582c4` +7, `5c56e059` +6,
+`73e97519` +2, `e146728c` +2, `417905a7` +2, and +1 each for `3256abe3`,
+`e9c66a7a`, `b744eeeb`, `745e90bb`, `d6426773`, `5a5f4b8a`. Total 45.
+
+**The guard held.** Every one of the 18 unknown endpoint names in this
+arm occurs verbatim in its chunk text, and **no** name was let through
+that the text does not contain. The 31% loss collapses to 4.7% without
+opening the door to fabricated endpoints. (The residual 8 dropped
+relationships are the empty-endpoint ones; those are the model's own
+malformed output, not a filtering decision.)
+
+**The `a4a679c4` case, judged.** The chunk is the "Key Organizations and
+Researchers" section of `retrieval_augmented_generation`. The model
+emitted 20 PERSON entities (Patrick Lewis, Ethan Perez, Aleksandra
+Piktus, Fabio Petroni, Vladimir Karpukhin, Naman Goyal, Heinrich
+Küttler, Mike Lewis, Wen-tau Yih, Tim Rocktäschel, Sebastian Riedel,
+Douwe Kiela, and the GraphRAG contributors) and 20 relationships, **all
+of them pointing at a target `Microsoft Research` that it never listed as
+an entity**. The filter therefore dropped all 20, and the chunk is
+recorded with 20 entities and **zero edges**.
+
+With the flag on, one stub entity (`Microsoft Research`, `type=OTHER`,
+`stub=True`, source_sentence = the sentence it was found in) is added and
+all 20 relationships are kept. The endpoint is genuine — "Microsoft
+Research" is in the chunk text — but the relationships split:
+
+* **12 × `PERSON --ACQUIRED_BY--> Microsoft Research` — WRONG.** The source
+  sentence says the RAG paper "was authored by Patrick Lewis, Ethan
+  Perez, ... and Douwe Kiela **at Facebook AI Research**". Nothing about
+  acquisition, and the target does not appear in that sentence at all.
+* **8 × `PERSON --CONTRIBUTED_TO--> Microsoft Research` — DEFENSIBLE.** The
+  sentence is "Microsoft Research developed GraphRAG, with contributions
+  from Darren Edge, Ha Trinh, ...".
+
+**What this case shows, and what it does not.** The filter makes a
+**node-level** judgement (is this name in the chunk?) and never a
+**relation-level** judgement (is this the right relation between these
+two names?). Recovering the edge does not repair the relation, and the
+relation is where the model actually fails — consistent with Item 4,
+where a mechanical screen called 10 of 15 sampled relationships REAL and
+manual adjudication called 3 REAL / 2 WEAK / 10 NOISE. **The filter is
+necessary but not sufficient**: it is the difference between 31% and
+4.7% loss, not the difference between noise and signal.
+
+**Judged across all 45 recovered relationships** (agent labels, using the
+REAL / WEAK / NOISE vocabulary already established in Item 4; the human
+pass on a stratified 20 of these is Item 11 below):
+
+| verdict | count | share |
+|---|---|---|
+| REAL | 20 | 44.4% |
+| WEAK | 8 | 17.8% |
+| NOISE | 17 | 37.8% |
+
+WEAK = true in substance but the relation type is a mis-typing
+(membership written as `DEVELOPED_BY`, "based on" written as
+`DEVELOPED_BY`, an instance written as `INTEGRATED`); NOISE = inverted or
+unsupported (`next-token prediction` as a developer, `FAISS ACQUIRED_BY
+Vector store`, `Zvec SUCCESSOR_OF Microsoft GraphRAG`, and the 12
+`ACQUIRED_BY` rows of `a4a679c4`).
+
+**What this means for the promotion decision (step 5).** The recovered
+set is *not* clean: 38% of it is clearly noise and a further 18% is weak,
+so the recovered relationships carry roughly **38% noise** (or **56% if
+WEAK is counted as noise**) against the promotion threshold of "human-
+labelled noise <= 40%". The threshold therefore sits *inside* the
+uncertainty band of this population, and the promotion decision must
+rest on the human labels, not on these agent labels.
+
+**Tests.** `tests/test_stub_endpoints.py` — 17 offline tests (the parser
+is a pure function, no network, no LLM): the flag defaults off; OFF drops
+the dangling relationship and the hallucinated endpoint; ON recovers
+`DeepMind` (in the text) but still drops `Nonexistent Corp`; the stub has
+`type == "OTHER"`, `stub is True` and a real `source_sentence`; the stub
+is added to the entity list; the stub is added only once per chunk; one
+bad endpoint dooms the pair and creates no stub; word boundaries
+(`AI`/`AIDS`, `Graph`/`GraphQL`, `U.S.`/`U.S.A`); case-insensitivity;
+whitespace tolerance across a newline; a multi-word name needs the whole
+phrase; and the interaction with gleaning's `prior_entity_names` (rescued
+without a stub, plus the control).
+
+### Item 11 — The judge sheet: 40 relationships, 20 for the human to label
+
+`scripts/build_judge_sheet.py` builds `eval/judge_sheet.csv` from the
+ladder arm (read-only against `data/cache/exp_reextract_ladder`; the same
+parse-twice trick as Item 10, so again **no new LLM calls**). 40
+relationships, stratified:
+
+| stratum | n | what it is |
+|---|---|---|
+| `A` | 15 | relationships the endpoint filter **keeps today** (flag OFF), drawn from the chunks the filter never touches |
+| `B` | 15 | relationships the conditional filter **recovers** (flag ON) — 15 of the 45 |
+| `C` | 10 | relationships **already kept** inside the 12 chunks the conditional filter rescues — the pre-existing edges of the rescued chunks |
+
+**Why stratum C is defined that way.** The two chunks rescued by the
+*retry ladder* (`24b17cf3`, `4af3dc8c5`) contribute only **one** usable
+relationship between them (`Qwen3 --DEVELOPED_BY--> Qwen`, whose cited
+sentence is the literal string `...`), and `4af3dc8c5` contributes none
+— so a stratum of 10 cannot be built from them. Stratum C is therefore
+the chunk-level counterpart of stratum B: the edges those same chunks
+already had, which is what "rescued chunk" means for the filter.
+
+Columns: `chunk_id, source, target, type, source_sentence, agent_label,
+human_label` (the required ones) plus `doc_id, stratum, fill_first,
+agent_note, chunk_text`. `chunk_text` is included because the model's
+`source_sentence` is frequently wrong or a bare markdown heading — the
+annotator has to judge against the chunk, not against the citation.
+
+`human_label` uses the vocabulary already established in Item 4:
+**REAL** (true and supported by the chunk text) / **WEAK** (true in
+substance, but the edge as written is not what the text says — usually a
+mis-typed relation) / **NOISE** (unsupported, inverted, or hallucinated).
+
+**The 20 rows to label** are marked `fill_first=y`: `random.Random(
+20261022)`, stratified 7 / 7 / 6 over A / B / C, so the annotated
+subsample is representative of the sheet rather than biased towards the
+rows the agent was unsure about.
+
+Agent labels on all 40 (before the human sees anything):
+
+| stratum | REAL | WEAK | NOISE |
+|---|---|---|---|
+| A (kept normally) | 8 | 1 | 6 |
+| B (recovered) | 7 | 3 | 5 |
+| C (rescued chunks) | 1 | 1 | 8 |
+| **all 40** | **16** | **5** | **19** |
+
+Two things this already shows, before any human label exists:
+
+* The **kept** set is not clean either — 6 of 15 stratum-A rows are
+  NOISE (`Wikidata --MIGRATED_TO--> Google`, `LLM --INTRODUCED_BY-->
+  RLHF`, `GPT-3 --DETERMINES--> context window`, `generator --USED_FOR-->
+  BART`, `Weaviate --SUCCESSOR_OF--> Pinecone`, ...). The endpoint filter
+  is a *consistency* filter, not a *correctness* filter: it guarantees
+  both endpoints were mentioned, not that the relation between them is
+  right.
+* The chunks that need **rescuing** are the chunks whose pre-existing
+  edges are worst (1 REAL / 8 NOISE). The dangling-endpoint failure and
+  the wrong-relation failure are not independent — they are the same
+  model weakness showing up in two places.
+
+`tests/eval_judge_sheet.py` scores the sheet once the human has labelled
+the 20 rows: exact-label agreement with a 95% Wilson interval, the human
+noise rate with a 95% interval, the agent's noise rate on the same rows,
+the per-stratum breakdown, and every disagreement printed with the
+agent's note. `eval/judge_sheet_README.md` holds the labelling
+instructions.
 
 ---
 ### Phase 5 — LLM Layer
