@@ -1,0 +1,416 @@
+{
+  "set_name": "gold_test_set_frozen",
+  "split": "test",
+  "frozen": true,
+  "frozen_on": "2026-10-22",
+  "frozen_sha256": "5d9bcbbf48ff45c2f8ee2d449f809a732b38f1fba46140d673710f2c4ad30f42",
+  "frozen_sha256_note": "SHA256 of this file's canonical JSON with the 'frozen_sha256' key removed: json.dumps(obj, sort_keys=True, indent=2, ensure_ascii=False).encode('utf-8'). Recomputed and checked by tests/test_gold_set_integrity.py. If the checksum does not match, the test split has been edited and the run is no longer a held-out run.",
+  "created_by": "written by reading data/raw/*.md and the chunk inventory (tests/dump_chunk_inventory.py)",
+  "method": "Each question was written from the SOURCE DOCUMENTS, then its gold chunk ids were looked up in the chunk inventory afterwards. No retrieval output, no LLM output and no score from any earlier run was consulted while writing the questions.",
+  "chunking_strategy": "markdown_aware",
+  "chunk_size_extraction": 450,
+  "chunk_overlap_pct": 0.12,
+  "corpus": "data/raw (5 documents, 42 chunks)",
+  "rules": [
+    "FROZEN. Do not tune anything on this split -- no prompt changes, no weight changes, no chunking changes picked by looking at these questions.",
+    "Read these queries only when running the held-out evaluation; the dev split (eval/gold_dev_set.json) is the one to develop against.",
+    "The 40-question set satisfies the PRD section 18 requirement of 30-50 gold Q&A pairs with ground-truth evidence chunks."
+  ],
+  "types": [
+    "single-chunk   -- the answer lives in exactly one chunk",
+    "two-chunk      -- the answer needs two chunks of the SAME document",
+    "cross-doc      -- the answer needs chunks from two or MORE documents",
+    "paraphrase     -- one gold chunk, but the query shares NO stemmed content word with it",
+    "no-answer      -- the corpus does not contain the answer; the system must say so"
+  ],
+  "counts": {
+    "total": 20,
+    "single-chunk": 5,
+    "two-chunk": 5,
+    "cross-doc": 3,
+    "paraphrase": 3,
+    "no-answer": 4
+  },
+  "queries": [
+    {
+      "query_id": "T01",
+      "split": "test",
+      "type": "single-chunk",
+      "source_docs": ["retrieval_augmented_generation"],
+      "query": "What is a Dense Passage Retriever, and which vector stores are commonly used to hold the retrieved documents?",
+      "gold_answer": "The dense retriever encodes both queries and documents into dense vector representations with a bi-encoder model and compares the query vector against all document vectors by approximate nearest neighbour search; Facebook's original RAG paper used a Dense Passage Retriever (DPR) trained on question-answer pairs. The documents are then held in a vector index, with common choices FAISS (from Facebook AI Research), Pinecone, Weaviate, Chroma and LanceDB.",
+      "note": "retrieval_augmented_generation -- Core Components (chunk 2)",
+      "gold_chunk_ids": ["e146728cdddcf0e5"],
+      "gold": [
+        {
+          "chunk_id": "e146728cdddcf0e5",
+          "source_doc": "retrieval_augmented_generation",
+          "chunk_index": 2,
+          "required_terms": ["bi-encoder", "Dense Passage Retriever (DPR)", "Pinecone, Weaviate, Chroma, and LanceDB"]
+        }
+      ]
+    },
+    {
+      "query_id": "T02",
+      "split": "test",
+      "type": "single-chunk",
+      "source_docs": ["knowledge_graphs"],
+      "query": "How does a knowledge graph represent nodes and edges, and what properties can they carry?",
+      "gold_answer": "Nodes represent discrete entities with a unique identifier and a type (Person, Organization, Location, Concept) and optional properties -- attribute-value pairs such as birth date, population or founded year. Edges represent typed, directed relationships with a type label (such as 'employs', 'acquired' or 'is_a'), a source and a target entity, and can carry properties such as timestamps indicating when the relationship was valid.",
+      "note": "knowledge_graphs -- Structure and Representation (chunk 2)",
+      "gold_chunk_ids": ["6fc475866849cd38"],
+      "gold": [
+        {
+          "chunk_id": "6fc475866849cd38",
+          "source_doc": "knowledge_graphs",
+          "chunk_index": 2,
+          "required_terms": ["Nodes (Entities)", "Edges (Relationships)", "type label", "timestamps"]
+        }
+      ]
+    },
+    {
+      "query_id": "T03",
+      "split": "test",
+      "type": "single-chunk",
+      "source_docs": ["large_language_models"],
+      "query": "How does the masked language modeling objective differ from next-token prediction?",
+      "gold_answer": "Next-token prediction (autoregressive language modeling) trains the model on an unlabeled corpus to predict the next token from the preceding tokens, minimising the cross-entropy loss between the predicted distribution and the actual next token. BERT and its variants instead use masked language modeling: random tokens in the input are masked and the model predicts the original tokens using bidirectional context.",
+      "note": "large_language_models -- Pre-training (chunk 1)",
+      "gold_chunk_ids": ["e9c66a7ac48f6e11"],
+      "gold": [
+        {
+          "chunk_id": "e9c66a7ac48f6e11",
+          "source_doc": "large_language_models",
+          "chunk_index": 1,
+          "required_terms": ["next-token prediction", "cross-entropy loss", "masked language modeling", "bidirectional context"]
+        }
+      ]
+    },
+    {
+      "query_id": "T04",
+      "split": "test",
+      "type": "single-chunk",
+      "source_docs": ["large_language_models"],
+      "query": "What does 4-bit quantization do to memory requirements, and which tools and formats implement it?",
+      "gold_answer": "A 7B parameter model in 32-bit floating point needs about 28GB of GPU memory; 4-bit quantization (Q4), implemented by tools like llama.cpp and the GGUF format, cuts memory requirements by roughly 8x while preserving most model quality, which makes models such as Qwen3 4B runnable on consumer hardware with 8GB of RAM and enables local deployment without cloud infrastructure.",
+      "note": "large_language_models -- Quantization and Efficient Deployment (chunk 8)",
+      "gold_chunk_ids": ["24b17cf355abdce3"],
+      "gold": [
+        {
+          "chunk_id": "24b17cf355abdce3",
+          "source_doc": "large_language_models",
+          "chunk_index": 8,
+          "required_terms": ["28GB of GPU memory", "4-bit quantization (Q4)", "llama.cpp", "8GB of RAM"]
+        }
+      ]
+    },
+    {
+      "query_id": "T05",
+      "split": "test",
+      "type": "single-chunk",
+      "source_docs": ["large_language_models"],
+      "query": "Which benchmarks are used to evaluate LLMs, and what does the LMSYS Chatbot Arena add to them?",
+      "gold_answer": "MMLU tests knowledge across 57 academic subjects, HumanEval and MBPP measure code generation, GSM8K and MATH test mathematical reasoning, HellaSwag and ARC measure commonsense reasoning, and TruthfulQA measures the tendency to generate factually incorrect statements. The LMSYS Chatbot Arena adds a complementary, crowd-sourced human-preference ranking that captures subjective quality judgments beyond what automated benchmarks measure.",
+      "note": "large_language_models -- Evaluation Benchmarks (chunk 9)",
+      "gold_chunk_ids": ["310582c41776ab06"],
+      "gold": [
+        {
+          "chunk_id": "310582c41776ab06",
+          "source_doc": "large_language_models",
+          "chunk_index": 9,
+          "required_terms": ["MMLU", "HumanEval", "TruthfulQA", "LMSYS Chatbot Arena"]
+        }
+      ]
+    },
+    {
+      "query_id": "T06",
+      "split": "test",
+      "type": "two-chunk",
+      "source_docs": ["knowledge_graphs"],
+      "query": "How do manual curation and automated, LLM-driven extraction differ in the way a knowledge graph is built?",
+      "gold_answer": "Manual curation -- the way the earliest knowledge graphs, such as Cyc (started 1984 by Doug Lenat at MCC, with over 239,000 concepts in OpenCyc), were built -- has domain experts enter facts by hand, which produces high-quality, precise data but does not scale to large corpora. Modern knowledge graphs are instead built through automated information extraction using named entity recognition, relation extraction and coreference resolution, with LLMs identifying entity names, types and relationships in a single forward pass, often outperforming pipeline-based extraction on complex, implicit relationships.",
+      "note": "knowledge_graphs -- Construction Methods/Cyc (chunk 5) + Automated Extraction (chunk 6)",
+      "gold_chunk_ids": ["a04b3d90e2da113b", "6d878b7f56a99aa2"],
+      "gold": [
+        {
+          "chunk_id": "a04b3d90e2da113b",
+          "source_doc": "knowledge_graphs",
+          "chunk_index": 5,
+          "required_terms": ["Cyc", "Doug Lenat", "Manual Curation", "239,000 concepts"]
+        },
+        {
+          "chunk_id": "6d878b7f56a99aa2",
+          "source_doc": "knowledge_graphs",
+          "chunk_index": 6,
+          "required_terms": ["Automated Extraction", "LLM-Based Extraction", "coreference resolution"]
+        }
+      ]
+    },
+    {
+      "query_id": "T07",
+      "split": "test",
+      "type": "two-chunk",
+      "source_docs": ["transformer_architecture"],
+      "query": "How does a Transformer encode the order of tokens, and what does each encoder and decoder layer contain?",
+      "gold_answer": "Because the Transformer has no recurrence or convolution it has no inherent notion of sequence order, so positional encodings are added to the input embeddings; the original paper used sine and cosine functions of different frequencies. Each encoder layer contains a multi-head self-attention sublayer and a feed-forward sublayer, and each decoder layer adds a cross-attention sublayer that attends to the encoder output. Multi-head attention runs several attention operations in parallel with different learned linear projections, concatenates their outputs and projects them again, and the feed-forward network applies two linear transformations with a ReLU activation in between to each position separately and identically.",
+      "note": "transformer_architecture -- Positional Encoding/Encoder-Decoder (chunk 3) + Multi-Head/Feed-Forward (chunk 2)",
+      "gold_chunk_ids": ["a885be6b749e39a1", "a5123f467123650e"],
+      "gold": [
+        {
+          "chunk_id": "a885be6b749e39a1",
+          "source_doc": "transformer_architecture",
+          "chunk_index": 3,
+          "required_terms": ["Positional Encoding", "Encoder-Decoder Structure", "cross-attention sublayer"]
+        },
+        {
+          "chunk_id": "a5123f467123650e",
+          "source_doc": "transformer_architecture",
+          "chunk_index": 2,
+          "required_terms": ["Multi-Head Attention", "Feed-Forward Layers", "ReLU activation"]
+        }
+      ]
+    },
+    {
+      "query_id": "T08",
+      "split": "test",
+      "type": "two-chunk",
+      "source_docs": ["vector_databases"],
+      "query": "Which vector databases run in-process or serverless, and what does each of them support?",
+      "gold_answer": "Chroma is an open-source embedding database that embeds directly into Python applications and needs no external server for development use; it supports metadata filtering and integrates with LangChain and LlamaIndex. Qdrant is an open-source vector similarity search engine with a REST and gRPC API, supporting payload filtering, named vectors and on-disk indexing, written in Rust for performance and memory safety. LanceDB is an open-source serverless vector database on the Lance columnar format that runs in-process, supports SQL-like queries alongside vector search and is built for multimodal data. Zvec is an open-source in-process hybrid vector database that combines dense search with BM25 full-text search and scalar filtering in one query call, fusing the signals with RRF or weighted fusion and including a built-in reranker.",
+      "note": "vector_databases -- Chroma/Qdrant (chunk 5) + LanceDB/Zvec (chunk 6)",
+      "gold_chunk_ids": ["a949df1c877b7163", "5a5f4b8aeeb5ae55"],
+      "gold": [
+        {
+          "chunk_id": "a949df1c877b7163",
+          "source_doc": "vector_databases",
+          "chunk_index": 5,
+          "required_terms": ["Chroma", "Qdrant", "metadata filtering", "payload filtering"]
+        },
+        {
+          "chunk_id": "5a5f4b8aeeb5ae55",
+          "source_doc": "vector_databases",
+          "chunk_index": 6,
+          "required_terms": ["LanceDB", "Zvec", "serverless", "built-in reranker"]
+        }
+      ]
+    },
+    {
+      "query_id": "T09",
+      "split": "test",
+      "type": "two-chunk",
+      "source_docs": ["large_language_models"],
+      "query": "How do supervised fine-tuning and RLHF align a model to follow instructions, and how does DPO change the procedure?",
+      "gold_answer": "After pre-training, supervised fine-tuning (SFT) teaches the model to respond helpfully to prompts rather than simply continuing text. RLHF goes further: human annotators rank model responses by quality, the rankings train a reward model, and the LLM is fine-tuned with proximal policy optimization (PPO) to maximise the learned reward -- the technique central to InstructGPT and ChatGPT. DPO removes the explicit reward model and the RL training loop by optimising directly on chosen/rejected preference pairs, which makes training simpler and more stable.",
+      "note": "large_language_models -- Fine-tuning/RLHF (chunk 2) + DPO (chunk 3)",
+      "gold_chunk_ids": ["32c85d7ec02b6b19", "5c56e059e8cebff9"],
+      "gold": [
+        {
+          "chunk_id": "32c85d7ec02b6b19",
+          "source_doc": "large_language_models",
+          "chunk_index": 2,
+          "required_terms": ["supervised fine-tuning (SFT)", "reward model", "proximal policy optimization (PPO)"]
+        },
+        {
+          "chunk_id": "5c56e059e8cebff9",
+          "source_doc": "large_language_models",
+          "chunk_index": 3,
+          "required_terms": ["Direct Preference Optimization", "eliminates the need for an explicit reward model"]
+        }
+      ]
+    },
+    {
+      "query_id": "T10",
+      "split": "test",
+      "type": "two-chunk",
+      "source_docs": ["retrieval_augmented_generation"],
+      "query": "How is a retrieval-augmented system judged, and which chunking and retrieval-quality problems does that judging have to account for?",
+      "gold_answer": "RAG systems are evaluated on answer correctness (does the answer match ground truth), groundedness (is the answer supported by the retrieved documents), faithfulness (does the answer avoid hallucinating facts not in the retrieved context) and context relevance (are the retrieved documents actually relevant); common frameworks are RAGAS, TruLens and custom LLM-as-judge setups. On the retrieval side the open problems are the chunking strategy -- chunks too small lose context, chunks too large dilute relevance signals and may exceed the context window, so token-based sliding window chunking with overlap is common -- and retrieval quality, where dense retrieval can miss exact-match queries for named entities, IDs or rare terms and hybrid dense+BM25 retrieval usually wins on mixed query types.",
+      "note": "retrieval_augmented_generation -- Evaluation/Context Window Management (chunk 6) + Key Challenges (chunk 5)",
+      "gold_chunk_ids": ["f08417a79e9ed8e6", "7bac4d8e30f7b55c"],
+      "gold": [
+        {
+          "chunk_id": "f08417a79e9ed8e6",
+          "source_doc": "retrieval_augmented_generation",
+          "chunk_index": 6,
+          "required_terms": ["groundedness", "faithfulness", "context relevance", "RAGAS, TruLens"]
+        },
+        {
+          "chunk_id": "7bac4d8e30f7b55c",
+          "source_doc": "retrieval_augmented_generation",
+          "chunk_index": 5,
+          "required_terms": ["Chunking Strategy", "Retrieval Quality", "BM25"]
+        }
+      ]
+    },
+    {
+      "query_id": "T11",
+      "split": "test",
+      "type": "cross-doc",
+      "source_docs": ["transformer_architecture", "knowledge_graphs"],
+      "query": "How does the Transformer represent the relationship between two tokens, and how does a knowledge graph embedding represent the relationship between two entities?",
+      "gold_answer": "In the Transformer, the relationship between two tokens is a dot product of their Query and Key vectors, scaled by the square root of the key dimension, and the softmax of those scores gives the weights of the weighted sum of Value vectors. A knowledge graph embedding does the same job for entities and relations in a vector space: TransE, the earliest and most influential model, represents a relationship as a translation so that head plus relation approximately equals tail, with RotatE, DistMult and ComplEx following and the resulting embeddings supporting link prediction and entity alignment.",
+      "note": "transformer_architecture -- Self-Attention (chunk 1) + knowledge_graphs -- KG Embeddings (chunk 7)",
+      "gold_chunk_ids": ["c81c2a06e4ee9667", "4e802a799a872699"],
+      "gold": [
+        {
+          "chunk_id": "c81c2a06e4ee9667",
+          "source_doc": "transformer_architecture",
+          "chunk_index": 1,
+          "required_terms": ["Query (Q)", "dot product", "softmax"]
+        },
+        {
+          "chunk_id": "4e802a799a872699",
+          "source_doc": "knowledge_graphs",
+          "chunk_index": 7,
+          "required_terms": ["TransE", "translations in embedding space", "entity alignment"]
+        }
+      ]
+    },
+    {
+      "query_id": "T12",
+      "split": "test",
+      "type": "cross-doc",
+      "source_docs": ["large_language_models", "transformer_architecture"],
+      "query": "Which architecture do modern large language models build on, and why does a long input cost more under that architecture?",
+      "gold_answer": "Modern LLMs are based on the Transformer architecture, and 'large' refers both to the number of parameters and to the scale of the training data, typically hundreds of billions to trillions of tokens drawn from web pages, books and code repositories. The price of a long input is quadratic: self-attention has quadratic complexity with respect to sequence length, which creates challenges for very long sequences, and variants such as Longformer, BigBird and Linformer use sparse or approximate attention patterns to reduce the cost.",
+      "note": "large_language_models -- Overview (chunk 0) + transformer_architecture -- Computational Considerations (chunk 4)",
+      "gold_chunk_ids": ["efaf36ff59adbf7d", "4af3dc8c5da84fad"],
+      "gold": [
+        {
+          "chunk_id": "efaf36ff59adbf7d",
+          "source_doc": "large_language_models",
+          "chunk_index": 0,
+          "required_terms": ["based on the Transformer architecture", "hundreds of billions to trillions of tokens"]
+        },
+        {
+          "chunk_id": "4af3dc8c5da84fad",
+          "source_doc": "transformer_architecture",
+          "chunk_index": 4,
+          "required_terms": ["quadratic complexity", "Longformer, BigBird, and Linformer"]
+        }
+      ]
+    },
+    {
+      "query_id": "T13",
+      "split": "test",
+      "type": "cross-doc",
+      "source_docs": ["retrieval_augmented_generation", "knowledge_graphs"],
+      "query": "How does a graph-based retrieval approach differ from building a knowledge graph to enrich search results?",
+      "gold_answer": "Graph RAG builds a knowledge graph from the document corpus by extracting entities and relationships with an LLM and then traverses the graph structure at query time to find relevant connected information, enabling the multi-hop reasoning that flat vector search cannot support; Microsoft's GraphRAG adds hierarchical community detection and community report generation for local and global queries. The knowledge-graph-for-search line of work instead makes the facts themselves retrievable: search engines show structured information panels next to the results, drawing structured facts such as birth date, nationality and notable works straight from the graph -- with the known caveats that most real-world graphs are incomplete (Freebase was estimated to be missing over 70% of birth places) and that automated extraction introduces noise and inconsistency.",
+      "note": "retrieval_augmented_generation -- Graph RAG (chunk 4) + knowledge_graphs -- Search Enhancement/Challenges (chunk 9)",
+      "gold_chunk_ids": ["b744eeebc1934b70", "ab2692f1a112544f"],
+      "gold": [
+        {
+          "chunk_id": "b744eeebc1934b70",
+          "source_doc": "retrieval_augmented_generation",
+          "chunk_index": 4,
+          "required_terms": ["Graph RAG", "multi-hop reasoning", "Microsoft's GraphRAG"]
+        },
+        {
+          "chunk_id": "ab2692f1a112544f",
+          "source_doc": "knowledge_graphs",
+          "chunk_index": 9,
+          "required_terms": ["Search Enhancement", "structured information panels", "Noise and Inconsistency"]
+        }
+      ]
+    },
+    {
+      "query_id": "T14",
+      "split": "test",
+      "type": "paraphrase",
+      "source_docs": ["vector_databases"],
+      "query": "For a modest number of items, which choices are enough, and what do they save compared with standing up a service?",
+      "gold_answer": "Vector database performance depends on index type, dataset size and hardware, and for research-scale applications with tens of thousands of vectors the in-process solutions -- FAISS, Chroma, LanceDB or Zvec -- are sufficient, eliminating the operational overhead of running a database server. At larger scale it is a different story: billion-vector datasets require GPU acceleration or distributed deployment, and GPU-accelerated search with cuVS or GPU-FAISS can achieve a 100x speedup over CPU.",
+      "note": "paraphrase of the Scalability and Performance passage; the query shares no stemmed content word with the gold chunk",
+      "gold_chunk_ids": ["99f7ac4bdc89395d"],
+      "gold": [
+        {
+          "chunk_id": "99f7ac4bdc89395d",
+          "source_doc": "vector_databases",
+          "chunk_index": 8,
+          "required_terms": ["tens of thousands of vectors", "100x speedup", "operational overhead"]
+        }
+      ]
+    },
+    {
+      "query_id": "T15",
+      "split": "test",
+      "type": "paraphrase",
+      "source_docs": ["vector_databases"],
+      "query": "How does a vendor-operated option differ from one you operate yourself, and what retrieval capabilities does each provide?",
+      "gold_answer": "Pinecone is a managed, cloud-native vector database service: it handles infrastructure, scaling and replication automatically and supports metadata filtering alongside vector search, which makes it a popular choice for production RAG deployments. Weaviate is an open-source vector database with a GraphQL API that stores objects alongside their vectors and supports both pure vector search and combined vector-plus-keyword (hybrid) search, and it can run as a standalone service or in a managed cloud deployment.",
+      "note": "paraphrase of the Pinecone/Weaviate passage; the query shares no stemmed content word with the gold chunk",
+      "gold_chunk_ids": ["025a4d30df8706bc"],
+      "gold": [
+        {
+          "chunk_id": "025a4d30df8706bc",
+          "source_doc": "vector_databases",
+          "chunk_index": 4,
+          "required_terms": ["Pinecone", "metadata filtering", "Weaviate", "hybrid search"]
+        }
+      ]
+    },
+    {
+      "query_id": "T16",
+      "split": "test",
+      "type": "paraphrase",
+      "source_docs": ["knowledge_graphs"],
+      "query": "In what way can a web of typed links reply to a human phrasing, and how can the same arrangement justify why something was suggested?",
+      "gold_answer": "Knowledge graphs enable structured question answering by traversing graph paths to find answers: KGQA systems convert natural language questions into structured graph queries (SPARQL) or use embedding-based lookup to find answer entities. The same structure also gives recommendations their explanation -- a knowledge graph connecting movies, directors, actors and genres lets a recommender system explain why a film was recommended based on shared attributes with previously watched content.",
+      "note": "paraphrase of the KG Applications passage; the query shares no stemmed content word with the gold chunk",
+      "gold_chunk_ids": ["a09f4455b7fef7fa"],
+      "gold": [
+        {
+          "chunk_id": "a09f4455b7fef7fa",
+          "source_doc": "knowledge_graphs",
+          "chunk_index": 8,
+          "required_terms": ["KGQA", "SPARQL", "Recommendation Systems"]
+        }
+      ]
+    },
+    {
+      "query_id": "T17",
+      "split": "test",
+      "type": "no-answer",
+      "source_docs": [],
+      "query": "What are Zvec's measured recall and p95 latency on the SIFT1M benchmark?",
+      "gold_answer": null,
+      "note": "NOT ANSWERABLE. The corpus describes Zvec's design (in-process hybrid search, dense + BM25 + scalar filtering, RRF and weighted fusion, built-in reranker) but reports no benchmark numbers, no SIFT1M and no latency or recall figures. The only ANN performance claim in the corpus is HNSW's 'sub-millisecond query times on million-scale datasets', which is a different system on a different dataset.",
+      "gold_chunk_ids": [],
+      "gold": []
+    },
+    {
+      "query_id": "T18",
+      "split": "test",
+      "type": "no-answer",
+      "source_docs": [],
+      "query": "How many parameters does the Google Knowledge Graph's dense embedding model have?",
+      "gold_answer": null,
+      "note": "NOT ANSWERABLE. The corpus says the Google Knowledge Graph contained over 500 million entities at launch, but describes no embedding model for it and gives no parameter count. The embedding models it does describe (TransE, RotatE, DistMult, ComplEx) are for knowledge graphs in general, not for Google's, and their dimensions are never stated either.",
+      "gold_chunk_ids": [],
+      "gold": []
+    },
+    {
+      "query_id": "T19",
+      "split": "test",
+      "type": "no-answer",
+      "source_docs": [],
+      "query": "Which GPU does the Vision Transformer paper recommend for training on ImageNet?",
+      "gold_answer": null,
+      "note": "NOT ANSWERABLE. The corpus mentions the Vision Transformer (ViT) and says it was developed at Google Research and applied the Transformer to image recognition by splitting images into patches, but names no dataset, no hardware and no training recommendation. 'ImageNet' and 'GPU' as a training target for ViT do not appear.",
+      "gold_chunk_ids": [],
+      "gold": []
+    },
+    {
+      "query_id": "T20",
+      "split": "test",
+      "type": "no-answer",
+      "source_docs": [],
+      "query": "What is the price per million tokens of the hosted API versions of GPT-4 and Claude?",
+      "gold_answer": null,
+      "note": "NOT ANSWERABLE. The corpus describes the open-weight LLaMA family and the in-process, cloud-free deployment story, and it says the hosted/API path is not what this project uses -- but it contains no per-token price for any model, hosted or not. A correct system must say the corpus does not contain this.",
+      "gold_chunk_ids": [],
+      "gold": []
+    }
+  ]
+}
