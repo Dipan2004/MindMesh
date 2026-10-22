@@ -14,7 +14,7 @@ tokenizer = get_tokenizer(cfg.TOKENIZER)
 
 docs = load_documents("data/raw")
 kg_doc = next(d for d in docs if d["doc_id"] == "knowledge_graphs")
-chunks = chunk_document(kg_doc, cfg.CHUNK_SIZE_EXTRACTION, cfg.CHUNK_OVERLAP_PCT, tokenizer)
+chunks = chunk_document(kg_doc, cfg, tokenizer)
 chunk = chunks[0]
 
 client = OllamaClient(cfg.SLM_MODEL)

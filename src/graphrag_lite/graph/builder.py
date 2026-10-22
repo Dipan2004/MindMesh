@@ -106,6 +106,12 @@ def build_graph(extractions: list[dict]) -> nx.DiGraph:
             etype = entity.get("type", "OTHER").strip().upper() or "OTHER"
             desc  = entity.get("description", "").strip()
             ssent = entity.get("source_sentence", "").strip()
+            # A "stub" entity was recovered by the extractor's endpoint
+            # filter: the name was named in a relationship but never listed
+            # as an entity. It is a real mention in the text, but a weaker
+            # one than a model-extracted entity. A node is a stub node
+            # only if EVERY occurrence of it was a stub.
+            is_stub = bool(entity.get("stub", False))
 
             if key not in canonical:
                 canonical[key] = name
@@ -115,12 +121,15 @@ def build_graph(extractions: list[dict]) -> nx.DiGraph:
                     descriptions=[{"text": desc, "chunk_id": chunk_id, "doc_id": doc_id}],
                     source_sentences=[{"text": ssent, "chunk_id": chunk_id, "doc_id": doc_id}],
                     source_docs={doc_id},
+                    stub=is_stub,
                 )
             else:
                 canon = canonical[key]
                 nd: dict[str, Any] = G.nodes[canon]
                 if nd["type"] == "OTHER" and etype != "OTHER":
                     nd["type"] = etype
+                if not is_stub:
+                    nd["stub"] = False
                 nd["descriptions"].append({"text": desc, "chunk_id": chunk_id, "doc_id": doc_id})
                 nd["source_sentences"].append({"text": ssent, "chunk_id": chunk_id, "doc_id": doc_id})
                 nd["source_docs"].add(doc_id)
@@ -195,6 +204,8 @@ def build_graph(extractions: list[dict]) -> nx.DiGraph:
             cd["source_docs"].update(od.get("source_docs", set()))
             if cd.get("type") == "OTHER" and od.get("type") != "OTHER":
                 cd["type"] = od["type"]
+            if not od.get("stub", False):
+                cd["stub"] = False
             for _, tgt, edata in list(G.out_edges(old_name, data=True)):
                 rt = tgt if tgt != old_name else canon
                 if rt != canon and not G.has_edge(canon, rt):

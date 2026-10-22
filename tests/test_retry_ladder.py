@@ -211,7 +211,8 @@ def test_a_failing_chunk_is_retried_with_escalated_penalties(monkeypatch):
     import graphrag_lite.ingestion.extractor as extractor
 
     cfg = type("C", (), {"effective_extraction_model": lambda self: "m",
-                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.5, 1.0]})()
+                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.5, 1.0],
+                         "EXTRACTION_STUB_ENDPOINTS": False})()
     monkeypatch.setattr(extractor, "get_config", lambda: cfg)
 
     client = _StubClient(failures=1, good=_GOOD_JSON)
@@ -228,7 +229,8 @@ def test_the_ladder_stops_at_the_first_success(monkeypatch):
     import graphrag_lite.ingestion.extractor as extractor
 
     cfg = type("C", (), {"effective_extraction_model": lambda self: "m",
-                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.5, 1.0]})()
+                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.5, 1.0],
+                         "EXTRACTION_STUB_ENDPOINTS": False})()
     monkeypatch.setattr(extractor, "get_config", lambda: cfg)
 
     client = _StubClient(failures=0, good=_GOOD_JSON)
@@ -240,7 +242,8 @@ def test_the_ladder_exhaustion_reraises_the_last_error(monkeypatch):
     import graphrag_lite.ingestion.extractor as extractor
 
     cfg = type("C", (), {"effective_extraction_model": lambda self: "m",
-                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.5, 1.0]})()
+                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.5, 1.0],
+                         "EXTRACTION_STUB_ENDPOINTS": False})()
     monkeypatch.setattr(extractor, "get_config", lambda: cfg)
 
     client = _StubClient(failures=99, good=_GOOD_JSON)
@@ -255,7 +258,8 @@ def test_a_client_without_with_overrides_gets_exactly_one_attempt(monkeypatch):
     import graphrag_lite.ingestion.extractor as extractor
 
     cfg = type("C", (), {"effective_extraction_model": lambda self: "m",
-                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.5, 1.0]})()
+                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.5, 1.0],
+                         "EXTRACTION_STUB_ENDPOINTS": False})()
     monkeypatch.setattr(extractor, "get_config", lambda: cfg)
 
     class Plain:
@@ -282,7 +286,8 @@ def test_a_rung_equal_to_the_current_penalty_is_skipped(monkeypatch):
     import graphrag_lite.ingestion.extractor as extractor
 
     cfg = type("C", (), {"effective_extraction_model": lambda self: "m",
-                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.25, 0.5, 1.0]})()
+                         "LLM_RETRY_FREQUENCY_PENALTIES": [0.25, 0.5, 1.0],
+                         "EXTRACTION_STUB_ENDPOINTS": False})()
     monkeypatch.setattr(extractor, "get_config", lambda: cfg)
 
     client = _StubClient(failures=99, good=_GOOD_JSON)

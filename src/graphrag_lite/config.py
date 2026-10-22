@@ -265,6 +265,29 @@ class Config(BaseSettings):
         ),
     )
 
+    EXTRACTION_STUB_ENDPOINTS: bool = Field(
+        default=False,
+        description=(
+            "If True, a relationship endpoint that is NOT in the chunk's "
+            "entity list is RECOVERED instead of dropped, provided the "
+            "endpoint's name occurs verbatim in the chunk text (casefold, "
+            "word boundaries). The recovered endpoint is added to the entity "
+            "list with type OTHER and the marker attribute stub=True, and "
+            "the relationship is kept. Endpoints whose names do NOT occur "
+            "in the text are still dropped with a warning. "
+            "DEFAULT OFF: the endpoint-consistency filter is a safety "
+            "property (a dangling edge is a hallucination), and turning it "
+            "off silently is not an option. "
+            "RATIONALE (2026-10-22): the filter drops 53 of the 171 "
+            "relationships the model emits (31%), 45 of them because the "
+            "model named an entity in a relationship that it did not also "
+            "list as an entity. Those are mostly NOT hallucinations -- the "
+            "name is in the chunk text. The verbatim check is the guard "
+            "that keeps genuinely fabricated endpoints out. "
+            "See DOCUMENT.md open item 8 and CONFIG.md changelog."
+        ),
+    )
+
     # ------------------------------------------------------------------ #
     # §3  Embedding
     # ------------------------------------------------------------------ #

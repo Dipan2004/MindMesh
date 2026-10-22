@@ -29,7 +29,19 @@ from graphrag_lite.ingestion.chunker import Chunk
 # Output types
 # ------------------------------------------------------------------ #
 
-class Entity(TypedDict):
+class _EntityExtra(TypedDict, total=False):
+    """
+    Optional keys on an Entity.
+
+    Python 3.10 (the project's floor) has no ``typing.NotRequired``, so the
+    optional key is declared in a ``total=False`` base and the required
+    keys in the subclass.  Totality is per-key: a key is required only if
+    it is declared in a class whose ``total`` is True.
+    """
+    stub: bool           # True for an entity recovered by the endpoint filter
+
+
+class Entity(_EntityExtra):
     name: str            # canonical entity name
     type: str            # e.g. PERSON, ORGANIZATION, CONCEPT, LOCATION
     description: str     # one-sentence description
@@ -87,6 +99,68 @@ TEXT:
 
 
 # ------------------------------------------------------------------ #
+# Endpoint-stub recovery helpers
+# ------------------------------------------------------------------ #
+
+def _normalize_ws(text: str) -> str:
+    """Collapse every run of whitespace to a single space."""
+    return " ".join(text.split())
+
+
+def _name_occurs_verbatim(name: str, text: str) -> bool:
+    """
+    True if ``name`` occurs in ``text`` as a whole word or whole phrase.
+
+    The comparison is case-insensitive (casefold) and whitespace-tolerant:
+    the chunk text may wrap a name across a newline, so internal runs of
+    whitespace are collapsed on both sides before the match.  The match is
+    bounded by word characters, so "AI" does not match "AIDS" and "Graph"
+    does not match "GraphQL".
+
+    A name that ends in punctuation (e.g. "U.S.") is bounded the same way:
+    the character after it must not be a word character, so "U.S." matches
+    "the U.S. economy" but not "the U.S.A economy".
+
+    This is the test the endpoint filter uses to decide whether a
+    relationship endpoint the model named but did not list as an entity is
+    a real thing mentioned in the chunk, or a hallucination.
+    """
+    if not name or not text:
+        return False
+    norm_name = _normalize_ws(name).casefold()
+    if not norm_name:
+        return False
+    norm_text = _normalize_ws(text).casefold()
+    # The name must not be glued to a neighbouring word character on either
+    # side. Lookarounds rather than \b, because \b is defined against
+    # \w and would misbehave for a name that starts or ends in punctuation.
+    pattern = r"(?<!\w)" + re.escape(norm_name) + r"(?!\w)"
+    return re.search(pattern, norm_text) is not None
+
+
+_SENTENCE_SPLIT = re.compile(r"(?<=[.!?])\s+")
+
+
+def _find_sentence_with(text: str, name: str) -> str:
+    """
+    Return the first sentence of ``text`` that contains ``name``.
+
+    Used to give a recovered stub entity a real ``source_sentence`` — the
+    same provenance contract every other entity has.  Returns "" when no
+    sentence contains the name (which cannot happen for a name that
+    passed ``_name_occurs_verbatim``, except when the name straddles a
+    sentence boundary).
+    """
+    target = _normalize_ws(name).casefold()
+    if not target:
+        return ""
+    for sentence in _SENTENCE_SPLIT.split(text):
+        if target in _normalize_ws(sentence).casefold():
+            return sentence.strip()
+    return ""
+
+
+# ------------------------------------------------------------------ #
 # JSON extraction helper
 # ------------------------------------------------------------------ #
 
@@ -138,7 +212,9 @@ def _extract_json(raw: str) -> dict:
 
 
 def _parse_extraction(raw_json: dict, chunk_id: str, doc_id: str,
-                      prior_entity_names: set[str] | None = None) -> ExtractionResult:
+                      prior_entity_names: set[str] | None = None,
+                      chunk_text: str | None = None,
+                      allow_stub_endpoints: bool = False) -> ExtractionResult:
     """Validate and normalise the parsed JSON into typed ExtractionResult.
 
     Parameters
@@ -150,6 +226,23 @@ def _parse_extraction(raw_json: dict, chunk_id: str, doc_id: str,
         gleaning relationships that reference first-pass entities are not
         incorrectly dropped just because the gleaning response didn't
         re-declare those entities.
+    chunk_text:
+        The source text of the chunk. Required when ``allow_stub_endpoints``
+        is True — it is the text the endpoint name is checked against.
+    allow_stub_endpoints:
+        When True, a relationship endpoint that is NOT in the entity list is
+        **recovered** instead of dropped, provided the endpoint's name occurs
+        verbatim in ``chunk_text``.  The recovered endpoint is added to the
+        entity list with type ``OTHER`` and the marker attribute
+        ``stub=True``; the relationship is then kept.  When the name does
+        not occur in the text the relationship is dropped exactly as before.
+
+        This is OFF by default (``EXTRACTION_STUB_ENDPOINTS``).  It exists
+        because the endpoint-consistency filter drops 31% of the
+        relationships the model emits, and most of those are not
+        hallucinations: the model simply listed the entity in the
+        relationship but not in the entity array.  The verbatim check is
+        the guard that keeps genuinely fabricated endpoints out.
     """
     entities: list[Entity] = []
     for e in raw_json.get("entities") or []:
@@ -170,6 +263,11 @@ def _parse_extraction(raw_json: dict, chunk_id: str, doc_id: str,
     if prior_entity_names:
         entity_names = entity_names | prior_entity_names
 
+    # Stub entities recovered by the endpoint filter, keyed by the
+    # lowercased endpoint name so the same missing endpoint is only
+    # recovered once per chunk.
+    stubs: dict[str, Entity] = {}
+
     relationships: list[Relationship] = []
     for r in raw_json.get("relationships") or []:
         if not isinstance(r, dict):
@@ -189,6 +287,52 @@ def _parse_extraction(raw_json: dict, chunk_id: str, doc_id: str,
         src_known = rel["source"].lower() in entity_names
         tgt_known = rel["target"].lower() in entity_names
         if not src_known or not tgt_known:
+            # ---- Conditional recovery (EXTRACTION_STUB_ENDPOINTS) ---------
+            # An endpoint the model named in a relationship but did not list
+            # as an entity is recovered ONLY if the name occurs verbatim in
+            # the chunk text. Otherwise it is dropped, exactly as before.
+            if allow_stub_endpoints and chunk_text is not None:
+                recoverable: list[str] = []
+                for endpoint in (rel["source"], rel["target"]):
+                    key = endpoint.lower()
+                    if key in entity_names:
+                        continue
+                    if key in stubs:
+                        continue          # already recovered in this chunk
+                    if _name_occurs_verbatim(endpoint, chunk_text):
+                        recoverable.append(endpoint)
+                    else:
+                        recoverable = []   # one bad endpoint dooms the pair
+                        break
+                if recoverable:
+                    for endpoint in recoverable:
+                        key = endpoint.lower()
+                        sentence = _find_sentence_with(chunk_text, endpoint)
+                        stub: Entity = {
+                            "name": endpoint,
+                            "type": "OTHER",
+                            "description": (
+                                "Recovered as a relationship endpoint: the name "
+                                "occurs in the chunk text but was not listed as "
+                                "an extracted entity."
+                            ),
+                            "source_sentence": sentence or rel["source_sentence"],
+                            "stub": True,
+                        }
+                        stubs[key] = stub
+                        entities.append(stub)
+                        entity_names.add(key)
+                    warnings.warn(
+                        f"[extractor] chunk={chunk_id} doc={doc_id}: RECOVERED "
+                        f"relationship ({rel['source']!r} --{rel['type']}--> "
+                        f"{rel['target']!r}) by adding stub entity/entities "
+                        f"{[e for e in recoverable]!r} (present in chunk text)",
+                        UserWarning,
+                        stacklevel=2,
+                    )
+                    relationships.append(rel)
+                    continue
+            # ----------------------------------------------------------------
             missing = []
             if not src_known:
                 missing.append(f"source={rel['source']!r}")
@@ -308,7 +452,13 @@ def extract_entities_relationships(
 
         try:
             raw_json = _extract_json(raw_response)
-            return _parse_extraction(raw_json, chunk["chunk_id"], chunk["doc_id"])
+            return _parse_extraction(
+                raw_json,
+                chunk["chunk_id"],
+                chunk["doc_id"],
+                chunk_text=chunk["text"],
+                allow_stub_endpoints=cfg.EXTRACTION_STUB_ENDPOINTS,
+            )
         except ValueError as exc:
             last_error = exc
             if attempt + 1 < len(ladder):

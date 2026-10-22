@@ -187,7 +187,9 @@ def glean(
             # first-pass entities are not dropped (gleaning validation bug fix).
             prior_names = {e["name"].lower() for e in result["entities"]}
             new_result = _parse_extraction(raw_json, chunk["chunk_id"], chunk["doc_id"],
-                                           prior_entity_names=prior_names)
+                                           prior_entity_names=prior_names,
+                                           chunk_text=chunk["text"],
+                                           allow_stub_endpoints=cfg.EXTRACTION_STUB_ENDPOINTS)
         except ValueError:
             # Unparseable gleaning response — treat as "nothing new found"
             # and stop gleaning rather than crashing the whole pipeline.
