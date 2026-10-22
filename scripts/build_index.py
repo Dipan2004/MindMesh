@@ -48,6 +48,10 @@ def run_extract(data_dir: str, out_path: str) -> None:
         temperature=cfg.EXTRACTION_TEMPERATURE,
         seed=cfg.EXTRACTION_SEED,
         timeout=cfg.LLM_TIMEOUT_S,
+        num_predict=cfg.LLM_NUM_PREDICT,
+        think=cfg.effective_think(),
+        num_ctx=cfg.LLM_NUM_CTX,
+        frequency_penalty=cfg.LLM_FREQUENCY_PENALTY,
     )
 
     reset_stats()

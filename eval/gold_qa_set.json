@@ -1,0 +1,274 @@
+{
+  "created_by": "tests/exp_gold_set.py",
+  "method": "Gold chunk ids chosen by reading the source documents under data/raw/ and locating the passage that answers the query. Written before Pipeline A and Pipeline B were run. No retrieval output was consulted.",
+  "chunking_strategy": "markdown_aware",
+  "chunk_size_extraction": 450,
+  "queries": [
+    {
+      "query_id": "Q01",
+      "query": "How does the self-attention mechanism compute attention scores?",
+      "note": "transformer_architecture -- Self-Attention Mechanism section",
+      "gold_chunk_ids": [
+        "c81c2a06e4ee9667"
+      ],
+      "gold": [
+        {
+          "chunk_id": "c81c2a06e4ee9667",
+          "chunk_id_prefix": "c81c2a06",
+          "source_doc": "transformer_architecture",
+          "chunk_index": 1,
+          "token_count": 137,
+          "heading": "## Core Components",
+          "required_terms": [
+            "Self-Attention Mechanism",
+            "Query (Q)",
+            "attention score"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "The self-attention mechanism allows the model to weigh the importance of different tokens in a sequence when encoding a particular token. For each token, the model computes three vectors: a Query (Q), a Key (K), and a Value (V). The attention score between two tokens is computed as the dot product o"
+        }
+      ]
+    },
+    {
+      "query_id": "Q02",
+      "query": "What is the Encoder-Decoder structure of the original Transformer?",
+      "note": "transformer_architecture -- Encoder-Decoder Structure section",
+      "gold_chunk_ids": [
+        "a885be6b749e39a1"
+      ],
+      "gold": [
+        {
+          "chunk_id": "a885be6b749e39a1",
+          "chunk_id_prefix": "a885be6b",
+          "source_doc": "transformer_architecture",
+          "chunk_index": 3,
+          "token_count": 154,
+          "heading": "### Positional Encoding",
+          "required_terms": [
+            "Encoder-Decoder Structure",
+            "encoder",
+            "decoder"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "Since the Transformer contains no recurrence or convolution, it has no inherent notion of sequence order. Positional encodings are added to the input embeddings to inject information about the position of each token. The original paper used sine and cosine functions of different frequencies to gener"
+        }
+      ]
+    },
+    {
+      "query_id": "Q03",
+      "query": "How are entities and relationships extracted from text in GraphRAG?",
+      "note": "knowledge_graphs -- Automated Extraction section",
+      "gold_chunk_ids": [
+        "6d878b7f56a99aa2"
+      ],
+      "gold": [
+        {
+          "chunk_id": "6d878b7f56a99aa2",
+          "chunk_id_prefix": "6d878b7f",
+          "source_doc": "knowledge_graphs",
+          "chunk_index": 6,
+          "token_count": 109,
+          "heading": "### Automated Extraction",
+          "required_terms": [
+            "Automated Extraction",
+            "named entity recognition"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "Modern knowledge graphs are largely built through automated information extraction from text using named entity recognition (NER), relation extraction, and coreference resolution. Systems like OpenIE extract subject-predicate-object triples from unstructured text at scale. Large language models have"
+        }
+      ]
+    },
+    {
+      "query_id": "Q04",
+      "query": "What is Wikidata and who maintains it?",
+      "note": "knowledge_graphs -- Wikidata subsection (Wikimedia Foundation)",
+      "gold_chunk_ids": [
+        "3256abe3c09bca47"
+      ],
+      "gold": [
+        {
+          "chunk_id": "3256abe3c09bca47",
+          "chunk_id_prefix": "3256abe3",
+          "source_doc": "knowledge_graphs",
+          "chunk_index": 3,
+          "token_count": 160,
+          "heading": "### Ontologies and Schemas",
+          "required_terms": [
+            "Wikidata",
+            "Wikimedia Foundation"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "An ontology defines the types of entities and relationships that can exist in a knowledge graph and the logical constraints on how they relate. Widely-used ontologies include Schema.org (used for web markup), DBpedia (extracted from Wikipedia infoboxes), and domain-specific ontologies in healthcare "
+        }
+      ]
+    },
+    {
+      "query_id": "Q05",
+      "query": "What are knowledge graph embedding methods like TransE and RotatE?",
+      "note": "knowledge_graphs -- Knowledge Graph Embeddings section",
+      "gold_chunk_ids": [
+        "4e802a799a872699"
+      ],
+      "gold": [
+        {
+          "chunk_id": "4e802a799a872699",
+          "chunk_id_prefix": "4e802a79",
+          "source_doc": "knowledge_graphs",
+          "chunk_index": 7,
+          "token_count": 132,
+          "heading": "## Knowledge Graph Embeddings",
+          "required_terms": [
+            "TransE",
+            "RotatE"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "Knowledge graph embedding models represent entities and relationships as dense vectors in a continuous space, enabling downstream machine learning tasks. TransE, one of the earliest and most influential models, represents relationships as translations in embedding space: if (head, relation, tail) is"
+        }
+      ]
+    },
+    {
+      "query_id": "Q06",
+      "query": "What makes Zvec different from FAISS for hybrid search?",
+      "note": "vector_databases -- Hybrid Search, Zvec section, FAISS section",
+      "gold_chunk_ids": [
+        "5a5f4b8aeeb5ae55",
+        "895ee8b439ed7d7b",
+        "d49b99f9a418a0fb"
+      ],
+      "gold": [
+        {
+          "chunk_id": "5a5f4b8aeeb5ae55",
+          "chunk_id_prefix": "5a5f4b8a",
+          "source_doc": "vector_databases",
+          "chunk_index": 6,
+          "token_count": 206,
+          "heading": "### LanceDB",
+          "required_terms": [
+            "Zvec"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "LanceDB is an open-source, serverless vector database built on the Lance columnar format. It runs in-process (embedded) with no server required, supports SQL-like queries alongside vector search, and is designed for multimodal data (text, images, video). Microsoft GraphRAG uses LanceDB as its defaul"
+        },
+        {
+          "chunk_id": "895ee8b439ed7d7b",
+          "chunk_id_prefix": "895ee8b4",
+          "source_doc": "vector_databases",
+          "chunk_index": 7,
+          "token_count": 131,
+          "heading": "## Hybrid Search",
+          "required_terms": [
+            "Hybrid Search"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "Pure vector search retrieves semantically similar documents but can miss exact-match queries for specific named entities, identifiers, or rare terms. Pure keyword search (BM25/TF-IDF) handles exact matches well but fails on semantic or paraphrase queries. Hybrid search combines both signals to outpe"
+        },
+        {
+          "chunk_id": "d49b99f9a418a0fb",
+          "chunk_id_prefix": "d49b99f9",
+          "source_doc": "vector_databases",
+          "chunk_index": 3,
+          "token_count": 160,
+          "heading": "### Distance Metrics",
+          "required_terms": [
+            "FAISS"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "Cosine similarity measures the angle between two vectors, capturing directional similarity regardless of magnitude. It is the standard metric for text embedding similarity. Dot product (inner product) similarity is equivalent to cosine similarity when vectors are normalized. Euclidean (L2) distance "
+        }
+      ]
+    },
+    {
+      "query_id": "Q07",
+      "query": "What is Retrieval-Augmented Generation and why does it matter?",
+      "note": "retrieval_augmented_generation -- RAG overview",
+      "gold_chunk_ids": [
+        "33d32892fc640b3f"
+      ],
+      "gold": [
+        {
+          "chunk_id": "33d32892fc640b3f",
+          "chunk_id_prefix": "33d32892",
+          "source_doc": "retrieval_augmented_generation",
+          "chunk_index": 0,
+          "token_count": 144,
+          "heading": "# Retrieval-Augmented Generation (RAG)",
+          "required_terms": [
+            "Retrieval-Augmented Generation (RAG) is"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "Retrieval-Augmented Generation (RAG) is a technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time. It was introduced by Lewis et al. at Facebook AI Research in the 2020 paper \"Retrieval-Augmented Generation for Knowledge-Intensive"
+        }
+      ]
+    },
+    {
+      "query_id": "Q08",
+      "query": "How does HyDE improve retrieval quality in RAG systems?",
+      "note": "retrieval_augmented_generation -- Advanced RAG (HyDE)",
+      "gold_chunk_ids": [
+        "b744eeebc1934b70"
+      ],
+      "gold": [
+        {
+          "chunk_id": "b744eeebc1934b70",
+          "chunk_id_prefix": "b744eeeb",
+          "source_doc": "retrieval_augmented_generation",
+          "chunk_index": 4,
+          "token_count": 144,
+          "heading": "### Advanced RAG",
+          "required_terms": [
+            "HyDE"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "Adds pre-retrieval steps (query rewriting, hypothetical document embedding) and post-retrieval steps (reranking, context compression). HyDE (Hypothetical Document Embeddings) generates a hypothetical answer to the query first, then uses that as the retrieval query, often improving recall. Graph RAG "
+        }
+      ]
+    },
+    {
+      "query_id": "Q09",
+      "query": "What is HNSW and how does it speed up approximate nearest neighbor search?",
+      "note": "vector_databases -- Approximate Nearest Neighbor Search section",
+      "gold_chunk_ids": [
+        "417905a71f013c88"
+      ],
+      "gold": [
+        {
+          "chunk_id": "417905a71f013c88",
+          "chunk_id_prefix": "417905a7",
+          "source_doc": "vector_databases",
+          "chunk_index": 2,
+          "token_count": 248,
+          "heading": "## Core Concepts",
+          "required_terms": [
+            "HNSW"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "An embedding is a dense, fixed-length vector (typically 384 to 4096 dimensions) that represents the semantic content of an input. Embeddings are generated by passing text (or images, audio, etc.) through a trained encoder model. The embedding model maps inputs to vectors such that semantically simil"
+        }
+      ]
+    },
+    {
+      "query_id": "Q10",
+      "query": "What is Direct Preference Optimization and how does it differ from RLHF?",
+      "note": "large_language_models -- Direct Preference Optimization section",
+      "gold_chunk_ids": [
+        "5c56e059e8cebff9"
+      ],
+      "gold": [
+        {
+          "chunk_id": "5c56e059e8cebff9",
+          "chunk_id_prefix": "5c56e059",
+          "source_doc": "large_language_models",
+          "chunk_index": 3,
+          "token_count": 298,
+          "heading": "### Direct Preference Optimization",
+          "required_terms": [
+            "Direct Preference Optimization",
+            "RLHF"
+          ],
+          "required_terms_present": true,
+          "evidence_snippet": "Direct Preference Optimization (DPO) is a more recent alternative to RLHF that eliminates the need for an explicit reward model and RL training loop. It directly optimizes the language model on preference pairs (chosen and rejected responses), making the training process simpler and more stable. DPO"
+        }
+      ]
+    }
+  ]
+}

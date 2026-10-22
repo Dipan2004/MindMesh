@@ -10,7 +10,7 @@ Hardened exception handling:
   - all print() calls use flush=True so a crash leaves accurate last-known-state
 """
 from __future__ import annotations
-import os, sys, warnings
+import json, os, sys, warnings
 from collections import Counter
 
 try:
@@ -23,19 +23,28 @@ except ImportError:
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", "..", "src"))
 
+# ── Isolation: this script CLEARS its cache, so it must never point at the
+# canonical cache at data/cache. Give it a private directory and its own
+# output file. Set before importing graphrag_lite so get_config() sees it.
+strategy = os.environ.get("DEDUP_STRATEGY", "markdown_aware")
+size_str = "250" if strategy == "small_window" else "450"
+
+CACHE_DIR = f"data/cache/exp_dedup_single_{strategy}"
+OUT_JSON = f"data/cache/exp_dedup_single_{strategy}.json"
+os.makedirs(CACHE_DIR, exist_ok=True)
+os.environ["CACHE_DIR"] = CACHE_DIR
+os.environ["ZVEC_ROOT"] = "data/cache"      # canonical collections, read-only
+os.environ["CHUNKING_STRATEGY"] = strategy
+os.environ["CHUNK_SIZE_EXTRACTION"] = size_str
+
 from graphrag_lite.ingestion.loader import load_documents
 from graphrag_lite.ingestion.chunker import chunk_document, get_tokenizer
 from graphrag_lite.ingestion.extractor import extract_entities_relationships
 from graphrag_lite.ingestion.gleaning import glean
 from graphrag_lite.llm.ollama_client import OllamaClient
-from graphrag_lite.cache.llm_cache import clear_cache, reset_stats, cache_stats
+from graphrag_lite.cache.llm_cache import clear_cache, reset_stats, cache_stats, _get_cache
 from graphrag_lite.config import get_config
 
-strategy = os.environ.get("DEDUP_STRATEGY", "markdown_aware")
-size_str = "250" if strategy == "small_window" else "450"
-
-os.environ["CHUNKING_STRATEGY"] = strategy
-os.environ["CHUNK_SIZE_EXTRACTION"] = size_str
 get_config.cache_clear()
 cfg = get_config()
 
@@ -47,6 +56,10 @@ client = OllamaClient(
     seed=cfg.EXTRACTION_SEED,
     timeout=cfg.LLM_TIMEOUT_S,
 )
+
+print(f"CACHE_DIR              : {cfg.CACHE_DIR}", flush=True)
+print(f"Cache entries at start : {len(_get_cache())}", flush=True)
+print(f"Output file            : {OUT_JSON}", flush=True)
 
 clear_cache()
 reset_stats()
@@ -103,3 +116,24 @@ print("Top-15 most repeated names:", flush=True)
 for name, count in Counter(raw_names).most_common(15):
     if count > 1:
         print(f"  count={count}  {name!r}", flush=True)
+
+with open(OUT_JSON, "w", encoding="utf-8") as fh:
+    json.dump({
+        "strategy": strategy,
+        "chunk_size": size_str,
+        "cache_dir": cfg.CACHE_DIR,
+        "chunks": len(all_chunks),
+        "failed_chunks": failed,
+        "raw_entities": raw,
+        "unique_entities": unique,
+        "dedup_ratio": ratio,
+        "unique_per_1k_tokens": unique_per_1k,
+        "cache_hits": stats["hits"],
+        "cache_misses": stats["misses"],
+        "top_repeated": dict(Counter(raw_names).most_common(15)),
+    }, fh, indent=2, ensure_ascii=False)
+
+print(flush=True)
+print(f"CACHE_DIR              : {cfg.CACHE_DIR}", flush=True)
+print(f"Cache entries at end   : {len(_get_cache())}", flush=True)
+print(f"Wrote {OUT_JSON}", flush=True)
