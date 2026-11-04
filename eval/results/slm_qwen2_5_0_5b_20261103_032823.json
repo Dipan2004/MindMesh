@@ -1,0 +1,764 @@
+{
+  "timestamp": "2026-11-03T03:42:42",
+  "model": "qwen2.5:0.5b",
+  "ranking_method": "pagerank",
+  "format": "toon",
+  "pipeline": "b",
+  "results": {
+    "b": [
+      {
+        "query_id": "D01",
+        "type": "single-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "c81c2a06e4ee9667",
+          "745e90bb807507b6",
+          "a5123f467123650e",
+          "4af3dc8c5da84fad",
+          "a885be6b749e39a1",
+          "d49b99f9a418a0fb"
+        ],
+        "gold_chunk_ids": [
+          "c81c2a06e4ee9667"
+        ],
+        "cited_ids": [
+          "c81c2a06e4ee9667"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.6667,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "The self-attention mechanism computes attention scores between two tokens by computing the dot product of their Query and Key vectors, scaled by the square root of the key dimension. [0]",
+        "evidence_token_count": 1184,
+        "answer_token_count": 36,
+        "retrieval_latency_s": 2.703,
+        "generation_latency_s": 18.097,
+        "total_latency_s": 20.8
+      },
+      {
+        "query_id": "D02",
+        "type": "single-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "a885be6b749e39a1",
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "a5123f467123650e",
+          "e146728cdddcf0e5",
+          "efaf36ff59adbf7d"
+        ],
+        "gold_chunk_ids": [
+          "a885be6b749e39a1"
+        ],
+        "cited_ids": [
+          "a885be6b749e39a1"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.6667,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "The original Transformer consists of an encoder and a decoder. The encoder maps an input sequence of symbols to a sequence of continuous representations. The decoder then generates an output sequence one symbol at a time, attending to both the encoder output and its own previous outputs. [0]",
+        "evidence_token_count": 1137,
+        "answer_token_count": 54,
+        "retrieval_latency_s": 2.869,
+        "generation_latency_s": 13.521,
+        "total_latency_s": 16.391
+      },
+      {
+        "query_id": "D03",
+        "type": "single-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "6d878b7f56a99aa2",
+          "b744eeebc1934b70",
+          "6fc475866849cd38",
+          "3256abe3c09bca47",
+          "4e802a799a872699",
+          "0282ea8070392cd0"
+        ],
+        "gold_chunk_ids": [
+          "6d878b7f56a99aa2"
+        ],
+        "cited_ids": [
+          "6fc475866849cd38"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.0,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "## Advanced RAG [2] GraphRAG builds a knowledge graph from the document corpus by extracting entities and relationships using an LLM. At query time, it traverses the graph structure to find relevant connected information, enabling multi-hop reasoning that flat vector search cannot support. Microsoft's GraphRAG system is a prominent example, using hierarchical community detection and community report generation to support both local and global queries.",
+        "evidence_token_count": 999,
+        "answer_token_count": 82,
+        "retrieval_latency_s": 3.112,
+        "generation_latency_s": 13.873,
+        "total_latency_s": 16.986
+      },
+      {
+        "query_id": "D04",
+        "type": "single-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "3256abe3c09bca47",
+          "b76780cc91220506",
+          "a04b3d90e2da113b",
+          "025a4d30df8706bc",
+          "0282ea8070392cd0",
+          "d49b99f9a418a0fb"
+        ],
+        "gold_chunk_ids": [
+          "3256abe3c09bca47"
+        ],
+        "cited_ids": [
+          "3256abe3c09bca47"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.6667,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "Wikidata is a free, collaboratively edited knowledge base maintained by the Wikimedia Foundation. It serves as a central storage hub for structured data across all Wikimedia projects, including Wikipedia. [0]",
+        "evidence_token_count": 993,
+        "answer_token_count": 38,
+        "retrieval_latency_s": 1.714,
+        "generation_latency_s": 11.245,
+        "total_latency_s": 12.959
+      },
+      {
+        "query_id": "D05",
+        "type": "single-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "4e802a799a872699",
+          "0282ea8070392cd0",
+          "a09f4455b7fef7fa",
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "3256abe3c09bca47"
+        ],
+        "gold_chunk_ids": [
+          "4e802a799a872699"
+        ],
+        "cited_ids": [
+          "4e802a799a872699",
+          "0282ea8070392cd0",
+          "a09f4455b7fef7fa",
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "3256abe3c09bca47"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.75,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "TransE: Represent relationships as translations in embedding space. [0] RotatE: Relations as rotations in complex space. [1] DistMult: Bilinear scoring. [2] ComplEx: Complex-valued embeddings. [3] HyDE: Generates a hypothetical answer to the query first, then uses that as the retrieval query, often improving recall. [4] Ontologies and Schemas: An ontology defines the types of entities and relationships that can exist in a knowledge graph and the logical constraints on how they relate. Widely-used ontologies include Schema.org (used for web markup), DBpedia (extracted from Wikipedia infoboxes), and domain-specific ontologies in healthcare (SNOMED CT), biology (Gene Ontology), and finance. [5]",
+        "evidence_token_count": 1086,
+        "answer_token_count": 158,
+        "retrieval_latency_s": 2.122,
+        "generation_latency_s": 16.958,
+        "total_latency_s": 19.079
+      },
+      {
+        "query_id": "D06",
+        "type": "single-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "33d32892fc640b3f",
+          "b744eeebc1934b70",
+          "71387ffa83db5d3c",
+          "7bac4d8e30f7b55c",
+          "d49b99f9a418a0fb",
+          "895ee8b439ed7d7b"
+        ],
+        "gold_chunk_ids": [
+          "33d32892fc640b3f"
+        ],
+        "cited_ids": [
+          "33d32892fc640b3f",
+          "b744eeebc1934b70",
+          "71387ffa83db5d3c",
+          "7bac4d8e30f7b55c",
+          "d49b99f9a418a0fb",
+          "895ee8b439ed7d7b"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.6667,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "Retrieval-Augmented Generation (RAG) is a technique that enhances large language models' outputs by grounding them in relevant external documents retrieved at query time. It was introduced by Lewis et al. at Facebook AI Research in the 2020 paper \"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.\" [0] Advanced RAG adds pre-retrieval steps (query rewriting, hypothetical document embedding) and post-retrieval steps (reranking, context compression). HyDE (Hypothetical Document Embeddings) generates a hypothetical answer to the query first, then uses that as the retrieval query, often improving recall. [1] Graph RAG builds a knowledge graph from the document corpus by extracting entities and relationships using an LLM. At query time, it traverses the graph structure to find relevant connected information, enabling multi-hop reasoning that flat vector search cannot support. Microsoft's GraphRAG system is a prominent example, using hierarchical community detection and community report generation to support both local and global queries. [2] Modular RAG decomposes the RAG pipeline into interchangeable modules for indexing, retrieval, reranking, and generation. This allows mixing and matching components for specific use cases. [3] Distance Metrics: Cosine similarity measures the angle between two vectors, capturing directional similarity regardless of magnitude. It is the standard metric for text embedding similarity. Dot product (inner product) similarity is equivalent to cosine similarity when vectors are normalized. Euclidean (L2) distance measures straight-line distance between points and is common in image embedding applications. [4] FAISS (Facebook AI Similarity Search) is an open-source library developed by Meta AI Research for efficient similarity search and clustering of dense vectors. It supports multiple index types including IVF, HNSW, and PQ (Product Quantization). FAISS runs entirely in-process — there is no server component — making it suitable for embedded applications and research prototypes. It does not natively support metadata filtering. [5]",
+        "evidence_token_count": 1057,
+        "answer_token_count": 404,
+        "retrieval_latency_s": 1.723,
+        "generation_latency_s": 27.128,
+        "total_latency_s": 28.851
+      },
+      {
+        "query_id": "D07",
+        "type": "single-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "b744eeebc1934b70",
+          "7bac4d8e30f7b55c",
+          "33d32892fc640b3f",
+          "f08417a79e9ed8e6",
+          "71387ffa83db5d3c",
+          "4dcff615e7a2ceff"
+        ],
+        "gold_chunk_ids": [
+          "b744eeebc1934b70"
+        ],
+        "cited_ids": [
+          "b744eeebc1934b70",
+          "7bac4d8e30f7b55c"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.3333,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "HyDE (Hypothetical Document Embeddings) generates a hypothetical answer to the query first, then uses that as the retrieval query, often improving recall. [0] The company was founded by Jane Doe. [1]",
+        "evidence_token_count": 1057,
+        "answer_token_count": 46,
+        "retrieval_latency_s": 1.831,
+        "generation_latency_s": 12.794,
+        "total_latency_s": 14.625
+      },
+      {
+        "query_id": "D08",
+        "type": "single-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "417905a71f013c88",
+          "e146728cdddcf0e5",
+          "d49b99f9a418a0fb",
+          "99f7ac4bdc89395d",
+          "d64267739e25869c",
+          "895ee8b439ed7d7b"
+        ],
+        "gold_chunk_ids": [
+          "417905a71f013c88"
+        ],
+        "cited_ids": [
+          "417905a71f013c88"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.3333,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "HNSW (Hierarchical Navigable Small World) is a hierarchical clustering algorithm that builds a multi-layer graph where each layer is a navigable small-world network. Queries start at the top layer and greedily descend to the bottom layer, following edges to progressively closer nodes. HNSW achieves sub-millisecond query times on million-scale datasets. [0]",
+        "evidence_token_count": 1129,
+        "answer_token_count": 73,
+        "retrieval_latency_s": 1.695,
+        "generation_latency_s": 14.617,
+        "total_latency_s": 16.312
+      },
+      {
+        "query_id": "D09",
+        "type": "single-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "5c56e059e8cebff9",
+          "32c85d7ec02b6b19",
+          "d49b99f9a418a0fb",
+          "895ee8b439ed7d7b",
+          "3256abe3c09bca47",
+          "310582c41776ab06"
+        ],
+        "gold_chunk_ids": [
+          "5c56e059e8cebff9"
+        ],
+        "cited_ids": [
+          "5c56e059e8cebff9"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.6667,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "Direct Preference Optimization (DPO) is a more recent alternative to RLHF that eliminates the need for an explicit reward model and RL training loop. It directly optimizes the language model on preference pairs (chosen and rejected responses), making the training process simpler and more stable. [0]",
+        "evidence_token_count": 1240,
+        "answer_token_count": 57,
+        "retrieval_latency_s": 1.718,
+        "generation_latency_s": 15.127,
+        "total_latency_s": 16.846
+      },
+      {
+        "query_id": "D10",
+        "type": "two-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "7bac4d8e30f7b55c",
+          "33d32892fc640b3f",
+          "e146728cdddcf0e5",
+          "b744eeebc1934b70",
+          "4dcff615e7a2ceff",
+          "895ee8b439ed7d7b"
+        ],
+        "gold_chunk_ids": [
+          "4dcff615e7a2ceff",
+          "7bac4d8e30f7b55c"
+        ],
+        "cited_ids": [
+          "7bac4d8e30f7b55c"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.0,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "The basic retrieval-augmented pipeline consists of three main components: the retriever, the document store / vector index, and the generator. The retriever encodes both queries and documents into dense vector representations using a bi-encoder model. During retrieval, the query vector is compared against all document vectors using approximate nearest neighbor search. The document store / vector index supports fast approximate nearest neighbor search. The generator is a sequence-to-sequence model that takes the concatenated query and retrieved passages as input and produces the final answer. In the original paper, BART was used as the generator. Modern RAG systems typically use instruction-tuned LLMs like GPT-4, Claude, or Llama. [0]",
+        "evidence_token_count": 1069,
+        "answer_token_count": 144,
+        "retrieval_latency_s": 1.855,
+        "generation_latency_s": 16.632,
+        "total_latency_s": 18.487
+      },
+      {
+        "query_id": "D11",
+        "type": "two-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "ba8440076ddd110a",
+          "b76780cc91220506",
+          "0282ea8070392cd0",
+          "ab2692f1a112544f",
+          "a09f4455b7fef7fa",
+          "b744eeebc1934b70"
+        ],
+        "gold_chunk_ids": [
+          "ba8440076ddd110a",
+          "b76780cc91220506"
+        ],
+        "cited_ids": [
+          "ba8440076ddd110a"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.2857,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "The Google Knowledge Graph was launched in 2012 when Google acquired Freebase in 2010. It was one of the primary data sources for the Google Knowledge Graph. Google shut down Freebase in 2016 and migrated its data to Wikidata. [0]",
+        "evidence_token_count": 1019,
+        "answer_token_count": 54,
+        "retrieval_latency_s": 1.848,
+        "generation_latency_s": 13.724,
+        "total_latency_s": 15.572
+      },
+      {
+        "query_id": "D12",
+        "type": "two-chunk",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "d49b99f9a418a0fb",
+          "3256abe3c09bca47",
+          "5a5f4b8aeeb5ae55",
+          "99f7ac4bdc89395d",
+          "b76780cc91220506",
+          "e146728cdddcf0e5"
+        ],
+        "gold_chunk_ids": [
+          "d49b99f9a418a0fb",
+          "5a5f4b8aeeb5ae55"
+        ],
+        "cited_ids": [
+          "d49b99f9a418a0fb",
+          "3256abe3c09bca47",
+          "5a5f4b8aeeb5ae55",
+          "99f7ac4bdc89395d",
+          "b76780cc91220506",
+          "e146728cdddcf0e5"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.8571,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "FAISS is an open-source library for efficient similarity search and clustering of dense vectors. It supports multiple index types including IVF, HNSW, and PQ (Product Quantization). FAISS runs entirely in-process and does not natively support metadata filtering. [0] LanceDB is an open-source, serverless vector database built on the Lance columnar format. It runs in-process with no server required, supports SQL-like queries alongside vector search, and is designed for multimodal data (text, images, video). Microsoft GraphRAG uses LanceDB as its default local vector store. [1] Wikipedia is a free, collaboratively edited knowledge base maintained by the Wikimedia Foundation. It serves as a central storage hub for structured data across all Wikimedia projects, including Wikipedia. Wikipedia contains over 100 million data items and supports multiple languages. It was founded in 2001 and is maintained by the Wikimedia Foundation. [2] Zvec is an open-source, in-process hybrid vector database released in February 2026 (v0.5.0, June 2026). It is designed specifically for hybrid search — combining dense vector search with BM25 full-text search and scalar filtering in a single query call. Zvec uses Reciprocal Rank Fusion (RRF) and weighted fusion to combine dense and sparse retrieval signals. Unlike FAISS or LanceDB, Zvec includes a built-in reranker, eliminating the need for a separate reranking model. Its in-process, serverless design makes it suitable for local AI applications and research prototypes where cloud dependencies are undesirable. [3] Freebase was a large collaborative knowledge base developed by Metaweb and acquired by Google in 2010. It was one of the primary data sources for the Google Knowledge Graph. Google shut down Freebase in 2016 and migrated its data to Wikidata. [4] DBpedia is a project that extracts structured information from Wikipedia and makes it available as linked data on the web. It covers millions of entities and is interlinked with many other knowledge bases, making it a central hub in the Linked Open Data cloud. [5]",
+        "evidence_token_count": 1109,
+        "answer_token_count": 428,
+        "retrieval_latency_s": 1.89,
+        "generation_latency_s": 28.53,
+        "total_latency_s": 30.42
+      },
+      {
+        "query_id": "D13",
+        "type": "cross-doc",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "a09f4455b7fef7fa",
+          "b744eeebc1934b70",
+          "4e802a799a872699",
+          "d64267739e25869c",
+          "5a5f4b8aeeb5ae55",
+          "0282ea8070392cd0"
+        ],
+        "gold_chunk_ids": [
+          "0282ea8070392cd0",
+          "5a5f4b8aeeb5ae55"
+        ],
+        "cited_ids": [
+          "a09f4455b7fef7fa",
+          "b744eeebc1934b70"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 5,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.75,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "A knowledge graph is a structured representation of facts about entities and the relationships between them. It organizes information as a graph where nodes represent entities (people, places, organizations, concepts) and edges represent typed relationships between those entities. Each edge carries a specific relationship type, such as \"founded_by,\" \"located_in,\" or \"works_at.\" [0] Microsoft's GraphRAG uses LanceDB as its default local vector store. [1]",
+        "evidence_token_count": 1030,
+        "answer_token_count": 91,
+        "retrieval_latency_s": 1.784,
+        "generation_latency_s": 13.888,
+        "total_latency_s": 15.671
+      },
+      {
+        "query_id": "D14",
+        "type": "cross-doc",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "a4a679c427829368",
+          "4dcff615e7a2ceff",
+          "33d32892fc640b3f",
+          "6fc475866849cd38"
+        ],
+        "gold_chunk_ids": [
+          "745e90bb807507b6",
+          "33d32892fc640b3f"
+        ],
+        "cited_ids": [
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 2,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.3333,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "The Transformer architecture was introduced in 2017. [0] The RAG paper was published in 2020. [1]",
+        "evidence_token_count": 1154,
+        "answer_token_count": 27,
+        "retrieval_latency_s": 1.787,
+        "generation_latency_s": 14.245,
+        "total_latency_s": 16.032
+      },
+      {
+        "query_id": "D15",
+        "type": "cross-doc",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "0282ea8070392cd0",
+          "33d32892fc640b3f",
+          "a09f4455b7fef7fa",
+          "ba8440076ddd110a"
+        ],
+        "gold_chunk_ids": [
+          "ab2692f1a112544f",
+          "71387ffa83db5d3c"
+        ],
+        "cited_ids": [
+          "ab2692f1a112544f"
+        ],
+        "recall_at_k": 0.5,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.0,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "Knowledge graphs and retrieval-augmented generation each let a search system show where an answer came from by traversing graph paths to find answers. Knowledge graphs provide structured information about entities and their relationships, while retrieval-augmented generation uses a parametric memory component (the LLM's trained weights) and a non-parametric memory component (a searchable document corpus) to enhance the system's ability to answer questions. [0]",
+        "evidence_token_count": 1060,
+        "answer_token_count": 85,
+        "retrieval_latency_s": 1.777,
+        "generation_latency_s": 13.9,
+        "total_latency_s": 15.677
+      },
+      {
+        "query_id": "D16",
+        "type": "paraphrase",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "error": "FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]",
+        "recall_at_k": 0.0,
+        "gold_rank": null,
+        "grounded": false,
+        "hallucinated_ids": [],
+        "term_coverage": 0.0,
+        "no_answer_predicted": false,
+        "no_answer_correct": false,
+        "answer_text": "",
+        "retrieved_count": 0,
+        "evidence_ids": [],
+        "gold_chunk_ids": [
+          "4dcff615e7a2ceff"
+        ],
+        "cited_ids": [],
+        "evidence_token_count": 0,
+        "answer_token_count": 0,
+        "retrieval_latency_s": 0.0,
+        "generation_latency_s": 0.0,
+        "total_latency_s": 0.0
+      },
+      {
+        "query_id": "D17",
+        "type": "paraphrase",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "4af3dc8c5da84fad",
+          "a5123f467123650e",
+          "4dcff615e7a2ceff",
+          "c3893b323a2ee3e1",
+          "71387ffa83db5d3c",
+          "32c85d7ec02b6b19"
+        ],
+        "gold_chunk_ids": [
+          "4af3dc8c5da84fad"
+        ],
+        "cited_ids": [
+          "4af3dc8c5da84fad",
+          "a5123f467123650e",
+          "4dcff615e7a2ceff",
+          "c3893b323a2ee3e1",
+          "71387ffa83db5d3c",
+          "32c85d7ec02b6b19"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": 1,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.25,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "The Transformer architecture led directly to the development of BERT, which introduced bidirectional pre-training for language understanding. OpenAI used the Transformer decoder as the foundation for the GPT series of models. Google developed T5, which treated every NLP task as a text-to-text problem using the encoder-decoder Transformer structure. [0] The model is typically trained using the Adam optimizer with a custom learning rate schedule that includes a warmup phase, as described in the original paper. [1] Rather than performing a single attention function, the Transformer uses multi-head attention, which runs several attention operations in parallel with different learned linear projections. The outputs of these heads are concatenated and projected again. This allows the model to jointly attend to information from different representation subspaces at different positions. [2] The simplest RAG pipeline: chunk documents into fixed-size pieces, embed them, store in a vector index, retrieve top-k at query time, and pass to the LLM. This approach suffers from chunking boundary issues and can miss multi-hop reasoning that requires connecting information across documents. [3] The model is typically trained using the Adam optimizer with a custom learning rate schedule that includes a warmup phase, as described in the original paper. [4] The LLM is then fine-tuned using proximal policy optimization (PPO) to maximize the learned reward signal. This technique was central to the development of InstructGPT and ChatGPT by OpenAI. [5]",
+        "evidence_token_count": 1184,
+        "answer_token_count": 298,
+        "retrieval_latency_s": 1.849,
+        "generation_latency_s": 20.418,
+        "total_latency_s": 22.267
+      },
+      {
+        "query_id": "D18",
+        "type": "paraphrase",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "a5123f467123650e",
+          "c81c2a06e4ee9667",
+          "a885be6b749e39a1",
+          "0e82efa9409ff33c",
+          "3256abe3c09bca47",
+          "ab2692f1a112544f"
+        ],
+        "gold_chunk_ids": [
+          "895ee8b439ed7d7b"
+        ],
+        "cited_ids": [
+          "a5123f467123650e"
+        ],
+        "recall_at_k": 0.0,
+        "gold_rank": null,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 0.0,
+        "no_answer_predicted": false,
+        "no_answer_correct": true,
+        "answer_text": "When one technique copes with codes and the second copes with meaning, the two can be merged by using a combination of techniques that can handle both codes and meaning. For example, a combination of machine learning algorithms, deep learning models, and human expertise can be used to create a hybrid approach that can handle both codes and meaning. This approach can help in merging the two techniques and achieving a more comprehensive solution. [0]",
+        "evidence_token_count": 1133,
+        "answer_token_count": 86,
+        "retrieval_latency_s": 2.84,
+        "generation_latency_s": 16.018,
+        "total_latency_s": 18.858
+      },
+      {
+        "query_id": "D19",
+        "type": "no-answer",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "5c56e059e8cebff9",
+          "c3893b323a2ee3e1",
+          "24b17cf355abdce3",
+          "e9c66a7ac48f6e11",
+          "b76780cc91220506",
+          "73e975197fb97029"
+        ],
+        "gold_chunk_ids": [],
+        "cited_ids": [
+          "5c56e059e8cebff9"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": null,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 1.0,
+        "no_answer_predicted": false,
+        "no_answer_correct": false,
+        "answer_text": "The training data cutoff date of GPT-4 is 2023. [0]",
+        "evidence_token_count": 1225,
+        "answer_token_count": 18,
+        "retrieval_latency_s": 1.91,
+        "generation_latency_s": 10.823,
+        "total_latency_s": 12.733
+      },
+      {
+        "query_id": "D20",
+        "type": "no-answer",
+        "pipeline": "b",
+        "model": "qwen2.5:0.5b",
+        "format": "toon",
+        "ranking_method": "pagerank",
+        "retrieved_count": 6,
+        "evidence_ids": [
+          "025a4d30df8706bc",
+          "e146728cdddcf0e5",
+          "a949df1c877b7163",
+          "a04b3d90e2da113b",
+          "3256abe3c09bca47",
+          "0e82efa9409ff33c"
+        ],
+        "gold_chunk_ids": [],
+        "cited_ids": [
+          "025a4d30df8706bc",
+          "e146728cdddcf0e5"
+        ],
+        "recall_at_k": 1.0,
+        "gold_rank": null,
+        "grounded": true,
+        "hallucinated_ids": [],
+        "term_coverage": 1.0,
+        "no_answer_predicted": false,
+        "no_answer_correct": false,
+        "answer_text": "Pinecone is a managed, cloud-native vector database service. It handles infrastructure, scaling, and replication automatically. Pinecone supports metadata filtering alongside vector search, allowing queries like \"find the 10 most similar documents that also match filter: category='science'\". It is a popular choice for production RAG deployments that require managed infrastructure. [0] The company was founded by Jane Doe. [1]",
+        "evidence_token_count": 1011,
+        "answer_token_count": 82,
+        "retrieval_latency_s": 1.808,
+        "generation_latency_s": 13.308,
+        "total_latency_s": 15.116
+      }
+    ]
+  },
+  "aggregates": {
+    "b": {
+      "n": 20,
+      "avg_recall_at_k": 0.875,
+      "mrr": 0.735,
+      "pct_grounded": 0.95,
+      "avg_term_coverage": 0.4613,
+      "pct_no_answer_correct": 0.85,
+      "avg_evidence_tokens": 1043.8,
+      "avg_answer_tokens": 113.05,
+      "avg_retrieval_latency_s": 1.9418,
+      "avg_generation_latency_s": 15.2423,
+      "avg_total_latency_s": 17.1841
+    }
+  }
+}

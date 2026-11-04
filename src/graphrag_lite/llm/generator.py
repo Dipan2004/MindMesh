@@ -21,7 +21,15 @@ class LLMClient(Protocol):
 
 @dataclass
 class Answer:
-    """The final output of the LLM layer per PRD Task 5.2."""
+    """The final output of the LLM layer per PRD Task 5.2.
+
+    ``confidence`` is typed ``float | None`` per the task spec.  It is
+    intentionally ``None`` in the current implementation — no confidence
+    scoring heuristic is implemented.  This is a deferred feature, not a
+    bug: the task spec allows ``None`` and the DoD only requires citation
+    validation, not a confidence value.  Implementing an unsupported
+    heuristic would be worse than the honest ``None``.
+    """
     text: str
     cited_evidence_ids: list[str]
     confidence: float | None = None
@@ -112,7 +120,9 @@ class AnswerGenerator:
 
         prompt = self._assemble_prompt(query, evidence_texts)
 
-        # The LLM client is configured with the Answer-layer settings (T=0, Seed=42, NP=512)
+        # The LLM client is built by client_factory from config (T=0, Seed=42,
+        # num_predict=LLM_NUM_PREDICT, num_ctx=LLM_NUM_CTX, think=effective_think(),
+        # frequency_penalty=LLM_FREQUENCY_PENALTY).  See client_factory.get_llm_client.
         raw_out = self.client.generate(prompt)
 
         answer_text = raw_out.strip()

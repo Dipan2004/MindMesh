@@ -44,9 +44,12 @@ def get_llm_client(mode: Literal["local", "api"], api_key: str | None = None) ->
     if mode == "local":
         return OllamaClient(
             model=cfg.SLM_MODEL,
-            temperature=0.0,
-            seed=42,
-            num_predict=2048, # Default for extraction, can be overridden by generator
+            temperature=cfg.EXTRACTION_TEMPERATURE,
+            seed=cfg.EXTRACTION_SEED,
+            num_predict=cfg.LLM_NUM_PREDICT,
+            num_ctx=cfg.LLM_NUM_CTX,
+            think=cfg.effective_think(),
+            frequency_penalty=cfg.LLM_FREQUENCY_PENALTY,
         )
     elif mode == "api":
         return GrokClientStub(api_key=api_key)

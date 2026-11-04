@@ -67,10 +67,12 @@ _PR_MAX = None
 def _get_graph():
     global _G, _PR, _PR_MAX
     if _G is None:
-        import io, contextlib
+        import io, contextlib, os
         buf = io.StringIO()
         with contextlib.redirect_stdout(buf):
-            records = load_extractions("data/cache/extractions.jsonl")
+            cfg = get_config()
+            extractions_path = os.path.join(cfg.CACHE_DIR, "extractions.jsonl")
+            records = load_extractions(extractions_path)
             _G = build_graph(records)
         # RANKING_METHOD selects the node-ranking signal (CONFIG.md §5).
         # The default 'pagerank' is what the measured A@6/B@6 numbers were
@@ -155,10 +157,13 @@ def get_candidates(query: str) -> dict:
         entry_points.append(name)
         entry_sim[name] = r.score
 
-    # Step 2 -- BFS expansion
-    bfs_nodes = bfs_expand(G, entry_points, hops=cfg.BFS_HOP_DEPTH)
-
-    # Step 3 -- Combined score, query-DEPENDENT first.
+    # Step 2+3 -- BFS expansion and similarity propagation (combined).
+    #
+    # The original code called bfs_expand(G, entry_points, ...) separately
+    # and then bfs_expand(G, [ep], ...) for each entry point.  The first
+    # call is redundant: bfs_expand internally does a per-source BFS, so
+    # the union of per-ep results equals the multi-source result.  Merging
+    # the two loops eliminates the redundant O(E) traversal.
     #
     # The similarity term is the query-dependent signal; the PageRank term
     # is query-independent. Raw Zvec RRF scores are ~0.016-0.033 while
@@ -172,11 +177,22 @@ def get_candidates(query: str) -> dict:
     # similarity of any entry point that can reach it. This is a MAX
     # propagation, not a distance decay -- see the module docstring.
     node_sim: dict[str, float] = {}
+    bfs_nodes_set: set[str] = set()
     for ep, sim in entry_sim.items():
         reachable = bfs_expand(G, [ep], hops=cfg.BFS_HOP_DEPTH)
+        bfs_nodes_set.update(reachable)
         for n in reachable:
             if n not in node_sim or sim > node_sim[n]:
                 node_sim[n] = sim
+
+    # Also include entry points that are in the graph but had no BFS
+    # neighbours (isolated nodes still return themselves at hop 0, but
+    # this is a safety net in case bfs_expand returns empty for a seed
+    # not in the graph — though the entry-point filter already checks that).
+    for ep in entry_points:
+        bfs_nodes_set.add(ep)
+
+    bfs_nodes = sorted(bfs_nodes_set)
 
     sim_max = max(entry_sim.values()) if entry_sim else 0.0
 
