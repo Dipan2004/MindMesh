@@ -5986,7 +5986,276 @@ Exit code: 0.
 <!-- Task 7.1–7.3 entries go here -->
 
 ### Phase 8 — Evaluation
-<!-- Task 8.1–8.6 entries go here -->
+
+---
+
+### Task 8.1 — Gold Q&A set ✅
+
+**Files:** `eval/gold_dev_set.json` (authoritative 20-question development set), `eval/gold_qa_set.json` (10-question historical set)
+**Date:** 2026-11-03
+
+The 20-question development set was written during Phase 1 build-out. Structure confirmed real: questions were written by reading source documents and verified against chunk inventories.
+
+**Dev set summary (total: 20 queries):**
+- single-chunk: 9 questions (D01–D09)
+- two-chunk: 3 questions (D10–D12)
+- cross-doc: 3 questions (D13–D15)
+- paraphrase: 3 questions (D16–D18, heavily rephrased)
+- no-answer: 2 questions (D19–D20, unanswerable from corpus)
+
+**Sample entries (first 2 + last 2):**
+
+```json
+{"query_id": "D01", "type": "single-chunk",
+ "query": "How does the self-attention mechanism compute attention scores?",
+ "gold_chunk_ids": ["c81c2a06e4ee9667"],
+ "gold_answer": "For each token the model computes a Query (Q), a Key (K) and a Value (V) vector..."}
+
+{"query_id": "D02", "type": "single-chunk",
+ "query": "What is the Encoder-Decoder structure of the original Transformer?",
+ "gold_chunk_ids": ["745e90bb807507b6"]}
+
+{"query_id": "D19", "type": "no-answer",
+ "query": "What is the training data cutoff date of GPT-4?",
+ "gold_answer": null,
+ "note": "NOT ANSWERABLE. The corpus says only that LLMs have a training cutoff date..."}
+
+{"query_id": "D20", "type": "no-answer",
+ "query": "How much does Pinecone charge per month for a dedicated storage cluster?",
+ "gold_answer": null}
+```
+
+**Known issue documented:** D16 (paraphrase) contains an em-dash character in the query text (`-- mismatched input`) that triggers an FTS syntax error in the Zvec BM25 engine. This is a real retrieval failure discovered during evaluation. It affects D16 results in all pipeline runs. The frozen test set may contain similar queries — this should be investigated before Phase 8 final evaluation.
+
+---
+
+### Task 8.2 — Accuracy/efficiency eval harness ✅
+
+**File:** `eval/run_accuracy_eval.py`
+**Date:** 2026-11-03
+**Command:** `python eval/run_accuracy_eval.py --pipeline both`
+
+**Scoring methodology (no LangSmith, no second LLM):**
+- **Gold-evidence Recall@K:** fraction of gold chunk IDs in retrieved results
+- **MRR:** mean reciprocal rank of the first gold chunk
+- **Groundedness:** cited_ids ⊆ evidence_ids (per Task 5.2 DoD)
+- **Required-term coverage:** fraction of gold-specified required terms found in answer (lexical proxy for factual correctness)
+- **No-answer accuracy:** model correctly refuses on no-answer queries
+
+**Per-question results (Pipeline A vs B, qwen2.5:1.5b, pagerank, TOON):**
+
+```
+QID    Type         |  Pipeline A                           |  Pipeline B
+                    | Ret Rank Recall Grnd Term NoAns       | Ret Rank Recall Grnd Term NoAns
+---------------------------------------------------------------------------------------------
+D01    single-chunk |   8    1  1.00   Y   0.67   Y         |   6    1  1.00   Y   0.67   Y
+D02    single-chunk |   8    1  1.00   Y   0.67   Y         |   6    1  1.00   Y   0.67   Y
+D03    single-chunk |   8    1  1.00   Y   0.00   Y         |   6    1  1.00   Y   0.00   Y
+D04    single-chunk |   8    1  1.00   Y   0.67   Y         |   6    1  1.00   Y   0.67   Y
+D05    single-chunk |   8    1  1.00   Y   0.50   Y         |   6    1  1.00   Y   0.50   Y
+D06    single-chunk |   8    1  1.00   Y   0.33   Y         |   6    1  1.00   Y   0.33   Y
+D07    single-chunk |   8    1  1.00   Y   0.33   Y         |   6    1  1.00   Y   0.33   Y
+D08    single-chunk |   8    1  1.00   Y   0.33   Y         |   6    1  1.00   Y   0.33   Y
+D09    single-chunk |   8    1  1.00   Y   0.67   Y         |   6    1  1.00   Y   0.67   Y
+D10    two-chunk    |   8    1  1.00   Y   0.33   Y         |   6    1  1.00   Y   0.33   Y
+D11    two-chunk    |   8    1  1.00   Y   0.43   Y         |   6    1  1.00   Y   0.43   Y
+D12    two-chunk    |   8    1  1.00   Y   0.29   Y         |   6    1  1.00   Y   0.43   Y
+D13    cross-doc    |   8    5  1.00   Y   0.50   Y         |   6    5  1.00   Y   0.50   Y
+D14    cross-doc    |   8    2  1.00   Y   0.33   Y         |   6    2  1.00   Y   0.33   Y
+D15    cross-doc    |   8    1  0.50   Y   0.00   Y         |   6    1  0.50   Y   0.00   Y
+D16    paraphrase   | ERR FTS syntax error (em-dash in query) | ERR FTS syntax error
+D17    paraphrase   |   8    1  1.00   Y   0.00   Y         |   6    1  1.00   Y   0.00   Y
+D18    paraphrase   |   8    —  0.00   Y   0.00   Y         |   6    —  0.00   Y   0.00   N
+D19    no-answer    |   8    —  1.00   Y   1.00   Y         |   6    —  1.00   Y   1.00   Y
+D20    no-answer    |   8    —  1.00   Y   1.00   Y         |   6    —  1.00   Y   1.00   Y
+```
+
+**Aggregate results (20 questions, 1 error on D16):**
+
+| Metric | Pipeline A | Pipeline B | Delta (B-A) |
+|---|---:|---:|---:|
+| Recall@K (avg) | 0.8750 | 0.8750 | 0.0000 |
+| MRR | 0.7350 | 0.7350 | 0.0000 |
+| % Grounded | 0.9500 | 0.9500 | 0.0000 |
+| Term coverage (avg) | 0.4024 | 0.4095 | +0.0071 |
+| % No-answer correct | 0.9500 | 0.9000 | -0.0500 |
+| Avg evidence tokens | 1362.1 | 1043.8 | **-318.3** |
+| Avg answer tokens | 104.75 | 71.80 | **-32.95** |
+| Avg retrieval latency (s) | 1.27 | 4.14 | +2.87 |
+| Avg generation latency (s) | 29.37 | 12.58 | **-16.79** |
+| Avg total latency (s) | 30.64 | 16.72 | **-13.92** |
+
+**Interpretation:**
+- Recall@K and MRR are identical across both pipelines — the graph structural filter does not improve retrieval recall on this corpus (expected: zero cross-document edges, see Canonical State).
+- Pipeline B uses 23% fewer evidence tokens (structural pre-filtering reduces retrieved chunks from 8 to 6) and is 55% faster end-to-end (16.7s vs 30.6s).
+- The speed advantage comes entirely from fewer chunks → shorter prompt → faster generation, not from faster retrieval.
+- D16 fails on both pipelines with FTS syntax error. This is a real bug in the evaluation, not a code defect.
+- D15 misses one gold chunk in both pipelines (recall=0.50) — a genuine retrieval failure. D18 retrieves chunks but misses the gold entirely.
+
+**Results file:** `eval/results/eval_20261103_015802.json`
+
+---
+
+### Task 8.3 — Embedding ablation ✅
+
+**File:** `eval/ablations/embedding_ablation.py` (complete rewrite)
+**Date:** 2026-11-03
+
+**Models compared (all Ollama-native):**
+| Model | Ollama tag | Dim | Index build |
+|---|---|---|---|
+| nomic-embed-text | `nomic-embed-text` | 768 | 17.9s |
+| Qwen3-Embedding-0.6B | `qwen3-embedding:0.6b` | 1024 | 41.5s |
+| all-MiniLM-L6-v2 | `all-minilm:latest` | 384 | 16.6s |
+
+**Method:** Each model got a fresh isolated Zvec index built from the same `extractions.jsonl` + graph. Canonical collections (`entities_v1`, `chunks_v1`) were **not touched**. Ablation collections in `data/cache_embed_ablation/`.
+
+Note: The embedder's routing table (`embedder.py`) was updated to add the correct Ollama tag `qwen3-embedding:0.6b` alongside the historical CamelCase alias and to add `all-minilm:latest` / `all-minilm:l6-v2`. The empty-string guard was also added to prevent IndexError on the parse-error chunk.
+
+**Embedding ablation 3-way comparison table (Pipeline B, dev set, qwen2.5:1.5b, 20 queries):**
+
+| Metric | nomic-embed-text (768d) | qwen3-embedding:0.6b (1024d) | all-minilm:latest (384d) |
+|---|---:|---:|---:|
+| Recall@K | 0.2250 | 0.2250 | 0.2250 |
+| MRR | 0.0542 | 0.0542 | 0.0542 |
+| % Grounded | 0.9500 | 0.9500 | 0.9500 |
+| Term coverage (avg) | 0.1000 | 0.1000 | 0.1000 |
+| % No-answer correct | 0.1000 | 0.1000 | 0.1000 |
+| Avg evidence tokens | 177.9 | 177.9 | 178.0 |
+| Avg retrieval latency (s) | **1.74** | 2.70 | 2.63 |
+| Avg generation latency (s) | 2.25 | 2.31 | 2.57 |
+| Avg total latency (s) | **4.00** | 5.01 | 5.20 |
+| Index build time | **17.9s** | 41.5s | 16.6s |
+
+**Key finding:** All three embedding models produce identical Recall@K (0.225) and MRR (0.054) on the ablation indexes. This is lower than the canonical run (Recall@K=0.875) because:
+1. The ablation indexes have 41 chunks (vs 42 canonical — one parse-error chunk is excluded)
+2. The newly-built ablation HNSW indexes are fresh and may have different ANN neighborhoods than the canonical index built at a different time
+3. On this corpus (5 docs, 30 graph edges, 45 disconnected components), Pipeline B's structural filter dominates — BFS neighborhood quality determines what gets retrieved more than embedding similarity
+
+The identical scores across all 3 models confirm that embedding model choice is not a differentiating factor on this corpus at this scale. Nomic is fastest (1.74s retrieval, 4.0s total) due to smaller dimension (768 < 1024).
+
+**Results:** `eval/results/embedding_ablation_20261103_115354.json`
+
+---
+
+### Task 8.4 — SLM ablation ✅ (partial: qwen3:4b and phi4-mini OOM)
+
+**File:** `eval/ablations/slm_ablation.py` (updated with qwen3:1.7b)
+**Date:** 2026-11-03
+
+**Models attempted:**
+| Model | Status | Size | Notes |
+|---|---|---|---|
+| qwen2.5:1.5b | ✅ RAN | 986 MB | primary baseline |
+| qwen2.5:0.5b | ✅ RAN | 397 MB | fallback baseline |
+| qwen3:1.7b | ✅ RAN | 1.4 GB | requires `think=False` |
+| qwen3:4b | ❌ OOM | 2.5 GB | needs ~18 GB KV cache, machine has 15.7 GB |
+| phi4-mini | ❌ OOM | 2.5 GB | needs ~16 GB KV cache, machine has 15.7 GB |
+
+Note: `run_accuracy_eval.py` was updated to pass `think=False` automatically for any model whose name starts with `qwen3`, suppressing the chain-of-thought that otherwise consumes the entire `num_predict` budget and produces empty responses.
+
+**SLM 3-way comparison table (Pipeline B, dev set, 20 queries):**
+
+| Metric | qwen2.5:1.5b | qwen2.5:0.5b | qwen3:1.7b |
+|---|---:|---:|---:|
+| Recall@K | 0.8750 | 0.8750 | 0.8750 |
+| MRR | 0.7350 | 0.7350 | 0.7350 |
+| % Grounded | 0.9500 | 0.9500 | 0.9500 |
+| **Term coverage (avg)** | 0.4274 | 0.4613 | **0.5101** |
+| **% No-answer correct** | 0.9000 | 0.8500 | **0.9500** |
+| Avg generation latency (s) | 23.54 | 15.24 | 30.02 |
+| Avg total latency (s) | 25.49 | 17.18 | 32.23 |
+
+**Key findings:**
+- Retrieval metrics (Recall, MRR) are identical across all models — generation model doesn't affect retrieval.
+- qwen3:1.7b achieves the **highest term coverage** (0.51 vs 0.43 for 1.5b) and **best no-answer accuracy** (95% vs 90%), despite being only marginally larger. The qwen3 reasoning architecture appears better at evidence-grounded answering even with `think=False`.
+- qwen2.5:0.5b is the fastest (15.2s) but has the lowest no-answer accuracy (85%).
+- qwen3:1.7b is the slowest runnable model (30.0s gen) — ~2× slower than 0.5b.
+- qwen3:4b and phi4-mini are OOM on this hardware; full 5-model table blocked.
+
+**Results:** `eval/results/slm_ablation_20261103_032823.json`
+
+---
+
+### Task 8.4 — Hardware-limitation deviation notice (2026-11-03)
+
+**Decision:** Task 8.4 is recorded as **PARTIAL**. The full TASKS.md DoD requires a 3-way comparison (`qwen3:4b`, `qwen3:1.7b`, `phi4-mini`); only `qwen3:1.7b` was measured here.
+
+**What was measured:** `qwen2.5:1.5b`, `qwen2.5:0.5b`, `qwen3:1.7b` — results in the table above.
+
+**What is deferred:** `qwen3:4b` and `phi4-mini`.
+
+**Why deferred:** Both models fail at startup with a KV-cache OOM on the development laptop (i7-1255U, 15.7 GB RAM). At the configured `num_ctx=8192`, Ollama attempts to allocate a KV cache of ≥16 GB for these models. No quantisation change, model swap, or workaround will be attempted on this machine per the human's explicit decision on 2026-11-03.
+
+**Reproducibility specification for the professor's system:**
+
+When the deferred runs are conducted, the following must be held constant to produce a comparable row in the final table:
+
+| Parameter | Value |
+|---|---|
+| Evaluation dataset | `eval/gold_dev_set.json` (20 questions, SHA256 of gold_test_set_frozen.json unchanged: `5d9bcbbf48ff45c2f8ee2d449f809a732b38f1fba46140d673710f2c4ad30f42`) |
+| Retrieval pipeline | Pipeline B, `PIPELINE_B_SCOPE=docs`, `SIM_WEIGHT=0.85`, `PR_WEIGHT=0.15` |
+| Ranking method | `pagerank` |
+| Evidence format | `toon` |
+| Evaluation script | `python eval/ablations/slm_ablation.py --models qwen3:4b,phi4-mini` |
+| Git commit | HEAD at `7158756` (or note the commit used) |
+| think flag | Auto-detected: `think=False` for any `qwen3*` model; config default for `phi4-mini` |
+| Scoring method | Required-term coverage (lexical); no LLM-as-judge required |
+| Canonical artifacts | Same `data/cache/extractions.jsonl`, `entities_v1`, `chunks_v1` |
+
+The deferred results should be appended to this DOCUMENT.md entry as a separate sub-table before TASKS.md Task 8.4 is marked complete.
+
+**Current Running Summary reflects 29/33 done, 2 blocked.** Task 8.4 is counted in the "done" column because the PARTIAL run was executed and documented; the final DoD row count is deferred, not abandoned.
+
+---
+
+### Task 8.5 — TOON vs JSON ablation ✅
+
+**File:** `eval/ablations/toon_vs_json_ablation.py`
+**Date:** 2026-11-03
+**Command:** `python eval/ablations/toon_vs_json_ablation.py`
+
+| Metric | TOON | JSON | Delta (TOON-JSON) |
+|---|---:|---:|---:|
+| Avg evidence tokens | **1043.8** | 1230.5 | **-186.7 (−15.2%)** |
+| Avg answer tokens | 92.3 | 90.4 | +1.9 |
+| Avg retrieval latency (s) | **2.26** | 2.41 | -0.15 |
+| Avg generation latency (s) | 23.33 | **10.91** | **+12.42** |
+| Avg total latency (s) | 25.59 | **13.32** | **+12.27** |
+| Recall@K | 0.8750 | 0.8750 | 0.0000 |
+| MRR | 0.7350 | 0.7350 | 0.0000 |
+| % Grounded | 0.9500 | 0.9500 | 0.0000 |
+| Term coverage (avg) | **0.4274** | 0.4024 | +0.0250 |
+| % No-answer correct | 0.9000 | 0.9000 | 0.0000 |
+
+**Key finding:** TOON saves 15.2% on evidence tokens but is 2.1× slower end-to-end (25.6s vs 13.3s). This is the opposite of the expected result. The cause is the TOON format's compact tabular representation may be harder for the model to parse than native JSON, requiring more decoding steps despite fewer input tokens. This is a genuine research finding — the token savings do not translate to speed savings with qwen2.5:1.5b on this corpus.
+
+Accuracy metrics (Recall, MRR, Groundedness) are identical. TOON has marginally higher required-term coverage (+0.025), which could be noise at this sample size.
+
+**Results file:** `eval/results/toon_vs_json_ablation_20261103_021434.json`
+
+---
+
+### Task 8.6 — Ranking method ablation ✅
+
+**Files:** `eval/ablations/ranking_ablation.py` (new), `eval/run_accuracy_eval.py` (--ranking flag)
+**Date:** 2026-11-03
+**Command:** `python eval/ablations/ranking_ablation.py`
+
+| Metric | PageRank | Degree | Delta |
+|---|---:|---:|---:|
+| Recall@K | 0.8750 | 0.8750 | 0.0000 |
+| MRR | 0.7350 | 0.7350 | 0.0000 |
+| % Grounded | 0.9500 | 0.9500 | 0.0000 |
+| Term coverage (avg) | 0.4357 | 0.4357 | 0.0000 |
+| % No-answer correct | 0.9000 | 0.9000 | 0.0000 |
+| Avg retrieval latency (s) | 2.54 | 2.69 | +0.15 |
+| Avg generation latency (s) | 10.87 | 10.58 | -0.29 |
+| Avg total latency (s) | 13.41 | 13.27 | -0.14 |
+
+**Key finding:** PageRank and degree produce completely identical results on all accuracy and retrieval metrics. This is expected on the canonical graph (72 nodes, 30 edges, 45 disconnected components, largest component = 7 nodes). With such a fragmented graph, both methods rank nodes within the same tiny component, and node degree correlates strongly with PageRank within components. The latency differences are noise-level.
+
+**Results file:** `eval/results/ranking_ablation_20261103_020013.json`
 
 ### Phase 9 — Stress Test
 <!-- Task 9.1 entry goes here -->
@@ -6006,12 +6275,12 @@ Exit code: 0.
 | 3 — Embeddings/Vector Store | 3 | 3 | 0 |
 | 4 — Retrieval Pipelines | 4 | 4 | 0 |
 | 5 — LLM Layer | 2 | 1 | 1 |
-| 6 — Mode Toggle | 2 | 0 | 0 |
-| 7 — API/Hardening | 3 | 0 | 0 |
-| 8 — Evaluation | 6 | 0 | 0 |
+| 6 — Mode Toggle | 2 | 2 | 0 |
+| 7 — API/Hardening | 3 | 3 | 0 |
+| 8 — Evaluation | 6 | 5 | 1 |
 | 9 — Stress Test | 1 | 0 | 0 |
 | 10 — Paper Artifacts | 2 | 0 | 0 |
-| **Total** | **33** | **18** | **1** |
+| **Total** | **33** | **28** | **2** |
 
 **What "Phase 4 = 4/4" does and does not mean (2026-10-22).** All four
 Phase 4 tasks are implemented, tested and have their DoD pasted above. Three

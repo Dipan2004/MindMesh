@@ -1,5 +1,5 @@
 [project]
-name = "graphrag-lite"
+name = "mindmesh"
 version = "0.1.0"
 description = "Lightweight graph-RAG: structural filtering + Zvec hybrid retrieval + small local LLM"
 requires-python = ">=3.10"

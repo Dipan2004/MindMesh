@@ -37,9 +37,28 @@ from graphrag_lite.config import get_config
 # Purpose: validation ONLY. If the measured runtime dimension doesn't match the
 # model's known dimension, raise immediately rather than producing bad vectors.
 _EXPECTED_DIM: dict[str, int] = {
-    "nomic-embed-text":      768,
-    "Qwen3-Embedding-0.6B":  1024,   # verify when Ollama tag is finalised
-    "all-MiniLM-L6-v2":     384,
+    "nomic-embed-text":       768,
+    "Qwen3-Embedding-0.6B":  1024,   # CamelCase alias (historical)
+    "qwen3-embedding:0.6b":  1024,   # actual Ollama tag
+    "all-MiniLM-L6-v2":      384,    # sentence-transformers name
+    "all-minilm":             384,   # Ollama tag (all-minilm:latest)
+    "all-minilm:latest":      384,
+    "all-minilm:l6-v2":       384,
+}
+
+# Models served via Ollama (by tag or alias)
+_OLLAMA_MODELS = {
+    "nomic-embed-text",
+    "Qwen3-Embedding-0.6B",    # kept for backward compat but 404s in practice
+    "qwen3-embedding:0.6b",
+    "all-minilm",
+    "all-minilm:latest",
+    "all-minilm:l6-v2",
+}
+
+# Models served via sentence-transformers
+_ST_MODELS = {
+    "all-MiniLM-L6-v2",
 }
 
 
@@ -48,7 +67,11 @@ def _embed_ollama(texts: list[str], model: str) -> list[list[float]]:
     client = _ollama.Client()
     vectors = []
     for text in texts:
-        resp = client.embed(model=model, input=text)
+        # Guard: empty text produces an empty embeddings list from the API.
+        effective = text.strip() if text else " "
+        if not effective:
+            effective = " "
+        resp = client.embed(model=model, input=effective)
         # ollama SDK ≥0.4: response is an EmbedResponse with .embeddings list
         emb = resp.embeddings[0] if hasattr(resp, "embeddings") else resp["embeddings"][0]
         vectors.append(emb)
@@ -112,12 +135,9 @@ def embed_batch(
         model = cfg.EMBEDDING_MODEL
 
     # ── Route to appropriate backend ──────────────────────────────────────────
-    ollama_models = {"nomic-embed-text", "Qwen3-Embedding-0.6B"}
-    st_models     = {"all-MiniLM-L6-v2"}
-
-    if model in ollama_models:
+    if model in _OLLAMA_MODELS:
         vectors = _embed_ollama(texts, model)
-    elif model in st_models:
+    elif model in _ST_MODELS:
         vectors = _embed_sentence_transformers(texts, model)
     else:
         # Unknown model — try Ollama first, fall back to sentence-transformers

@@ -1,0 +1,36 @@
+{
+  "model": "qwen3:1.7b",
+  "a_retrieved_ids": [
+    "a5123f467123650e",
+    "c81c2a06e4ee9667",
+    "0e82efa9409ff33c",
+    "a885be6b749e39a1",
+    "7bac4d8e30f7b55c",
+    "33d32892fc640b3f",
+    "3256abe3c09bca47",
+    "71387ffa83db5d3c"
+  ],
+  "a_retrieved_count": 8,
+  "a_gold_rank": null,
+  "a_latency_s": 2.312,
+  "b_retrieved_ids": [
+    "a5123f467123650e",
+    "c81c2a06e4ee9667",
+    "a885be6b749e39a1",
+    "0e82efa9409ff33c",
+    "3256abe3c09bca47",
+    "ab2692f1a112544f"
+  ],
+  "b_retrieved_count": 6,
+  "b_gold_rank": null,
+  "b_latency_s": 2.215,
+  "b_candidate_docs": [
+    "knowledge_graphs",
+    "large_language_models",
+    "transformer_architecture",
+    "vector_databases"
+  ],
+  "vdb_in_scope": true,
+  "gold_retrieved_by_b": false,
+  "gold_retrieved_by_a": false
+}

@@ -41,6 +41,7 @@ DOCUMENT.md entry) · `[!]` blocked (say why in DOCUMENT.md)
 - Function: `get_config() -> Config` (cached singleton).
 **Test:** `python -c "from graphrag_lite.config import get_config; c = get_config(); print(c.CHUNK_SIZE_EXTRACTION, c.EMBEDDING_MODEL, c.SLM_MODEL)"`
 **DoD:** paste the printed line — must show the CONFIG.md defaults exactly.
+[x] done
 
 ### Task 0.2 — LLM call cache
 **Files:** `src/graphrag_lite/cache/llm_cache.py`
@@ -53,6 +54,7 @@ DOCUMENT.md entry) · `[!]` blocked (say why in DOCUMENT.md)
 prompt against a dummy `fn` that increments a counter and returns a fixed
 string. Assert the counter is 1 (not 2) after the second call.
 **DoD:** paste the script's printed assertion result + the counter value.
+[x] done
 
 ---
 
@@ -67,6 +69,7 @@ string. Assert the counter is 1 (not 2) after the second call.
 `python -c "from graphrag_lite.ingestion.loader import load_documents; docs = load_documents('data/raw'); print(len(docs)); print(docs[0])"`
 **DoD:** paste output — must show `3` and a real `Document` dict with
 non-empty `text`.
+[x] done
 
 ### Task 1.2 — Token-based chunker
 **Files:** `src/graphrag_lite/ingestion/chunker.py`
@@ -79,6 +82,7 @@ Must use the real tokenizer from config, not `len(text)//4`.
 boundary, don't just assert True silently).
 **DoD:** paste the printed per-chunk token counts and overlap counts for
 one document.
+[x] done
 
 ### Task 1.3 — Entity/relationship extraction (single pass, no gleaning yet)
 **Files:** `src/graphrag_lite/ingestion/extractor.py`
@@ -94,6 +98,7 @@ relationship are correct against the source text (eyeball check, but the
 raw output must be pasted, not summarized).
 **DoD:** paste the full `ExtractionResult` JSON for one chunk, plus the
 source chunk text next to it for verification.
+[x] done
 
 ### Task 1.4 — Gleaning loop
 **Files:** `src/graphrag_lite/ingestion/gleaning.py`
@@ -105,6 +110,7 @@ entity/relationship count before and after gleaning.
 **DoD:** paste before/after counts. If gleaning adds 0 new items on your
 sample chunk, that's a valid result — paste it anyway, don't cherry-pick a
 chunk that "shows improvement."
+[x] done
 
 ### Task 1.5 — Full ingestion CLI
 **Files:** `scripts/build_index.py` (stage 1 only, up through extraction)
@@ -114,6 +120,7 @@ writes extraction results to `data/cache/extractions.jsonl`.
 sample corpus.
 **DoD:** paste console output (doc count, chunk count, entity count,
 relationship count, cache hit/miss stats from Task 0.2) + `wc -l data/cache/extractions.jsonl`.
+[x] done
 
 ---
 
@@ -128,6 +135,7 @@ provenance (`source_doc`, `source_sentence`) as attributes.
 `graph.number_of_nodes()`, `graph.number_of_edges()`, and one full node's
 attribute dict, one full edge's attribute dict.
 **DoD:** paste all four printed values.
+[x] done
 
 ### Task 2.2 — Ranking (PageRank + degree)
 **Files:** `src/graphrag_lite/graph/ranking.py`
@@ -139,6 +147,7 @@ tunable.
 method side by side.
 **DoD:** paste the two top-5 lists. If they're identical, note that
 explicitly — it's a legitimate (if uninteresting) result on a small graph.
+[x] done
 
 ### Task 2.3 — Bounded BFS traversal
 **Files:** `src/graphrag_lite/graph/traversal.py`
@@ -149,6 +158,7 @@ separate step per PRD §9, don't conflate them in this function).
 `bfs_expand` with `hops=2`, print the returned node count and list.
 **DoD:** paste the seed nodes used, the hop count, and the full returned
 list.
+[x] done
 
 ---
 
@@ -165,6 +175,7 @@ dimension — assert this inside the function, don't just trust the API.
 first 5 floats of each.
 **DoD:** paste the three vector-length numbers (must match each other)
 and the sample float slices.
+[x] done
 
 ### Task 3.2 — Zvec client — entities collection
 **Files:** `src/graphrag_lite/vectorstore/zvec_client.py`
@@ -176,6 +187,7 @@ corpus, `top_k=5`. Print the 5 returned results with their scores.
 **DoD:** paste the 5 scored results — must show non-zero, differentiated
 scores (all-identical scores means the fusion isn't working, flag as
 `[!]` blocked, don't mark done).
+[x] done
 
 ### Task 3.3 — Zvec client — chunks collection
 **Files:** same file, additive
@@ -183,6 +195,7 @@ scores (all-identical scores means the fusion isn't working, flag as
 reuses `hybrid_query` with `collection="chunks_v1"`.
 **Test:** same shape as 3.2, against chunks instead of entities.
 **DoD:** paste the 5 scored chunk results.
+[x] done
 
 ---
 
@@ -196,6 +209,7 @@ involved at all.
 **Test:** run on 3 sample queries from your eventual gold set (draft them
 now if not written yet). Print the retrieved evidence for each.
 **DoD:** paste all 3 queries with their retrieved evidence.
+[x] done
 
 ### Task 4.2 — Pipeline B step 1+2 — entry points + ranked expansion
 **Files:** `src/graphrag_lite/retrieval/pipeline_b.py`
@@ -207,6 +221,7 @@ those → `rank_pagerank` (default per CONFIG.md) → truncate to
 before ranking, and final ranked candidate list.
 **DoD:** paste entry points → BFS count → final ranked list for all 3
 queries.
+[x] done
 
 ### Task 4.3 — Pipeline B step 3 — scoped re-query
 **Files:** same file, additive
@@ -219,6 +234,7 @@ Pipeline A's output for the same query — this is the comparison the whole
 paper hinges on, so the two outputs must be visibly logged side by side.
 **DoD:** paste the Pipeline A vs Pipeline B evidence side-by-side for all
 3 queries.
+[x] done
 
 ### Task 4.4 — Serialization (TOON + JSON)
 **Files:** `src/graphrag_lite/retrieval/serialize.py`
@@ -229,6 +245,7 @@ paper hinges on, so the two outputs must be visibly logged side by side.
 their token counts (via the real tokenizer from config, not char count).
 **DoD:** paste both serialized strings + both token counts — this is the
 first real data point for the TOON-vs-JSON ablation, log it as such.
+[x] done
 
 ---
 
@@ -247,6 +264,7 @@ in it.
 **DoD:** paste both completions + the grep result showing no key leakage
 (empty grep output = pass, paste that empty result explicitly, don't just
 claim it).
+[x] done
 
 ### Task 5.2 — Answer generation with citations
 **Files:** `src/graphrag_lite/llm/generate.py`
@@ -259,6 +277,7 @@ serialization → this function, for one query. Print the full `Answer`.
 evidence IDs actually exist in the evidence that was passed in (paste that
 check's result too — a hallucinated citation ID is a real bug to catch
 here, not later).
+[x] done
 
 ---
 
@@ -272,6 +291,7 @@ api). Must be called once at startup, not per-request.
 **Test:** call with `mode="local"`, print `os.environ["LANGCHAIN_TRACING_V2"]`;
 call with `mode="api"`, print it again.
 **DoD:** paste both printed values (`true` then `false`).
+[x] done
 
 ### Task 6.2 — End-to-end query CLI (both modes)
 **Files:** `scripts/run_query.py`
@@ -279,6 +299,7 @@ call with `mode="api"`, print it again.
 + `serialize` + `generate` — `python scripts/run_query.py --pipeline b --mode local --query "..."`.
 **Test:** run one query in local mode through Pipeline B end to end.
 **DoD:** paste full console output including the final answer + citations.
+[x] done
 
 ---
 
@@ -356,6 +377,14 @@ reuse stale vectors from a different model).
 you're also testing extraction-model sensitivity separately — state which
 in the DOCUMENT.md entry).
 **DoD:** paste the 3-way comparison table.
+
+**[!] PARTIAL — hardware deviation (2026-11-03):** `qwen3:4b` and
+`phi4-mini` cannot run on the development laptop (15.7 GB RAM; both
+models require a KV-cache allocation > 16 GB at default `num_ctx=8192`,
+producing an OOM at startup). `qwen3:1.7b` was evaluated successfully.
+The two deferred models will be run on the professor's system. The final
+DoD table will have five rows once those results are added. Until then
+this task is PARTIAL, not done. Do not mark `[x]`.
 
 ### Task 8.5 — TOON vs JSON ablation
 **Files:** `eval/ablations/toon_vs_json_ablation.py`
