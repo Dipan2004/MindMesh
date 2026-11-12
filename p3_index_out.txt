@@ -1,0 +1,24 @@
+WARNING: pypinyin is not installed. Chinese pinyin sorting will use simple string sorting.
+=== Pipeline 3 Genuine LightRAG v1.5.8 Validation ===
+
+Initializing LightRAG...
+Traceback (most recent call last):
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\test_p3_index.py", line 142, in <module>
+    asyncio.run(main())
+  File "C:\Users\KIIT0001\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\test_p3_index.py", line 55, in main
+    rag = LightRAG(
+          ^^^^^^^^^
+  File "<string>", line 78, in __init__
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\LightRAG\lightrag\lightrag.py", line 1798, in __post_init__
+    )(self.embedding_func.func)
+      ^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'function' object has no attribute 'func'

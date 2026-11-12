@@ -410,7 +410,15 @@ def extract_entities_relationships(
         the caller can decide to retry or skip. Never silently swallowed.
     """
     cfg = get_config()
-    model = cfg.effective_extraction_model()
+    # FIX (2026-11-09): derive the cache-key model from the ACTUAL client
+    # rather than cfg.effective_extraction_model().  The config singleton is
+    # loaded once from .env at process start; if an experiment runner builds
+    # a client with a different model (e.g. qwen2.5:3b) while .env still
+    # says EXTRACTION_MODEL=qwen2.5:0.5b, the old code stored the response
+    # under the wrong model key and would hand it back to a different model
+    # on a cache hit.  Using llm_client.model ties the cache entry to the
+    # object that actually produces the response.
+    model: str = getattr(llm_client, "model", cfg.effective_extraction_model())
 
     prompt = _EXTRACTION_PROMPT_TEMPLATE.format(chunk_text=chunk["text"])
 

@@ -1,0 +1,59 @@
+2026-11-09 23:21:30,164 [INFO] === PHASE 2: qwen2.5:1.5b with gleaning ON ===
+2026-11-09 23:21:30,166 [INFO] Output dir: C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_gleaning_on
+2026-11-09 23:21:31,886 [INFO] Reading 42 canonical chunks from data/cache/chunks_v1 (read-only)...
+2026-11-09 23:21:32,523 [INFO] Read 42 chunks, 42 unique IDs
+2026-11-09 23:21:35,732 [INFO] Private LLM cache: C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_gleaning_on\llm_cache
+2026-11-09 23:21:35,733 [INFO] Model: qwen2.5:1.5b | MAX_GLEANINGS=1 | temperature=0.0 | seed=42
+2026-11-09 23:21:35,735 [INFO] num_predict=4096 | num_ctx=8192 | fp=0.25 | think=False
+2026-11-09 23:21:35,807 [INFO] [01/42] 0282ea807039  knowledge_graphs
+2026-11-09 23:22:22,980 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:22:22,997 [ERROR]   PARSE ERROR 0282ea807039: 'doc_id' (47.2s)
+2026-11-09 23:22:22,999 [INFO] [02/42] ba8440076ddd  knowledge_graphs
+2026-11-09 23:24:11,172 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:24:11,179 [ERROR]   PARSE ERROR ba8440076ddd: 'doc_id' (108.2s)
+2026-11-09 23:24:11,180 [INFO] [03/42] 6fc475866849  knowledge_graphs
+2026-11-09 23:26:01,726 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:26:01,732 [ERROR]   PARSE ERROR 6fc475866849: 'doc_id' (110.5s)
+2026-11-09 23:26:01,732 [INFO] [04/42] 3256abe3c09b  knowledge_graphs
+2026-11-09 23:28:32,051 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:28:32,054 [ERROR]   PARSE ERROR 3256abe3c09b: 'doc_id' (150.3s)
+2026-11-09 23:28:32,055 [INFO] [05/42] b76780cc9122  knowledge_graphs
+2026-11-09 23:29:12,225 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:29:12,235 [ERROR]   PARSE ERROR b76780cc9122: 'doc_id' (40.2s)
+2026-11-09 23:29:12,236 [INFO] [06/42] a04b3d90e2da  knowledge_graphs
+2026-11-09 23:30:03,901 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:30:03,904 [ERROR]   PARSE ERROR a04b3d90e2da: 'doc_id' (51.7s)
+2026-11-09 23:30:03,904 [INFO] [07/42] 6d878b7f56a9  knowledge_graphs
+2026-11-09 23:30:35,217 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:30:35,220 [ERROR]   PARSE ERROR 6d878b7f56a9: 'doc_id' (31.3s)
+2026-11-09 23:30:35,221 [INFO] [08/42] 4e802a799a87  knowledge_graphs
+2026-11-09 23:33:13,447 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:33:13,602 [ERROR]   PARSE ERROR 4e802a799a87: 'doc_id' (158.4s)
+2026-11-09 23:33:13,605 [INFO] [09/42] a09f4455b7fe  knowledge_graphs
+2026-11-09 23:36:46,823 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:36:46,844 [ERROR]   PARSE ERROR a09f4455b7fe: 'doc_id' (213.2s)
+2026-11-09 23:36:46,845 [INFO] [10/42] ab2692f1a112  knowledge_graphs
+2026-11-09 23:39:46,437 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:39:46,443 [ERROR]   PARSE ERROR ab2692f1a112: 'doc_id' (179.6s)
+2026-11-09 23:39:46,443 [INFO] [11/42] efaf36ff59ad  large_language_model
+2026-11-09 23:40:49,729 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:40:49,734 [ERROR]   PARSE ERROR efaf36ff59ad: 'doc_id' (63.3s)
+2026-11-09 23:40:49,734 [INFO] [12/42] e9c66a7ac48f  large_language_model
+2026-11-09 23:41:52,422 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:41:52,427 [ERROR]   PARSE ERROR e9c66a7ac48f: 'doc_id' (62.7s)
+2026-11-09 23:41:52,428 [INFO] [13/42] 32c85d7ec02b  large_language_model
+2026-11-09 23:42:48,859 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:42:48,876 [ERROR]   PARSE ERROR 32c85d7ec02b: 'doc_id' (56.5s)
+2026-11-09 23:42:48,876 [INFO] [14/42] 5c56e059e8ce  large_language_model
+2026-11-09 23:46:07,236 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:46:07,279 [ERROR]   PARSE ERROR 5c56e059e8ce: 'doc_id' (198.4s)
+2026-11-09 23:46:07,280 [INFO] [15/42] 4a4ea014c5ca  large_language_model
+2026-11-09 23:48:29,284 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:48:29,286 [ERROR]   PARSE ERROR 4a4ea014c5ca: 'doc_id' (142.0s)
+2026-11-09 23:48:29,287 [INFO] [16/42] c3893b323a2e  large_language_model
+2026-11-09 23:49:53,567 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:49:53,570 [ERROR]   PARSE ERROR c3893b323a2e: 'doc_id' (84.3s)
+2026-11-09 23:49:53,570 [INFO] [17/42] 73e975197fb9  large_language_model
+2026-11-09 23:50:29,375 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-09 23:50:29,381 [ERROR]   PARSE ERROR 73e975197fb9: 'doc_id' (35.8s)
+2026-11-09 23:50:29,382 [INFO] [18/42] 0e82efa9409f  large_language_model

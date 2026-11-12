@@ -1,0 +1,2832 @@
+[
+  {
+    "rel_id": "rel_00000",
+    "source_entity": "Knowledge Graph",
+    "target_entity": "Birth Date",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "The knowledge graph is used to display structured facts about a person's birth date.",
+    "weight": 1,
+    "chunk_ids": [
+      "ab2692f1a112544f"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00001",
+    "source_entity": "Knowledge Graph",
+    "target_entity": "Nationality",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "The knowledge graph is used to display structured facts about a person's nationality.",
+    "weight": 1,
+    "chunk_ids": [
+      "ab2692f1a112544f"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00002",
+    "source_entity": "Knowledge Graph",
+    "target_entity": "Notable Works",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "The knowledge graph is used to display structured facts about a person's notable works.",
+    "weight": 1,
+    "chunk_ids": [
+      "ab2692f1a112544f"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00003",
+    "source_entity": "Knowledge Graph",
+    "target_entity": "Freebase",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Freebase was acquired by a knowledge graph database.",
+    "weight": 1,
+    "chunk_ids": [
+      "ab2692f1a112544f"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00004",
+    "source_entity": "Knowledge Graph",
+    "target_entity": "entity",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN",
+      "WORKS_AT"
+    ],
+    "description": "Knowledge graphs organize information as a graph where nodes represent entities and edges represent relationships.",
+    "weight": 2,
+    "chunk_ids": [
+      "0282ea8070392cd0"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00005",
+    "source_entity": "Semantic Networks",
+    "target_entity": "Frame-Based Systems",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "Frame-Based Systems were developed as an alternative to Semantic Networks.",
+    "weight": 1,
+    "chunk_ids": [
+      "ba8440076ddd110a"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00006",
+    "source_entity": "Google Knowledge Graph",
+    "target_entity": "Freebase",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "The Google Knowledge Graph acquired Freebase to enhance its knowledge graph capabilities.",
+    "weight": 1,
+    "chunk_ids": [
+      "ba8440076ddd110a"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00007",
+    "source_entity": "Google Knowledge Graph",
+    "target_entity": "Wikipedia",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "The Google Knowledge Graph acquired Wikipedia to enhance its knowledge graph capabilities.",
+    "weight": 1,
+    "chunk_ids": [
+      "ba8440076ddd110a"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00008",
+    "source_entity": "Google Knowledge Graph",
+    "target_entity": "CIA World Factbook",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "The Google Knowledge Graph acquired the CIA World Factbook to enhance its knowledge graph capabilities.",
+    "weight": 1,
+    "chunk_ids": [
+      "ba8440076ddd110a"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00009",
+    "source_entity": "Freebase",
+    "target_entity": "Google",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Freebase was acquired by Google in 2010.",
+    "weight": 1,
+    "chunk_ids": [
+      "b76780cc91220506"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00010",
+    "source_entity": "Person",
+    "target_entity": "Organization",
+    "rel_type": "EMPLOYS",
+    "all_types": [
+      "EMPLOYS"
+    ],
+    "description": "A relationship indicating that a person is employed by an organization.",
+    "weight": 1,
+    "chunk_ids": [
+      "6fc475866849cd38"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00011",
+    "source_entity": "Organization",
+    "target_entity": "Location",
+    "rel_type": "ACQUIRED",
+    "all_types": [
+      "ACQUIRED"
+    ],
+    "description": "A relationship indicating that an organization acquired a location.",
+    "weight": 1,
+    "chunk_ids": [
+      "6fc475866849cd38"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00012",
+    "source_entity": "Concept",
+    "target_entity": "Technology",
+    "rel_type": "IS_A",
+    "all_types": [
+      "IS_A"
+    ],
+    "description": "A relationship indicating that a concept is a type of technology.",
+    "weight": 1,
+    "chunk_ids": [
+      "6fc475866849cd38"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00013",
+    "source_entity": "Event",
+    "target_entity": "Person",
+    "rel_type": "INTRODUCED_BY",
+    "all_types": [
+      "INTRODUCED_BY"
+    ],
+    "description": "A relationship indicating that an event was introduced by a person.",
+    "weight": 1,
+    "chunk_ids": [
+      "6fc475866849cd38"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00014",
+    "source_entity": "Schema.org",
+    "target_entity": "Wikidata",
+    "rel_type": "USES",
+    "all_types": [
+      "USES"
+    ],
+    "description": "Schema.org is used for web markup, while Wikidata serves as a central storage hub for structured data.",
+    "weight": 1,
+    "chunk_ids": [
+      "3256abe3c09bca47"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00015",
+    "source_entity": "DBpedia",
+    "target_entity": "Wikidata",
+    "rel_type": "EXTRACTED_FROM",
+    "all_types": [
+      "EXTRACTED_FROM"
+    ],
+    "description": "DBpedia is extracted from Wikipedia infoboxes, while Wikidata serves as a central storage hub for structured data.",
+    "weight": 1,
+    "chunk_ids": [
+      "3256abe3c09bca47"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00016",
+    "source_entity": "SNOMED CT",
+    "target_entity": "Wikidata",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "SNOMED CT is a domain-specific ontology in healthcare, while Wikidata serves as a central storage hub for structured data.",
+    "weight": 1,
+    "chunk_ids": [
+      "3256abe3c09bca47"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00017",
+    "source_entity": "Gene Ontology",
+    "target_entity": "Wikidata",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "Gene Ontology is a domain-specific ontology in biology, while Wikidata serves as a central storage hub for structured data.",
+    "weight": 1,
+    "chunk_ids": [
+      "3256abe3c09bca47"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00018",
+    "source_entity": "Wikidata",
+    "target_entity": "Wikipedia",
+    "rel_type": "PART_OF",
+    "all_types": [
+      "PART_OF"
+    ],
+    "description": "Wikidata is a central storage hub for structured data across all Wikimedia projects, including Wikipedia.",
+    "weight": 1,
+    "chunk_ids": [
+      "3256abe3c09bca47"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00019",
+    "source_entity": "Wikidata",
+    "target_entity": "Google",
+    "rel_type": "MIGRATED_TO",
+    "all_types": [
+      "MIGRATED_TO"
+    ],
+    "description": "Google migrated its data to Wikidata after shutting down Freebase in 2016.",
+    "weight": 1,
+    "chunk_ids": [
+      "b76780cc91220506"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00020",
+    "source_entity": "Cyc",
+    "target_entity": "Microelectronics and Computer Technology Corporation (MCC)",
+    "rel_type": "FOUNDED_BY",
+    "all_types": [
+      "FOUNDED_BY"
+    ],
+    "description": "The organization that started the Cyc project in 1984.",
+    "weight": 1,
+    "chunk_ids": [
+      "a04b3d90e2da113b"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00021",
+    "source_entity": "OpenCyc",
+    "target_entity": "Microelectronics and Computer Technology Corporation (MCC)",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "The open-source version of Cyc, containing over 239,000 concepts, was acquired by Microelectronics and Computer Technology Corporation (MCC).",
+    "weight": 1,
+    "chunk_ids": [
+      "a04b3d90e2da113b"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00022",
+    "source_entity": "OpenIE",
+    "target_entity": "LLM",
+    "rel_type": "EXTRACTS",
+    "all_types": [
+      "EXTRACTS"
+    ],
+    "description": "OpenIE extracts subject-predicate-object triples from unstructured text at scale.",
+    "weight": 1,
+    "chunk_ids": [
+      "6d878b7f56a99aa2"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00023",
+    "source_entity": "LLM",
+    "target_entity": "Transformer architecture",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "LLMs are based on the Transformer architecture.",
+    "weight": 1,
+    "chunk_ids": [
+      "efaf36ff59adbf7d"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00024",
+    "source_entity": "LLM",
+    "target_entity": "RLHF",
+    "rel_type": "INTRODUCED_BY",
+    "all_types": [
+      "INTRODUCED_BY"
+    ],
+    "description": "RLHF further aligns LLM behavior with human preferences.",
+    "weight": 1,
+    "chunk_ids": [
+      "32c85d7ec02b6b19"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00025",
+    "source_entity": "LLM",
+    "target_entity": "next-token prediction",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "LLMs are first pre-trained on a large unlabeled text corpus using a self-supervised objective.",
+    "weight": 1,
+    "chunk_ids": [
+      "e9c66a7ac48f6e11"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00026",
+    "source_entity": "LLM",
+    "target_entity": "MMLU",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "LLMs are evaluated across a range of standardized benchmarks.",
+    "weight": 1,
+    "chunk_ids": [
+      "310582c41776ab06"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00027",
+    "source_entity": "TransE",
+    "target_entity": "Knowledge graph embedding models",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "TransE is one of the earliest and most influential models that represent entities and relationships as dense vectors in a continuous space.",
+    "weight": 1,
+    "chunk_ids": [
+      "4e802a799a872699"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00028",
+    "source_entity": "RotatE",
+    "target_entity": "Knowledge graph embedding models",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "RotatE is a model that represents relations as rotations in complex space.",
+    "weight": 1,
+    "chunk_ids": [
+      "4e802a799a872699"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00029",
+    "source_entity": "DistMult",
+    "target_entity": "Knowledge graph embedding models",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "DistMult is a model that represents entities and relationships as vectors that are scored bilinearly.",
+    "weight": 1,
+    "chunk_ids": [
+      "4e802a799a872699"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00030",
+    "source_entity": "ComplEx",
+    "target_entity": "Knowledge graph embedding models",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "ComplEx is a model that represents entities and relationships as complex-valued vectors.",
+    "weight": 1,
+    "chunk_ids": [
+      "4e802a799a872699"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00031",
+    "source_entity": "Link prediction",
+    "target_entity": "Knowledge graph embedding models",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "Link prediction is a task that predicts missing relationships between entities.",
+    "weight": 1,
+    "chunk_ids": [
+      "4e802a799a872699"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00032",
+    "source_entity": "Entity alignment",
+    "target_entity": "Knowledge graph embedding models",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "Entity alignment is a task that matches equivalent entities across different knowledge graphs.",
+    "weight": 1,
+    "chunk_ids": [
+      "4e802a799a872699"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00033",
+    "source_entity": "Knowledge Graph Question Answering",
+    "target_entity": "Recommendation Systems",
+    "rel_type": "USES",
+    "all_types": [
+      "USES",
+      "USES",
+      "USES"
+    ],
+    "description": "A technology that uses rich side information from entities and their relationships in a knowledge graph for recommendation.",
+    "weight": 3,
+    "chunk_ids": [
+      "a09f4455b7fef7fa"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00034",
+    "source_entity": "Movies",
+    "target_entity": "Recommendation Systems",
+    "rel_type": "CONNECTED_TO",
+    "all_types": [
+      "CONNECTED_TO"
+    ],
+    "description": "A concept that can be connected to directors, actors, and genres in a knowledge graph.",
+    "weight": 1,
+    "chunk_ids": [
+      "a09f4455b7fef7fa"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00035",
+    "source_entity": "Directors",
+    "target_entity": "Recommendation Systems",
+    "rel_type": "CONNECTED_TO",
+    "all_types": [
+      "CONNECTED_TO"
+    ],
+    "description": "A concept that can be connected to movies in a knowledge graph.",
+    "weight": 1,
+    "chunk_ids": [
+      "a09f4455b7fef7fa"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00036",
+    "source_entity": "Actors",
+    "target_entity": "Recommendation Systems",
+    "rel_type": "CONNECTED_TO",
+    "all_types": [
+      "CONNECTED_TO"
+    ],
+    "description": "A concept that can be connected to movies in a knowledge graph.",
+    "weight": 1,
+    "chunk_ids": [
+      "a09f4455b7fef7fa"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00037",
+    "source_entity": "Genres",
+    "target_entity": "Recommendation Systems",
+    "rel_type": "CONNECTED_TO",
+    "all_types": [
+      "CONNECTED_TO"
+    ],
+    "description": "A concept that can be connected to movies in a knowledge graph.",
+    "weight": 1,
+    "chunk_ids": [
+      "a09f4455b7fef7fa"
+    ],
+    "doc_ids": [
+      "knowledge_graphs"
+    ],
+    "source_doc": "knowledge_graphs"
+  },
+  {
+    "rel_id": "rel_00038",
+    "source_entity": "billions of parameters",
+    "target_entity": "training data",
+    "rel_type": "CHARACTERIZED_BY",
+    "all_types": [
+      "CHARACTERIZED_BY"
+    ],
+    "description": "The term 'large' refers both to the number of model parameters and to the scale of training data, which typically ranges from hundreds of billions to trillions of tokens drawn from web pages, books, code repositories, and other text sources.",
+    "weight": 1,
+    "chunk_ids": [
+      "efaf36ff59adbf7d"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00039",
+    "source_entity": "BERT",
+    "target_entity": "masked language modeling",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "BERT and its variants use a masked language modeling objective instead, where random tokens in the input are masked and the model must predict the original tokens using bidirectional context.",
+    "weight": 1,
+    "chunk_ids": [
+      "e9c66a7ac48f6e11"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00040",
+    "source_entity": "PPO",
+    "target_entity": "LLM",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "PPO is used to fine-tune the LLM using proximal policy optimization.",
+    "weight": 1,
+    "chunk_ids": [
+      "32c85d7ec02b6b19"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00041",
+    "source_entity": "OpenAI",
+    "target_entity": "RLHF",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "OpenAI developed RLHF.",
+    "weight": 1,
+    "chunk_ids": [
+      "32c85d7ec02b6b19"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00042",
+    "source_entity": "GPT-1",
+    "target_entity": "GPT Series (OpenAI)",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "GPT-1 was developed by OpenAI.",
+    "weight": 1,
+    "chunk_ids": [
+      "5c56e059e8cebff9"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00043",
+    "source_entity": "GPT-2",
+    "target_entity": "GPT Series (OpenAI)",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "GPT-2 was developed by OpenAI.",
+    "weight": 1,
+    "chunk_ids": [
+      "5c56e059e8cebff9"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00044",
+    "source_entity": "GPT-3",
+    "target_entity": "GPT Series (OpenAI)",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "GPT-3 was developed by OpenAI.",
+    "weight": 1,
+    "chunk_ids": [
+      "5c56e059e8cebff9"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00045",
+    "source_entity": "GPT-3",
+    "target_entity": "context window",
+    "rel_type": "DETERMINES",
+    "all_types": [
+      "DETERMINES"
+    ],
+    "description": "The context window determines how much text the model can 'see' at once when generating a response.",
+    "weight": 1,
+    "chunk_ids": [
+      "0e82efa9409ff33c"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00046",
+    "source_entity": "GPT-4",
+    "target_entity": "GPT Series (OpenAI)",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "GPT-4 was developed by OpenAI.",
+    "weight": 1,
+    "chunk_ids": [
+      "5c56e059e8cebff9"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00047",
+    "source_entity": "ChatGPT",
+    "target_entity": "GPT Series (OpenAI)",
+    "rel_type": "BUILT_ON",
+    "all_types": [
+      "BUILT_ON"
+    ],
+    "description": "ChatGPT is built on the GPT-3.5 and GPT-4 families.",
+    "weight": 1,
+    "chunk_ids": [
+      "5c56e059e8cebff9"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00048",
+    "source_entity": "GPT Series (OpenAI)",
+    "target_entity": "OpenAI",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "OpenAI developed the GPT series of models.",
+    "weight": 1,
+    "chunk_ids": [
+      "5c56e059e8cebff9"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00049",
+    "source_entity": "LLaMA",
+    "target_entity": "LLaMA 1",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "LLaMA 1 was developed by Meta AI.",
+    "weight": 1,
+    "chunk_ids": [
+      "4a4ea014c5ca9c45"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00050",
+    "source_entity": "LLaMA",
+    "target_entity": "LLaMA 2",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "LLaMA 2 was developed by Meta AI.",
+    "weight": 1,
+    "chunk_ids": [
+      "4a4ea014c5ca9c45"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00051",
+    "source_entity": "LLaMA",
+    "target_entity": "LLaMA 3",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "LLaMA 3 was developed by Meta AI.",
+    "weight": 1,
+    "chunk_ids": [
+      "4a4ea014c5ca9c45"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00052",
+    "source_entity": "Alpaca",
+    "target_entity": "LLaMA 1",
+    "rel_type": "BASED_ON",
+    "all_types": [
+      "BASED_ON"
+    ],
+    "description": "Alpaca is a fine-tuned model based on LLaMA 1.",
+    "weight": 1,
+    "chunk_ids": [
+      "4a4ea014c5ca9c45"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00053",
+    "source_entity": "Vicuna",
+    "target_entity": "LLaMA 1",
+    "rel_type": "BASED_ON",
+    "all_types": [
+      "BASED_ON"
+    ],
+    "description": "Vicuna is a fine-tuned model based on LLaMA 1.",
+    "weight": 1,
+    "chunk_ids": [
+      "4a4ea014c5ca9c45"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00054",
+    "source_entity": "Mistral",
+    "target_entity": "LLaMA 1",
+    "rel_type": "BASED_ON",
+    "all_types": [
+      "BASED_ON"
+    ],
+    "description": "Mistral is a fine-tuned model based on LLaMA 1.",
+    "weight": 1,
+    "chunk_ids": [
+      "4a4ea014c5ca9c45"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00055",
+    "source_entity": "Anthropic",
+    "target_entity": "Claude Series",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "Anthropic developed the Claude series of language models.",
+    "weight": 1,
+    "chunk_ids": [
+      "c3893b323a2ee3e1"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00056",
+    "source_entity": "Anthropic",
+    "target_entity": "Gemini Ultra",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "Gemini Ultra was the first model in the Gemini series to outperform human experts on the MMLU benchmark.",
+    "weight": 1,
+    "chunk_ids": [
+      "c3893b323a2ee3e1"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00057",
+    "source_entity": "Google DeepMind",
+    "target_entity": "Gemini",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY",
+      "DEVELOPED_BY"
+    ],
+    "description": "Google DeepMind developed the Gemini series of language models.",
+    "weight": 2,
+    "chunk_ids": [
+      "c3893b323a2ee3e1"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00058",
+    "source_entity": "Qwen",
+    "target_entity": "Alibaba Cloud",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "Alibaba Cloud developed the Qwen series of LLMs.",
+    "weight": 1,
+    "chunk_ids": [
+      "73e975197fb97029"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00059",
+    "source_entity": "Qwen",
+    "target_entity": "Qwen3 family",
+    "rel_type": "INTRODUCED",
+    "all_types": [
+      "INTRODUCED"
+    ],
+    "description": "The Qwen3 family introduced hybrid thinking modes, improved multilingual capabilities, and competitive performance on coding and mathematics benchmarks.",
+    "weight": 1,
+    "chunk_ids": [
+      "73e975197fb97029"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00060",
+    "source_entity": "Claude 3.5",
+    "target_entity": "context window",
+    "rel_type": "SUPPORTS",
+    "all_types": [
+      "SUPPORTS"
+    ],
+    "description": "Claude 3.5 supports a context window of 200,000 tokens.",
+    "weight": 1,
+    "chunk_ids": [
+      "0e82efa9409ff33c"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00061",
+    "source_entity": "Gemini 1.5 Pro",
+    "target_entity": "context window",
+    "rel_type": "SUPPORTS",
+    "all_types": [
+      "SUPPORTS"
+    ],
+    "description": "Gemini 1.5 Pro supports a context window of up to 1 million tokens.",
+    "weight": 1,
+    "chunk_ids": [
+      "0e82efa9409ff33c"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00062",
+    "source_entity": "long context",
+    "target_entity": "LLM",
+    "rel_type": "ENABLES",
+    "all_types": [
+      "ENABLES"
+    ],
+    "description": "Longer context windows allow LLMs to handle longer documents, maintain coherent conversations, and perform in-context learning with more examples.",
+    "weight": 1,
+    "chunk_ids": [
+      "0e82efa9409ff33c"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00063",
+    "source_entity": "codebases",
+    "target_entity": "LLM",
+    "rel_type": "ENABLES",
+    "all_types": [
+      "ENABLES"
+    ],
+    "description": "Applications like summarizing entire codebases, analyzing lengthy legal documents, and processing long scientific papers.",
+    "weight": 1,
+    "chunk_ids": [
+      "0e82efa9409ff33c"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00064",
+    "source_entity": "Qwen3",
+    "target_entity": "Qwen",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "The Qwen3 model is developed by Qwen.",
+    "weight": 1,
+    "chunk_ids": [
+      "24b17cf355abdce3"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00065",
+    "source_entity": "MMLU",
+    "target_entity": "academic subjects",
+    "rel_type": "TESTS",
+    "all_types": [
+      "TESTS"
+    ],
+    "description": "MMLU tests knowledge across 57 academic subjects.",
+    "weight": 1,
+    "chunk_ids": [
+      "310582c41776ab06"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00066",
+    "source_entity": "HumanEval",
+    "target_entity": "code generation accuracy",
+    "rel_type": "MEASURES",
+    "all_types": [
+      "MEASURES"
+    ],
+    "description": "HumanEval and MBPP measure code generation accuracy.",
+    "weight": 1,
+    "chunk_ids": [
+      "310582c41776ab06"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00067",
+    "source_entity": "GSM8K",
+    "target_entity": "mathematical reasoning",
+    "rel_type": "TESTS",
+    "all_types": [
+      "TESTS"
+    ],
+    "description": "GSM8K and MATH test mathematical reasoning.",
+    "weight": 1,
+    "chunk_ids": [
+      "310582c41776ab06"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00068",
+    "source_entity": "MATH",
+    "target_entity": "mathematical reasoning",
+    "rel_type": "TESTS",
+    "all_types": [
+      "TESTS"
+    ],
+    "description": "GSM8K and MATH test mathematical reasoning.",
+    "weight": 1,
+    "chunk_ids": [
+      "310582c41776ab06"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00069",
+    "source_entity": "HellaSwag",
+    "target_entity": "commonsense reasoning",
+    "rel_type": "MEASURES",
+    "all_types": [
+      "MEASURES"
+    ],
+    "description": "HellaSwag and ARC measure commonsense reasoning.",
+    "weight": 1,
+    "chunk_ids": [
+      "310582c41776ab06"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00070",
+    "source_entity": "ARC",
+    "target_entity": "commonsense reasoning",
+    "rel_type": "MEASURES",
+    "all_types": [
+      "MEASURES"
+    ],
+    "description": "HellaSwag and ARC measure commonsense reasoning.",
+    "weight": 1,
+    "chunk_ids": [
+      "310582c41776ab06"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00071",
+    "source_entity": "TruthfulQA",
+    "target_entity": "factually incorrect statements",
+    "rel_type": "MEASURES",
+    "all_types": [
+      "MEASURES"
+    ],
+    "description": "TruthfulQA measures the tendency to generate factually incorrect statements.",
+    "weight": 1,
+    "chunk_ids": [
+      "310582c41776ab06"
+    ],
+    "doc_ids": [
+      "large_language_models"
+    ],
+    "source_doc": "large_language_models"
+  },
+  {
+    "rel_id": "rel_00072",
+    "source_entity": "RAG",
+    "target_entity": "Large Language Models",
+    "rel_type": "WORKS_AT",
+    "all_types": [
+      "WORKS_AT"
+    ],
+    "description": "RAG systems are built on top of large language models.",
+    "weight": 1,
+    "chunk_ids": [
+      "71387ffa83db5d3c"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00073",
+    "source_entity": "RAG",
+    "target_entity": "RETRIEVED PASSAGES",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "RAG systems use retrieved passages from source documents to support citations.",
+    "weight": 1,
+    "chunk_ids": [
+      "71387ffa83db5d3c"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00074",
+    "source_entity": "Dense Retriever",
+    "target_entity": "Dense Passage Retriever (DPR)",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "The Dense Retriever was developed by Facebook to train a Dense Passage Retriever.",
+    "weight": 1,
+    "chunk_ids": [
+      "e146728cdddcf0e5"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00075",
+    "source_entity": "Document Store / Vector Index",
+    "target_entity": "Vector store",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "The Document Store / Vector Index is located in a vector store.",
+    "weight": 1,
+    "chunk_ids": [
+      "e146728cdddcf0e5"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00076",
+    "source_entity": "FAISS",
+    "target_entity": "Vector store",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "FAISS acquired the vector store.",
+    "weight": 1,
+    "chunk_ids": [
+      "e146728cdddcf0e5"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00077",
+    "source_entity": "FAISS",
+    "target_entity": "IVF",
+    "rel_type": "SUPPORTS",
+    "all_types": [
+      "SUPPORTS"
+    ],
+    "description": "FAISS supports multiple index types including IVF, HNSW, and PQ (Product Quantization).",
+    "weight": 1,
+    "chunk_ids": [
+      "d49b99f9a418a0fb"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00078",
+    "source_entity": "FAISS",
+    "target_entity": "HNSW",
+    "rel_type": "SUPPORTS",
+    "all_types": [
+      "SUPPORTS"
+    ],
+    "description": "FAISS supports multiple index types including IVF, HNSW, and PQ (Product Quantization).",
+    "weight": 1,
+    "chunk_ids": [
+      "d49b99f9a418a0fb"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00079",
+    "source_entity": "FAISS",
+    "target_entity": "PQ (Product Quantization)",
+    "rel_type": "SUPPORTS",
+    "all_types": [
+      "SUPPORTS"
+    ],
+    "description": "FAISS supports multiple index types including IVF, HNSW, and PQ (Product Quantization).",
+    "weight": 1,
+    "chunk_ids": [
+      "d49b99f9a418a0fb"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00080",
+    "source_entity": "FAISS",
+    "target_entity": "Chroma",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "FAISS is a successor of Chroma in terms of in-process solutions for vector database performance.",
+    "weight": 1,
+    "chunk_ids": [
+      "99f7ac4bdc89395d"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00081",
+    "source_entity": "FAISS",
+    "target_entity": "LanceDB",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "FAISS is a successor of LanceDB in terms of in-process solutions for vector database performance.",
+    "weight": 1,
+    "chunk_ids": [
+      "99f7ac4bdc89395d"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00082",
+    "source_entity": "FAISS",
+    "target_entity": "Zvec",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "FAISS is a successor of Zvec in terms of in-process solutions for vector database performance.",
+    "weight": 1,
+    "chunk_ids": [
+      "99f7ac4bdc89395d"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00083",
+    "source_entity": "FAISS",
+    "target_entity": "tens of thousands of vectors",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "FAISS is a successor of in-process solutions for vector database performance.",
+    "weight": 1,
+    "chunk_ids": [
+      "99f7ac4bdc89395d"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00084",
+    "source_entity": "FAISS",
+    "target_entity": "database server",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "FAISS is a successor of the operational overhead of running a database server in terms of in-process solutions for vector database performance.",
+    "weight": 1,
+    "chunk_ids": [
+      "99f7ac4bdc89395d"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00085",
+    "source_entity": "Pinecone",
+    "target_entity": "Weaviate",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "Pinecone is a managed, cloud-native vector database service that supports metadata filtering alongside vector search, allowing queries like 'find the 10 most similar documents that also match filter: category='science''. It is a popular choice for production RAG deployments that require managed infrastructure.",
+    "weight": 1,
+    "chunk_ids": [
+      "025a4d30df8706bc"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00086",
+    "source_entity": "Weaviate",
+    "target_entity": "Pinecone",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "Weaviate is an open-source vector database with a GraphQL API that stores objects (documents) alongside their vector representations and supports both pure vector search and combined vector-plus-keyword search (hybrid search). Weaviate can run as a standalone service or in a managed cloud deployment.",
+    "weight": 1,
+    "chunk_ids": [
+      "025a4d30df8706bc"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00087",
+    "source_entity": "Chroma",
+    "target_entity": "Qdrant",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "Qdrant is an open-source vector similarity search engine with a REST and gRPC API.",
+    "weight": 1,
+    "chunk_ids": [
+      "a949df1c877b7163"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00088",
+    "source_entity": "LanceDB",
+    "target_entity": "Zvec",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "LanceDB is an open-source, serverless vector database built on the Lance columnar format.",
+    "weight": 1,
+    "chunk_ids": [
+      "5a5f4b8aeeb5ae55"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00089",
+    "source_entity": "generator",
+    "target_entity": "BART",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "BART was used as the generator in the original paper.",
+    "weight": 1,
+    "chunk_ids": [
+      "4dcff615e7a2ceff"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00090",
+    "source_entity": "generator",
+    "target_entity": "GPT-4",
+    "rel_type": "WORKS_AT",
+    "all_types": [
+      "WORKS_AT"
+    ],
+    "description": "GPT-4 is an instruction-tuned LLM used in modern RAG systems.",
+    "weight": 1,
+    "chunk_ids": [
+      "4dcff615e7a2ceff"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00091",
+    "source_entity": "generator",
+    "target_entity": "LLaMA",
+    "rel_type": "WORKS_AT",
+    "all_types": [
+      "WORKS_AT"
+    ],
+    "description": "Llama is another instruction-tuned LLM used in modern RAG systems.",
+    "weight": 1,
+    "chunk_ids": [
+      "4dcff615e7a2ceff"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00092",
+    "source_entity": "Advanced RAG",
+    "target_entity": "Graph RAG",
+    "rel_type": "INTEGRATED",
+    "all_types": [
+      "INTEGRATED"
+    ],
+    "description": "Advanced RAG is integrated with Graph RAG to improve retrieval efficiency.",
+    "weight": 1,
+    "chunk_ids": [
+      "b744eeebc1934b70"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00093",
+    "source_entity": "Graph RAG",
+    "target_entity": "Microsoft's GraphRAG system",
+    "rel_type": "INTEGRATED",
+    "all_types": [
+      "INTEGRATED"
+    ],
+    "description": "Graph RAG is integrated with Microsoft's GraphRAG system, which uses hierarchical community detection and community report generation to support both local and global queries.",
+    "weight": 1,
+    "chunk_ids": [
+      "b744eeebc1934b70"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00094",
+    "source_entity": "Chunking Strategy",
+    "target_entity": "RAG",
+    "rel_type": "DECOMPOSED_BY",
+    "all_types": [
+      "DECOMPOSED_BY"
+    ],
+    "description": "The Chunking Strategy is used to decompose the RAG pipeline into interchangeable modules for indexing, retrieval, reranking, and generation.",
+    "weight": 1,
+    "chunk_ids": [
+      "7bac4d8e30f7b55c"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00095",
+    "source_entity": "Retrieval Quality",
+    "target_entity": "RAG",
+    "rel_type": "DECOMPOSED_BY",
+    "all_types": [
+      "DECOMPOSED_BY"
+    ],
+    "description": "The Retrieval Quality is used to decompose the RAG pipeline into interchangeable modules for indexing, retrieval, reranking, and generation.",
+    "weight": 1,
+    "chunk_ids": [
+      "7bac4d8e30f7b55c"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00096",
+    "source_entity": "answer correctness",
+    "target_entity": "groundedness",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "Answer correctness is evaluated using groundedness, which checks if the answer is supported by the retrieved documents.",
+    "weight": 1,
+    "chunk_ids": [
+      "f08417a79e9ed8e6"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00097",
+    "source_entity": "answer correctness",
+    "target_entity": "faithfulness",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "Answer correctness is evaluated using faithfulness, which checks if the answer avoids hallucinating facts not present in the retrieved context.",
+    "weight": 1,
+    "chunk_ids": [
+      "f08417a79e9ed8e6"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00098",
+    "source_entity": "answer correctness",
+    "target_entity": "context relevance",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "Answer correctness is evaluated using context relevance, which checks if the retrieved documents are actually relevant to the question.",
+    "weight": 1,
+    "chunk_ids": [
+      "f08417a79e9ed8e6"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00099",
+    "source_entity": "Patrick Lewis",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Patrick Lewis was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00100",
+    "source_entity": "Ethan Perez",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Ethan Perez was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00101",
+    "source_entity": "Aleksandra Piktus",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Aleksandra Piktus was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00102",
+    "source_entity": "Fabio Petroni",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Fabio Petroni was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00103",
+    "source_entity": "Vladimir Karpukhin",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Vladimir Karpukhin was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00104",
+    "source_entity": "Naman Goyal",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Naman Goyal was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00105",
+    "source_entity": "Heinrich Küttler",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Heinrich Küttler was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00106",
+    "source_entity": "Mike Lewis",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Mike Lewis was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00107",
+    "source_entity": "Wen-tau Yih",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Wen-tau Yih was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00108",
+    "source_entity": "Tim Rocktäschel",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Tim Rocktäschel was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00109",
+    "source_entity": "Sebastian Riedel",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Sebastian Riedel was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00110",
+    "source_entity": "Douwe Kiela",
+    "target_entity": "Microsoft Research",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "Douwe Kiela was acquired by Microsoft Research",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00111",
+    "source_entity": "Darren Edge",
+    "target_entity": "Microsoft Research",
+    "rel_type": "CONTRIBUTED_TO",
+    "all_types": [
+      "CONTRIBUTED_TO"
+    ],
+    "description": "Darren Edge contributed to GraphRAG development",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00112",
+    "source_entity": "Ha Trinh",
+    "target_entity": "Microsoft Research",
+    "rel_type": "CONTRIBUTED_TO",
+    "all_types": [
+      "CONTRIBUTED_TO"
+    ],
+    "description": "Ha Trinh contributed to GraphRAG development",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00113",
+    "source_entity": "Newman Cheng",
+    "target_entity": "Microsoft Research",
+    "rel_type": "CONTRIBUTED_TO",
+    "all_types": [
+      "CONTRIBUTED_TO"
+    ],
+    "description": "Newman Cheng contributed to GraphRAG development",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00114",
+    "source_entity": "Joshua Bradley",
+    "target_entity": "Microsoft Research",
+    "rel_type": "CONTRIBUTED_TO",
+    "all_types": [
+      "CONTRIBUTED_TO"
+    ],
+    "description": "Joshua Bradley contributed to GraphRAG development",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00115",
+    "source_entity": "Alex Chao",
+    "target_entity": "Microsoft Research",
+    "rel_type": "CONTRIBUTED_TO",
+    "all_types": [
+      "CONTRIBUTED_TO"
+    ],
+    "description": "Alex Chao contributed to GraphRAG development",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00116",
+    "source_entity": "Apurva Mody",
+    "target_entity": "Microsoft Research",
+    "rel_type": "CONTRIBUTED_TO",
+    "all_types": [
+      "CONTRIBUTED_TO"
+    ],
+    "description": "Apurva Mody contributed to GraphRAG development",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00117",
+    "source_entity": "Steven Truitt",
+    "target_entity": "Microsoft Research",
+    "rel_type": "CONTRIBUTED_TO",
+    "all_types": [
+      "CONTRIBUTED_TO"
+    ],
+    "description": "Steven Truitt contributed to GraphRAG development",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00118",
+    "source_entity": "Jonathan Larson",
+    "target_entity": "Microsoft Research",
+    "rel_type": "CONTRIBUTED_TO",
+    "all_types": [
+      "CONTRIBUTED_TO"
+    ],
+    "description": "Jonathan Larson contributed to GraphRAG development",
+    "weight": 1,
+    "chunk_ids": [
+      "a4a679c427829368"
+    ],
+    "doc_ids": [
+      "retrieval_augmented_generation"
+    ],
+    "source_doc": "retrieval_augmented_generation"
+  },
+  {
+    "rel_id": "rel_00119",
+    "source_entity": "Transformer",
+    "target_entity": "Attention function",
+    "rel_type": "PERFORMS",
+    "all_types": [
+      "PERFORMS"
+    ],
+    "description": "The Transformer performs an attention function.",
+    "weight": 1,
+    "chunk_ids": [
+      "a5123f467123650e"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00120",
+    "source_entity": "Transformer",
+    "target_entity": "Multi-Head Attention",
+    "rel_type": "USES",
+    "all_types": [
+      "USES"
+    ],
+    "description": "The Transformer uses multi-head attention.",
+    "weight": 1,
+    "chunk_ids": [
+      "a5123f467123650e"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00121",
+    "source_entity": "Transformer",
+    "target_entity": "Attention operations",
+    "rel_type": "PERFORMS",
+    "all_types": [
+      "PERFORMS"
+    ],
+    "description": "The Transformer performs attention operations.",
+    "weight": 1,
+    "chunk_ids": [
+      "a5123f467123650e"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00122",
+    "source_entity": "Transformer",
+    "target_entity": "Linear projections",
+    "rel_type": "PERFORMS",
+    "all_types": [
+      "PERFORMS"
+    ],
+    "description": "The Transformer performs linear projections.",
+    "weight": 1,
+    "chunk_ids": [
+      "a5123f467123650e"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00123",
+    "source_entity": "Transformer",
+    "target_entity": "Concatenation",
+    "rel_type": "PERFORMS",
+    "all_types": [
+      "PERFORMS"
+    ],
+    "description": "The Transformer performs concatenation.",
+    "weight": 1,
+    "chunk_ids": [
+      "a5123f467123650e"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00124",
+    "source_entity": "Transformer",
+    "target_entity": "Position-wise feed-forward network",
+    "rel_type": "APPLIES",
+    "all_types": [
+      "APPLIES"
+    ],
+    "description": "The Transformer applies a position-wise feed-forward network.",
+    "weight": 1,
+    "chunk_ids": [
+      "a5123f467123650e"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00125",
+    "source_entity": "Transformer",
+    "target_entity": "Encoder",
+    "rel_type": "WORKS_AT",
+    "all_types": [
+      "WORKS_AT"
+    ],
+    "description": "The Transformer consists of an encoder and a decoder.",
+    "weight": 1,
+    "chunk_ids": [
+      "a885be6b749e39a1"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00126",
+    "source_entity": "Transformer",
+    "target_entity": "Decoder",
+    "rel_type": "WORKS_AT",
+    "all_types": [
+      "WORKS_AT"
+    ],
+    "description": "The Transformer consists of an encoder and a decoder.",
+    "weight": 1,
+    "chunk_ids": [
+      "a885be6b749e39a1"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00127",
+    "source_entity": "The Transformer",
+    "target_entity": "Vaswani et al.",
+    "rel_type": "INTRODUCED_BY",
+    "all_types": [
+      "INTRODUCED_BY"
+    ],
+    "description": "The Transformer was introduced by Vaswani et al. in the 2017 paper 'Attention Is All You Need'.",
+    "weight": 1,
+    "chunk_ids": [
+      "745e90bb807507b6"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00128",
+    "source_entity": "Self-Attention Mechanism",
+    "target_entity": "Query",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "The Query vector is used to represent the input token.",
+    "weight": 1,
+    "chunk_ids": [
+      "c81c2a06e4ee9667"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00129",
+    "source_entity": "Self-Attention Mechanism",
+    "target_entity": "Key",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "The Key vector is used to represent the input token.",
+    "weight": 1,
+    "chunk_ids": [
+      "c81c2a06e4ee9667"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00130",
+    "source_entity": "Self-Attention Mechanism",
+    "target_entity": "Value",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "The Value vector is used to represent the output of the model.",
+    "weight": 1,
+    "chunk_ids": [
+      "c81c2a06e4ee9667"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00131",
+    "source_entity": "Self-Attention Mechanism",
+    "target_entity": "Attention Score",
+    "rel_type": "CALCULATED_FROM",
+    "all_types": [
+      "CALCULATED_FROM"
+    ],
+    "description": "The attention score between two tokens is computed as the dot product of their Query and Key vectors, scaled by the square root of the key dimension.",
+    "weight": 1,
+    "chunk_ids": [
+      "c81c2a06e4ee9667"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00132",
+    "source_entity": "Self-Attention Mechanism",
+    "target_entity": "Softmax",
+    "rel_type": "INVOLVED_IN",
+    "all_types": [
+      "INVOLVED_IN"
+    ],
+    "description": "The softmax function normalizes the attention scores to a probability distribution.",
+    "weight": 1,
+    "chunk_ids": [
+      "c81c2a06e4ee9667"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00133",
+    "source_entity": "Multi-Head Attention",
+    "target_entity": "Transformer",
+    "rel_type": "USES",
+    "all_types": [
+      "USES"
+    ],
+    "description": "The Transformer uses multi-head attention.",
+    "weight": 1,
+    "chunk_ids": [
+      "a5123f467123650e"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00134",
+    "source_entity": "Encoder",
+    "target_entity": "Multi-Head Self-Attention",
+    "rel_type": "INTEGRATED_WITH",
+    "all_types": [
+      "INTEGRATED_WITH"
+    ],
+    "description": "The encoder contains a multi-head self-attention sublayer.",
+    "weight": 1,
+    "chunk_ids": [
+      "a885be6b749e39a1"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00135",
+    "source_entity": "Encoder",
+    "target_entity": "Feed-Forward Sublayer",
+    "rel_type": "INTEGRATED_WITH",
+    "all_types": [
+      "INTEGRATED_WITH"
+    ],
+    "description": "The encoder contains a feed-forward sublayer.",
+    "weight": 1,
+    "chunk_ids": [
+      "a885be6b749e39a1"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00136",
+    "source_entity": "Decoder",
+    "target_entity": "Cross-Attention Sublayer",
+    "rel_type": "INTEGRATED_WITH",
+    "all_types": [
+      "INTEGRATED_WITH"
+    ],
+    "description": "The decoder contains a cross-attention sublayer.",
+    "weight": 1,
+    "chunk_ids": [
+      "a885be6b749e39a1"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00137",
+    "source_entity": "Decoder",
+    "target_entity": "Feed-Forward Sublayer",
+    "rel_type": "INTEGRATED_WITH",
+    "all_types": [
+      "INTEGRATED_WITH"
+    ],
+    "description": "The decoder contains a feed-forward sublayer.",
+    "weight": 1,
+    "chunk_ids": [
+      "a885be6b749e39a1"
+    ],
+    "doc_ids": [
+      "transformer_architecture"
+    ],
+    "source_doc": "transformer_architecture"
+  },
+  {
+    "rel_id": "rel_00138",
+    "source_entity": "Vector Database",
+    "target_entity": "Relational Database",
+    "rel_type": "INTRODUCED_BY",
+    "all_types": [
+      "INTRODUCED_BY"
+    ],
+    "description": "The concept of vector databases is introduced by the concept of relational databases.",
+    "weight": 1,
+    "chunk_ids": [
+      "d64267739e25869c"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00139",
+    "source_entity": "Vector Database",
+    "target_entity": "AI Applications",
+    "rel_type": "PART_OF",
+    "all_types": [
+      "PART_OF"
+    ],
+    "description": "Vector databases are a core infrastructure component in modern AI applications.",
+    "weight": 1,
+    "chunk_ids": [
+      "d64267739e25869c"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00140",
+    "source_entity": "semantic meaning",
+    "target_entity": "semantic search",
+    "rel_type": "INTRODUCED_BY",
+    "all_types": [
+      "INTRODUCED_BY"
+    ],
+    "description": "The semantic meaning is introduced by the technology of capturing semantic meaning in neural models.",
+    "weight": 1,
+    "chunk_ids": [
+      "fc0f4473d792a08f"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00141",
+    "source_entity": "vector database market",
+    "target_entity": "semantic search",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "The vector database market is a successor to the rise of large language models and embedding models.",
+    "weight": 1,
+    "chunk_ids": [
+      "fc0f4473d792a08f"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00142",
+    "source_entity": "embedding",
+    "target_entity": "encoder model",
+    "rel_type": "GENERATED_BY",
+    "all_types": [
+      "GENERATED_BY"
+    ],
+    "description": "The embedding model maps inputs to vectors such that semantically similar inputs produce nearby vectors.",
+    "weight": 1,
+    "chunk_ids": [
+      "417905a71f013c88"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00143",
+    "source_entity": "HNSW",
+    "target_entity": "query time",
+    "rel_type": "ACHIEVES",
+    "all_types": [
+      "ACHIEVES"
+    ],
+    "description": "HNSW achieves sub-millisecond query times on million-scale datasets.",
+    "weight": 1,
+    "chunk_ids": [
+      "417905a71f013c88"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00144",
+    "source_entity": "HNSW",
+    "target_entity": "FAISS",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "HNSW is a successor of FAISS in terms of index type.",
+    "weight": 1,
+    "chunk_ids": [
+      "99f7ac4bdc89395d"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00145",
+    "source_entity": "IVF",
+    "target_entity": "query time",
+    "rel_type": "ACHIEVES",
+    "all_types": [
+      "ACHIEVES"
+    ],
+    "description": "IVF searches only the nearest clusters at query time, partitioning the vector space into clusters.",
+    "weight": 1,
+    "chunk_ids": [
+      "417905a71f013c88"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00146",
+    "source_entity": "IVF",
+    "target_entity": "FAISS",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "IVF is a successor of FAISS in terms of index type.",
+    "weight": 1,
+    "chunk_ids": [
+      "99f7ac4bdc89395d"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00147",
+    "source_entity": "Cosine similarity",
+    "target_entity": "FAISS",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "FAISS is an open-source library developed by Meta AI Research for efficient similarity search and clustering of dense vectors.",
+    "weight": 1,
+    "chunk_ids": [
+      "d49b99f9a418a0fb"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00148",
+    "source_entity": "Dot product (inner product) similarity",
+    "target_entity": "FAISS",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "FAISS is an open-source library developed by Meta AI Research for efficient similarity search and clustering of dense vectors.",
+    "weight": 1,
+    "chunk_ids": [
+      "d49b99f9a418a0fb"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00149",
+    "source_entity": "Euclidean (L2) distance",
+    "target_entity": "FAISS",
+    "rel_type": "DEVELOPED_BY",
+    "all_types": [
+      "DEVELOPED_BY"
+    ],
+    "description": "FAISS is an open-source library developed by Meta AI Research for efficient similarity search and clustering of dense vectors.",
+    "weight": 1,
+    "chunk_ids": [
+      "d49b99f9a418a0fb"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00150",
+    "source_entity": "FAISS runs entirely in-process",
+    "target_entity": "Embedded applications",
+    "rel_type": "SUITABLE_FOR",
+    "all_types": [
+      "SUITABLE_FOR"
+    ],
+    "description": "FAISS runs entirely in-process — there is no server component — making it suitable for embedded applications and research prototypes.",
+    "weight": 1,
+    "chunk_ids": [
+      "d49b99f9a418a0fb"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00151",
+    "source_entity": "FAISS runs entirely in-process",
+    "target_entity": "Research prototypes",
+    "rel_type": "SUITABLE_FOR",
+    "all_types": [
+      "SUITABLE_FOR"
+    ],
+    "description": "FAISS runs entirely in-process — there is no server component — making it suitable for embedded applications and research prototypes.",
+    "weight": 1,
+    "chunk_ids": [
+      "d49b99f9a418a0fb"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00152",
+    "source_entity": "Zvec",
+    "target_entity": "Microsoft GraphRAG",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "Zvec uses Reciprocal Rank Fusion (RRF) and weighted fusion to combine dense and sparse retrieval signals.",
+    "weight": 1,
+    "chunk_ids": [
+      "5a5f4b8aeeb5ae55"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00153",
+    "source_entity": "Pure vector search",
+    "target_entity": "Hybrid search",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "Hybrid search combines both signals to outperform either approach alone on mixed query types.",
+    "weight": 1,
+    "chunk_ids": [
+      "895ee8b439ed7d7b"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00154",
+    "source_entity": "Pure keyword search",
+    "target_entity": "Hybrid search",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "Hybrid search combines both signals to outperform either approach alone on mixed query types.",
+    "weight": 1,
+    "chunk_ids": [
+      "895ee8b439ed7d7b"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00155",
+    "source_entity": "Reciprocal Rank Fusion (RRF)",
+    "target_entity": "Hybrid search",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "Hybrid search combines both signals to outperform either approach alone on mixed query types.",
+    "weight": 1,
+    "chunk_ids": [
+      "895ee8b439ed7d7b"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  },
+  {
+    "rel_id": "rel_00156",
+    "source_entity": "Weighted fusion",
+    "target_entity": "Hybrid search",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "Hybrid search combines both signals to outperform either approach alone on mixed query types.",
+    "weight": 1,
+    "chunk_ids": [
+      "895ee8b439ed7d7b"
+    ],
+    "doc_ids": [
+      "vector_databases"
+    ],
+    "source_doc": "vector_databases"
+  }
+]

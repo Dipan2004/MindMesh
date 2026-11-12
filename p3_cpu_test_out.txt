@@ -1,0 +1,78 @@
+WARNING: pypinyin is not installed. Chinese pinyin sorting will use simple string sorting.
+INFO: [] Created new empty graph file: C:\Users\KIIT0001\AppData\Local\Temp\tmpkmt1vvbq\graph_chunk_entity_relation.graphml
+INFO: Role LLM Configuration (initialized):
+INFO:  - extract: None/None, host=None, max_async=4, timeout=240
+INFO:  - keyword: None/None, host=None, max_async=4, timeout=240
+INFO:  - query: None/None, host=None, max_async=4, timeout=240
+INFO:  - vlm: None/None, host=None, max_async=4, timeout=240
+INFO: [] Created new empty graph file: C:\Users\KIIT0001\AppData\Local\Temp\tmp41uzjian\graph_chunk_entity_relation.graphml
+INFO: Role LLM Configuration (initialized):
+INFO:  - extract: None/None, host=None, max_async=4, timeout=240
+INFO:  - keyword: None/None, host=None, max_async=4, timeout=240
+INFO:  - query: None/None, host=None, max_async=4, timeout=240
+INFO:  - vlm: None/None, host=None, max_async=4, timeout=240
+INFO: [] Created new empty graph file: C:\Users\KIIT0001\AppData\Local\Temp\tmpakuh28vu\graph_chunk_entity_relation.graphml
+INFO: Role LLM Configuration (initialized):
+INFO:  - extract: None/None, host=None, max_async=4, timeout=240
+INFO:  - keyword: None/None, host=None, max_async=4, timeout=240
+INFO:  - query: None/None, host=None, max_async=4, timeout=240
+INFO:  - vlm: None/None, host=None, max_async=4, timeout=240
+INFO: [] Created new empty graph file: C:\Users\KIIT0001\AppData\Local\Temp\tmpjjf6ov18\graph_chunk_entity_relation.graphml
+INFO: Role LLM Configuration (initialized):
+INFO:  - extract: None/None, host=None, max_async=4, timeout=240
+INFO:  - keyword: None/None, host=None, max_async=4, timeout=240
+INFO:  - query: None/None, host=None, max_async=4, timeout=240
+INFO:  - vlm: None/None, host=None, max_async=4, timeout=240
+INFO: [] Created new empty graph file: C:\Users\KIIT0001\AppData\Local\Temp\tmpwr_q0hu6\graph_chunk_entity_relation.graphml
+INFO: Role LLM Configuration (initialized):
+INFO:  - extract: None/None, host=None, max_async=4, timeout=240
+INFO:  - keyword: None/None, host=None, max_async=4, timeout=240
+INFO:  - query: None/None, host=None, max_async=4, timeout=240
+INFO:  - vlm: None/None, host=None, max_async=4, timeout=240
+Traceback (most recent call last):
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_pipeline3_cpu.py", line 310, in main
+    fn()
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_pipeline3_cpu.py", line 257, in test_insert_and_query_dummy
+    result = asyncio.run(run())
+             ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\asyncio\runners.py", line 190, in run
+    return runner.run(main)
+           ^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\asyncio\runners.py", line 118, in run
+    return self._loop.run_until_complete(task)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\asyncio\base_events.py", line 654, in run_until_complete
+    return future.result()
+           ^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_pipeline3_cpu.py", line 250, in run
+    await rag.ainsert("HNSW is an approximate nearest-neighbor algorithm.")
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\LightRAG\lightrag\lightrag.py", line 2368, in ainsert
+    await self.apipeline_enqueue_documents(
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\LightRAG\lightrag\pipeline.py", line 861, in apipeline_enqueue_documents
+    pipeline_status = await get_namespace_data(
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\LightRAG\lightrag\kg\shared_storage.py", line 3880, in get_namespace_data
+    raise PipelineNotInitializedError(final_namespace)
+lightrag.exceptions.PipelineNotInitializedError: "Pipeline namespace 'pipeline_status' not found.\n\nPipeline status should be auto-initialized by initialize_storages().\nIf you see this error, please ensure:\n\n  1. You called await rag.initialize_storages()\n  2. For multi-workspace setups, each LightRAG instance was properly initialized\n\nStandard initialization:\n  rag = LightRAG(workspace='your_workspace')\n  await rag.initialize_storages()  # Auto-initializes pipeline_status\n\nIf you need manual control (advanced):\n  from lightrag.kg.shared_storage import initialize_pipeline_status\n  await initialize_pipeline_status(workspace='your_workspace')"
+
+============================================================
+  Pipeline 3 CPU-Safe Tests
+============================================================
+  PASS  lightrag_import
+  PASS  lightrag_version
+  PASS  embedding_func_wrapper
+  PASS  embedding_func_in_adapter
+  PASS  lightrag_init_dummy
+       KV: JsonKVStorage, Graph: NetworkXStorage
+  PASS  lightrag_storage_backends
+  PASS  working_dir_isolation
+  PASS  adapter_workdir_isolated
+  PASS  query_param_all_modes
+  PASS  query_param_context_only
+  PASS  unindexed_returns_error
+  FAIL  test_insert_and_query_dummy: "Pipeline namespace 'pipeline_status' not found.\n\nPipeline status should be auto-initialized by initialize_storages().\nIf you see this error, please ensure:\n\n  1. You called await rag.initialize_storages()\n  2. For multi-workspace setups, each LightRAG instance was properly initialized\n\nStandard initialization:\n  rag = LightRAG(workspace='your_workspace')\n  await rag.initialize_storages()  # Auto-initializes pipeline_status\n\nIf you need manual control (advanced):\n  from lightrag.kg.shared_storage import initialize_pipeline_status\n  await initialize_pipeline_status(workspace='your_workspace')"
+  PASS  dry_run_output
+
+============================================================
+  RESULTS: 12 passed, 1 failed
+============================================================

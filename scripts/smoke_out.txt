@@ -1,0 +1,90 @@
+C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\src\graphrag_lite\ingestion\gleaning.py:185: UserWarning: [OllamaClient] ReadTimeout on first attempt -- retrying once. model=qwen2.5:1.5b
+  fn=lambda p, _client=llm_client, _prompt=prompt: _client.generate(_prompt),
+Traceback (most recent call last):
+chunk_id: 4af3dc8c5da84fad
+doc_id:   transformer_architecture
+keys:     ['chunk_id', 'doc_id', 'source_doc', 'chunk_index', 'text']
+Running extraction...
+Extraction: 20 entities, 12 relationships
+Running gleaning...
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpx\_transports\default.py", line 101, in map_httpcore_exceptions
+    yield
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpx\_transports\default.py", line 250, in handle_request
+    resp = self._pool.handle_request(req)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 256, in handle_request
+    raise exc from None
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpcore\_sync\connection_pool.py", line 236, in handle_request
+    response = connection.handle_request(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpcore\_sync\connection.py", line 103, in handle_request
+    return self._connection.handle_request(request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpcore\_sync\http11.py", line 136, in handle_request
+    raise exc
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpcore\_sync\http11.py", line 106, in handle_request
+    ) = self._receive_response_headers(**kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpcore\_sync\http11.py", line 177, in _receive_response_headers
+    event = self._receive_event(timeout=timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpcore\_sync\http11.py", line 217, in _receive_event
+    data = self._network_stream.read(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpcore\_backends\sync.py", line 126, in read
+    with map_exceptions(exc_map):
+  File "C:\Users\KIIT0001\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpcore\_exceptions.py", line 14, in map_exceptions
+    raise to_exc(exc) from exc
+httpcore.ReadTimeout: timed out
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\scripts\smoke_test_chunk.py", line 45, in <module>
+    result2 = glean(chunk, result, client, max_gleanings=1)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\src\graphrag_lite\ingestion\gleaning.py", line 182, in glean
+    raw_response = cached_call(
+                   ^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\src\graphrag_lite\cache\llm_cache.py", line 131, in cached_call
+    result = fn(prompt)
+             ^^^^^^^^^^
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\src\graphrag_lite\ingestion\gleaning.py", line 185, in <lambda>
+    fn=lambda p, _client=llm_client, _prompt=prompt: _client.generate(_prompt),
+                                                     ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\src\graphrag_lite\llm\ollama_client.py", line 186, in generate
+    response = client2.generate(**self._kwargs(prompt))
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\ollama\_client.py", line 281, in generate
+    return self._request(
+           ^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\ollama\_client.py", line 199, in _request
+    return cls(**self._request_raw(*args, **kwargs).json())
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\ollama\_client.py", line 139, in _request_raw
+    r = self._client.request(*args, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpx\_client.py", line 825, in request
+    return self.send(request, auth=auth, follow_redirects=follow_redirects)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpx\_client.py", line 914, in send
+    response = self._send_handling_auth(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpx\_client.py", line 942, in _send_handling_auth
+    response = self._send_handling_redirects(
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpx\_client.py", line 979, in _send_handling_redirects
+    response = self._send_single_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpx\_client.py", line 1014, in _send_single_request
+    response = transport.handle_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpx\_transports\default.py", line 249, in handle_request
+    with map_httpcore_exceptions():
+  File "C:\Users\KIIT0001\AppData\Roaming\uv\python\cpython-3.11-windows-x86_64-none\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\KIIT0001\Desktop\RAG_chatbot\.venv\Lib\site-packages\httpx\_transports\default.py", line 118, in map_httpcore_exceptions
+    raise mapped_exc(message) from exc
+httpx.ReadTimeout: timed out

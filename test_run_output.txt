@@ -1,0 +1,81 @@
+2026-11-09 21:16:33,939 [INFO] Experiment: model='qwen3:4b'  slug='qwen3_4b'  dir=C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen3_4b
+2026-11-09 21:16:33,939 [INFO] Script: C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\eval\run_model_experiment.py
+2026-11-09 21:16:35,807 [INFO] === Stage A: Preflight ===
+2026-11-09 21:16:35,807 [INFO] Checking Ollama availability...
+2026-11-09 21:16:36,848 [INFO] Ollama available.
+2026-11-09 21:16:36,849 [INFO] Installed models: ['qwen3.5:2b', 'qwen3:4b', 'nomic-embed-text:latest', 'qwen2.5:0.5b', 'llama3.2:latest', 'gemma4:31b-cloud', 'qwen2.5:1.5b', 'qwen2.5-coder:1.5b', 'gemma4:e2b', 'nemotron-3-super:cloud', 'qwen3.5:9b']
+2026-11-09 21:16:36,850 [INFO] Model 'qwen3:4b' is available.
+2026-11-09 21:16:36,851 [INFO] Collecting model metadata for 'qwen3:4b'...
+2026-11-09 21:16:37,336 [INFO] Checking system resources...
+2026-11-09 21:16:37,337 [INFO] Disk free: 18.7 GB
+2026-11-09 21:16:37,337 [INFO] Checking embedding model availability...
+2026-11-09 21:16:37,338 [INFO] Embedding model 'nomic-embed-text' available.
+2026-11-09 21:16:37,338 [INFO] Canonical chunks_v1 found at C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\cache\chunks_v1
+2026-11-09 21:16:37,342 [INFO] Dev evaluation set: 20 questions
+2026-11-09 21:16:37,342 [INFO] Frozen test set present (not accessed): True
+2026-11-09 21:16:37,343 [INFO] Stage A complete ù all preflight checks passed.
+2026-11-09 21:16:37,343 [INFO] === Stage B: Read canonical chunks ===
+2026-11-09 21:16:39,574 [INFO] Opening chunks_v1 at C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\cache\chunks_v1 (read-only)
+2026-11-09 21:16:40,757 [INFO] Read 42 chunks, 42 unique IDs
+2026-11-09 21:16:40,758 [INFO] Verified: all 42 canonical chunk IDs present.
+2026-11-09 21:16:40,758 [INFO] === Stage C: Fresh extraction with 'qwen3:4b' ===
+2026-11-09 21:16:48,525 [INFO] Using private LLM cache at C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen3_4b\llm_cache
+2026-11-09 21:16:48,729 [INFO] Extraction settings: temperature=0.0, seed=42, num_predict=4096, num_ctx=8192, frequency_penalty=0.25, think=False, max_gleanings=1
+2026-11-09 21:16:48,729 [INFO] Using model: 'qwen3:4b' (client.model='qwen3:4b')
+2026-11-09 21:16:48,729 [INFO] [01/42] chunk=0282ea807039 doc=knowledge_graphs
+2026-11-09 21:26:54,147 [ERROR]   PARSE ERROR chunk=0282ea807039: timed out (605.4s)
+2026-11-09 21:26:54,273 [INFO] [02/42] chunk=ba8440076ddd doc=knowledge_graphs
+2026-11-09 21:36:59,653 [ERROR]   PARSE ERROR chunk=ba8440076ddd: timed out (605.4s)
+2026-11-09 21:36:59,661 [INFO] [03/42] chunk=6fc475866849 doc=knowledge_graphs
+2026-11-09 21:47:04,884 [ERROR]   PARSE ERROR chunk=6fc475866849: timed out (605.2s)
+2026-11-09 21:47:04,893 [INFO] [04/42] chunk=3256abe3c09b doc=knowledge_graphs
+2026-11-09 21:57:10,115 [ERROR]   PARSE ERROR chunk=3256abe3c09b: timed out (605.2s)
+2026-11-09 21:57:10,121 [INFO] [05/42] chunk=b76780cc9122 doc=knowledge_graphs
+2026-11-09 22:07:15,314 [ERROR]   PARSE ERROR chunk=b76780cc9122: timed out (605.2s)
+2026-11-09 22:07:15,322 [INFO] [06/42] chunk=a04b3d90e2da doc=knowledge_graphs
+2026-11-09 22:17:20,621 [ERROR]   PARSE ERROR chunk=a04b3d90e2da: timed out (605.3s)
+2026-11-09 22:17:20,637 [INFO] [07/42] chunk=6d878b7f56a9 doc=knowledge_graphs
+2026-11-09 22:27:23,432 [ERROR]   PARSE ERROR chunk=6d878b7f56a9: timed out (605.2s)
+2026-11-09 22:27:23,436 [INFO] [08/42] chunk=4e802a799a87 doc=knowledge_graphs
+2026-11-09 22:37:28,595 [ERROR]   PARSE ERROR chunk=4e802a799a87: timed out (605.2s)
+2026-11-09 22:37:28,601 [INFO] [09/42] chunk=a09f4455b7fe doc=knowledge_graphs
+2026-11-09 22:47:33,698 [ERROR]   PARSE ERROR chunk=a09f4455b7fe: timed out (605.1s)
+2026-11-09 22:47:33,703 [INFO] [10/42] chunk=ab2692f1a112 doc=knowledge_graphs
+2026-11-09 22:57:38,809 [ERROR]   PARSE ERROR chunk=ab2692f1a112: timed out (605.1s)
+2026-11-09 22:57:38,814 [INFO] [11/42] chunk=efaf36ff59ad doc=large_language_model
+2026-11-09 23:07:43,965 [ERROR]   PARSE ERROR chunk=efaf36ff59ad: timed out (605.2s)
+2026-11-09 23:07:43,976 [INFO] [12/42] chunk=e9c66a7ac48f doc=large_language_model
+2026-11-09 23:17:49,113 [ERROR]   PARSE ERROR chunk=e9c66a7ac48f: timed out (605.1s)
+2026-11-09 23:17:49,119 [INFO] [13/42] chunk=32c85d7ec02b doc=large_language_model
+2026-11-09 23:27:54,422 [ERROR]   PARSE ERROR chunk=32c85d7ec02b: timed out (605.3s)
+2026-11-09 23:27:54,497 [INFO] [14/42] chunk=5c56e059e8ce doc=large_language_model
+2026-11-09 23:38:04,269 [ERROR]   PARSE ERROR chunk=5c56e059e8ce: timed out (609.8s)
+2026-11-09 23:38:04,278 [INFO] [15/42] chunk=4a4ea014c5ca doc=large_language_model
+2026-11-09 23:48:09,741 [ERROR]   PARSE ERROR chunk=4a4ea014c5ca: timed out (605.5s)
+2026-11-09 23:48:09,745 [INFO] [16/42] chunk=c3893b323a2e doc=large_language_model
+2026-11-09 23:58:14,918 [ERROR]   PARSE ERROR chunk=c3893b323a2e: timed out (605.2s)
+2026-11-09 23:58:14,952 [INFO] [17/42] chunk=73e975197fb9 doc=large_language_model
+2026-11-10 00:08:20,153 [ERROR]   PARSE ERROR chunk=73e975197fb9: timed out (605.2s)
+2026-11-10 00:08:20,158 [INFO] [18/42] chunk=0e82efa9409f doc=large_language_model
+2026-11-10 00:18:25,596 [ERROR]   PARSE ERROR chunk=0e82efa9409f: timed out (605.4s)
+2026-11-10 00:18:25,601 [INFO] [19/42] chunk=24b17cf355ab doc=large_language_model
+2026-11-10 00:28:30,745 [ERROR]   PARSE ERROR chunk=24b17cf355ab: timed out (605.1s)
+2026-11-10 00:28:30,750 [INFO] [20/42] chunk=310582c41776 doc=large_language_model
+2026-11-10 00:38:35,920 [ERROR]   PARSE ERROR chunk=310582c41776: timed out (605.2s)
+2026-11-10 00:38:35,934 [INFO] [21/42] chunk=33d32892fc64 doc=retrieval_augmented_
+2026-11-10 00:48:41,080 [ERROR]   PARSE ERROR chunk=33d32892fc64: timed out (605.2s)
+2026-11-10 00:48:41,085 [INFO] [22/42] chunk=71387ffa83db doc=retrieval_augmented_
+2026-11-10 00:58:46,219 [ERROR]   PARSE ERROR chunk=71387ffa83db: timed out (605.1s)
+2026-11-10 00:58:46,228 [INFO] [23/42] chunk=e146728cdddc doc=retrieval_augmented_
+2026-11-10 01:08:51,365 [ERROR]   PARSE ERROR chunk=e146728cdddc: timed out (605.1s)
+2026-11-10 01:08:51,376 [INFO] [24/42] chunk=4dcff615e7a2 doc=retrieval_augmented_
+2026-11-10 01:18:56,519 [ERROR]   PARSE ERROR chunk=4dcff615e7a2: timed out (605.1s)
+2026-11-10 01:18:56,525 [INFO] [25/42] chunk=b744eeebc193 doc=retrieval_augmented_
+2026-11-10 01:29:01,732 [ERROR]   PARSE ERROR chunk=b744eeebc193: timed out (605.2s)
+2026-11-10 01:29:01,743 [INFO] [26/42] chunk=7bac4d8e30f7 doc=retrieval_augmented_
+2026-11-10 01:39:06,915 [ERROR]   PARSE ERROR chunk=7bac4d8e30f7: timed out (605.2s)
+2026-11-10 01:39:06,921 [INFO] [27/42] chunk=f08417a79e9e doc=retrieval_augmented_
+2026-11-10 02:16:10,022 [ERROR]   PARSE ERROR chunk=f08417a79e9e: timed out (2223.1s)
+2026-11-10 02:16:10,045 [INFO] [28/42] chunk=a4a679c42782 doc=retrieval_augmented_
+2026-11-10 12:03:42,979 [ERROR]   PARSE ERROR chunk=a4a679c42782: timed out (35252.9s)
+2026-11-10 12:03:43,032 [INFO] [29/42] chunk=745e90bb8075 doc=transformer_architec

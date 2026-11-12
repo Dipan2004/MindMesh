@@ -1,0 +1,38 @@
+
+============================================================
+  Entity Resolution Tests
+============================================================
+  PASS  normalize_basic
+  PASS  normalize_unicode
+  PASS  norm_alias_plurals
+  PASS  ambiguous_detection
+  PASS  canonical_id_deterministic
+  PASS  canonical_id_case_insensitive
+  PASS  canonical_id_type_normalization
+  PASS  canonical_id_different_names
+  PASS  alias_resolve_builtin
+  PASS  alias_resolve_or_keep
+  PASS  alias_register_custom
+  PASS  type_compatible_same
+  PASS  type_compatible_other
+  PASS  type_incompatible
+  PASS  type_tech_concept_compatible
+  PASS  candidates_found
+  PASS  same_doc_no_cross_doc
+  PASS  ambiguous_apple_not_merged
+  PASS  ambiguous_keeps_separate
+  PASS  merge_edge_redirection
+  PASS  merge_deduplicates_edges
+  PASS  merge_no_self_loops
+  PASS  merge_preserves_source_docs
+  PASS  merge_preserves_descriptions
+  PASS  merge_loser_becomes_alias
+  PASS  merge_history_recorded
+  PASS  merge_rollback
+  PASS  cross_doc_after_merge
+  PASS  resolver_configs
+  PASS  resolver_does_not_modify_original
+
+============================================================
+  RESULTS: 30 passed, 0 failed
+============================================================

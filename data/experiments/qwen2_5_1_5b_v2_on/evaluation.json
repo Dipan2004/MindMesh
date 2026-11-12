@@ -1,0 +1,1856 @@
+{
+  "arm": "v2-ON",
+  "per_question": [
+    {
+      "query_id": "D01",
+      "type": "single-chunk",
+      "gold_chunk_ids": [
+        "c81c2a06e4ee9667"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "c81c2a06e4ee9667",
+          "a5123f467123650e",
+          "745e90bb807507b6",
+          "4af3dc8c5da84fad",
+          "32c85d7ec02b6b19",
+          "a885be6b749e39a1"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.109,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "c81c2a06e4ee9667",
+          "a5123f467123650e",
+          "745e90bb807507b6",
+          "4af3dc8c5da84fad",
+          "a885be6b749e39a1",
+          "d49b99f9a418a0fb"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.969,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "c81c2a06e4ee9667",
+          "a885be6b749e39a1",
+          "a5123f467123650e",
+          "745e90bb807507b6",
+          "d49b99f9a418a0fb"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.141,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "c81c2a06e4ee9667",
+          "a885be6b749e39a1",
+          "a5123f467123650e",
+          "745e90bb807507b6"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.109,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "c81c2a06e4ee9667",
+          "a885be6b749e39a1",
+          "a5123f467123650e",
+          "745e90bb807507b6",
+          "d49b99f9a418a0fb"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 2.438,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "c81c2a06e4ee9667",
+          "a885be6b749e39a1",
+          "a5123f467123650e",
+          "745e90bb807507b6",
+          "d49b99f9a418a0fb",
+          "32c85d7ec02b6b19"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 3.343,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D02",
+      "type": "single-chunk",
+      "gold_chunk_ids": [
+        "a885be6b749e39a1"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "a885be6b749e39a1",
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "a5123f467123650e",
+          "e146728cdddcf0e5",
+          "efaf36ff59adbf7d"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 0.969,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "a885be6b749e39a1",
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "a5123f467123650e",
+          "e146728cdddcf0e5",
+          "efaf36ff59adbf7d"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.735,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "a885be6b749e39a1",
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "efaf36ff59adbf7d",
+          "417905a71f013c88",
+          "a4a679c427829368"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 0.968,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "a885be6b749e39a1",
+          "a5123f467123650e",
+          "745e90bb807507b6",
+          "4dcff615e7a2ceff"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.063,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "a885be6b749e39a1",
+          "a5123f467123650e",
+          "745e90bb807507b6",
+          "4af3dc8c5da84fad",
+          "efaf36ff59adbf7d",
+          "4dcff615e7a2ceff"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 2.359,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "a885be6b749e39a1",
+          "a5123f467123650e",
+          "745e90bb807507b6",
+          "4af3dc8c5da84fad",
+          "efaf36ff59adbf7d",
+          "4dcff615e7a2ceff"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 3.235,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D03",
+      "type": "single-chunk",
+      "gold_chunk_ids": [
+        "6d878b7f56a99aa2"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "6d878b7f56a99aa2",
+          "b744eeebc1934b70",
+          "6fc475866849cd38",
+          "3256abe3c09bca47",
+          "4e802a799a872699",
+          "0282ea8070392cd0"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.14,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "6d878b7f56a99aa2",
+          "b744eeebc1934b70",
+          "6fc475866849cd38",
+          "3256abe3c09bca47",
+          "4e802a799a872699",
+          "0282ea8070392cd0"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 2.0,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "ab2692f1a112544f",
+          "4e802a799a872699",
+          "b744eeebc1934b70",
+          "5a5f4b8aeeb5ae55",
+          "310582c41776ab06"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.078,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "0282ea8070392cd0",
+          "a09f4455b7fef7fa",
+          "4e802a799a872699",
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "0e82efa9409ff33c"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.125,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "0282ea8070392cd0",
+          "a09f4455b7fef7fa",
+          "4e802a799a872699",
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "5a5f4b8aeeb5ae55"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 2.282,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "0282ea8070392cd0",
+          "a09f4455b7fef7fa",
+          "4e802a799a872699",
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "5a5f4b8aeeb5ae55"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 3.328,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D04",
+      "type": "single-chunk",
+      "gold_chunk_ids": [
+        "3256abe3c09bca47"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "3256abe3c09bca47",
+          "b76780cc91220506",
+          "a04b3d90e2da113b",
+          "025a4d30df8706bc",
+          "d49b99f9a418a0fb",
+          "a949df1c877b7163"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.437,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "3256abe3c09bca47",
+          "b76780cc91220506",
+          "a04b3d90e2da113b",
+          "025a4d30df8706bc",
+          "0282ea8070392cd0",
+          "d49b99f9a418a0fb"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 2.5,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "3256abe3c09bca47",
+          "b76780cc91220506",
+          "ba8440076ddd110a",
+          "ab2692f1a112544f",
+          "32c85d7ec02b6b19",
+          "5c56e059e8cebff9"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.422,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "3256abe3c09bca47",
+          "d49b99f9a418a0fb",
+          "025a4d30df8706bc",
+          "b76780cc91220506",
+          "d64267739e25869c",
+          "ba8440076ddd110a"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.188,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "3256abe3c09bca47",
+          "b76780cc91220506",
+          "d49b99f9a418a0fb",
+          "025a4d30df8706bc",
+          "ba8440076ddd110a",
+          "d64267739e25869c"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 2.578,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "3256abe3c09bca47",
+          "b76780cc91220506",
+          "d49b99f9a418a0fb",
+          "025a4d30df8706bc",
+          "ba8440076ddd110a",
+          "d64267739e25869c"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 2.906,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D05",
+      "type": "single-chunk",
+      "gold_chunk_ids": [
+        "4e802a799a872699"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "4e802a799a872699",
+          "0282ea8070392cd0",
+          "a09f4455b7fef7fa",
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "3256abe3c09bca47"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 0.984,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "4e802a799a872699",
+          "0282ea8070392cd0",
+          "a09f4455b7fef7fa",
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "3256abe3c09bca47"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.828,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "4e802a799a872699",
+          "b744eeebc1934b70",
+          "ab2692f1a112544f",
+          "ba8440076ddd110a"
+        ],
+        "recall": 1.0,
+        "mrr": 0.3333,
+        "latency_s": 1.188,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "4e802a799a872699",
+          "ab2692f1a112544f"
+        ],
+        "recall": 1.0,
+        "mrr": 0.3333,
+        "latency_s": 1.297,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "4e802a799a872699",
+          "b744eeebc1934b70",
+          "ab2692f1a112544f",
+          "ba8440076ddd110a"
+        ],
+        "recall": 1.0,
+        "mrr": 0.3333,
+        "latency_s": 2.281,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "4e802a799a872699",
+          "b744eeebc1934b70",
+          "ab2692f1a112544f",
+          "ba8440076ddd110a"
+        ],
+        "recall": 1.0,
+        "mrr": 0.3333,
+        "latency_s": 3.031,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D06",
+      "type": "single-chunk",
+      "gold_chunk_ids": [
+        "33d32892fc640b3f"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "33d32892fc640b3f",
+          "b744eeebc1934b70",
+          "71387ffa83db5d3c",
+          "7bac4d8e30f7b55c",
+          "d49b99f9a418a0fb",
+          "895ee8b439ed7d7b"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 0.953,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "33d32892fc640b3f",
+          "b744eeebc1934b70",
+          "71387ffa83db5d3c",
+          "7bac4d8e30f7b55c",
+          "d49b99f9a418a0fb",
+          "895ee8b439ed7d7b"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 2.125,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "33d32892fc640b3f",
+          "b744eeebc1934b70",
+          "7bac4d8e30f7b55c",
+          "895ee8b439ed7d7b",
+          "e146728cdddcf0e5"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 1.235,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "7bac4d8e30f7b55c",
+          "d49b99f9a418a0fb",
+          "d64267739e25869c",
+          "e146728cdddcf0e5",
+          "025a4d30df8706bc",
+          "b744eeebc1934b70"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.234,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "33d32892fc640b3f",
+          "7bac4d8e30f7b55c",
+          "d49b99f9a418a0fb",
+          "b744eeebc1934b70",
+          "d64267739e25869c"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 2.61,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "33d32892fc640b3f",
+          "7bac4d8e30f7b55c",
+          "d49b99f9a418a0fb",
+          "b744eeebc1934b70",
+          "d64267739e25869c"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 4.015,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D07",
+      "type": "single-chunk",
+      "gold_chunk_ids": [
+        "b744eeebc1934b70"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "b744eeebc1934b70",
+          "7bac4d8e30f7b55c",
+          "33d32892fc640b3f",
+          "f08417a79e9ed8e6",
+          "71387ffa83db5d3c",
+          "4dcff615e7a2ceff"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.156,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "b744eeebc1934b70",
+          "7bac4d8e30f7b55c",
+          "33d32892fc640b3f",
+          "f08417a79e9ed8e6",
+          "71387ffa83db5d3c",
+          "4dcff615e7a2ceff"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.922,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "4dcff615e7a2ceff",
+          "b744eeebc1934b70",
+          "71387ffa83db5d3c",
+          "d49b99f9a418a0fb",
+          "7bac4d8e30f7b55c",
+          "33d32892fc640b3f"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 1.188,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "7bac4d8e30f7b55c",
+          "b744eeebc1934b70",
+          "71387ffa83db5d3c",
+          "4dcff615e7a2ceff",
+          "4a4ea014c5ca9c45",
+          "efaf36ff59adbf7d"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 1.109,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "4dcff615e7a2ceff",
+          "b744eeebc1934b70",
+          "7bac4d8e30f7b55c",
+          "71387ffa83db5d3c",
+          "d49b99f9a418a0fb",
+          "4a4ea014c5ca9c45"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 2.375,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "4dcff615e7a2ceff",
+          "b744eeebc1934b70",
+          "7bac4d8e30f7b55c",
+          "71387ffa83db5d3c",
+          "d49b99f9a418a0fb",
+          "4a4ea014c5ca9c45"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 3.453,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D08",
+      "type": "single-chunk",
+      "gold_chunk_ids": [
+        "417905a71f013c88"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "417905a71f013c88",
+          "e146728cdddcf0e5",
+          "d49b99f9a418a0fb",
+          "99f7ac4bdc89395d",
+          "d64267739e25869c",
+          "745e90bb807507b6"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.219,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "417905a71f013c88",
+          "e146728cdddcf0e5",
+          "d49b99f9a418a0fb",
+          "99f7ac4bdc89395d",
+          "d64267739e25869c",
+          "895ee8b439ed7d7b"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.938,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "417905a71f013c88",
+          "99f7ac4bdc89395d",
+          "d49b99f9a418a0fb",
+          "e146728cdddcf0e5",
+          "a5123f467123650e",
+          "fc0f4473d792a08f"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.109,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "d49b99f9a418a0fb",
+          "e146728cdddcf0e5",
+          "99f7ac4bdc89395d",
+          "025a4d30df8706bc",
+          "417905a71f013c88",
+          "a949df1c877b7163"
+        ],
+        "recall": 1.0,
+        "mrr": 0.2,
+        "latency_s": 1.281,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "d49b99f9a418a0fb",
+          "99f7ac4bdc89395d",
+          "e146728cdddcf0e5",
+          "417905a71f013c88",
+          "025a4d30df8706bc",
+          "a949df1c877b7163"
+        ],
+        "recall": 1.0,
+        "mrr": 0.25,
+        "latency_s": 2.891,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "d49b99f9a418a0fb",
+          "99f7ac4bdc89395d",
+          "e146728cdddcf0e5",
+          "417905a71f013c88",
+          "025a4d30df8706bc",
+          "a949df1c877b7163"
+        ],
+        "recall": 1.0,
+        "mrr": 0.25,
+        "latency_s": 3.25,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D09",
+      "type": "single-chunk",
+      "gold_chunk_ids": [
+        "5c56e059e8cebff9"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "5c56e059e8cebff9",
+          "32c85d7ec02b6b19",
+          "d49b99f9a418a0fb",
+          "895ee8b439ed7d7b",
+          "3256abe3c09bca47",
+          "310582c41776ab06"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 0.984,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "5c56e059e8cebff9",
+          "32c85d7ec02b6b19",
+          "d49b99f9a418a0fb",
+          "895ee8b439ed7d7b",
+          "3256abe3c09bca47",
+          "310582c41776ab06"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.969,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "5c56e059e8cebff9",
+          "310582c41776ab06",
+          "32c85d7ec02b6b19",
+          "895ee8b439ed7d7b",
+          "417905a71f013c88"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 1.391,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "d49b99f9a418a0fb",
+          "32c85d7ec02b6b19",
+          "895ee8b439ed7d7b",
+          "3256abe3c09bca47",
+          "025a4d30df8706bc",
+          "6d878b7f56a99aa2"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.218,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "5c56e059e8cebff9",
+          "310582c41776ab06",
+          "32c85d7ec02b6b19",
+          "d49b99f9a418a0fb",
+          "895ee8b439ed7d7b"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 2.407,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "5c56e059e8cebff9",
+          "310582c41776ab06",
+          "32c85d7ec02b6b19",
+          "d49b99f9a418a0fb",
+          "895ee8b439ed7d7b"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 3.109,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D10",
+      "type": "two-chunk",
+      "gold_chunk_ids": [
+        "4dcff615e7a2ceff",
+        "7bac4d8e30f7b55c"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "7bac4d8e30f7b55c",
+          "33d32892fc640b3f",
+          "e146728cdddcf0e5",
+          "b744eeebc1934b70",
+          "4dcff615e7a2ceff",
+          "ab2692f1a112544f"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.219,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "7bac4d8e30f7b55c",
+          "33d32892fc640b3f",
+          "e146728cdddcf0e5",
+          "b744eeebc1934b70",
+          "4dcff615e7a2ceff",
+          "895ee8b439ed7d7b"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.922,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "33d32892fc640b3f",
+          "b744eeebc1934b70",
+          "7bac4d8e30f7b55c",
+          "e146728cdddcf0e5",
+          "d64267739e25869c",
+          "310582c41776ab06"
+        ],
+        "recall": 0.5,
+        "mrr": 0.3333,
+        "latency_s": 1.218,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "7bac4d8e30f7b55c",
+          "71387ffa83db5d3c",
+          "b744eeebc1934b70",
+          "e146728cdddcf0e5",
+          "efaf36ff59adbf7d",
+          "d64267739e25869c"
+        ],
+        "recall": 0.5,
+        "mrr": 1.0,
+        "latency_s": 1.266,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "7bac4d8e30f7b55c",
+          "71387ffa83db5d3c",
+          "33d32892fc640b3f",
+          "b744eeebc1934b70",
+          "e146728cdddcf0e5",
+          "efaf36ff59adbf7d"
+        ],
+        "recall": 0.5,
+        "mrr": 1.0,
+        "latency_s": 2.344,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "7bac4d8e30f7b55c",
+          "71387ffa83db5d3c",
+          "33d32892fc640b3f",
+          "b744eeebc1934b70",
+          "e146728cdddcf0e5",
+          "efaf36ff59adbf7d"
+        ],
+        "recall": 0.5,
+        "mrr": 1.0,
+        "latency_s": 3.453,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D11",
+      "type": "two-chunk",
+      "gold_chunk_ids": [
+        "ba8440076ddd110a",
+        "b76780cc91220506"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "ba8440076ddd110a",
+          "b76780cc91220506",
+          "0282ea8070392cd0",
+          "ab2692f1a112544f",
+          "a09f4455b7fef7fa",
+          "b744eeebc1934b70"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.015,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "ba8440076ddd110a",
+          "b76780cc91220506",
+          "0282ea8070392cd0",
+          "ab2692f1a112544f",
+          "a09f4455b7fef7fa",
+          "b744eeebc1934b70"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.907,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "b76780cc91220506",
+          "ba8440076ddd110a",
+          "ab2692f1a112544f",
+          "3256abe3c09bca47",
+          "0282ea8070392cd0",
+          "b744eeebc1934b70"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.234,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "ba8440076ddd110a",
+          "ab2692f1a112544f",
+          "0282ea8070392cd0",
+          "b76780cc91220506",
+          "a09f4455b7fef7fa",
+          "3256abe3c09bca47"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.156,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "b76780cc91220506",
+          "ba8440076ddd110a",
+          "ab2692f1a112544f",
+          "3256abe3c09bca47",
+          "0282ea8070392cd0",
+          "b744eeebc1934b70"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 2.516,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "b76780cc91220506",
+          "ba8440076ddd110a",
+          "ab2692f1a112544f",
+          "3256abe3c09bca47",
+          "0282ea8070392cd0",
+          "b744eeebc1934b70"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 3.078,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D12",
+      "type": "two-chunk",
+      "gold_chunk_ids": [
+        "d49b99f9a418a0fb",
+        "5a5f4b8aeeb5ae55"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "d49b99f9a418a0fb",
+          "3256abe3c09bca47",
+          "5a5f4b8aeeb5ae55",
+          "99f7ac4bdc89395d",
+          "b76780cc91220506",
+          "e146728cdddcf0e5"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 0.844,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "d49b99f9a418a0fb",
+          "3256abe3c09bca47",
+          "5a5f4b8aeeb5ae55",
+          "99f7ac4bdc89395d",
+          "b76780cc91220506",
+          "e146728cdddcf0e5"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.844,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "3256abe3c09bca47",
+          "d49b99f9a418a0fb",
+          "e146728cdddcf0e5",
+          "99f7ac4bdc89395d",
+          "5a5f4b8aeeb5ae55",
+          "b76780cc91220506"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 1.234,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "99f7ac4bdc89395d",
+          "d49b99f9a418a0fb",
+          "e146728cdddcf0e5",
+          "5a5f4b8aeeb5ae55",
+          "a949df1c877b7163",
+          "417905a71f013c88"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 1.016,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "3256abe3c09bca47",
+          "d49b99f9a418a0fb",
+          "99f7ac4bdc89395d",
+          "e146728cdddcf0e5",
+          "5a5f4b8aeeb5ae55",
+          "b76780cc91220506"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 2.093,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "3256abe3c09bca47",
+          "d49b99f9a418a0fb",
+          "99f7ac4bdc89395d",
+          "e146728cdddcf0e5",
+          "5a5f4b8aeeb5ae55",
+          "b76780cc91220506"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 2.782,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D13",
+      "type": "cross-doc",
+      "gold_chunk_ids": [
+        "0282ea8070392cd0",
+        "5a5f4b8aeeb5ae55"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "b744eeebc1934b70",
+          "4e802a799a872699",
+          "d64267739e25869c",
+          "5a5f4b8aeeb5ae55",
+          "0282ea8070392cd0"
+        ],
+        "recall": 1.0,
+        "mrr": 0.2,
+        "latency_s": 0.906,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "b744eeebc1934b70",
+          "4e802a799a872699",
+          "d64267739e25869c",
+          "5a5f4b8aeeb5ae55",
+          "0282ea8070392cd0"
+        ],
+        "recall": 1.0,
+        "mrr": 0.2,
+        "latency_s": 2.234,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "d64267739e25869c",
+          "ab2692f1a112544f",
+          "f08417a79e9ed8e6",
+          "ba8440076ddd110a"
+        ],
+        "recall": 0.5,
+        "mrr": 0.5,
+        "latency_s": 1.594,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "ab2692f1a112544f",
+          "e146728cdddcf0e5",
+          "b744eeebc1934b70",
+          "ba8440076ddd110a"
+        ],
+        "recall": 0.5,
+        "mrr": 0.5,
+        "latency_s": 1.484,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "ab2692f1a112544f",
+          "e146728cdddcf0e5",
+          "b744eeebc1934b70",
+          "d64267739e25869c"
+        ],
+        "recall": 0.5,
+        "mrr": 0.5,
+        "latency_s": 2.625,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "ab2692f1a112544f",
+          "e146728cdddcf0e5",
+          "b744eeebc1934b70",
+          "d64267739e25869c"
+        ],
+        "recall": 0.5,
+        "mrr": 0.5,
+        "latency_s": 3.453,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D14",
+      "type": "cross-doc",
+      "gold_chunk_ids": [
+        "745e90bb807507b6",
+        "33d32892fc640b3f"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "a4a679c427829368",
+          "4dcff615e7a2ceff",
+          "33d32892fc640b3f",
+          "6fc475866849cd38"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 1.016,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "a4a679c427829368",
+          "33d32892fc640b3f",
+          "4dcff615e7a2ceff",
+          "5c56e059e8cebff9"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 2.031,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "a4a679c427829368",
+          "310582c41776ab06",
+          "a5123f467123650e",
+          "a885be6b749e39a1"
+        ],
+        "recall": 0.5,
+        "mrr": 0.5,
+        "latency_s": 1.25,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "745e90bb807507b6",
+          "4dcff615e7a2ceff",
+          "efaf36ff59adbf7d",
+          "a04b3d90e2da113b",
+          "6d878b7f56a99aa2",
+          "e9c66a7ac48f6e11"
+        ],
+        "recall": 0.5,
+        "mrr": 1.0,
+        "latency_s": 1.36,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "4dcff615e7a2ceff",
+          "efaf36ff59adbf7d",
+          "a4a679c427829368",
+          "a04b3d90e2da113b"
+        ],
+        "recall": 0.5,
+        "mrr": 0.5,
+        "latency_s": 2.859,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "4af3dc8c5da84fad",
+          "745e90bb807507b6",
+          "4dcff615e7a2ceff",
+          "efaf36ff59adbf7d",
+          "a4a679c427829368",
+          "a04b3d90e2da113b"
+        ],
+        "recall": 0.5,
+        "mrr": 0.5,
+        "latency_s": 3.563,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D15",
+      "type": "cross-doc",
+      "gold_chunk_ids": [
+        "ab2692f1a112544f",
+        "71387ffa83db5d3c"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "0282ea8070392cd0",
+          "33d32892fc640b3f",
+          "a09f4455b7fef7fa",
+          "ba8440076ddd110a"
+        ],
+        "recall": 0.5,
+        "mrr": 1.0,
+        "latency_s": 1.078,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "ab2692f1a112544f",
+          "b744eeebc1934b70",
+          "0282ea8070392cd0",
+          "33d32892fc640b3f",
+          "a09f4455b7fef7fa",
+          "ba8440076ddd110a"
+        ],
+        "recall": 0.5,
+        "mrr": 1.0,
+        "latency_s": 1.984,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "b744eeebc1934b70",
+          "0282ea8070392cd0",
+          "ba8440076ddd110a",
+          "3256abe3c09bca47",
+          "e9c66a7ac48f6e11"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.25,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "ab2692f1a112544f",
+          "ba8440076ddd110a",
+          "b76780cc91220506",
+          "4e802a799a872699"
+        ],
+        "recall": 0.5,
+        "mrr": 0.3333,
+        "latency_s": 1.438,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "b744eeebc1934b70",
+          "ab2692f1a112544f",
+          "ba8440076ddd110a",
+          "3256abe3c09bca47"
+        ],
+        "recall": 0.5,
+        "mrr": 0.25,
+        "latency_s": 2.5,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "0282ea8070392cd0",
+          "b744eeebc1934b70",
+          "ab2692f1a112544f",
+          "ba8440076ddd110a",
+          "3256abe3c09bca47"
+        ],
+        "recall": 0.5,
+        "mrr": 0.25,
+        "latency_s": 3.75,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D16",
+      "type": "paraphrase",
+      "gold_chunk_ids": [
+        "4dcff615e7a2ceff"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "f08417a79e9ed8e6",
+          "417905a71f013c88",
+          "6fc475866849cd38",
+          "7bac4d8e30f7b55c",
+          "4dcff615e7a2ceff",
+          "0e82efa9409ff33c"
+        ],
+        "recall": 1.0,
+        "mrr": 0.2,
+        "latency_s": 1.015,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.078,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "4dcff615e7a2ceff",
+          "310582c41776ab06",
+          "f08417a79e9ed8e6",
+          "7bac4d8e30f7b55c",
+          "895ee8b439ed7d7b"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 1.422,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "f08417a79e9ed8e6",
+          "c81c2a06e4ee9667",
+          "7bac4d8e30f7b55c",
+          "6fc475866849cd38",
+          "efaf36ff59adbf7d"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.5,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "4dcff615e7a2ceff",
+          "310582c41776ab06",
+          "f08417a79e9ed8e6",
+          "7bac4d8e30f7b55c",
+          "895ee8b439ed7d7b"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 2.953,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "a09f4455b7fef7fa",
+          "4dcff615e7a2ceff",
+          "310582c41776ab06",
+          "f08417a79e9ed8e6",
+          "7bac4d8e30f7b55c",
+          "895ee8b439ed7d7b"
+        ],
+        "recall": 1.0,
+        "mrr": 0.5,
+        "latency_s": 3.703,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D17",
+      "type": "paraphrase",
+      "gold_chunk_ids": [
+        "4af3dc8c5da84fad"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "4af3dc8c5da84fad",
+          "a5123f467123650e",
+          "4dcff615e7a2ceff",
+          "c3893b323a2ee3e1",
+          "32c85d7ec02b6b19",
+          "310582c41776ab06"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 0.985,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "4af3dc8c5da84fad",
+          "a5123f467123650e",
+          "4dcff615e7a2ceff",
+          "c3893b323a2ee3e1",
+          "71387ffa83db5d3c",
+          "32c85d7ec02b6b19"
+        ],
+        "recall": 1.0,
+        "mrr": 1.0,
+        "latency_s": 1.953,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "310582c41776ab06",
+          "c81c2a06e4ee9667",
+          "f08417a79e9ed8e6",
+          "a5123f467123650e",
+          "5c56e059e8cebff9",
+          "4a4ea014c5ca9c45"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.344,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "efaf36ff59adbf7d",
+          "f08417a79e9ed8e6",
+          "71387ffa83db5d3c",
+          "c3893b323a2ee3e1",
+          "e9c66a7ac48f6e11",
+          "b744eeebc1934b70"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.328,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "efaf36ff59adbf7d",
+          "310582c41776ab06",
+          "c81c2a06e4ee9667",
+          "f08417a79e9ed8e6",
+          "71387ffa83db5d3c",
+          "a5123f467123650e"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 3.031,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "efaf36ff59adbf7d",
+          "310582c41776ab06",
+          "c81c2a06e4ee9667",
+          "f08417a79e9ed8e6",
+          "71387ffa83db5d3c",
+          "a5123f467123650e"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 3.688,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D18",
+      "type": "paraphrase",
+      "gold_chunk_ids": [
+        "895ee8b439ed7d7b"
+      ],
+      "pipeline_a": {
+        "ids": [
+          "a5123f467123650e",
+          "c81c2a06e4ee9667",
+          "0e82efa9409ff33c",
+          "a885be6b749e39a1",
+          "7bac4d8e30f7b55c",
+          "33d32892fc640b3f"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.046,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "a5123f467123650e",
+          "c81c2a06e4ee9667",
+          "a885be6b749e39a1",
+          "0e82efa9409ff33c",
+          "7bac4d8e30f7b55c",
+          "33d32892fc640b3f"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 2.204,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "99f7ac4bdc89395d",
+          "4a4ea014c5ca9c45",
+          "a5123f467123650e",
+          "0e82efa9409ff33c",
+          "a885be6b749e39a1",
+          "ba8440076ddd110a"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 2.0,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "0e82efa9409ff33c",
+          "e9c66a7ac48f6e11",
+          "32c85d7ec02b6b19",
+          "a885be6b749e39a1",
+          "b744eeebc1934b70",
+          "a09f4455b7fef7fa"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 1.515,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "99f7ac4bdc89395d",
+          "4a4ea014c5ca9c45",
+          "a5123f467123650e",
+          "0e82efa9409ff33c",
+          "e9c66a7ac48f6e11",
+          "a885be6b749e39a1"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 2.828,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "99f7ac4bdc89395d",
+          "4a4ea014c5ca9c45",
+          "a5123f467123650e",
+          "0e82efa9409ff33c",
+          "e9c66a7ac48f6e11",
+          "a885be6b749e39a1"
+        ],
+        "recall": 0.0,
+        "mrr": 0.0,
+        "latency_s": 3.907,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D19",
+      "type": "no-answer",
+      "gold_chunk_ids": [],
+      "pipeline_a": {
+        "ids": [
+          "5c56e059e8cebff9",
+          "c3893b323a2ee3e1",
+          "4af3dc8c5da84fad",
+          "b76780cc91220506",
+          "73e975197fb97029",
+          "71387ffa83db5d3c"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 1.093,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "5c56e059e8cebff9",
+          "c3893b323a2ee3e1",
+          "71387ffa83db5d3c",
+          "24b17cf355abdce3",
+          "73e975197fb97029",
+          "b76780cc91220506"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 2.0,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "c3893b323a2ee3e1",
+          "5c56e059e8cebff9",
+          "efaf36ff59adbf7d",
+          "4dcff615e7a2ceff",
+          "e9c66a7ac48f6e11",
+          "310582c41776ab06"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 1.391,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "5c56e059e8cebff9",
+          "4dcff615e7a2ceff",
+          "efaf36ff59adbf7d",
+          "ab2692f1a112544f",
+          "c3893b323a2ee3e1",
+          "32c85d7ec02b6b19"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 1.328,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "c3893b323a2ee3e1",
+          "5c56e059e8cebff9",
+          "4dcff615e7a2ceff",
+          "efaf36ff59adbf7d",
+          "ab2692f1a112544f",
+          "e9c66a7ac48f6e11"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 2.531,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "c3893b323a2ee3e1",
+          "5c56e059e8cebff9",
+          "4dcff615e7a2ceff",
+          "efaf36ff59adbf7d",
+          "ab2692f1a112544f",
+          "e9c66a7ac48f6e11"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 3.641,
+        "error": null
+      }
+    },
+    {
+      "query_id": "D20",
+      "type": "no-answer",
+      "gold_chunk_ids": [],
+      "pipeline_a": {
+        "ids": [
+          "025a4d30df8706bc",
+          "e146728cdddcf0e5",
+          "a949df1c877b7163",
+          "a04b3d90e2da113b",
+          "3256abe3c09bca47",
+          "99f7ac4bdc89395d"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 0.984,
+        "error": null
+      },
+      "pipeline_b": {
+        "ids": [
+          "025a4d30df8706bc",
+          "a949df1c877b7163",
+          "e146728cdddcf0e5",
+          "99f7ac4bdc89395d",
+          "5a5f4b8aeeb5ae55",
+          "d49b99f9a418a0fb"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 1.86,
+        "error": null
+      },
+      "lightrag_local": {
+        "ids": [
+          "99f7ac4bdc89395d",
+          "d49b99f9a418a0fb",
+          "025a4d30df8706bc",
+          "7bac4d8e30f7b55c",
+          "a04b3d90e2da113b",
+          "e9c66a7ac48f6e11"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 1.297,
+        "error": null
+      },
+      "lightrag_global": {
+        "ids": [
+          "3256abe3c09bca47",
+          "025a4d30df8706bc",
+          "b76780cc91220506",
+          "ba8440076ddd110a",
+          "e146728cdddcf0e5",
+          "0e82efa9409ff33c"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 1.265,
+        "error": null
+      },
+      "lightrag_hybrid": {
+        "ids": [
+          "3256abe3c09bca47",
+          "025a4d30df8706bc",
+          "b76780cc91220506",
+          "ba8440076ddd110a",
+          "e146728cdddcf0e5",
+          "99f7ac4bdc89395d"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 2.797,
+        "error": null
+      },
+      "lightrag_mix": {
+        "ids": [
+          "3256abe3c09bca47",
+          "025a4d30df8706bc",
+          "b76780cc91220506",
+          "ba8440076ddd110a",
+          "e146728cdddcf0e5",
+          "99f7ac4bdc89395d"
+        ],
+        "recall": 1.0,
+        "mrr": 0.0,
+        "latency_s": 3.484,
+        "error": null
+      }
+    }
+  ],
+  "aggregates": {
+    "pipeline_a": {
+      "avg_recall_at_k": 0.925,
+      "mrr": 0.745,
+      "unique_gold_recovered": 19,
+      "avg_latency_s": 1.0576,
+      "errors": 0
+    },
+    "pipeline_b": {
+      "avg_recall_at_k": 0.875,
+      "mrr": 0.735,
+      "unique_gold_recovered": 19,
+      "avg_latency_s": 1.9502,
+      "errors": 0
+    },
+    "lightrag_local": {
+      "avg_recall_at_k": 0.725,
+      "mrr": 0.4583,
+      "unique_gold_recovered": 16,
+      "avg_latency_s": 1.2977,
+      "errors": 0
+    },
+    "lightrag_global": {
+      "avg_recall_at_k": 0.6,
+      "mrr": 0.4183,
+      "unique_gold_recovered": 14,
+      "avg_latency_s": 1.264,
+      "errors": 0
+    },
+    "lightrag_hybrid": {
+      "avg_recall_at_k": 0.75,
+      "mrr": 0.4667,
+      "unique_gold_recovered": 17,
+      "avg_latency_s": 2.5649,
+      "errors": 0
+    },
+    "lightrag_mix": {
+      "avg_recall_at_k": 0.75,
+      "mrr": 0.4667,
+      "unique_gold_recovered": 17,
+      "avg_latency_s": 3.4086,
+      "errors": 0
+    }
+  }
+}

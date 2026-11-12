@@ -81,3 +81,7 @@ htmlcov/
 # eval/              ✓  (scripts and gold set, not generated outputs)
 # tests/             ✓
 # data/raw/.gitkeep  ✓  (placeholder so the directory exists on clone)
+
+LightRAG/
+Zeno/
+

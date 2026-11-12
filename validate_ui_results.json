@@ -1,0 +1,77 @@
+[
+  {
+    "label": "GET /health",
+    "status": 200,
+    "ok": true,
+    "sample": "{'status': 'ok', 'circuit_breaker_state': 'CLOSED', 'model': 'qwen2.5:1.5b', 'embedding_model': 'nom",
+    "keys_ok": true
+  },
+  {
+    "label": "GET /auth-status",
+    "status": 200,
+    "ok": true,
+    "sample": "{'authenticated': True, 'user': 'mindmesh', 'auth_enabled': False}",
+    "keys_ok": true
+  },
+  {
+    "label": "GET /auth/verify",
+    "status": 200,
+    "ok": true,
+    "sample": "{'valid': True, 'user': 'mindmesh'}",
+    "keys_ok": true
+  },
+  {
+    "label": "GET /documents",
+    "status": 200,
+    "ok": true,
+    "sample": "{'statuses': ['processed', 'processed', 'processed', 'processed', 'processed'], 'total': 5, 'page': ",
+    "keys_ok": true
+  },
+  {
+    "label": "GET /graph/label/list",
+    "status": 200,
+    "ok": true,
+    "sample": "{'labels': ['Knowledge Graph', 'Person', 'Organization', 'Location', 'Technology']}",
+    "keys_ok": true
+  },
+  {
+    "label": "GET /graphs",
+    "status": 200,
+    "ok": true,
+    "sample": "{'nodes': [{'id': 'Knowledge Graph', 'labels': ['CONCEPT'], 'properties': {'name': 'Knowledge Graph'",
+    "keys_ok": true
+  },
+  {
+    "label": "GET /ui/customization",
+    "status": 200,
+    "ok": true,
+    "sample": "{'title': 'MindMesh', 'subtitle': 'Graph-RAG Research System', 'logo_url': None, 'features': {'docum",
+    "keys_ok": true
+  },
+  {
+    "label": "POST /query/lightrag",
+    "status": 200,
+    "ok": true,
+    "sample": "{'response': '[0] ### Distance Metrics\\n\\nCosine similarity measures the angle between two vectors, ",
+    "keys_ok": true
+  },
+  {
+    "label": "POST /query (original A)",
+    "status": null,
+    "ok": false,
+    "sample": "timed out",
+    "keys_ok": false
+  },
+  {
+    "label": "GET /webui/index.html",
+    "status": 200,
+    "ok": true,
+    "sample": "ct=text/html; charset=utf-8"
+  },
+  {
+    "label": "GET /webui/ (SPA root)",
+    "status": 200,
+    "ok": true,
+    "sample": "ct=text/html; charset=utf-8"
+  }
+]

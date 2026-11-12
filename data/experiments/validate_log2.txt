@@ -1,0 +1,276 @@
+2026-11-09 22:34:07,458 [INFO] === Validation: model=qwen2.5:1.5b  exp_dir=C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_validate ===
+2026-11-09 22:34:07,464 [INFO] Dev set: 20 questions
+2026-11-09 22:34:07,487 [INFO] Loaded 42 clean extraction records from C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\cache_v2\extractions_v2_off.jsonl
+2026-11-09 22:34:10,308 [INFO] Attached text to 42/42 records from canonical chunks_v1
+2026-11-09 22:34:10,309 [INFO] Building experimental graph from v2_off extractions...
+2026-11-09 22:34:14,858 [INFO]   [builder]   [DROP-LOOP] ('LLM' --IDENTIFIES--> 'LLM') -> both resolve to 'LLM' [knowledge_graphs/6d878b7f]
+2026-11-09 22:34:14,858 [INFO]   [builder]   [DROP-LOOP] ('Retrieval-Augmented Generation (RAG)' --OTHER--> 'Retrieval-Augmented Generation (RAG)') -> both resolve to 'Retrieval-Augmented Generation (RAG)' [retrieval_augmented_generation/33d32892]
+2026-11-09 22:34:14,859 [INFO]   [builder] [build_graph] nodes=211  edges=112
+2026-11-09 22:34:14,861 [INFO]   [builder]   self_loops_dropped=2  parallel_merged=4  dangling_dropped=0
+2026-11-09 22:34:14,861 [INFO]   [builder] [build_graph] alias_merged=2 -> now 209 nodes, 112 edges
+2026-11-09 22:34:14,862 [INFO] Graph: 209 nodes, 112 edges
+2026-11-09 22:34:18,603 [INFO] PageRank computed: 209 nodes, max=0.02192
+2026-11-09 22:34:18,604 [INFO] Reusing existing collections at C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_validate
+2026-11-09 22:34:23,911 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:26,106 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:27,454 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:28,872 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:30,650 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:32,218 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:33,899 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:35,750 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:37,135 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:38,436 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:39,056 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:39,679 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:40,254 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:41,102 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:42,491 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:43,649 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:44,821 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:46,083 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:47,243 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:48,231 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:48,967 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:49,568 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:50,113 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:50,752 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:51,865 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:52,993 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:54,038 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:55,177 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:56,236 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:57,277 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:58,051 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:58,692 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:34:59,387 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:00,023 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:01,154 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:02,201 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:03,266 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:04,460 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:05,696 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:06,761 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:07,540 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:08,331 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:08,931 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:09,549 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:10,799 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:12,192 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:13,392 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:14,883 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:16,320 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:17,578 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:18,348 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:19,189 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:19,797 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:20,527 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:21,835 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:23,095 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:24,404 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:25,463 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:26,560 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:27,641 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:28,439 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:29,140 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:29,922 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:30,526 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:31,650 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:32,881 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:34,040 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:35,311 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:36,535 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:37,642 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:38,359 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:38,975 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:39,530 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:40,214 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:41,768 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:43,405 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:44,605 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:45,802 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:47,060 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:48,342 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:49,142 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:49,751 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:50,307 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:50,915 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:52,028 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:53,205 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:54,550 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:55,703 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:56,863 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:58,168 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:58,973 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:35:59,816 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:00,556 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:01,226 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:02,428 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:03,667 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:04,838 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:06,190 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:07,537 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:08,714 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:09,461 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:10,117 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:10,726 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:11,503 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:12,774 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:13,946 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:15,191 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:16,424 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:17,702 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:18,967 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:19,822 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:20,467 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:21,016 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:21,633 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:22,877 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:24,297 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:25,611 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:26,645 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:27,741 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:28,824 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:29,540 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:30,162 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:30,837 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:31,455 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:32,551 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:33,623 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:34,718 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:36,087 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:37,426 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:38,641 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:39,425 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:40,085 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:40,724 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:41,771 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:43,450 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:44,744 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:46,107 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:47,337 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:48,619 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:50,027 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:50,927 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:51,604 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:52,224 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:52,881 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:54,253 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:55,697 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:56,950 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:58,161 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:36:59,377 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:00,861 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:02,010 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:02,843 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:03,429 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:04,094 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[ERROR 2026-11-09 22:37:04 43764 sqlengine_impl.cc:229] FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]
+2026-11-09 22:37:05,340 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[ERROR 2026-11-09 22:37:05 37808 sqlengine_impl.cc:229] FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]
+2026-11-09 22:37:06,645 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[ERROR 2026-11-09 22:37:07 36460 sqlengine_impl.cc:229] FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]
+2026-11-09 22:37:08,030 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[ERROR 2026-11-09 22:37:08 33708 sqlengine_impl.cc:229] FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]
+2026-11-09 22:37:09,241 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[ERROR 2026-11-09 22:37:09 22844 sqlengine_impl.cc:229] FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]
+2026-11-09 22:37:10,492 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+[ERROR 2026-11-09 22:37:10 11764 sqlengine_impl.cc:229] FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]
+2026-11-09 22:37:11,710 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:12,543 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:13,336 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:13,952 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:14,623 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:15,849 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:17,074 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:18,362 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:19,842 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:21,077 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:22,330 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:23,206 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:23,891 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:24,617 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:25,332 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:26,729 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:28,056 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:29,410 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:30,724 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:32,267 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:33,517 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:34,238 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:34,854 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:35,406 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:35,977 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:37,286 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:38,688 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:39,873 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:41,177 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:42,637 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:44,012 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:44,810 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:45,395 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:45,975 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:46,571 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:47,736 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:49,004 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:50,353 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:51,478 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:52,625 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:53,799 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:54,623 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:55,283 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:55,846 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:56,462 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:57,687 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:37:58,904 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:38:00,113 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:38:01,340 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:38:02,698 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:38:03,878 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/embed "HTTP/1.1 200 OK"
+2026-11-09 22:38:04,447 [INFO] Results saved to C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_validate\validation_20261109_223804.json
+
+==============================================================================================================
+VALIDATION ù qwen2.5:1.5b extractions  top_k=6
+==============================================================================================================
+QID    Gold  pipeline_a    pipeline_b    lightrag_loc  lightrag_glo  lightrag_hyb  lightrag_mix
+--------------------------------------------------------------------------------------------------------------
+D01       1  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00
+D02       1  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00
+D03       1  R=1.00/M=1.00  R=1.00/M=1.00  R=0.00/M=0.00  R=0.00/M=0.00  R=0.00/M=0.00  R=0.00/M=0.00
+D04       1  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=0.50  R=1.00/M=0.50  R=1.00/M=0.50  R=1.00/M=0.50
+D05       1  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=0.33  R=1.00/M=0.33  R=1.00/M=0.33  R=1.00/M=0.33
+D06       1  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=0.50  R=0.00/M=0.00  R=1.00/M=0.50  R=1.00/M=0.50
+D07       1  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=0.50  R=1.00/M=1.00  R=1.00/M=0.50  R=1.00/M=0.50
+D08       1  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=0.17  R=1.00/M=1.00  R=1.00/M=1.00
+D09       1  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=0.25  R=0.00/M=0.00  R=1.00/M=0.25  R=1.00/M=0.25
+D10       2  R=1.00/M=1.00  R=1.00/M=1.00  R=0.50/M=0.25  R=0.50/M=1.00  R=0.50/M=1.00  R=0.50/M=1.00
+D11       2  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=1.00
+D12       2  R=1.00/M=1.00  R=1.00/M=1.00  R=1.00/M=0.33  R=1.00/M=0.50  R=1.00/M=0.33  R=1.00/M=0.33
+D13       2  R=1.00/M=0.20  R=1.00/M=0.20  R=0.50/M=0.33  R=0.50/M=0.50  R=0.50/M=0.33  R=0.50/M=0.33
+D14       2  R=1.00/M=0.50  R=1.00/M=0.50  R=0.50/M=1.00  R=0.00/M=0.00  R=0.50/M=1.00  R=0.50/M=1.00
+D15       2  R=0.50/M=1.00  R=0.50/M=1.00  R=0.00/M=0.00  R=0.50/M=0.33  R=0.50/M=0.20  R=0.50/M=0.20
+D16       1  R=1.00/M=0.20  R=0.00/M=0.00  R=1.00/M=0.33  R=0.00/M=0.00  R=1.00/M=0.33  R=1.00/M=0.33
+D17       1  R=1.00/M=1.00  R=1.00/M=1.00  R=0.00/M=0.00  R=0.00/M=0.00  R=0.00/M=0.00  R=0.00/M=0.00
+D18       1  R=0.00/M=0.00  R=0.00/M=0.00  R=0.00/M=0.00  R=0.00/M=0.00  R=0.00/M=0.00  R=0.00/M=0.00
+D19       0  R=1.00/M=0.00  R=1.00/M=0.00  R=1.00/M=0.00  R=1.00/M=0.00  R=1.00/M=0.00  R=1.00/M=0.00
+D20       0  R=1.00/M=0.00  R=1.00/M=0.00  R=1.00/M=0.00  R=1.00/M=0.00  R=1.00/M=0.00  R=1.00/M=0.00
+
+==============================================================================================================
+AGGREGATE  (Recall@K / MRR / UniqueGold / AvgLatency / Errors)
+==============================================================================================================
+  pipeline_a            recall=0.9250  mrr=0.7450  gold= 19  lat=0.854s  errs=0
+  pipeline_b            recall=0.8750  mrr=0.7350  gold= 19  lat=1.398s  errs=0
+  lightrag_local        recall=0.7250  mrr=0.4167  gold= 16  lat=1.288s  errs=0
+  lightrag_global       recall=0.5750  mrr=0.3667  gold= 13  lat=1.288s  errs=0
+  lightrag_hybrid       recall=0.7500  mrr=0.4642  gold= 17  lat=2.545s  errs=0
+  lightrag_mix          recall=0.7500  mrr=0.4642  gold= 17  lat=3.272s  errs=0
+
+D18 diagnostic:
+  pipeline_a            gold_retrieved=False  ids=['a5123f467123650e', 'c81c2a06e4ee9667', '0e82efa9409ff33c']...
+  pipeline_b            gold_retrieved=False  ids=['a5123f467123650e', 'c81c2a06e4ee9667', 'a885be6b749e39a1']...
+  lightrag_local        gold_retrieved=False  ids=['99f7ac4bdc89395d', '4a4ea014c5ca9c45', 'a5123f467123650e']...
+  lightrag_global       gold_retrieved=False  ids=['e9c66a7ac48f6e11', '0e82efa9409ff33c', '32c85d7ec02b6b19']...
+  lightrag_hybrid       gold_retrieved=False  ids=['99f7ac4bdc89395d', '4a4ea014c5ca9c45', 'a5123f467123650e']...
+  lightrag_mix          gold_retrieved=False  ids=['99f7ac4bdc89395d', '4a4ea014c5ca9c45', 'a5123f467123650e']...
+
+Results saved to C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_validate\validation_20261109_223804.json

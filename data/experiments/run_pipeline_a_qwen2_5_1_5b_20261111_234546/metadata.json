@@ -1,0 +1,24 @@
+{
+  "model": "qwen2.5:1.5b",
+  "model_info": {
+    "name": "qwen2.5:1.5b",
+    "id": "65ec06548149",
+    "size": "986",
+    "modified": "MB 3 months ago"
+  },
+  "pipeline": "pipeline_a",
+  "timestamp": "2026-11-11T23:45:46",
+  "installed_models": [
+    "qwen3.5:2b",
+    "qwen3:4b",
+    "nomic-embed-text:latest",
+    "qwen2.5:0.5b",
+    "llama3.2:latest",
+    "gemma4:31b-cloud",
+    "qwen2.5:1.5b",
+    "qwen2.5-coder:1.5b",
+    "gemma4:e2b",
+    "nemotron-3-super:cloud",
+    "qwen3.5:9b"
+  ]
+}

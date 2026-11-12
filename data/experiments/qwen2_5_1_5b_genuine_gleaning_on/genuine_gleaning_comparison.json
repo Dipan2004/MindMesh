@@ -1,0 +1,216 @@
+{
+  "timestamp": "2026-11-12T00:40:28",
+  "note": "Genuine gleaning-ON (MAX_GLEANINGS=1) vs Phase 1, v2-OFF and v2-ON (stub filter).",
+  "extraction_summary": {
+    "total_chunks": 42,
+    "parse_errors": 4,
+    "gleaning_ok": 37,
+    "total_entities": 232,
+    "total_rels": 134,
+    "glean_added_entities": 34,
+    "glean_added_rels": 26,
+    "total_extract_calls": 40,
+    "total_gleaning_calls": 37
+  },
+  "graph_metrics": {
+    "nodes": 202,
+    "edges": 124,
+    "components": 86,
+    "largest_component": 22,
+    "isolated_nodes": 57,
+    "cross_doc_nodes": 4,
+    "cross_doc_edges": 0,
+    "usable_chunks": 35,
+    "usable_chunk_rate": 0.8333,
+    "edge_type_top10": {
+      "DEVELOPED_BY": 30,
+      "USED_FOR": 12,
+      "SUCCESSOR_OF": 11,
+      "WORKS_AT": 8,
+      "LOCATED_IN": 7,
+      "ACQUIRED_BY": 5,
+      "SUPPORTS": 5,
+      "INTEGRATED_WITH": 5,
+      "INTRODUCED_BY": 4,
+      "DECOMPOSED_BY": 4
+    }
+  },
+  "aggregates": {
+    "phase1_gleaning_off": {
+      "pipeline_a": {
+        "avg_recall_at_k": 0.925,
+        "mrr": 0.745,
+        "unique_gold_chunks_recovered": 19,
+        "avg_latency_s": 0.8539,
+        "errors": 0
+      },
+      "pipeline_b": {
+        "avg_recall_at_k": 0.875,
+        "mrr": 0.735,
+        "unique_gold_chunks_recovered": 19,
+        "avg_latency_s": 1.3976,
+        "errors": 0
+      },
+      "lightrag_local": {
+        "avg_recall_at_k": 0.725,
+        "mrr": 0.4167,
+        "unique_gold_chunks_recovered": 16,
+        "avg_latency_s": 1.2883,
+        "errors": 0
+      },
+      "lightrag_global": {
+        "avg_recall_at_k": 0.575,
+        "mrr": 0.3667,
+        "unique_gold_chunks_recovered": 13,
+        "avg_latency_s": 1.2875,
+        "errors": 0
+      },
+      "lightrag_hybrid": {
+        "avg_recall_at_k": 0.75,
+        "mrr": 0.4642,
+        "unique_gold_chunks_recovered": 17,
+        "avg_latency_s": 2.5453,
+        "errors": 0
+      },
+      "lightrag_mix": {
+        "avg_recall_at_k": 0.75,
+        "mrr": 0.4642,
+        "unique_gold_chunks_recovered": 17,
+        "avg_latency_s": 3.2719,
+        "errors": 0
+      }
+    },
+    "v2_stub_off": {
+      "pipeline_a": {
+        "avg_recall_at_k": 0.925,
+        "mrr": 0.745,
+        "unique_gold_recovered": 19,
+        "avg_latency_s": 1.0595,
+        "errors": 0
+      },
+      "pipeline_b": {
+        "avg_recall_at_k": 0.825,
+        "mrr": 0.685,
+        "unique_gold_recovered": 18,
+        "avg_latency_s": 1.9328,
+        "errors": 0
+      },
+      "lightrag_local": {
+        "avg_recall_at_k": 0.725,
+        "mrr": 0.4167,
+        "unique_gold_recovered": 16,
+        "avg_latency_s": 1.3265,
+        "errors": 0
+      },
+      "lightrag_global": {
+        "avg_recall_at_k": 0.575,
+        "mrr": 0.3667,
+        "unique_gold_recovered": 13,
+        "avg_latency_s": 1.3288,
+        "errors": 0
+      },
+      "lightrag_hybrid": {
+        "avg_recall_at_k": 0.75,
+        "mrr": 0.4642,
+        "unique_gold_recovered": 17,
+        "avg_latency_s": 2.7376,
+        "errors": 0
+      },
+      "lightrag_mix": {
+        "avg_recall_at_k": 0.75,
+        "mrr": 0.4642,
+        "unique_gold_recovered": 17,
+        "avg_latency_s": 4.0171,
+        "errors": 0
+      }
+    },
+    "v2_stub_on": {
+      "pipeline_a": {
+        "avg_recall_at_k": 0.925,
+        "mrr": 0.745,
+        "unique_gold_recovered": 19,
+        "avg_latency_s": 1.0576,
+        "errors": 0
+      },
+      "pipeline_b": {
+        "avg_recall_at_k": 0.875,
+        "mrr": 0.735,
+        "unique_gold_recovered": 19,
+        "avg_latency_s": 1.9502,
+        "errors": 0
+      },
+      "lightrag_local": {
+        "avg_recall_at_k": 0.725,
+        "mrr": 0.4583,
+        "unique_gold_recovered": 16,
+        "avg_latency_s": 1.2977,
+        "errors": 0
+      },
+      "lightrag_global": {
+        "avg_recall_at_k": 0.6,
+        "mrr": 0.4183,
+        "unique_gold_recovered": 14,
+        "avg_latency_s": 1.264,
+        "errors": 0
+      },
+      "lightrag_hybrid": {
+        "avg_recall_at_k": 0.75,
+        "mrr": 0.4667,
+        "unique_gold_recovered": 17,
+        "avg_latency_s": 2.5649,
+        "errors": 0
+      },
+      "lightrag_mix": {
+        "avg_recall_at_k": 0.75,
+        "mrr": 0.4667,
+        "unique_gold_recovered": 17,
+        "avg_latency_s": 3.4086,
+        "errors": 0
+      }
+    },
+    "genuine_gleaning_on": {
+      "pipeline_a": {
+        "avg_recall_at_k": 0.925,
+        "mrr": 0.745,
+        "unique_gold_recovered": 19,
+        "avg_latency_s": 0.5141,
+        "errors": 0
+      },
+      "pipeline_b": {
+        "avg_recall_at_k": 0.825,
+        "mrr": 0.685,
+        "unique_gold_recovered": 18,
+        "avg_latency_s": 0.9759,
+        "errors": 0
+      },
+      "lightrag_local": {
+        "avg_recall_at_k": 0.775,
+        "mrr": 0.5083,
+        "unique_gold_recovered": 18,
+        "avg_latency_s": 0.5781,
+        "errors": 0
+      },
+      "lightrag_global": {
+        "avg_recall_at_k": 0.65,
+        "mrr": 0.4667,
+        "unique_gold_recovered": 15,
+        "avg_latency_s": 0.5742,
+        "errors": 0
+      },
+      "lightrag_hybrid": {
+        "avg_recall_at_k": 0.775,
+        "mrr": 0.525,
+        "unique_gold_recovered": 18,
+        "avg_latency_s": 1.1445,
+        "errors": 0
+      },
+      "lightrag_mix": {
+        "avg_recall_at_k": 0.775,
+        "mrr": 0.525,
+        "unique_gold_recovered": 18,
+        "avg_latency_s": 1.5703,
+        "errors": 0
+      }
+    }
+  }
+}

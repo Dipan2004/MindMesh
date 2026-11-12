@@ -1,0 +1,32 @@
+{
+  "total_chunks": 42,
+  "parse_errors": 4,
+  "gleaning_ok": 37,
+  "total_entities": 232,
+  "total_rels": 134,
+  "glean_added_entities": 34,
+  "glean_added_rels": 26,
+  "total_extract_calls": 40,
+  "total_gleaning_calls": 37,
+  "nodes": 202,
+  "edges": 124,
+  "components": 86,
+  "largest_component": 22,
+  "isolated_nodes": 57,
+  "cross_doc_nodes": 4,
+  "cross_doc_edges": 0,
+  "usable_chunks": 35,
+  "usable_chunk_rate": 0.8333,
+  "edge_type_top10": {
+    "DEVELOPED_BY": 30,
+    "USED_FOR": 12,
+    "SUCCESSOR_OF": 11,
+    "WORKS_AT": 8,
+    "LOCATED_IN": 7,
+    "ACQUIRED_BY": 5,
+    "SUPPORTS": 5,
+    "INTEGRATED_WITH": 5,
+    "INTRODUCED_BY": 4,
+    "DECOMPOSED_BY": 4
+  }
+}

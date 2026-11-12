@@ -1,0 +1,49 @@
+[ERROR 2026-11-12 10:33:23 34136 sqlengine_impl.cc:229] FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]
+
+======================================================================
+  ENTITY RESOLVER VALIDATION
+  Source: extractions.jsonl
+======================================================================
+
+Building resolver configs (no LLM calls)...
+Built in 0.7s
+
+
+===========================================================================
+  ENTITY RESOLUTION COMPARISON REPORT
+===========================================================================
+Config                  Nodes  Edges  Comps LargestC    XdocEdges  Merges
+---------------------------------------------------------------------------
+baseline                  202    124     86       22            0       0
+config_a_exact            200    124     84       22            0       2
+config_b_semantic         200    124     84       22            0       2
+===========================================================================
+
+Cross-document edges per configuration:
+  baseline                0
+  config_a_exact          0
+  config_b_semantic       0
+
+Evaluating LightRAG Local on 20 dev questions per config...
+  Evaluating baseline...
+    Recall=0.6750  MRR=0.5292  UniqueGold=15  Lat=1.224s
+  Evaluating config_a_exact...
+    Recall=0.1750  MRR=0.0375  UniqueGold=2  Lat=0.638s
+  Evaluating config_b_semantic...
+    Recall=0.1750  MRR=0.0375  UniqueGold=2  Lat=0.624s
+
+  D18 (When one technique copes with codes and the second copes wit...):
+    baseline                gold_retrieved=False  recall=0.00
+    config_a_exact          gold_retrieved=False  recall=0.00
+    config_b_semantic       gold_retrieved=False  recall=0.00
+
+Results saved to C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\resolver_validation.json
+
+======================================================================
+  RETRIEVAL COMPARISON (LightRAG Local, top_k=6)
+======================================================================
+Config                   Recall@6      MRR UniqueGold    AvgLat(s)
+-----------------------------------------------------------------
+baseline                   0.6750   0.5292         15        1.224
+config_a_exact             0.1750   0.0375          2        0.638
+config_b_semantic          0.1750   0.0375          2        0.624
