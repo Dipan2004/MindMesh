@@ -1,0 +1,18 @@
+
+extractions_v2_off.jsonl:
+  Records: 42, errors: 0
+  Total entities: 245, Total rels: 118
+  Has gleaning field: 0
+  First record keys: ['chunk_id', 'doc_id', 'entities', 'relationships']
+  First chunk entities: 4
+
+extractions_v2_on.jsonl:
+  Records: 42, errors: 0
+  Total entities: 263, Total rels: 163
+  Has gleaning field: 0
+  First record keys: ['chunk_id', 'doc_id', 'entities', 'relationships']
+  First chunk entities: 4
+
+graph_v2_report.json keys: ['generated', 'zvec_root', 'canonical', 'arms', 'chunks_collection', 'total_seconds']
+off arm nodes/edges: None / None
+on arm nodes/edges: None / None

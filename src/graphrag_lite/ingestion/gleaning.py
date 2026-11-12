@@ -148,7 +148,12 @@ def glean(
         Propagated — not swallowed.
     """
     cfg = get_config()
-    model = cfg.effective_extraction_model()
+    # FIX (2026-11-09): derive the cache-key model from the ACTUAL client,
+    # same as the extractor fix.  Gleaning must share the same model identity
+    # as extraction so their cache entries live in the same namespace and a
+    # model-specific experiment cannot accidentally read another model's
+    # gleaning responses.
+    model: str = getattr(llm_client, "model", cfg.effective_extraction_model())
     if max_gleanings is None:
         max_gleanings = cfg.MAX_GLEANINGS
 

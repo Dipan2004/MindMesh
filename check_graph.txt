@@ -1,0 +1,4 @@
+  File "<string>", line 44
+    print(f'D18 gold chunk doc: {cmap.get(d18_gold,\
+          ^
+SyntaxError: unterminated string literal (detected at line 44)

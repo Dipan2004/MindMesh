@@ -1,0 +1,9 @@
+PASS test_different_models_produce_different_keys
+PASS test_same_model_same_settings_same_key
+PASS test_different_frequency_penalty_different_key
+PASS test_extractor_uses_client_model_not_config_model
+PASS test_gleaning_uses_client_model_not_config_model
+
+==================================================
+RESULTS: 5 passed, 0 failed
+==================================================

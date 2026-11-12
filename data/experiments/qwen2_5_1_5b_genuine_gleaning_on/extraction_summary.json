@@ -1,0 +1,15 @@
+{
+  "timestamp": "2026-11-11T21:29:16",
+  "model": "qwen2.5:1.5b",
+  "completed": 42,
+  "total": 42,
+  "parse_errors": 4,
+  "gleaning_ok": 37,
+  "gleaning_fail": 1,
+  "total_entities": 232,
+  "total_rels": 134,
+  "glean_added_entities": 34,
+  "glean_added_rels": 26,
+  "total_extract_calls": 40,
+  "total_gleaning_calls": 37
+}

@@ -1,0 +1,18 @@
+{
+  "nodes": 224,
+  "edges": 157,
+  "components": 75,
+  "largest_component": 29,
+  "isolated_nodes": 43,
+  "cross_doc_nodes": 9,
+  "cross_doc_edges": 0,
+  "usable_chunks": 40,
+  "usable_chunk_rate": 0.9524,
+  "edge_type_top5": {
+    "DEVELOPED_BY": 26,
+    "ACQUIRED_BY": 20,
+    "SUCCESSOR_OF": 17,
+    "USED_FOR": 13,
+    "CONTRIBUTED_TO": 8
+  }
+}

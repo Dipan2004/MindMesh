@@ -1,0 +1,15 @@
+[ERROR 2026-11-12 10:42:48 33084 sqlengine_impl.cc:229] FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]
+[ERROR 2026-11-12 10:43:09 10236 sqlengine_impl.cc:229] FTS query parse failed: fts syntax error [1 111 mismatched input '-' expecting {'(', DQUOTA_STRING, REGULAR_ID, NUMBER, TERM, DEFAULT}]
+Records loaded: 38
+Graph: 202 nodes, 124 edges (0.0s)
+Configs built in 0.9s
+  baseline              : nodes=202 edges=124 cross_doc_edges=0 merges=0
+  config_a_exact        : nodes=200 edges=124 cross_doc_edges=0 merges=2
+  config_b_semantic     : nodes=200 edges=124 cross_doc_edges=0 merges=2
+
+Evaluating LightRAG Local on 20 queries...
+  baseline              : Recall=0.2250 MRR=0.1500 D18=False
+  config_a_exact        : Recall=0.6750 MRR=0.5292 D18=False
+  config_b_semantic     : Recall=0.6750 MRR=0.5292 D18=False
+
+Done.

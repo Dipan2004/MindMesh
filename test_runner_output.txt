@@ -1,0 +1,68 @@
+ERROR: --model is required. Example: --model qwen2.5:1.5b
+Use --list-models to see installed models.
+
+ERROR: Model 'qwen3:4b' is not installed locally.
+Installed models: qwen2.5:1.5b
+Install it manually with: ollama pull qwen3:4b
+(Never pulled automatically by this runner.)
+WARNING: pypinyin is not installed. Chinese pinyin sorting will use simple string sorting.
+Traceback (most recent call last):
+  PASS  normalize_basic
+  PASS  canonical_id_deterministic
+  PASS  canonical_id_case_insensitive
+  PASS  canonical_id_type_normalization
+  PASS  alias_resolve_builtin
+  PASS  alias_resolve_or_keep
+  PASS  alias_register_custom
+  PASS  type_compatible_same
+  PASS  type_incompatible
+  PASS  type_tech_concept_compatible
+  PASS  candidates_found
+  PASS  same_doc_no_cross_doc
+  PASS  ambiguous_apple_not_merged
+  PASS  ambiguous_keeps_separate
+  PASS  merge_edge_redirection
+  PASS  merge_deduplicates_edges
+  PASS  merge_no_self_loops
+  PASS  merge_preserves_source_docs
+  PASS  merge_preserves_descriptions
+  PASS  merge_loser_becomes_alias
+  PASS  merge_history_recorded
+  PASS  merge_rollback
+  PASS  cross_doc_after_merge
+  PASS  resolver_configs
+  PASS  resolver_does_not_modify_original
+[OK  ] entity_resolution: 25 pass / 0 fail
+  PASS  argparse_list_pipelines
+  PASS  argparse_list_models
+  PASS  argparse_pipeline_a_dry_run
+  PASS  argparse_pipeline3_hybrid
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\test_runner_final.py", line 73, in <module>
+  PASS  argparse_missing_model_requires_error
+  PASS  registry_all_pipelines_present
+  PASS  registry_get_adapter_class
+  PASS  registry_unknown_pipeline_raises
+  PASS  model_validation_installed
+  PASS  model_validation_not_installed
+  PASS  adapter_a_loads
+  PASS  adapter_b_loads
+  PASS  adapter_p3_loads_and_dry_runs
+  PASS  lightrag_importable
+  PASS  lightrag_queryparam_modes
+  PASS  lightrag_version
+  PASS  p3_dry_run_no_inference
+  PASS  p3_query_unindexed_returns_error
+  PASS  p3_workdir_isolated
+  PASS  pipeline_a_uses_canonical_not_experiment
+  PASS  cache_isolation_regression
+  PASS  pipeline_registry_no_overlap
+[OK  ] pipeline_runner: 22 pass / 0 fail
+PASS test_different_models_produce_different_keys
+PASS test_same_model_same_settings_same_key
+PASS test_different_frequency_penalty_different_key
+[OK  ] cache_isolation: 3 pass / 0 fail
+PASS test_extractor_uses_client_model_not_config_model
+PASS test_gleaning_uses_client_model_not_config_model
+[OK  ] cache_isolation_tempdir: 2 pass / 0 fail
+    import test_pipeline3_cpu as P3
+ModuleNotFoundError: No module named 'test_pipeline3_cpu'

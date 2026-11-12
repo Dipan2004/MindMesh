@@ -1,0 +1,73 @@
+Traceback (most recent call last):
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 559, in main
+    fn()
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 55, in test_normalize_basic
+    assert normalize("GPT\u20114") == "gpt-4"   # en-dash -> hyphen via NFKC
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Traceback (most recent call last):
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 559, in main
+    fn()
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 62, in test_normalize_unicode
+    assert normalize("\ufb00oo") == "\ufb00oo".lower()  # ff ligature preserved by NFKC lower
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Traceback (most recent call last):
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 559, in main
+    fn()
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 70, in test_norm_alias_plurals
+    assert norm_alias("Vector Database") == norm_alias("Vector Databases")
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+Traceback (most recent call last):
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 559, in main
+    fn()
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 220, in test_candidates_found
+    assert found_faiss, f"FAISS/FAISS Library pair not found in {names}"
+           ^^^^^^^^^^^
+AssertionError: FAISS/FAISS Library pair not found in [('Transformer', 'Transformer Architecture')]
+Traceback (most recent call last):
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 559, in main
+    fn()
+  File "C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\tests\test_entity_resolution.py", line 292, in test_merge_edge_redirection
+    assert "FAISS Library" not in G.nodes()
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError
+
+============================================================
+  Entity Resolution Tests
+============================================================
+  FAIL  test_normalize_basic: 
+  FAIL  test_normalize_unicode: 
+  FAIL  test_norm_alias_plurals: 
+  PASS  ambiguous_detection
+  PASS  canonical_id_deterministic
+  PASS  canonical_id_case_insensitive
+  PASS  canonical_id_type_normalization
+  PASS  canonical_id_different_names
+  PASS  alias_resolve_builtin
+  PASS  alias_resolve_or_keep
+  PASS  alias_register_custom
+  PASS  type_compatible_same
+  PASS  type_compatible_other
+  PASS  type_incompatible
+  PASS  type_tech_concept_compatible
+  FAIL  test_candidates_found: FAISS/FAISS Library pair not found in [('Transformer', 'Transformer Architecture')]
+  PASS  same_doc_no_cross_doc
+  PASS  ambiguous_apple_not_merged
+  PASS  ambiguous_keeps_separate
+  FAIL  test_merge_edge_redirection: 
+  PASS  merge_deduplicates_edges
+  PASS  merge_no_self_loops
+  PASS  merge_preserves_source_docs
+  PASS  merge_preserves_descriptions
+  PASS  merge_loser_becomes_alias
+  PASS  merge_history_recorded
+  PASS  merge_rollback
+  PASS  cross_doc_after_merge
+  PASS  resolver_configs
+  PASS  resolver_does_not_modify_original
+
+============================================================
+  RESULTS: 25 passed, 5 failed
+============================================================

@@ -1,0 +1,168 @@
+
+> lightrag-webui@0.0.0 build
+> vite build
+
+[36mvite v8.3.8 [32mbuilding client environment for production...[36m[39m
+transforming...
+Γ£ô 5025 modules transformed.
+rendering chunks...
+
+[workspace-audit] first-load 2481409 bytes (baseline 2292918, limit 2522209) ΓÇö OK
+computing gzip size...
+../lightrag_ui_dist/workspace.html                                       0.89 kB Γöé gzip:   0.46 kB
+../lightrag_ui_dist/index.html                                           0.94 kB Γöé gzip:   0.46 kB
+../lightrag_ui_dist/assets/KaTeX_Size3-Regular-CTq5MqoE.woff             4.42 kB
+../lightrag_ui_dist/assets/KaTeX_Size4-Regular-Dl5lxZxV.woff2            4.92 kB
+../lightrag_ui_dist/assets/KaTeX_Size2-Regular-Dy4dx90m.woff2            5.20 kB
+../lightrag_ui_dist/assets/KaTeX_Size1-Regular-mCD8mA8B.woff2            5.46 kB
+../lightrag_ui_dist/assets/KaTeX_Size4-Regular-BF-4gkZK.woff             5.98 kB
+../lightrag_ui_dist/assets/KaTeX_Size2-Regular-oD1tc_U0.woff             6.18 kB
+../lightrag_ui_dist/assets/KaTeX_Size1-Regular-C195tn64.woff             6.49 kB
+../lightrag_ui_dist/assets/KaTeX_Caligraphic-Regular-Di6jR-x-.woff2      6.90 kB
+../lightrag_ui_dist/assets/KaTeX_Caligraphic-Bold-Dq_IR9rO.woff2         6.91 kB
+../lightrag_ui_dist/assets/KaTeX_Size3-Regular-DgpXs0kz.ttf              7.58 kB
+../lightrag_ui_dist/assets/KaTeX_Caligraphic-Regular-CTRA-rTL.woff       7.65 kB
+../lightrag_ui_dist/assets/KaTeX_Caligraphic-Bold-BEiXGLvX.woff          7.71 kB
+../lightrag_ui_dist/assets/KaTeX_Script-Regular-D3wIWfF6.woff2           9.64 kB
+../lightrag_ui_dist/assets/KaTeX_SansSerif-Regular-DDBCnlJ7.woff2       10.34 kB
+../lightrag_ui_dist/assets/KaTeX_Size4-Regular-DWFBv043.ttf             10.36 kB
+../lightrag_ui_dist/assets/KaTeX_Script-Regular-D5yQViql.woff           10.58 kB
+../lightrag_ui_dist/assets/KaTeX_Fraktur-Regular-CTYiF6lA.woff2         11.31 kB
+../lightrag_ui_dist/assets/KaTeX_Fraktur-Bold-CL6g_b3V.woff2            11.34 kB
+../lightrag_ui_dist/assets/KaTeX_Size2-Regular-B7gKUWhC.ttf             11.50 kB
+../lightrag_ui_dist/assets/KaTeX_SansSerif-Italic-C3H0VqGB.woff2        12.02 kB
+../lightrag_ui_dist/assets/KaTeX_SansSerif-Bold-D1sUS0GD.woff2          12.21 kB
+../lightrag_ui_dist/assets/KaTeX_Size1-Regular-Dbsnue_I.ttf             12.22 kB
+../lightrag_ui_dist/assets/KaTeX_SansSerif-Regular-CS6fqUqJ.woff        12.31 kB
+../lightrag_ui_dist/assets/KaTeX_Caligraphic-Regular-wX97UBjC.ttf       12.34 kB
+../lightrag_ui_dist/assets/KaTeX_Caligraphic-Bold-ATXxdsX0.ttf          12.36 kB
+../lightrag_ui_dist/assets/KaTeX_Fraktur-Regular-Dxdc4cR9.woff          13.20 kB
+../lightrag_ui_dist/assets/KaTeX_Fraktur-Bold-BsDP51OF.woff             13.29 kB
+../lightrag_ui_dist/assets/KaTeX_Typewriter-Regular-CO6r4hn1.woff2      13.56 kB
+../lightrag_ui_dist/assets/KaTeX_SansSerif-Italic-DN2j7dab.woff         14.11 kB
+../lightrag_ui_dist/assets/KaTeX_SansSerif-Bold-DbIhKOiC.woff           14.40 kB
+../lightrag_ui_dist/assets/KaTeX_Typewriter-Regular-C0xS9mPB.woff       16.02 kB
+../lightrag_ui_dist/assets/KaTeX_Math-BoldItalic-CZnvNsCZ.woff2         16.40 kB
+../lightrag_ui_dist/assets/KaTeX_Math-Italic-t53AETM-.woff2             16.44 kB
+../lightrag_ui_dist/assets/KaTeX_Script-Regular-C5JkGWo-.ttf            16.64 kB
+../lightrag_ui_dist/assets/KaTeX_Main-BoldItalic-DxDJ3AOS.woff2         16.78 kB
+../lightrag_ui_dist/assets/KaTeX_Main-Italic-NWA7e6Wa.woff2             16.98 kB
+../lightrag_ui_dist/assets/logo-BFIlRg_M.svg                            17.96 kB Γöé gzip:   7.00 kB
+../lightrag_ui_dist/assets/KaTeX_Math-BoldItalic-iY-2wyZ7.woff          18.66 kB
+../lightrag_ui_dist/assets/KaTeX_Math-Italic-DA0__PXp.woff              18.74 kB
+../lightrag_ui_dist/assets/KaTeX_Main-BoldItalic-SpSLRI95.woff          19.41 kB
+../lightrag_ui_dist/assets/KaTeX_SansSerif-Regular-BNo7hRIc.ttf         19.43 kB
+../lightrag_ui_dist/assets/KaTeX_Fraktur-Regular-CB_wures.ttf           19.57 kB
+../lightrag_ui_dist/assets/KaTeX_Fraktur-Bold-BdnERNNW.ttf              19.58 kB
+../lightrag_ui_dist/assets/KaTeX_Main-Italic-BMLOBm91.woff              19.67 kB
+../lightrag_ui_dist/assets/KaTeX_SansSerif-Italic-YYjJ1zSn.ttf          22.36 kB
+../lightrag_ui_dist/assets/KaTeX_SansSerif-Bold-CFMepnvq.ttf            24.50 kB
+../lightrag_ui_dist/assets/KaTeX_Main-Bold-Cx986IdX.woff2               25.32 kB
+../lightrag_ui_dist/assets/KaTeX_Main-Regular-B22Nviop.woff2            26.27 kB
+../lightrag_ui_dist/assets/KaTeX_Typewriter-Regular-D3Ib7_Hf.ttf        27.55 kB
+../lightrag_ui_dist/assets/KaTeX_AMS-Regular-BQhdFMY1.woff2             28.07 kB
+../lightrag_ui_dist/assets/KaTeX_Main-Bold-Jm3AIy58.woff                29.91 kB
+../lightrag_ui_dist/assets/KaTeX_Main-Regular-Dr94JaBh.woff             30.77 kB
+../lightrag_ui_dist/assets/KaTeX_Math-BoldItalic-B3XSjfu4.ttf           31.19 kB
+../lightrag_ui_dist/assets/KaTeX_Math-Italic-flOr_0UB.ttf               31.30 kB
+../lightrag_ui_dist/assets/KaTeX_Main-BoldItalic-DzxPMmG6.ttf           32.96 kB
+../lightrag_ui_dist/assets/KaTeX_AMS-Regular-DMm9YOAa.woff              33.51 kB
+../lightrag_ui_dist/assets/KaTeX_Main-Italic-3WenGoN9.ttf               33.58 kB
+../lightrag_ui_dist/assets/KaTeX_Main-Bold-waoOVXN0.ttf                 51.33 kB
+../lightrag_ui_dist/assets/KaTeX_Main-Regular-ypZvNtVU.ttf              53.58 kB
+../lightrag_ui_dist/assets/KaTeX_AMS-Regular-DRggAlZN.ttf               63.63 kB
+../lightrag_ui_dist/assets/index-VWiiW3qy.css                            4.13 kB Γöé gzip:   0.97 kB
+../lightrag_ui_dist/assets/copy-tex-BPGqxtqZ.css                       122.13 kB Γöé gzip:  24.24 kB
+../lightrag_ui_dist/assets/pie-WAS4IAKB-DiFhKeUW.js                      0.10 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/info-A6RAGUB7-CE9h4n5c.js                     0.10 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/radar-RG4KPBEZ-DKKBSfh6.js                    0.10 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/packet-AYTQ26CC-Crik-pcx.js                   0.11 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/cynefin-OW5HDTMX-690e_0R9.js                  0.11 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/treemap-WGGIJYW6-CuEcK36a.js                  0.11 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/wardley-WFR3VGLG-BtDX6lWo.js                  0.11 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/gitGraph-4MIJSDKK-DwCFXQTO.js                 0.11 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/railroad-74A4TZTK-DSQweA8z.js                 0.11 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/treeView-Q6P3EWNA-DXMMrkOn.js                 0.11 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/channel-Cq10zVXE.js                           0.11 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/railroad-peg-WCYAUIDC-OkHlv3xA.js             0.11 kB Γöé gzip:   0.13 kB
+../lightrag_ui_dist/assets/architecture-7GRP2DOG-b1LHR8sz.js             0.11 kB Γöé gzip:   0.12 kB
+../lightrag_ui_dist/assets/railroad-abnf-HS5TGJTU-Dkmc9Mfo.js            0.11 kB Γöé gzip:   0.13 kB
+../lightrag_ui_dist/assets/railroad-ebnf-LZEXJU2U-C5QnQNdO.js            0.11 kB Γöé gzip:   0.13 kB
+../lightrag_ui_dist/assets/eventmodeling-NTZA5JFV-CR4zxooG.js            0.11 kB Γöé gzip:   0.13 kB
+../lightrag_ui_dist/assets/chunk-Y2CYZVJY-DsF7k-Jl.js                    0.15 kB Γöé gzip:   0.14 kB
+../lightrag_ui_dist/assets/chunk-2Q5K7J3B-C1jixKkw.js                    0.19 kB Γöé gzip:   0.16 kB
+../lightrag_ui_dist/assets/chunk-JWPE2WC7-DVXcaiue.js                    0.22 kB Γöé gzip:   0.17 kB
+../lightrag_ui_dist/assets/chunk-XXDRQBXY-B_Z3Nfhf.js                    0.26 kB Γöé gzip:   0.22 kB
+../lightrag_ui_dist/assets/chunk-5VM5RSS4-ZNzvKenW.js                    0.36 kB Γöé gzip:   0.27 kB
+../lightrag_ui_dist/assets/flowDiagram-HODETNUW-lQYqwAfm.js              0.53 kB Γöé gzip:   0.30 kB
+../lightrag_ui_dist/assets/chunk-POPQ4Y6H-CESLmzG1.js                    0.57 kB Γöé gzip:   0.40 kB
+../lightrag_ui_dist/assets/infoDiagram-27XIBGKW-Cc5_PHvh.js              0.66 kB Γöé gzip:   0.42 kB
+../lightrag_ui_dist/assets/rolldown-runtime-XKyaHtl9.js                  0.72 kB Γöé gzip:   0.42 kB
+../lightrag_ui_dist/assets/classDiagram-ZZMXUADV-CegEieIE.js             0.76 kB Γöé gzip:   0.44 kB
+../lightrag_ui_dist/assets/classDiagram-v2-VYDZK3BY-CegEieIE.js          0.76 kB Γöé gzip:   0.44 kB
+../lightrag_ui_dist/assets/stateDiagram-v2-MP3YSRHH-D_9L1wkG.js          0.76 kB Γöé gzip:   0.44 kB
+../lightrag_ui_dist/assets/swimlanesDiagram-VR7AAH4N-CSxBFVFn.js         0.79 kB Γöé gzip:   0.47 kB
+../lightrag_ui_dist/assets/sizeCapture-INFHLROL-3uHXrFqA.js              0.87 kB Γöé gzip:   0.51 kB
+../lightrag_ui_dist/assets/chunk-GVQU2GXP-CR02a1Jz.js                    1.42 kB Γöé gzip:   0.79 kB
+../lightrag_ui_dist/assets/railroadDiagram-O6MQD6OU-CKxLKy2H.js          1.67 kB Γöé gzip:   0.78 kB
+../lightrag_ui_dist/assets/abnfDiagram-VCTEODGH-DXZ9BdUK.js              1.86 kB Γöé gzip:   0.90 kB
+../lightrag_ui_dist/assets/chunk-P2QGCYS3-Cj4kgXWb.js                    1.94 kB Γöé gzip:   0.96 kB
+../lightrag_ui_dist/assets/chunk-F27PBJKO-BdaHg5xs.js                    1.98 kB Γöé gzip:   0.90 kB
+../lightrag_ui_dist/assets/pegDiagram-XKGWAZYB-0VPYHvoR.js               2.02 kB Γöé gzip:   0.94 kB
+../lightrag_ui_dist/assets/ebnfDiagram-PWID7BFC-BaNgVsuJ.js              2.07 kB Γöé gzip:   0.90 kB
+../lightrag_ui_dist/assets/diagram-Z3DM3KII-FnUYZWhT.js                  4.28 kB Γöé gzip:   1.85 kB
+../lightrag_ui_dist/assets/pieDiagram-E7YTZNPT-itubJbrF.js               5.00 kB Γöé gzip:   2.11 kB
+../lightrag_ui_dist/assets/chunk-PWAF6VOD-DXe1bfic.js                    5.83 kB Γöé gzip:   2.68 kB
+../lightrag_ui_dist/assets/rehype-katex-BGsyQoaM.js                      5.86 kB Γöé gzip:   2.49 kB
+../lightrag_ui_dist/assets/diagram-UQ7AKVKN-Dbqi9P0S.js                  6.08 kB Γöé gzip:   2.57 kB
+../lightrag_ui_dist/assets/diagram-S7CK7UJ4-CzcL9jWL.js                  8.12 kB Γöé gzip:   3.64 kB
+../lightrag_ui_dist/assets/workspace-DVgxTLY8.js                         9.06 kB Γöé gzip:   3.40 kB
+../lightrag_ui_dist/assets/chunk-L3NEJ4N5-CA_JYoDt.js                    9.69 kB Γöé gzip:   3.04 kB
+../lightrag_ui_dist/assets/cynefinDiagram-5FMLGOSQ-CO-P_6uE.js           9.95 kB Γöé gzip:   3.51 kB
+../lightrag_ui_dist/assets/stateDiagram-D77RDMKH-CnDrNci3.js            10.61 kB Γöé gzip:   3.71 kB
+../lightrag_ui_dist/assets/diagram-VSXAHHWV-C-HxalQY.js                 10.66 kB Γöé gzip:   4.12 kB
+../lightrag_ui_dist/assets/dagre-GXQ25YYZ-Dx5f4V6g.js                   10.98 kB Γöé gzip:   4.16 kB
+../lightrag_ui_dist/assets/chunk-75Z2AOVW-JX0lCdcF.js                   15.40 kB Γöé gzip:   6.09 kB
+../lightrag_ui_dist/assets/chunk-SVP7TREG-_PADWby6.js                   15.65 kB Γöé gzip:   4.36 kB
+../lightrag_ui_dist/assets/diagram-VX7I27RA-Dv14NZk4.js                 16.14 kB Γöé gzip:   5.65 kB
+../lightrag_ui_dist/assets/mermaid-parser.core-C4O3pi_E.js              16.74 kB Γöé gzip:   3.94 kB
+../lightrag_ui_dist/assets/ishikawaDiagram-5VMMS53U-CVUMlP82.js         17.30 kB Γöé gzip:   6.54 kB
+../lightrag_ui_dist/assets/kanban-definition-UXKFOSKX-vr1o9toL.js       20.27 kB Γöé gzip:   7.16 kB
+../lightrag_ui_dist/assets/d3-selection-CQOeqU2O.js                     20.94 kB Γöé gzip:   7.36 kB
+../lightrag_ui_dist/assets/journeyDiagram-3NMN7TZE-BSXLDlNS.js          23.16 kB Γöé gzip:   8.15 kB
+../lightrag_ui_dist/assets/mindmap-definition-YA3MSWOX-BZpnlXf0.js      23.44 kB Γöé gzip:   7.96 kB
+../lightrag_ui_dist/assets/graphlib-DS17s2tU.js                         23.90 kB Γöé gzip:   8.31 kB
+../lightrag_ui_dist/assets/wardleyDiagram-VM6X3IG4-1Jec7BlE.js          25.21 kB Γöé gzip:   6.56 kB
+../lightrag_ui_dist/assets/dist-CjvHN74u.js                             25.62 kB Γöé gzip:   6.43 kB
+../lightrag_ui_dist/assets/rough.esm-Dy-Kn_BL.js                        27.10 kB Γöé gzip:   8.85 kB
+../lightrag_ui_dist/assets/gitGraphDiagram-WWUBYQGX-BBruooic.js         29.01 kB Γöé gzip:   8.54 kB
+../lightrag_ui_dist/assets/timeline-definition-24CTP7MA-BVXZhbQj.js     30.38 kB Γöé gzip:   9.96 kB
+../lightrag_ui_dist/assets/erDiagram-RLTQ6QDP-Caj_nAML.js               30.70 kB Γöé gzip:  10.60 kB
+../lightrag_ui_dist/assets/requirementDiagram-BXWQKSXE-Ch4iXevg.js      31.00 kB Γöé gzip:   9.79 kB
+../lightrag_ui_dist/assets/quadrantDiagram-AXDQQJYC-CInhhdOg.js         33.53 kB Γöé gzip:   9.74 kB
+../lightrag_ui_dist/assets/chunk-OSK3NFVY-Cp33tEQ0.js                   36.46 kB Γöé gzip:   7.90 kB
+../lightrag_ui_dist/assets/dagre-D7JM2Yhv.js                            36.84 kB Γöé gzip:  13.23 kB
+../lightrag_ui_dist/assets/chunk-IMKFNOWR-CmwEiGVd.js                   37.64 kB Γöé gzip:  12.25 kB
+../lightrag_ui_dist/assets/sankeyDiagram-P5KCCOFB-DccmiT5i.js           38.83 kB Γöé gzip:  14.67 kB
+../lightrag_ui_dist/assets/d3-scale-CElPUUud.js                         40.67 kB Γöé gzip:  14.78 kB
+../lightrag_ui_dist/assets/vennDiagram-4TSXK5OY-CyD7VnpT.js             41.16 kB Γöé gzip:  15.11 kB
+../lightrag_ui_dist/assets/blockDiagram-I7D4REHJ-DtvDE-x2.js            41.41 kB Γöé gzip:  13.36 kB
+../lightrag_ui_dist/assets/xychartDiagram-S5SC5T6Z-4EsRP4BL.js          42.84 kB Γöé gzip:  11.75 kB
+../lightrag_ui_dist/assets/chunk-TICWLB2K-Bp44aObv.js                   48.78 kB Γöé gzip:  15.76 kB
+../lightrag_ui_dist/assets/chunk-GMAD6QVW-BtewLBMe.js                   51.21 kB Γöé gzip:  16.68 kB
+../lightrag_ui_dist/assets/ganttDiagram-EL5Y4UJY-BHslmuAb.js            52.35 kB Γöé gzip:  17.37 kB
+../lightrag_ui_dist/assets/chunk-SHT3W25Y-DIFKE9Cj.js                   61.19 kB Γöé gzip:  19.84 kB
+../lightrag_ui_dist/assets/c4Diagram-7LVT6UL2-DOv3Sor_.js               64.75 kB Γöé gzip:  18.55 kB
+../lightrag_ui_dist/assets/cose-bilkent-JH36ORCC-BM5F0tuI.js            81.23 kB Γöé gzip:  21.53 kB
+../lightrag_ui_dist/assets/mermaid.core-_LySB7b_.js                     94.40 kB Γöé gzip:  32.47 kB
+../lightrag_ui_dist/assets/chunk-4HAMMTFA-wUvPx0Y9.js                  104.86 kB Γöé gzip:  25.51 kB
+../lightrag_ui_dist/assets/swimlanes-42K2YHIH-D3Wr0uSc.js              111.05 kB Γöé gzip:  37.96 kB
+../lightrag_ui_dist/assets/sequenceDiagram-WJ2MYXX4-Ba99gNh_.js        115.75 kB Γöé gzip:  30.57 kB
+../lightrag_ui_dist/assets/architectureDiagram-5GKGNRK7-Gtz6LNlL.js    148.89 kB Γöé gzip:  41.11 kB
+../lightrag_ui_dist/assets/chunk-DU6HZSFF-dEumGIdY.js                  237.94 kB Γöé gzip:  39.14 kB
+../lightrag_ui_dist/assets/cytoscape.esm-nTrd5EVq.js                   441.71 kB Γöé gzip: 139.68 kB
+../lightrag_ui_dist/assets/chunk-FOHPRMQF-DhwWuAwv.js                  662.07 kB Γöé gzip: 143.15 kB
+../lightrag_ui_dist/assets/index-CtLm_Fkp.js                           883.29 kB Γöé gzip: 280.42 kB
+../lightrag_ui_dist/assets/copy-tex-CtUJdnWu.js                      2,350.05 kB Γöé gzip: 716.43 kB
+
+[32mΓ£ô built in 5.31s[39m

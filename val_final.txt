@@ -1,0 +1,18 @@
+
+=== MindMesh UI + API Validation ===
+
+  OK    GET /health                            HTTP 200  {'status': 'ok', 'circuit_breaker_state': 'CLOSED', 'model': 'qwen2.5:
+  OK    GET /auth-status                       HTTP 200  {'authenticated': True, 'user': 'mindmesh', 'auth_enabled': False}
+  OK    GET /auth/verify                       HTTP 200  {'valid': True, 'user': 'mindmesh'}
+  OK    GET /documents                         HTTP 200  {'statuses': ['processed', 'processed', 'processed', 'processed', 'pro
+  OK    GET /graph/label/list                  HTTP 200  {'labels': ['Knowledge Graph', 'Person', 'Organization', 'Location', '
+  OK    GET /graphs                            HTTP 200  {'nodes': [{'id': 'Knowledge Graph', 'labels': ['CONCEPT'], 'propertie
+  OK    GET /ui/customization                  HTTP 200  {'title': 'MindMesh', 'subtitle': 'Graph-RAG Research System', 'logo_u
+  OK    POST /query/lightrag                   HTTP 200  {'response': '[0] ### Distance Metrics\n\nCosine similarity measures t
+  FAIL  POST /query (original A)               HTTP None  timed out
+  OK    GET /webui/index.html                  HTTP 200  ct=text/html; charset=utf-8
+  OK    GET /webui/ (SPA root)                 HTTP 200  ct=text/html; charset=utf-8
+
+=======================================================
+  TOTAL: 10/11 passed  1 failed
+=======================================================

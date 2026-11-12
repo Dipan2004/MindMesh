@@ -1,0 +1,14 @@
+{
+  "pipeline": "pipeline_3_lightrag",
+  "model": "qwen2.5:1.5b",
+  "mode": "default",
+  "top_k": 6,
+  "experiment_name": null,
+  "dataset": "dev",
+  "eval": false,
+  "gleaning": null,
+  "cache": null,
+  "dry_run": true,
+  "timestamp": "2026-11-11T21:38:52",
+  "exp_dir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\run_pipeline_3_lightrag_qwen2_5_1_5b_20261111_213851"
+}

@@ -1,0 +1,27 @@
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\@babel\helper-string-parser\LICENSE'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\@radix-ui\react-use-effect-event\dist\index.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\@radix-ui\react-popper\dist\index.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\@radix-ui\react-portal\dist\index.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\@radix-ui\react-id\dist\index.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\@radix-ui\react-use-layout-effect\dist\index.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\@radix-ui\react-use-size\dist\index.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\@radix-ui\react-focus-scope\dist\index.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\mnemonist\bit-set.js'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\react-i18next\LICENSE'
+npm warn tar TAR_ENTRY_ERROR UNKNOWN: unknown error, open 'C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\ui\lightrag_ui\node_modules\react\LICENSE'
+npm warn deprecated @types/react-i18next@8.1.0: This is a stub types definition. react-i18next provides its own type definitions, so you do not need this installed.
+
+added 740 packages, and audited 747 packages in 3m
+
+257 packages are looking for funding
+  run `npm fund` for details
+
+18 vulnerabilities (5 low, 11 moderate, 2 high)
+
+To address issues that do not require attention, run:
+  npm audit fix
+
+To address all issues (including breaking changes), run:
+  npm audit fix --force
+
+Run `npm audit` for details.

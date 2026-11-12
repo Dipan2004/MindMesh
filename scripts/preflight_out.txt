@@ -1,0 +1,13 @@
+=== PHASE 2 PREFLIGHT ===
+Ollama available: True
+qwen2.5:1.5b installed: True
+Canonical chunks: 42 (expected 42)
+Phase 1 validation intact: True  (42723 bytes)
+Cache identity fix active: True
+Dev set: 20 questions
+  Existing experiment: qwen2_5_1_5b_validate
+  Existing experiment: qwen3_4b
+  Existing experiment: validate_log.txt
+  Existing experiment: validate_log2.txt
+
+PREFLIGHT: PASS

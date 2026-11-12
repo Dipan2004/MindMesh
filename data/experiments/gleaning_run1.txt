@@ -1,0 +1,44 @@
+2026-11-10 01:11:40,977 [INFO] === extract_with_gleaning.py  model=qwen2.5:1.5b  MAX_GLEANINGS=1 ===
+2026-11-10 01:11:40,977 [INFO] Output: C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_genuine_gleaning_on\extractions.jsonl
+2026-11-10 01:11:40,978 [INFO] Cache:  C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_genuine_gleaning_on\llm_cache
+2026-11-10 01:11:44,581 [INFO] Canonical chunks: 42
+2026-11-10 01:11:44,582 [INFO] Already completed: 0/42
+2026-11-10 01:11:49,626 [INFO] Client: model=qwen2.5:1.5b  T=0.0  seed=42  np=4096  ctx=8192  fp=0.25  think=False
+2026-11-10 01:11:49,628 [INFO] Cache identity: client.model='qwen2.5:1.5b'  cache_tag='t=0.0;seed=42;np=4096;ctx=8192;fp=0.25;think=False'
+2026-11-10 01:11:49,629 [INFO] [01/03 remaining] 0282ea807039  knowledge_graphs
+2026-11-10 01:12:48,375 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:13:29,766 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:13:29,774 [INFO]   -> 4 ent / 2 rel  (+0/+0 from glean)  extract_calls=1 glean_calls=1  58.7s extract + 41.4s glean = 100.0s total  cache: h=0 m=2
+2026-11-10 01:13:29,774 [INFO] [02/03 remaining] ba8440076ddd  knowledge_graphs
+2026-11-10 01:15:18,412 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:18:14,272 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:18:14,280 [INFO]   -> 7 ent / 4 rel  (+0/+0 from glean)  extract_calls=1 glean_calls=1  108.6s extract + 175.9s glean = 284.5s total  cache: h=0 m=4
+2026-11-10 01:18:14,280 [INFO] [03/03 remaining] 6fc475866849  knowledge_graphs
+2026-11-10 01:20:14,595 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:21:29,469 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:21:29,474 [INFO]   -> 7 ent / 5 rel  (+0/+1 from glean)  extract_calls=1 glean_calls=1  120.3s extract + 74.9s glean = 195.2s total  cache: h=0 m=6
+2026-11-10 01:21:29,474 [INFO] Run complete: 3 new chunks in 579.8s  parse_errors=0
+2026-11-10 01:21:29,477 [INFO] Summary saved: C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_genuine_gleaning_on\extraction_summary.json
+
+=== GENUINE GLEANING EXTRACTION STATUS ===
+  Completed: 0/42  Remaining: 42
+  Extraction OK: 0  Parse errors: 0
+  Gleaning OK: 0  Gleaning fail: 0
+  Extract calls: 0  Gleaning calls: 0  (expected 0 each)
+  Total entities (final): 0  (+0 from gleaning)
+  Total rels (final):     0  (+0 from gleaning)
+  Cache hits: 0  misses: 0
+
+Starting extraction of 42 remaining chunks...
+  (--limit 3: processing 3 chunks this run)
+
+=== GENUINE GLEANING EXTRACTION STATUS ===
+  Completed: 3/42  Remaining: 39
+  Extraction OK: 3  Parse errors: 0
+  Gleaning OK: 3  Gleaning fail: 0
+  Extract calls: 3  Gleaning calls: 3  (expected 3 each)
+  Total entities (final): 18  (+0 from gleaning)
+  Total rels (final):     11  (+1 from gleaning)
+  Cache hits: 0  misses: 6
+  Avg time/chunk: 193.2s  Est remaining: 125.6 min
+

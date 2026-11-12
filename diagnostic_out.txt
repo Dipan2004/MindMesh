@@ -1,0 +1,119 @@
+
+======================================================================
+  ENTITY RESOLUTION DIAGNOSTIC
+  Source: extractions.jsonl
+======================================================================
+
+1. GRAPH OVERVIEW
+   Nodes: 202
+   Edges: 124
+   Components: 86
+   Largest component: 22 nodes
+   Isolated nodes: 57
+   Cross-document nodes: 4
+   Cross-document edges: 0  <- THE KEY FINDING
+
+2. ROOT CAUSE ANALYSIS ù WHY ZERO CROSS-DOC EDGES
+
+   builder.py _norm(): casefold + whitespace collapse only
+   builder.py _norm_alias(): casefold + strip punct + strip trailing s
+
+   Critical finding:
+   Both normalization functions operate PER-CHUNK on a single chunk's
+   entity list. There is NO cross-chunk or cross-document resolution.
+
+   For entity X to have source_docs = {doc_A, doc_B}, BOTH must be true:
+   a) doc_A chunk extracts entity with EXACTLY the same _norm() key as
+      doc_B chunk. E.g. 'FAISS' in doc_A must normalize to the SAME
+      key as 'FAISS' in doc_B. This CAN happen (same exact name).
+   b) BUT for a cross-doc EDGE, we need a RELATIONSHIP where source is
+      from doc_A and target from doc_B ù this requires the LLM to extract
+      a relationship spanning two documents IN A SINGLE CHUNK. Since each
+      chunk comes from exactly ONE document, this is structurally impossible.
+
+   DIAGNOSIS: The fundamental constraint is per-chunk extraction. Each chunk
+   belongs to exactly one doc_id. Relationships can only exist between
+   entities co-extracted from the same chunk. No relationship can bridge
+   two documents unless a single chunk spans both ù which never happens.
+
+3. ENTITY NAMES SHARED ACROSS DOCUMENTS
+   Entity names (normalized) appearing in 2+ documents: 4
+
+   Normalized Name                                  Docs              Types
+   ----------------------------------- ------------------------------ --------------------
+   llm                                 ['knowledge_graphs', 'large_language_models', 'retrieval_augmented_generation'] ['CONCEPT', 'OTHER', 'SYSTEM', 'TECHNOLOGY']
+   gpt-4                               ['large_language_models', 'retrieval_augmented_generation'] ['TECHNOLOGY']
+   llama                               ['large_language_models', 'retrieval_augmented_generation'] ['CONCEPT', 'TECHNOLOGY']
+   context window                      ['large_language_models', 'retrieval_augmented_generation'] ['CONCEPT', 'OTHER']
+
+4. WHY SHARED NAMES DON'T ALWAYS CREATE CROSS-DOC NODES
+   Names shared across docs but MERGED in graph: 4
+   Names shared across docs but NOT merged: 0
+
+5. CROSS-DOC ENTITY CANDIDATE PAIRS (exact normalization)
+   Candidate pairs (exact/alias match, compatible types): 0
+   -> AUTOMATIC resolution (exact name match): 0
+   -> REVIEW (alias match, needs validation): 0
+
+
+6. EMBEDDING SIMILARITY ù skipped (use --with-embeddings to enable)
+
+7. D18 DIAGNOSTIC ù Cross-document paraphrase query
+
+   Query: When one technique copes with codes and the second copes with meaning, how can the two be merged so that neither blind spot dominates?
+   Gold chunk: ['895ee8b439ed7d7b']
+
+   Gold chunk 895ee8b439ed -> doc: vector_databases
+   Text preview: ## Hybrid Search
+
+Pure vector search retrieves semantically similar documents but can miss exact-match queries for speci
+
+   Entities extracted from gold chunk: 5
+     'Pure vector search'                (TECHNOLOGY) in_graph=True docs=['vector_databases']
+     'Pure keyword search'               (TECHNOLOGY) in_graph=True docs=['vector_databases']
+     'Hybrid search'                     (TECHNOLOGY) in_graph=True docs=['vector_databases']
+     'Reciprocal Rank Fusion (RRF)'      (TECHNOLOGY) in_graph=True docs=['vector_databases']
+     'Weighted fusion'                   (TECHNOLOGY) in_graph=True docs=['vector_databases']
+
+   The D18 query concerns: merging keyword/lexical search with semantic search
+   The gold chunk is in 'vector_databases' (Hybrid Search section)
+   The query's framing comes from 'retrieval_augmented_generation' perspective
+
+   Why D18 fails:
+   a) The gold chunk entities (if any) are in vector_databases graph component
+   b) Query entry points from entity search land in RAG/transformer components
+   c) Zero cross-doc edges means no path from query entry-points to gold chunk
+   d) This is NOT primarily an entity-resolution failure ù it's a structural gap
+      caused by per-chunk extraction never producing cross-doc relationships
+
+8. NODE COUNT PER SOURCE DOCUMENT
+   knowledge_graphs                              43 nodes
+   large_language_models                         64 nodes
+   retrieval_augmented_generation                45 nodes
+   transformer_architecture                      21 nodes
+   vector_databases                              34 nodes
+
+======================================================================
+  SUMMARY
+======================================================================
+  Total nodes:              202
+  Total edges:              124
+  Cross-doc nodes:          4
+  Cross-doc edges:          0  <- always 0 (structural)
+  Shared names (raw):       4
+  Candidate merge pairs:    0
+  -> Automatic resolution:   0
+  -> Needs review:           0
+
+  ROOT CAUSE: Per-chunk extraction + no cross-chunk entity resolution.
+  The graph builder has no mechanism to link same-entity nodes from
+  different documents BEYOND exact name normalization.
+
+  WHAT WOULD FIX IT:
+  1. Deterministic canonical IDs (Zeno-style) so 'FAISS' and 'FAISS library'
+     map to the same node ID across all documents.
+  2. Alias registry so abbreviations like 'BM25' and 'BM25 retrieval' merge.
+  3. Conservative embedding-based candidate discovery for near-duplicates.
+  4. Cross-doc relationship injection from shared entity anchors.
+
+  Candidate pairs saved to: C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\entity_resolution_candidates.json

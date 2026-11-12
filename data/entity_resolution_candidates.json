@@ -1,0 +1,8 @@
+{
+  "source": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\qwen2_5_1_5b_genuine_gleaning_on\\extractions.jsonl",
+  "total_nodes": 202,
+  "total_edges": 124,
+  "cross_doc_edges": 0,
+  "shared_name_count": 4,
+  "candidate_pairs": []
+}

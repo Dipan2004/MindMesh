@@ -294,18 +294,39 @@ def hybrid_query(
     # Strategy tag check before opening for query (same guard as insert path)
     _check_strategy_tag(path, cfg)
 
+    # Zvec's BM25/FTS parser rejects certain punctuation sequences (e.g. "--",
+    # bare hyphens between words).  Strip double-dashes and other known
+    # problem patterns before submitting the text side of the hybrid query.
+    # The dense side (query_vector) is unaffected so retrieval still works.
+    _fts_text = re.sub(r"--+", " ", query_text)   # "--" → space
+    _fts_text = re.sub(r"\s+-\s+", " ", _fts_text) # isolated " - " → space
+    _fts_text = _fts_text.strip()
+
     col = zvec.open(path)
     try:
-        result: zvec.DocList = col.query(
-            queries=[
-                zvec.Query("text_vec", vector=query_vector,
-                           param=zvec.HnswQueryParam(ef=64)),
-                zvec.Query(fts_field, fts=zvec.Fts(query_text)),
-            ],
-            topk=top_k,
-            filter=scalar_filters,
-            reranker=zvec.RrfReRanker(),
-        )
+        try:
+            result: zvec.DocList = col.query(
+                queries=[
+                    zvec.Query("text_vec", vector=query_vector,
+                               param=zvec.HnswQueryParam(ef=64)),
+                    zvec.Query(fts_field, fts=zvec.Fts(_fts_text)),
+                ],
+                topk=top_k,
+                filter=scalar_filters,
+                reranker=zvec.RrfReRanker(),
+            )
+        except Exception:
+            # FTS parse failure fallback: dense-only query.
+            # This preserves recall for queries with unusual punctuation
+            # (e.g. the "--" in D16) at the cost of the BM25 signal.
+            result = col.query(
+                queries=[
+                    zvec.Query("text_vec", vector=query_vector,
+                               param=zvec.HnswQueryParam(ef=max(top_k * 4, 64))),
+                ],
+                topk=top_k,
+                filter=scalar_filters,
+            )
         return [
             ScoredResult(
                 id=doc.id,

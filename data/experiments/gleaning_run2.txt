@@ -1,0 +1,38 @@
+2026-11-10 01:33:26,147 [INFO] === extract_with_gleaning.py  model=qwen2.5:1.5b  MAX_GLEANINGS=1 ===
+2026-11-10 01:33:26,148 [INFO] Output: C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_genuine_gleaning_on\extractions.jsonl
+2026-11-10 01:33:26,149 [INFO] Cache:  C:\Users\KIIT0001\Downloads\MindMesh-main\MindMesh-main\data\experiments\qwen2_5_1_5b_genuine_gleaning_on\llm_cache
+2026-11-10 01:33:29,127 [INFO] Canonical chunks: 42
+2026-11-10 01:33:29,130 [INFO] Already completed: 3/42
+2026-11-10 01:33:32,492 [INFO] Client: model=qwen2.5:1.5b  T=0.0  seed=42  np=4096  ctx=8192  fp=0.25  think=False
+2026-11-10 01:33:32,493 [INFO] Cache identity: client.model='qwen2.5:1.5b'  cache_tag='t=0.0;seed=42;np=4096;ctx=8192;fp=0.25;think=False'
+2026-11-10 01:33:32,493 [INFO] [01/39 remaining] 3256abe3c09b  knowledge_graphs
+2026-11-10 01:36:55,012 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:38:12,676 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:38:12,687 [INFO]   -> 10 ent / 6 rel  (+0/+0 from glean)  extract_calls=1 glean_calls=1  202.4s extract + 77.7s glean = 280.1s total  cache: h=0 m=2
+2026-11-10 01:38:12,688 [INFO] [02/39 remaining] b76780cc9122  knowledge_graphs
+2026-11-10 01:39:04,796 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:39:38,640 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:39:38,644 [INFO]   -> 4 ent / 3 rel  (+1/+1 from glean)  extract_calls=1 glean_calls=1  52.1s extract + 33.8s glean = 86.0s total  cache: h=0 m=4
+2026-11-10 01:39:38,644 [INFO] [03/39 remaining] a04b3d90e2da  knowledge_graphs
+2026-11-10 01:40:36,425 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:41:29,252 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:41:29,261 [INFO]   -> 3 ent / 2 rel  (+0/+0 from glean)  extract_calls=1 glean_calls=1  57.8s extract + 52.8s glean = 110.6s total  cache: h=0 m=6
+2026-11-10 01:41:29,261 [INFO] [04/39 remaining] 6d878b7f56a9  knowledge_graphs
+2026-11-10 01:42:06,611 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:42:56,791 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:42:56,796 [INFO]   -> 2 ent / 2 rel  (+0/+0 from glean)  extract_calls=1 glean_calls=1  37.4s extract + 50.2s glean = 87.5s total  cache: h=0 m=8
+2026-11-10 01:42:56,797 [INFO] [05/39 remaining] 4e802a799a87  knowledge_graphs
+2026-11-10 01:45:04,155 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:46:33,165 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 01:46:33,172 [INFO]   -> 7 ent / 6 rel  (+0/+0 from glean)  extract_calls=1 glean_calls=1  127.4s extract + 89.0s glean = 216.4s total  cache: h=0 m=10
+2026-11-10 01:46:33,172 [INFO] [06/39 remaining] a09f4455b7fe  knowledge_graphs
+2026-11-10 09:08:23,602 [ERROR]   EXTRACTION FAILED a09f4455b7fe: timed out
+2026-11-10 09:08:25,533 [INFO] [07/39 remaining] ab2692f1a112  knowledge_graphs
+2026-11-10 12:01:10,977 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 12:02:32,939 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 12:02:33,106 [INFO]   -> 8 ent / 6 rel  (+0/+1 from glean)  extract_calls=1 glean_calls=1  10365.5s extract + 82.0s glean = 10447.5s total  cache: h=0 m=13
+2026-11-10 12:02:33,107 [INFO] [08/39 remaining] efaf36ff59ad  large_language_model
+2026-11-10 12:03:57,487 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 12:04:28,276 [INFO] HTTP Request: POST http://127.0.0.1:11434/api/generate "HTTP/1.1 200 OK"
+2026-11-10 12:04:28,289 [INFO]   -> 6 ent / 3 rel  (+1/+0 from glean)  extract_calls=1 glean_calls=1  84.3s extract + 30.8s glean = 115.1s total  cache: h=0 m=15
+2026-11-10 12:04:28,294 [INFO] [09/39 remaining] e9c66a7ac48f  large_language_model

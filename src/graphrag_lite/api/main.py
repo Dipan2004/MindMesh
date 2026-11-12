@@ -31,12 +31,16 @@ from __future__ import annotations
 import logging
 import os
 from contextlib import asynccontextmanager
+from pathlib import Path
 
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
+from fastapi.staticfiles import StaticFiles
 
 from graphrag_lite.api.middleware import close_http_client, init_http_client
 from graphrag_lite.api.routes import router
+from graphrag_lite.api.lightrag_compat import compat_router
 from graphrag_lite.config import get_config
 from graphrag_lite.observability.tracing import set_tracing
 
@@ -46,6 +50,9 @@ logging.basicConfig(
     level=logging.INFO,
     format="%(asctime)s  %(levelname)-8s  %(name)s  %(message)s",
 )
+
+_ROOT = Path(__file__).resolve().parents[3]
+_UI_BUILD_DIR = _ROOT / "ui" / "lightrag_ui_dist"  # built by: cd ui/lightrag_ui && npm run build
 
 
 # ── Application lifespan ──────────────────────────────────────────────────────
@@ -88,17 +95,43 @@ async def lifespan(app: FastAPI):
 # ── FastAPI application ───────────────────────────────────────────────────────
 
 app = FastAPI(
-    title="GraphRAG-Lite",
+    title="MindMesh",
     description=(
-        "Lightweight Graph-RAG: structural filtering + Zvec hybrid retrieval "
-        "+ small local LLM reasoning."
+        "MindMesh: Lightweight Graph-RAG with LightRAG integration. "
+        "Structural filtering + Zvec hybrid retrieval + small local LLM."
     ),
-    version="0.1.0",
+    version="0.2.0",
     lifespan=lifespan,
 )
 
-# Register route handlers from routes.py.
+# ── CORS (required for the LightRAG UI dev server on a different port) ────────
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],          # Tighten in production
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Register route handlers from routes.py (Pipeline A and B).
 app.include_router(router)
+
+# Register LightRAG-compatible routes (all pipelines, documents, graph).
+app.include_router(compat_router)
+
+# ── Serve the built LightRAG UI as static files ───────────────────────────────
+# The UI is built by running: cd ui/lightrag_ui && bun run build
+# It outputs to ui/lightrag_ui_dist/ (adjusted in vite.config.ts).
+# When the dist directory doesn't exist the API still works; just no UI served.
+if _UI_BUILD_DIR.exists():
+    app.mount("/webui", StaticFiles(directory=str(_UI_BUILD_DIR), html=True), name="webui")
+    log.info("LightRAG UI served at /webui from %s", _UI_BUILD_DIR)
+else:
+    log.info(
+        "LightRAG UI not built yet. "
+        "Run: cd ui/lightrag_ui && bun run build"
+        " (adjusting vite.config.ts outDir to ui/lightrag_ui_dist first)"
+    )
 
 
 # ── Global exception handlers ─────────────────────────────────────────────────
