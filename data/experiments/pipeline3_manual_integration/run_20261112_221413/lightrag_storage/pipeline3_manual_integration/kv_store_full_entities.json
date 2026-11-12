@@ -1,0 +1,39 @@
+{
+  "vector_databases": {
+    "entity_names": [
+      "Distributed Deployment",
+      "FAISS",
+      "GPU Acceleration",
+      "GPU-FAISS",
+      "HNSW",
+      "Hybrid Search",
+      "IVF",
+      "Keyword Search",
+      "Large Dataset",
+      "Method",
+      "Reciprocal Rank Fusion",
+      "Vector Search",
+      "Weighted Fusion"
+    ],
+    "count": 13,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "vector_databases"
+  },
+  "retrieval_augmented_generation": {
+    "entity_names": [
+      "FAISS",
+      "HNSW",
+      "Hybrid Search",
+      "Keyword Search",
+      "Method",
+      "Reciprocal Rank Fusion",
+      "Retrieval-Augmented Generation (RAG)",
+      "Vector Search"
+    ],
+    "count": 8,
+    "create_time": 1794504261,
+    "update_time": 1794504261,
+    "_id": "retrieval_augmented_generation"
+  }
+}

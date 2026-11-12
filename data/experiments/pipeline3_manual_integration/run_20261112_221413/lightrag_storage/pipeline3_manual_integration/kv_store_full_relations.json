@@ -1,0 +1,90 @@
+{
+  "vector_databases": {
+    "relation_pairs": [
+      [
+        "Distributed Deployment",
+        "Hybrid Search"
+      ],
+      [
+        "FAISS",
+        "Hybrid Search"
+      ],
+      [
+        "GPU Acceleration",
+        "Hybrid Search"
+      ],
+      [
+        "GPU-FAISS",
+        "Hybrid Search"
+      ],
+      [
+        "HNSW",
+        "Hybrid Search"
+      ],
+      [
+        "HNSW",
+        "Vector Search"
+      ],
+      [
+        "Hybrid Search",
+        "IVF"
+      ],
+      [
+        "Hybrid Search",
+        "Keyword Search"
+      ],
+      [
+        "Hybrid Search",
+        "Large Dataset"
+      ],
+      [
+        "Hybrid Search",
+        "Reciprocal Rank Fusion"
+      ],
+      [
+        "Hybrid Search",
+        "Vector Search"
+      ],
+      [
+        "Hybrid Search",
+        "Weighted Fusion"
+      ],
+      [
+        "Keyword Search",
+        "Vector Search"
+      ]
+    ],
+    "count": 13,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "vector_databases"
+  },
+  "retrieval_augmented_generation": {
+    "relation_pairs": [
+      [
+        "HNSW",
+        "Vector Search"
+      ],
+      [
+        "Hybrid Search",
+        "Keyword Search"
+      ],
+      [
+        "Hybrid Search",
+        "Reciprocal Rank Fusion"
+      ],
+      [
+        "Hybrid Search",
+        "Vector Search"
+      ],
+      [
+        "Method",
+        "Retrieval-Augmented Generation (RAG)"
+      ]
+    ],
+    "count": 5,
+    "create_time": 1794504261,
+    "update_time": 1794504261,
+    "_id": "retrieval_augmented_generation"
+  }
+}

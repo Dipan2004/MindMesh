@@ -1,0 +1,26 @@
+{
+  "vector_databases": {
+    "relation_pairs": [
+      [
+        "<source_entity>",
+        "<target_entity>"
+      ]
+    ],
+    "count": 1,
+    "create_time": 1794474255,
+    "update_time": 1794474255,
+    "_id": "vector_databases"
+  },
+  "retrieval_augmented_generation": {
+    "relation_pairs": [
+      [
+        "<source_entity>",
+        "<target_entity>"
+      ]
+    ],
+    "count": 1,
+    "create_time": 1794474305,
+    "update_time": 1794474305,
+    "_id": "retrieval_augmented_generation"
+  }
+}

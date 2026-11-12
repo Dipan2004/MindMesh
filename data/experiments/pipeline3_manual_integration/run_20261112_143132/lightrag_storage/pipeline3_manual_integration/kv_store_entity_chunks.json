@@ -1,0 +1,24 @@
+{
+  "<source_entity>": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794474305,
+    "create_time": 1794474255,
+    "_id": "<source_entity>"
+  },
+  "<target_entity>": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794474305,
+    "create_time": 1794474255,
+    "_id": "<target_entity>"
+  }
+}

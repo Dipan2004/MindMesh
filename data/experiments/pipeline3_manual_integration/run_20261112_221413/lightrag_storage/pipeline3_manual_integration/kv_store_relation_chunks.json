@@ -1,0 +1,136 @@
+{
+  "HNSW<SEP>Vector Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "HNSW<SEP>Vector Search"
+  },
+  "Keyword Search<SEP>Vector Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-000"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "Keyword Search<SEP>Vector Search"
+  },
+  "Hybrid Search<SEP>Reciprocal Rank Fusion": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "Hybrid Search<SEP>Reciprocal Rank Fusion"
+  },
+  "Hybrid Search<SEP>Vector Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "Hybrid Search<SEP>Vector Search"
+  },
+  "Hybrid Search<SEP>Keyword Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "Hybrid Search<SEP>Keyword Search"
+  },
+  "Hybrid Search<SEP>Weighted Fusion": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "Hybrid Search<SEP>Weighted Fusion"
+  },
+  "HNSW<SEP>Hybrid Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "HNSW<SEP>Hybrid Search"
+  },
+  "FAISS<SEP>Hybrid Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "FAISS<SEP>Hybrid Search"
+  },
+  "Hybrid Search<SEP>IVF": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "Hybrid Search<SEP>IVF"
+  },
+  "GPU Acceleration<SEP>Hybrid Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "GPU Acceleration<SEP>Hybrid Search"
+  },
+  "Distributed Deployment<SEP>Hybrid Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "Distributed Deployment<SEP>Hybrid Search"
+  },
+  "GPU-FAISS<SEP>Hybrid Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "GPU-FAISS<SEP>Hybrid Search"
+  },
+  "Hybrid Search<SEP>Large Dataset": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "Hybrid Search<SEP>Large Dataset"
+  },
+  "Method<SEP>Retrieval-Augmented Generation (RAG)": {
+    "chunk_ids": [
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 1,
+    "create_time": 1794504261,
+    "update_time": 1794504261,
+    "_id": "Method<SEP>Retrieval-Augmented Generation (RAG)"
+  }
+}

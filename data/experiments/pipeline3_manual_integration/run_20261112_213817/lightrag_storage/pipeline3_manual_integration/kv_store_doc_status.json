@@ -1,0 +1,59 @@
+{
+  "vector_databases": {
+    "status": "failed",
+    "content_summary": "# Vector Databases\n\n## Overview\n\nA vector database is a specialized data store designed to store, index, and query high-dimensional vector embeddings efficiently. Vector databases are a core infrastructure component in modern AI applications, particu...",
+    "content_length": 7070,
+    "created_at": "2026-11-12T16:08:34.420079+00:00",
+    "updated_at": "2026-11-12T16:13:35.236617+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20261112_213824_82231bb4",
+    "content_hash": "2c7847ff9b6af2d9d159ca7081713245",
+    "metadata": {
+      "parse_start_time": 1794499714,
+      "parse_stage_skipped": true,
+      "parse_format": "raw",
+      "parse_engine": "legacy",
+      "analyzing_start_time": 1794499714,
+      "analyzing_stage_skipped": true,
+      "kg_write_state": "pre_graph",
+      "process_start_time": 1794499714,
+      "process_end_time": 1794500014,
+      "chunk_method": "legacy_chunking_func",
+      "chunk_opts": "size=1200, split_only=False, overlap=100"
+    },
+    "error_msg": "C[1/2]: vector_databases-chunk-001: ",
+    "chunks_count": 2,
+    "chunks_list": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001"
+    ]
+  },
+  "retrieval_augmented_generation": {
+    "status": "failed",
+    "content_summary": "# Retrieval-Augmented Generation (RAG)\n\n## Overview\n\nRetrieval-Augmented Generation (RAG) is a technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time. It was introduced by Lewis e...",
+    "content_length": 5409,
+    "created_at": "2026-11-12T16:13:35.244172+00:00",
+    "updated_at": "2026-11-12T16:18:35.591690+00:00",
+    "file_path": "unknown_source",
+    "track_id": "insert_20261112_214335_45a4cd30",
+    "content_hash": "968c72e892cbbe2ae9bf91e3dfcd5b45",
+    "metadata": {
+      "parse_start_time": 1794500015,
+      "parse_stage_skipped": true,
+      "parse_format": "raw",
+      "parse_engine": "legacy",
+      "analyzing_start_time": 1794500015,
+      "analyzing_stage_skipped": true,
+      "kg_write_state": "pre_graph",
+      "process_start_time": 1794500015,
+      "process_end_time": 1794500315,
+      "chunk_method": "legacy_chunking_func",
+      "chunk_opts": "size=1200, split_only=False, overlap=100"
+    },
+    "error_msg": "C[1/1]: retrieval_augmented_generation-chunk-000: ",
+    "chunks_count": 1,
+    "chunks_list": [
+      "retrieval_augmented_generation-chunk-000"
+    ]
+  }
+}
