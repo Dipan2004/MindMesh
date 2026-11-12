@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d13" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="d12" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="d11" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="d10" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d9" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d8" for="edge" attr.name="description" attr.type="string" />
+  <key id="d7" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d6" for="node" attr.name="truncate" attr.type="string" />
+  <key id="d5" for="node" attr.name="created_at" attr.type="long" />
+  <key id="d4" for="node" attr.name="file_path" attr.type="string" />
+  <key id="d3" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="&lt;source_entity&gt;">
+      <data key="d0">&lt;source_entity&gt;</data>
+      <data key="d1">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d2">&lt;relationship_description&gt;</data>
+      <data key="d3">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794476786</data>
+      <data key="d6" />
+    </node>
+    <node id="&lt;target_entity&gt;">
+      <data key="d0">&lt;target_entity&gt;</data>
+      <data key="d1">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d2">&lt;relationship_description&gt;</data>
+      <data key="d3">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794476786</data>
+      <data key="d6" />
+    </node>
+    <edge source="&lt;source_entity&gt;" target="&lt;target_entity&gt;">
+      <data key="d7">3.0</data>
+      <data key="d8">&lt;relationship_description&gt;</data>
+      <data key="d9">&lt;relationship_keywords&gt;</data>
+      <data key="d10">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794476834</data>
+      <data key="d13" />
+    </edge>
+  </graph>
+</graphml>

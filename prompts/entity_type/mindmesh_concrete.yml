@@ -1,0 +1,32 @@
+entity_types_guidance: |
+  - Person: Human individuals
+  - Organization: Companies, institutions
+  - Location: Geographic places
+  - Concept: Abstract ideas, theories
+  - Method: Procedures, techniques, algorithms
+  - Content: Documents, articles
+  - Artifact: Tools, software, systems
+  - Data: Datasets, measurements
+  - Other: If none fit
+
+entity_extraction_examples:
+  - |
+    entity<|#|>Hybrid Search<|#|>Method<|#|>A retrieval approach combining vector search and keyword search.
+    relation<|#|>Hybrid Search<|#|>Vector Search<|#|>combines, leverages<|#|>Hybrid search combines vector search with keyword search signals.
+    relation<|#|>Hybrid Search<|#|>Keyword Search<|#|>combines, leverages<|#|>Hybrid search integrates keyword search for exact matches.
+    <|COMPLETE|>
+  - |
+    entity<|#|>Vector Search<|#|>Method<|#|>Semantic retrieval using vector embeddings.
+    entity<|#|>HNSW<|#|>Method<|#|>A graph-based index structure used for approximate nearest neighbor search.
+    relation<|#|>Vector Search<|#|>HNSW<|#|>uses, indexes<|#|>Vector search can use HNSW as an index type.
+    <|COMPLETE|>
+  - |
+    entity<|#|>FAISS<|#|>Artifact<|#|>A library for efficient similarity search and clustering of dense vectors.
+    entity<|#|>Reciprocal Rank Fusion<|#|>Method<|#|>A fusion method that combines ranked lists by summing reciprocal ranks.
+    relation<|#|>Hybrid Search<|#|>Reciprocal Rank Fusion<|#|>uses, applies<|#|>Hybrid search applies Reciprocal Rank Fusion to combine retrieval signals.
+    <|COMPLETE|>
+  - |
+    entity<|#|>Retrieval-Augmented Generation (RAG)<|#|>Method<|#|>A technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time.
+    entity<|#|>Vector Database<|#|>Artifact<|#|>A database optimized for storing and querying vector embeddings.
+    relation<|#|>Retrieval-Augmented Generation (RAG)<|#|>Vector Database<|#|>uses, retrieves_from<|#|>RAG systems use vector databases to store and retrieve relevant document embeddings.
+    <|COMPLETE|>

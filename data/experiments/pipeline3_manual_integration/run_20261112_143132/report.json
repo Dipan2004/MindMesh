@@ -1,0 +1,514 @@
+{
+  "script": "eval/manual_pipeline3_integration.py",
+  "timestamp": "2026-11-12T14:31:32",
+  "python": {
+    "executable": "C:\\Users\\KIIT0001\\Desktop\\RAG_chatbot\\.venv\\Scripts\\python.exe",
+    "version": "3.11.15",
+    "platform": "Windows-10-10.0.26300-SP0"
+  },
+  "config": {
+    "model": "qwen2.5:1.5b",
+    "embed_model": "nomic-embed-text",
+    "llm_host": "http://localhost:11434",
+    "mode": "hybrid",
+    "top_k": 6,
+    "expected_embedding_dim": 768,
+    "workspace": "pipeline3_manual_integration",
+    "run_dir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\run_20261112_143132",
+    "workdir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\run_20261112_143132\\lightrag_storage",
+    "query": "What is hybrid search and how does it combine vector search with keyword search?",
+    "documents": [
+      "vector_databases.md",
+      "retrieval_augmented_generation.md"
+    ],
+    "all_docs": false,
+    "dev_set": false,
+    "dev_set_generate": false,
+    "generate_answer": true
+  },
+  "prerequisites": {
+    "ok": true,
+    "checks": {
+      "python": {
+        "ok": true,
+        "detail": {
+          "executable": "C:\\Users\\KIIT0001\\Desktop\\RAG_chatbot\\.venv\\Scripts\\python.exe",
+          "version": "3.11.15",
+          "platform": "Windows-10-10.0.26300-SP0",
+          "cwd": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main"
+        }
+      },
+      "model_guard": {
+        "ok": true,
+        "detail": {
+          "model": "qwen2.5:1.5b",
+          "allowed": [
+            "qwen2.5:1.5b"
+          ]
+        }
+      },
+      "lightrag_import": {
+        "ok": true,
+        "detail": {
+          "version": "1.5.8",
+          "module_file": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\LightRAG\\lightrag\\__init__.py",
+          "has_LightRAG": true,
+          "has_QueryParam": true
+        }
+      },
+      "adapter_import": {
+        "ok": true,
+        "detail": {
+          "adapter_class": "Pipeline3LightRAGAdapter",
+          "supports_modes": [
+            "local",
+            "global",
+            "hybrid",
+            "naive",
+            "mix",
+            "bypass"
+          ],
+          "embedding_func_factory": "_make_ollama_embed_func"
+        }
+      },
+      "ollama_models": {
+        "ok": true,
+        "detail": {
+          "models": [
+            "qwen3.5:2b",
+            "qwen3:4b",
+            "nomic-embed-text:latest",
+            "qwen2.5:0.5b",
+            "llama3.2:latest",
+            "gemma4:31b-cloud",
+            "qwen2.5:1.5b",
+            "qwen2.5-coder:1.5b",
+            "gemma4:e2b",
+            "nemotron-3-super:cloud",
+            "qwen3.5:9b"
+          ],
+          "source": "http"
+        }
+      },
+      "llm_model_available": {
+        "ok": true,
+        "detail": {
+          "requested": "qwen2.5:1.5b",
+          "present": true,
+          "installed": [
+            "qwen3.5:2b",
+            "qwen3:4b",
+            "nomic-embed-text:latest",
+            "qwen2.5:0.5b",
+            "llama3.2:latest",
+            "gemma4:31b-cloud",
+            "qwen2.5:1.5b",
+            "qwen2.5-coder:1.5b",
+            "gemma4:e2b",
+            "nemotron-3-super:cloud",
+            "qwen3.5:9b"
+          ]
+        }
+      },
+      "embedding_model_available": {
+        "ok": true,
+        "detail": {
+          "requested": "nomic-embed-text",
+          "present": true,
+          "installed": [
+            "qwen3.5:2b",
+            "qwen3:4b",
+            "nomic-embed-text:latest",
+            "qwen2.5:0.5b",
+            "llama3.2:latest",
+            "gemma4:31b-cloud",
+            "qwen2.5:1.5b",
+            "qwen2.5-coder:1.5b",
+            "gemma4:e2b",
+            "nemotron-3-super:cloud",
+            "qwen3.5:9b"
+          ]
+        }
+      },
+      "documents": {
+        "ok": true,
+        "detail": {
+          "count": 2,
+          "documents": [
+            {
+              "name": "vector_databases.md",
+              "doc_id": "vector_databases",
+              "path": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\raw\\vector_databases.md",
+              "chars": 7071
+            },
+            {
+              "name": "retrieval_augmented_generation.md",
+              "doc_id": "retrieval_augmented_generation",
+              "path": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\raw\\retrieval_augmented_generation.md",
+              "chars": 5410
+            }
+          ]
+        }
+      },
+      "query_mode_mapping": {
+        "ok": true,
+        "detail": {
+          "local": {
+            "ok": true,
+            "mode": "local",
+            "top_k": 6,
+            "only_need_context": true,
+            "enable_rerank": false
+          },
+          "global": {
+            "ok": true,
+            "mode": "global",
+            "top_k": 6,
+            "only_need_context": true,
+            "enable_rerank": false
+          },
+          "hybrid": {
+            "ok": true,
+            "mode": "hybrid",
+            "top_k": 6,
+            "only_need_context": true,
+            "enable_rerank": false
+          },
+          "naive": {
+            "ok": true,
+            "mode": "naive",
+            "top_k": 6,
+            "only_need_context": true,
+            "enable_rerank": false
+          },
+          "mix": {
+            "ok": true,
+            "mode": "mix",
+            "top_k": 6,
+            "only_need_context": true,
+            "enable_rerank": false
+          },
+          "bypass": {
+            "ok": true,
+            "mode": "bypass",
+            "top_k": 6,
+            "only_need_context": true,
+            "enable_rerank": false
+          }
+        }
+      },
+      "storage_isolation_paths": {
+        "ok": true,
+        "detail": {
+          "ok": true,
+          "run_dir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\_check_only_run",
+          "workdir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\_check_only_run\\lightrag_storage",
+          "workdir_under_run_dir": true,
+          "workdir_under_data_cache": false,
+          "workdir_is_default_pipeline3_workdir": false,
+          "canonical_cache": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\cache",
+          "default_pipeline3_workdir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\pipeline3_workdir"
+        }
+      },
+      "adapter_dry_run": {
+        "ok": true,
+        "detail": {
+          "pipeline": "pipeline_3_lightrag",
+          "workdir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\_check_only_run\\lightrag_storage",
+          "is_indexed": false,
+          "lightrag_importable": true
+        }
+      }
+    },
+    "errors": [],
+    "lightrag_version": "1.5.8"
+  },
+  "paths": {
+    "run_dir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\run_20261112_143132",
+    "workdir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\run_20261112_143132\\lightrag_storage",
+    "storage_inventory_before": [],
+    "storage_inventory_after": [
+      {
+        "path": "pipeline3_manual_integration\\graph_chunk_entity_relation.graphml",
+        "size_bytes": 2682
+      },
+      {
+        "path": "pipeline3_manual_integration\\kv_store_doc_status.json",
+        "size_bytes": 2752
+      },
+      {
+        "path": "pipeline3_manual_integration\\kv_store_entity_chunks.json",
+        "size_bytes": 589
+      },
+      {
+        "path": "pipeline3_manual_integration\\kv_store_full_docs.json",
+        "size_bytes": 13646
+      },
+      {
+        "path": "pipeline3_manual_integration\\kv_store_full_entities.json",
+        "size_bytes": 481
+      },
+      {
+        "path": "pipeline3_manual_integration\\kv_store_full_relations.json",
+        "size_bytes": 529
+      },
+      {
+        "path": "pipeline3_manual_integration\\kv_store_llm_response_cache.json",
+        "size_bytes": 87763
+      },
+      {
+        "path": "pipeline3_manual_integration\\kv_store_relation_chunks.json",
+        "size_bytes": 336
+      },
+      {
+        "path": "pipeline3_manual_integration\\kv_store_text_chunks.json",
+        "size_bytes": 14552
+      }
+    ]
+  },
+  "stages": {
+    "storage_isolation": {
+      "ok": true,
+      "elapsed_s": 0.0,
+      "run_dir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\run_20261112_143132",
+      "workdir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\run_20261112_143132\\lightrag_storage",
+      "workdir_under_run_dir": true,
+      "workdir_under_data_cache": false,
+      "workdir_is_default_pipeline3_workdir": false,
+      "canonical_cache": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\cache",
+      "default_pipeline3_workdir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\pipeline3_workdir"
+    },
+    "initialization": {
+      "ok": true,
+      "elapsed_s": 20.469,
+      "workspace": "pipeline3_manual_integration",
+      "working_dir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\run_20261112_143132\\lightrag_storage",
+      "pipeline_status_present": true,
+      "pipeline_status_keys": [
+        "batchs",
+        "busy",
+        "busy_owner",
+        "cur_batch",
+        "destructive_busy",
+        "docs",
+        "history_messages",
+        "job_name",
+        "job_start",
+        "latest_message",
+        "manual_freeze_requested",
+        "manual_freeze_started_at",
+        "manual_owner",
+        "manual_phase",
+        "manual_resetting",
+        "pending_enqueue_tokens",
+        "pending_enqueues",
+        "scanning",
+        "scanning_exclusive",
+        "scanning_owner"
+      ]
+    },
+    "embedding_dimension": {
+      "ok": false,
+      "elapsed_s": 4.359
+    },
+    "document_insertion": {
+      "ok": true,
+      "elapsed_s": 189.484,
+      "documents": [
+        {
+          "name": "vector_databases.md",
+          "doc_id": "vector_databases",
+          "ok": true,
+          "chars": 7071,
+          "track_id": "insert_20261112_143201_05a2a119",
+          "elapsed_s": 141.297
+        },
+        {
+          "name": "retrieval_augmented_generation.md",
+          "doc_id": "retrieval_augmented_generation",
+          "ok": true,
+          "chars": 5410,
+          "track_id": "insert_20261112_143422_1368b287",
+          "elapsed_s": 48.187
+        }
+      ],
+      "inserted_count": 2
+    },
+    "indexing_validation": {
+      "ok": true,
+      "elapsed_s": 0.016,
+      "full_docs_empty": false,
+      "graph_labels_count": 2,
+      "doc_status_counts": {
+        "pending": 0,
+        "parsing": 0,
+        "analyzing": 0,
+        "processing": 0,
+        "preprocessed": 0,
+        "processed": 0,
+        "failed": 2,
+        "all": 2
+      },
+      "storage_files": [
+        {
+          "path": "pipeline3_manual_integration\\graph_chunk_entity_relation.graphml",
+          "size_bytes": 2682
+        },
+        {
+          "path": "pipeline3_manual_integration\\kv_store_doc_status.json",
+          "size_bytes": 2752
+        },
+        {
+          "path": "pipeline3_manual_integration\\kv_store_entity_chunks.json",
+          "size_bytes": 589
+        },
+        {
+          "path": "pipeline3_manual_integration\\kv_store_full_docs.json",
+          "size_bytes": 13646
+        },
+        {
+          "path": "pipeline3_manual_integration\\kv_store_full_entities.json",
+          "size_bytes": 481
+        },
+        {
+          "path": "pipeline3_manual_integration\\kv_store_full_relations.json",
+          "size_bytes": 529
+        },
+        {
+          "path": "pipeline3_manual_integration\\kv_store_llm_response_cache.json",
+          "size_bytes": 86936
+        },
+        {
+          "path": "pipeline3_manual_integration\\kv_store_relation_chunks.json",
+          "size_bytes": 336
+        },
+        {
+          "path": "pipeline3_manual_integration\\kv_store_text_chunks.json",
+          "size_bytes": 14552
+        }
+      ]
+    },
+    "query_execution": {
+      "ok": false,
+      "elapsed_s": 16.0,
+      "question": "What is hybrid search and how does it combine vector search with keyword search?",
+      "mode": "hybrid",
+      "top_k": 6,
+      "generate_answer": true,
+      "context_chars": 0,
+      "context_preview": "",
+      "answer": "",
+      "answer_error": null,
+      "context_nonempty": false,
+      "answer_nonempty": false,
+      "trace": {
+        "traced": false,
+        "traced_documents": [],
+        "per_document": {
+          "vector_databases": {
+            "overlap_ngrams": 0,
+            "examples": [],
+            "n": 4,
+            "shared_technical_terms": [],
+            "shared_terms_not_in_query": [],
+            "traced": false
+          },
+          "retrieval_augmented_generation": {
+            "overlap_ngrams": 0,
+            "examples": [],
+            "n": 4,
+            "shared_technical_terms": [],
+            "shared_terms_not_in_query": [],
+            "traced": false
+          }
+        }
+      }
+    },
+    "finalization": {
+      "ok": true,
+      "elapsed_s": 0.031
+    }
+  },
+  "errors": [
+    {
+      "stage": "embedding_dimension",
+      "type": "AttributeError",
+      "message": "'list' object has no attribute 'ndim'",
+      "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\eval\\manual_pipeline3_integration.py\", line 652, in _run_experiment\n    probe = await rag.embedding_func([\"embedding dimension probe\"])\n            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\LightRAG\\lightrag\\utils.py\", line 838, in __call__\n    if result.ndim != 2:\n       ^^^^^^^^^^^\nAttributeError: 'list' object has no attribute 'ndim'\n"
+    }
+  ],
+  "warnings": [],
+  "success_criteria": {
+    "requires_initialization": true,
+    "requires_embedding_dimension": true,
+    "requires_document_insertion": true,
+    "requires_indexing_validation": true,
+    "requires_query_execution": true,
+    "requires_traceable_retrieval": true,
+    "requires_isolated_storage": true,
+    "requires_clean_finalization": true,
+    "initialization_alone_is_not_success": true
+  },
+  "overall_success": false,
+  "lightrag_version": "1.5.8",
+  "adapter": {
+    "class": "Pipeline3LightRAGAdapter",
+    "name": "pipeline_3_lightrag",
+    "model": "qwen2.5:1.5b",
+    "top_k": 6,
+    "workdir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\run_20261112_143132\\lightrag_storage",
+    "llm_host": "http://localhost:11434",
+    "embed_model": "nomic-embed-text",
+    "supports_modes": [
+      "local",
+      "global",
+      "hybrid",
+      "naive",
+      "mix",
+      "bypass"
+    ],
+    "lifecycle_note": "The adapter's public index_documents()/query() methods do not call LightRAG.initialize_storages()/finalize_storages(). This manual script therefore drives the documented LightRAG lifecycle on the adapter-created instance."
+  },
+  "initialization_reference": {
+    "workspace": "pipeline3_manual_integration",
+    "working_dir": "C:\\Users\\KIIT0001\\Downloads\\MindMesh-main\\MindMesh-main\\data\\experiments\\pipeline3_manual_integration\\run_20261112_143132\\lightrag_storage"
+  },
+  "documents": {
+    "vector_databases": {
+      "chars": 7071
+    },
+    "retrieval_augmented_generation": {
+      "chars": 5410
+    }
+  },
+  "query": {
+    "question": "What is hybrid search and how does it combine vector search with keyword search?",
+    "mode": "hybrid",
+    "top_k": 6,
+    "context": "",
+    "answer": "",
+    "trace": {
+      "traced": false,
+      "traced_documents": [],
+      "per_document": {
+        "vector_databases": {
+          "overlap_ngrams": 0,
+          "examples": [],
+          "n": 4,
+          "shared_technical_terms": [],
+          "shared_terms_not_in_query": [],
+          "traced": false
+        },
+        "retrieval_augmented_generation": {
+          "overlap_ngrams": 0,
+          "examples": [],
+          "n": 4,
+          "shared_technical_terms": [],
+          "shared_terms_not_in_query": [],
+          "traced": false
+        }
+      }
+    }
+  },
+  "conclusion": "Integration is NOT proven. Initialization or import success alone does not count; see failed stages and errors."
+}

@@ -1,0 +1,22 @@
+{
+  "vector_databases": {
+    "entity_names": [
+      "<source_entity>",
+      "<target_entity>"
+    ],
+    "count": 2,
+    "create_time": 1794474255,
+    "update_time": 1794474255,
+    "_id": "vector_databases"
+  },
+  "retrieval_augmented_generation": {
+    "entity_names": [
+      "<source_entity>",
+      "<target_entity>"
+    ],
+    "count": 2,
+    "create_time": 1794474305,
+    "update_time": 1794474305,
+    "_id": "retrieval_augmented_generation"
+  }
+}

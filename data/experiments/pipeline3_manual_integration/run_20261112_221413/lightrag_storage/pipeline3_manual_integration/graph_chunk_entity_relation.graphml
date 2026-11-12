@@ -1,0 +1,271 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd">
+  <key id="d13" for="edge" attr.name="truncate" attr.type="string" />
+  <key id="d12" for="edge" attr.name="created_at" attr.type="long" />
+  <key id="d11" for="edge" attr.name="file_path" attr.type="string" />
+  <key id="d10" for="edge" attr.name="source_id" attr.type="string" />
+  <key id="d9" for="edge" attr.name="keywords" attr.type="string" />
+  <key id="d8" for="edge" attr.name="description" attr.type="string" />
+  <key id="d7" for="edge" attr.name="weight" attr.type="double" />
+  <key id="d6" for="node" attr.name="truncate" attr.type="string" />
+  <key id="d5" for="node" attr.name="created_at" attr.type="long" />
+  <key id="d4" for="node" attr.name="file_path" attr.type="string" />
+  <key id="d3" for="node" attr.name="source_id" attr.type="string" />
+  <key id="d2" for="node" attr.name="description" attr.type="string" />
+  <key id="d1" for="node" attr.name="entity_type" attr.type="string" />
+  <key id="d0" for="node" attr.name="entity_id" attr.type="string" />
+  <graph edgedefault="undirected">
+    <node id="Method">
+      <data key="d0">Method</data>
+      <data key="d1">vectorsearch</data>
+      <data key="d2">A graph-based index structure used for approximate nearest neighbor search.&lt;SEP&gt;A library for efficient similarity search and clustering of dense vectors.&lt;SEP&gt;A fusion method that combines ranked lists by summing reciprocal ranks.&lt;SEP&gt;A retrieval approach combining vector search and keyword search.</data>
+      <data key="d3">vector_databases-chunk-000&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794503553</data>
+      <data key="d6" />
+    </node>
+    <node id="Vector Search">
+      <data key="d0">Vector Search</data>
+      <data key="d1">method</data>
+      <data key="d2">Semantic retrieval using vector embeddings.</data>
+      <data key="d3">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794504261</data>
+      <data key="d6" />
+    </node>
+    <node id="HNSW">
+      <data key="d0">HNSW</data>
+      <data key="d1">method</data>
+      <data key="d2">A graph-based index structure used for approximate nearest neighbor search.</data>
+      <data key="d3">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794504261</data>
+      <data key="d6" />
+    </node>
+    <node id="FAISS">
+      <data key="d0">FAISS</data>
+      <data key="d1">artifact</data>
+      <data key="d2">A library for efficient similarity search and clustering of dense vectors.</data>
+      <data key="d3">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794504261</data>
+      <data key="d6" />
+    </node>
+    <node id="Reciprocal Rank Fusion">
+      <data key="d0">Reciprocal Rank Fusion</data>
+      <data key="d1">method</data>
+      <data key="d2">A fusion method that combines ranked lists by summing reciprocal ranks.</data>
+      <data key="d3">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794504261</data>
+      <data key="d6" />
+    </node>
+    <node id="Hybrid Search">
+      <data key="d0">Hybrid Search</data>
+      <data key="d1">method</data>
+      <data key="d2">A retrieval approach combining vector search and keyword search.</data>
+      <data key="d3">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794504261</data>
+      <data key="d6" />
+    </node>
+    <node id="Keyword Search">
+      <data key="d0">Keyword Search</data>
+      <data key="d3">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d2">Vector search integrates keyword search for exact matches.</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794503553</data>
+      <data key="d6" />
+    </node>
+    <node id="Weighted Fusion">
+      <data key="d0">Weighted Fusion</data>
+      <data key="d3">vector_databases-chunk-001</data>
+      <data key="d2">Hybrid search applies Weighted Fusion to combine retrieval signals.</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794503553</data>
+      <data key="d6" />
+    </node>
+    <node id="IVF">
+      <data key="d0">IVF</data>
+      <data key="d3">vector_databases-chunk-001</data>
+      <data key="d2">Hybrid search uses IVF as an index type.</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794503553</data>
+      <data key="d6" />
+    </node>
+    <node id="GPU Acceleration">
+      <data key="d0">GPU Acceleration</data>
+      <data key="d3">vector_databases-chunk-001</data>
+      <data key="d2">Hybrid search uses GPU acceleration for performance optimization.</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794503553</data>
+      <data key="d6" />
+    </node>
+    <node id="Distributed Deployment">
+      <data key="d0">Distributed Deployment</data>
+      <data key="d3">vector_databases-chunk-001</data>
+      <data key="d2">Hybrid search uses distributed deployment for scalability.</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794503553</data>
+      <data key="d6" />
+    </node>
+    <node id="GPU-FAISS">
+      <data key="d0">GPU-FAISS</data>
+      <data key="d3">vector_databases-chunk-001</data>
+      <data key="d2">Hybrid search uses GPU-FAISS for performance optimization.</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794503553</data>
+      <data key="d6" />
+    </node>
+    <node id="Large Dataset">
+      <data key="d0">Large Dataset</data>
+      <data key="d3">vector_databases-chunk-001</data>
+      <data key="d2">Hybrid search uses large datasets for performance optimization.</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794503553</data>
+      <data key="d6" />
+    </node>
+    <node id="Retrieval-Augmented Generation (RAG)">
+      <data key="d0">Retrieval-Augmented Generation (RAG)</data>
+      <data key="d3">retrieval_augmented_generation-chunk-000</data>
+      <data key="d2">A technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time.</data>
+      <data key="d1">UNKNOWN</data>
+      <data key="d4">unknown_source</data>
+      <data key="d5">1794504261</data>
+      <data key="d6" />
+    </node>
+    <edge source="Method" target="Retrieval-Augmented Generation (RAG)">
+      <data key="d7">1.0</data>
+      <data key="d8">A technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time.</data>
+      <data key="d9">Overview</data>
+      <data key="d10">retrieval_augmented_generation-chunk-000</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794504261</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Vector Search" target="HNSW">
+      <data key="d7">3.0</data>
+      <data key="d8">Vector search can use HNSW as an index type.</data>
+      <data key="d9">indexes,uses</data>
+      <data key="d10">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794504261</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Vector Search" target="Keyword Search">
+      <data key="d7">1.0</data>
+      <data key="d8">Vector search integrates keyword search for exact matches.</data>
+      <data key="d9">combines,leverages</data>
+      <data key="d10">vector_databases-chunk-000</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794503553</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Vector Search" target="Hybrid Search">
+      <data key="d7">31.0</data>
+      <data key="d8">Hybrid search combines vector search with keyword search signals.&lt;SEP&gt;Hybrid</data>
+      <data key="d9">combines,leverages</data>
+      <data key="d10">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794504261</data>
+      <data key="d13" />
+    </edge>
+    <edge source="HNSW" target="Hybrid Search">
+      <data key="d7">1.0</data>
+      <data key="d8">Hybrid search uses HNSW as an index type.</data>
+      <data key="d9">indexes,uses</data>
+      <data key="d10">vector_databases-chunk-001</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794503553</data>
+      <data key="d13" />
+    </edge>
+    <edge source="FAISS" target="Hybrid Search">
+      <data key="d7">1.0</data>
+      <data key="d8">Hybrid search uses FAISS as an index type.</data>
+      <data key="d9">indexes,uses</data>
+      <data key="d10">vector_databases-chunk-001</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794503553</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Reciprocal Rank Fusion" target="Hybrid Search">
+      <data key="d7">123.0</data>
+      <data key="d8">Hybrid search applies Reciprocal Rank Fusion to combine retrieval signals.</data>
+      <data key="d9">applies,uses</data>
+      <data key="d10">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794504261</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hybrid Search" target="Keyword Search">
+      <data key="d7">29.0</data>
+      <data key="d8">Hybrid search integrates keyword search for exact matches.</data>
+      <data key="d9">combines,leverages</data>
+      <data key="d10">vector_databases-chunk-000&lt;SEP&gt;vector_databases-chunk-001&lt;SEP&gt;retrieval_augmented_generation-chunk-000</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794504261</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hybrid Search" target="Weighted Fusion">
+      <data key="d7">1.0</data>
+      <data key="d8">Hybrid search applies Weighted Fusion to combine retrieval signals.</data>
+      <data key="d9">applies,uses</data>
+      <data key="d10">vector_databases-chunk-001</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794503553</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hybrid Search" target="IVF">
+      <data key="d7">1.0</data>
+      <data key="d8">Hybrid search uses IVF as an index type.</data>
+      <data key="d9">indexes,uses</data>
+      <data key="d10">vector_databases-chunk-001</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794503553</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hybrid Search" target="GPU Acceleration">
+      <data key="d7">27.0</data>
+      <data key="d8">Hybrid search uses GPU acceleration for performance optimization.</data>
+      <data key="d9">indexes,uses</data>
+      <data key="d10">vector_databases-chunk-001</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794503553</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hybrid Search" target="Distributed Deployment">
+      <data key="d7">26.0</data>
+      <data key="d8">Hybrid search uses distributed deployment for scalability.</data>
+      <data key="d9">indexes,uses</data>
+      <data key="d10">vector_databases-chunk-001</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794503553</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hybrid Search" target="GPU-FAISS">
+      <data key="d7">26.0</data>
+      <data key="d8">Hybrid search uses GPU-FAISS for performance optimization.</data>
+      <data key="d9">indexes,uses</data>
+      <data key="d10">vector_databases-chunk-001</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794503553</data>
+      <data key="d13" />
+    </edge>
+    <edge source="Hybrid Search" target="Large Dataset">
+      <data key="d7">26.0</data>
+      <data key="d8">Hybrid search uses large datasets for performance optimization.</data>
+      <data key="d9">indexes,uses</data>
+      <data key="d10">vector_databases-chunk-001</data>
+      <data key="d11">unknown_source</data>
+      <data key="d12">1794503553</data>
+      <data key="d13" />
+    </edge>
+  </graph>
+</graphml>

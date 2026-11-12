@@ -1,0 +1,141 @@
+{
+  "Method": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 2,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "Method"
+  },
+  "Vector Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "Vector Search"
+  },
+  "HNSW": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "HNSW"
+  },
+  "FAISS": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "FAISS"
+  },
+  "Reciprocal Rank Fusion": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "Reciprocal Rank Fusion"
+  },
+  "Hybrid Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "Hybrid Search"
+  },
+  "Keyword Search": {
+    "chunk_ids": [
+      "vector_databases-chunk-000",
+      "vector_databases-chunk-001",
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 3,
+    "update_time": 1794504261,
+    "create_time": 1794503553,
+    "_id": "Keyword Search"
+  },
+  "Weighted Fusion": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "Weighted Fusion"
+  },
+  "IVF": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "IVF"
+  },
+  "GPU Acceleration": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "GPU Acceleration"
+  },
+  "Distributed Deployment": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "Distributed Deployment"
+  },
+  "GPU-FAISS": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "GPU-FAISS"
+  },
+  "Large Dataset": {
+    "chunk_ids": [
+      "vector_databases-chunk-001"
+    ],
+    "count": 1,
+    "create_time": 1794503553,
+    "update_time": 1794503553,
+    "_id": "Large Dataset"
+  },
+  "Retrieval-Augmented Generation (RAG)": {
+    "chunk_ids": [
+      "retrieval_augmented_generation-chunk-000"
+    ],
+    "count": 1,
+    "create_time": 1794504261,
+    "update_time": 1794504261,
+    "_id": "Retrieval-Augmented Generation (RAG)"
+  }
+}

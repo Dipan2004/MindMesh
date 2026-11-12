@@ -1,0 +1,22 @@
+{
+  "hybrid:keywords:00476b3d6a225ee324c7f9bdf8847e1d": {
+    "return": "{\"high_level_keywords\": [\"hybrid search\", \"vector search\", \"keyword search\"], \"low_level_keywords\": [\"vector search\", \"keyword search\"]}",
+    "cache_type": "keywords",
+    "chunk_id": null,
+    "original_prompt": "What is hybrid search and how does it combine vector search with keyword search?",
+    "queryparam": {
+      "mode": "hybrid",
+      "response_type": "Multiple Paragraphs",
+      "top_k": 6,
+      "chunk_top_k": 20,
+      "max_entity_tokens": 6000,
+      "max_relation_tokens": 8000,
+      "max_total_tokens": 30000,
+      "user_prompt": "",
+      "enable_rerank": false
+    },
+    "create_time": 1794500326,
+    "update_time": 1794500326,
+    "_id": "hybrid:keywords:00476b3d6a225ee324c7f9bdf8847e1d"
+  }
+}
