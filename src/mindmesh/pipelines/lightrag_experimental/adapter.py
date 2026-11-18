@@ -71,6 +71,8 @@ def _load_graph(exp_dir: Path):
 class _ExperimentalBase(PipelineAdapter):
     """Shared base for all experimental LightRAG adapters."""
 
+    optimized: bool = False
+
     def __init__(
         self,
         model: str,
@@ -81,16 +83,42 @@ class _ExperimentalBase(PipelineAdapter):
         super().__init__(model=model, exp_dir=effective_dir, top_k=top_k)
         self._G = None
         self._pr = None
+        self._rel_store = None
 
     def _get_graph(self):
         if self._G is None:
             self._G, self._pr = _load_graph(self.exp_dir)
         return self._G, self._pr
 
+    def _get_rel_store(self):
+        if self._rel_store is None:
+            from graphrag_lite.retrieval.lightrag.relationship_store import RelationshipStore
+            self._rel_store = RelationshipStore(exp_dir=self.exp_dir)
+        return self._rel_store
+
     def _chunks_to_result(
-        self, question: str, chunks: list[dict], retrieval_lat: float
+        self, question: str, chunks: list[dict], retrieval_lat: float, generate_answer: bool = False
     ) -> PipelineResult:
         source_docs = sorted({c.get("source_doc", "") for c in chunks if c.get("source_doc")})
+        answer = None
+        gen_lat = 0.0
+        if generate_answer and chunks:
+            try:
+                from graphrag_lite.llm.client_factory import get_llm_client
+                from graphrag_lite.llm.generator import AnswerGenerator
+                client = get_llm_client("local")
+                if self.optimized and hasattr(client, "with_overrides"):
+                    client = client.with_overrides(num_predict=512)
+                gen = AnswerGenerator(client=client)
+                ev_dicts = [{"text": c.get("text", ""), "chunk_id": c.get("chunk_id", "")} for c in chunks]
+                t_gen = time.monotonic()
+                ans = gen.generate_answer(question, ev_dicts)
+                gen_lat = time.monotonic() - t_gen
+                answer = ans.text
+            except Exception as e:
+                log.warning("Answer generation failed in adapter: %s", e)
+
+        total_lat = retrieval_lat + gen_lat
         return PipelineResult(
             query=question,
             pipeline=self.name,
@@ -98,8 +126,10 @@ class _ExperimentalBase(PipelineAdapter):
             mode="default",
             retrieved_chunks=chunks,
             source_docs=source_docs,
+            answer=answer,
             retrieval_latency_s=retrieval_lat,
-            total_latency_s=retrieval_lat,
+            generation_latency_s=gen_lat,
+            total_latency_s=total_lat,
         )
 
 
@@ -117,7 +147,7 @@ class LightRAGLocalAdapter(_ExperimentalBase):
         G, pr = self._get_graph()
         t0 = time.monotonic()
         chunks = retrieve_local(question, G, pr, self.exp_dir, top_k=self.top_k)
-        return self._chunks_to_result(question, chunks, time.monotonic() - t0)
+        return self._chunks_to_result(question, chunks, time.monotonic() - t0, generate_answer=generate_answer)
 
 
 class LightRAGGlobalAdapter(_ExperimentalBase):
@@ -133,7 +163,7 @@ class LightRAGGlobalAdapter(_ExperimentalBase):
         G, pr = self._get_graph()
         t0 = time.monotonic()
         chunks = retrieve_global(question, G, self.exp_dir, top_k=self.top_k)
-        return self._chunks_to_result(question, chunks, time.monotonic() - t0)
+        return self._chunks_to_result(question, chunks, time.monotonic() - t0, generate_answer=generate_answer)
 
 
 class LightRAGHybridAdapter(_ExperimentalBase):
@@ -149,7 +179,7 @@ class LightRAGHybridAdapter(_ExperimentalBase):
         G, pr = self._get_graph()
         t0 = time.monotonic()
         chunks = retrieve_hybrid(question, G, pr, self.exp_dir, top_k=self.top_k)
-        return self._chunks_to_result(question, chunks, time.monotonic() - t0)
+        return self._chunks_to_result(question, chunks, time.monotonic() - t0, generate_answer=generate_answer)
 
 
 class LightRAGMixAdapter(_ExperimentalBase):
@@ -165,4 +195,56 @@ class LightRAGMixAdapter(_ExperimentalBase):
         G, pr = self._get_graph()
         t0 = time.monotonic()
         chunks = retrieve_mix(question, G, pr, self.exp_dir, top_k=self.top_k)
-        return self._chunks_to_result(question, chunks, time.monotonic() - t0)
+        return self._chunks_to_result(question, chunks, time.monotonic() - t0, generate_answer=generate_answer)
+
+
+class LightRAGHybridOptAdapter(_ExperimentalBase):
+    name = "lightrag_hybrid_opt"
+    description = (
+        "MindMesh-native LightRAG Hybrid (Optimized): degree normalization, "
+        "primary provenance weighting, and cached relationship index."
+    )
+    supports_modes = ("default",)
+    optimized = True
+
+    def query(self, question: str, mode: str = "default", generate_answer: bool = False) -> PipelineResult:
+        from graphrag_lite.retrieval.lightrag import retrieve_hybrid
+        G, pr = self._get_graph()
+        rel_store = self._get_rel_store()
+        t0 = time.monotonic()
+        chunks = retrieve_hybrid(
+            question,
+            G=G,
+            pr=pr,
+            exp_dir=self.exp_dir,
+            top_k=self.top_k,
+            optimized=True,
+            rel_store=rel_store,
+        )
+        return self._chunks_to_result(question, chunks, time.monotonic() - t0, generate_answer=generate_answer)
+
+
+class LightRAGMixOptAdapter(_ExperimentalBase):
+    name = "lightrag_mix_opt"
+    description = (
+        "MindMesh-native LightRAG Mix (Optimized): calibrated RRF fusion, "
+        "single-query embedding, degree normalization, and generation latency protection."
+    )
+    supports_modes = ("default",)
+    optimized = True
+
+    def query(self, question: str, mode: str = "default", generate_answer: bool = False) -> PipelineResult:
+        from graphrag_lite.retrieval.lightrag import retrieve_mix
+        G, pr = self._get_graph()
+        rel_store = self._get_rel_store()
+        t0 = time.monotonic()
+        chunks = retrieve_mix(
+            question,
+            G=G,
+            pr=pr,
+            exp_dir=self.exp_dir,
+            top_k=self.top_k,
+            optimized=True,
+            rel_store=rel_store,
+        )
+        return self._chunks_to_result(question, chunks, time.monotonic() - t0, generate_answer=generate_answer)

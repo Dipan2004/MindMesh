@@ -34,6 +34,6 @@ describe('resolveBrandTitle', () => {
 
   test('ignores blank sources and ultimately uses the product default', () => {
     setRuntimeTitle('   ')
-    expect(resolveBrandTitle(' ', '\t')).toBe('LightRAG')
+    expect(resolveBrandTitle(' ', '\t')).toBe('MindMesh')
   })
 })

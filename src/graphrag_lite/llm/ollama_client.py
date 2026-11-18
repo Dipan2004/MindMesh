@@ -187,6 +187,17 @@ class OllamaClient:
             self._warn_if_thinking(response)
             return response["response"]
 
+    def generate_stream(self, prompt: str):
+        """
+        Stream response tokens from Ollama for prompt.
+        """
+        client = ollama.Client(timeout=self.timeout)
+        kwargs = self._kwargs(prompt)
+        kwargs["stream"] = True
+        for chunk in client.generate(**kwargs):
+            if "response" in chunk:
+                yield chunk["response"]
+
     def _warn_if_thinking(self, response: dict) -> None:
         """Warn when a reasoning model's thinking text was discarded."""
         import warnings

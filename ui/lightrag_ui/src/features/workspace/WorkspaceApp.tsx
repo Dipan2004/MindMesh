@@ -22,6 +22,7 @@ import {
   useCredentialProbeStore
 } from './credentialProbe'
 import { entryHomeHref } from '@/lib/pathPrefix'
+import { SiteInfo } from '@/lib/constants'
 import { navigationService } from '@/services/navigation'
 import WorkspaceQueryView from './WorkspaceQueryView'
 
@@ -135,7 +136,7 @@ export default function WorkspaceApp() {
               <TooltipTrigger asChild>
                 <a href={entryHomeHref(window.location.pathname)} className="flex shrink-0 items-center gap-2">
                   <ZapIcon className="size-4 text-emerald-400" aria-hidden="true" />
-                  <span className="font-bold">{webuiTitle || 'LightRAG'}</span>
+                  <span className="font-bold">{webuiTitle || SiteInfo.name}</span>
                 </a>
               </TooltipTrigger>
               {webuiDescription && (

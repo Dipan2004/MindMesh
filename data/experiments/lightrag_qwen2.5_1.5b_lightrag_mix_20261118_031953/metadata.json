@@ -1,0 +1,11 @@
+{
+  "model": "qwen2.5:1.5b",
+  "pipeline": "lightrag_mix",
+  "mode": "hybrid",
+  "top_k": 6,
+  "n_queries": 20,
+  "total_elapsed_s": 983.11,
+  "recall_at_k": 0.8,
+  "mrr": 0.4825,
+  "completed_at": "2026-11-18T03:36:17"
+}

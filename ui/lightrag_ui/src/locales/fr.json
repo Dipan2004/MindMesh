@@ -214,7 +214,7 @@
     "fetchRetriesExhausted": "Échec du chargement des données du graphe. Utilisez l'actualisation pour réessayer.",
     "graphBuildFailed": "Échec du rendu des données du graphe. Utilisez l'actualisation pour réessayer.",
     "statusDialog": {
-      "title": "Paramètres du Serveur LightRAG",
+      "title": "Paramètres du Serveur MindMesh",
       "description": "Afficher l'état actuel du système et les informations de connexion"
     },
     "legend": "Légende",
@@ -459,12 +459,13 @@
       "queryModeTooltip": "Sélectionnez la stratégie de récupération :\n• Naïf : Récupération vectorielle traditionnelle par blocs de texte\n• Local : Axé sur la récupération d'entités\n• Global : Axé sur la récupération de relations\n• Hybride : Local+Global\n• Mixte : Local+Global+Naïf\n• Bypass : Ignorer la récupération, envoyer l'historique de conversation et la question actuelle au LLM",
       "queryModeWarning": "Peut réduire la qualité de récupération",
       "queryModeOptions": {
-        "naive": "Naïf",
+        "naive": "MindMesh Dense",
         "local": "Local",
         "global": "Global",
-        "hybrid": "Hybride",
-        "mix": "Mixte",
-        "bypass": "Bypass"
+        "hybrid": "MindMesh Hybrid",
+        "mix": "MindMesh Mix",
+        "bypass": "MindMesh Graph",
+        "mix_opt": "MindMesh Mix Optimized"
       },
       "responseFormat": "Format de réponse",
       "responseFormatTooltip": "Définit le format de la réponse. Exemples :\n• Plusieurs paragraphes\n• Paragraphe unique\n• Points à puces",

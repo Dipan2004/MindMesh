@@ -151,3 +151,20 @@ class AnswerGenerator:
             cited_evidence_ids=cited_ids,
             confidence=None
         )
+
+    def generate_answer_stream(self, query: str, evidence_chunks: Sequence[dict]):
+        """
+        Stream grounded answer tokens for query and evidence_chunks.
+        """
+        if not evidence_chunks:
+            yield "I cannot answer this question because no relevant evidence was retrieved."
+            return
+
+        evidence_texts = [c["text"] for c in evidence_chunks]
+        prompt = self._assemble_prompt(query, evidence_texts)
+        if hasattr(self.client, "generate_stream"):
+            for token in self.client.generate_stream(prompt):
+                yield token
+        else:
+            yield self.client.generate(prompt)
+

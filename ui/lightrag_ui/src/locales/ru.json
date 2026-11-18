@@ -214,7 +214,7 @@
     "fetchRetriesExhausted": "Не удалось загрузить данные графа. Обновите страницу, чтобы повторить попытку.",
     "graphBuildFailed": "Не удалось отобразить данные графа. Обновите страницу, чтобы повторить попытку.",
     "statusDialog": {
-      "title": "Настройки сервера LightRAG",
+      "title": "Настройки сервера MindMesh",
       "description": "Просмотр текущего статуса системы и информации о подключении"
     },
     "legend": "Легенда",
@@ -459,12 +459,13 @@
       "queryModeTooltip": "Выберите стратегию поиска:\n• Naive: Традиционный поиск по вектору текстовых фрагментов\n• Local: Фокус на поиске сущностей\n• Global: Фокус на поиске связей\n• Hybrid: Local+Global\n• Mix: Local+Global+Naive\n• Bypass: Пропустить поиск, отправить историю разговора и текущий вопрос в LLM",
       "queryModeWarning": "Может снизить качество поиска",
       "queryModeOptions": {
-        "naive": "Naive",
+        "naive": "MindMesh Dense",
         "local": "Local",
         "global": "Global",
-        "hybrid": "Hybrid",
-        "mix": "Mix",
-        "bypass": "Bypass"
+        "hybrid": "MindMesh Hybrid",
+        "mix": "MindMesh Mix",
+        "bypass": "MindMesh Graph",
+        "mix_opt": "MindMesh Mix Optimized"
       },
       "responseFormat": "Формат ответа",
       "responseFormatTooltip": "Определяет формат ответа. Примеры:\n• Несколько абзацев\n• Один абзац\n• Маркированный список",

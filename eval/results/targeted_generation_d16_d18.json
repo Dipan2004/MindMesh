@@ -1,0 +1,125 @@
+{
+  "D16": {
+    "query_id": "D16",
+    "query": "In its most basic arrangement, how are materials divided, turned into numbers, and searched when someone asks -- and what limitation does that arrangement have?",
+    "runs": {
+      "1_control": {
+        "config_id": "1_control",
+        "name": "Control (Optimized Baseline)",
+        "description": "Current optimized configuration (num_predict=512, fp=0.0, default prompt)",
+        "latency_s": 7.39,
+        "output_tokens": 71,
+        "clean_end": true,
+        "has_markdown_headings": false,
+        "reproduces_source_section": false,
+        "matching_source_snippets": [],
+        "is_refusal": false,
+        "answer": "Materials are divided into categories based on their properties and uses. [0] They are then converted into numerical values using specific scales or formulas. [1] The materials are searched using a combination of dense and sparse retrieval methods. [2] The limitation of this arrangement is that it may miss multi-hop reasoning that requires connecting information across documents. [3]"
+      },
+      "2_freq_penalty": {
+        "config_id": "2_freq_penalty",
+        "name": "Frequency Penalty 0.25",
+        "description": "Optimized configuration with frequency_penalty=0.25",
+        "latency_s": 7.23,
+        "output_tokens": 71,
+        "clean_end": true,
+        "has_markdown_headings": false,
+        "reproduces_source_section": false,
+        "matching_source_snippets": [],
+        "is_refusal": false,
+        "answer": "Materials are divided into categories based on their properties and uses. [0] They are then converted into numerical values using specific scales or formulas. [1] The materials are searched using a combination of dense and sparse retrieval methods. [2] The limitation of this arrangement is that it may miss multi-hop reasoning that requires connecting information across documents. [3]"
+      },
+      "3_concise_instruction": {
+        "config_id": "3_concise_instruction",
+        "name": "Concise-Answer Instruction",
+        "description": "Optimized configuration with concise-answer instruction (3-4 sentences, no headings)",
+        "latency_s": 40.78,
+        "output_tokens": 74,
+        "clean_end": true,
+        "has_markdown_headings": false,
+        "reproduces_source_section": false,
+        "matching_source_snippets": [],
+        "is_refusal": false,
+        "answer": "Materials are divided into categories based on their properties and uses. [0] These categories are then assigned numerical values to represent their importance or relevance. [1] When someone asks a question, the materials are searched based on their numerical values. [2] The limitation of this arrangement is that it may miss multi-hop reasoning that requires connecting information across documents. [3]"
+      },
+      "4_concise_plus_fp": {
+        "config_id": "4_concise_plus_fp",
+        "name": "Concise + Frequency Penalty",
+        "description": "Exploratory: Concise instruction + frequency_penalty=0.25",
+        "latency_s": 13.92,
+        "output_tokens": 92,
+        "clean_end": true,
+        "has_markdown_headings": false,
+        "reproduces_source_section": false,
+        "matching_source_snippets": [],
+        "is_refusal": false,
+        "answer": "Materials are divided into categories such as metals, non-metals, and compounds. [0] These categories are then turned into numbers through classification algorithms. [1] The numbers are stored in a database or knowledge graph. [2] When someone asks a question, the system searches for relevant information based on the stored numbers. [3] This arrangement has limitations such as missing multi-hop reasoning and the inability to connect information across different documents. [4]"
+      }
+    }
+  },
+  "D18": {
+    "query_id": "D18",
+    "query": "When one technique copes with codes and the second copes with meaning, how can the two be merged so that neither blind spot dominates?",
+    "runs": {
+      "1_control": {
+        "config_id": "1_control",
+        "name": "Control (Optimized Baseline)",
+        "description": "Current optimized configuration (num_predict=512, fp=0.0, default prompt)",
+        "latency_s": 38.35,
+        "output_tokens": 138,
+        "clean_end": true,
+        "has_markdown_headings": true,
+        "reproduces_source_section": true,
+        "matching_source_snippets": [
+          "Early LLMs such as GPT-3 were limited to context windows of ...",
+          "Modern LLMs have dramatically extended context windows. Clau..."
+        ],
+        "is_refusal": false,
+        "answer": "## Context Windows and Long-Context Models [2] Early LLMs such as GPT-3 were limited to context windows of 2,048 tokens. The context window determines how much text the model can \"see\" at once when generating a response. Longer context windows allow LLMs to handle longer documents, maintain coherent conversations, and perform in-context learning with more examples. Modern LLMs have dramatically extended context windows. Claude 3.5 supports 200,000 tokens. Gemini 1.5 Pro supports up to 1 million tokens. These long-context models enable applications like summarizing entire codebases, analyzing lengthy legal documents, and processing long scientific papers."
+      },
+      "2_freq_penalty": {
+        "config_id": "2_freq_penalty",
+        "name": "Frequency Penalty 0.25",
+        "description": "Optimized configuration with frequency_penalty=0.25",
+        "latency_s": 65.13,
+        "output_tokens": 494,
+        "clean_end": false,
+        "has_markdown_headings": true,
+        "reproduces_source_section": true,
+        "matching_source_snippets": [
+          "Early LLMs such as GPT-3 were limited to context windows of ...",
+          "Modern LLMs have dramatically extended context windows. Clau...",
+          "Since the Transformer contains no recurrence or convolution,..."
+        ],
+        "is_refusal": false,
+        "answer": "## Context Windows and Long-Context Models [2] Early LLMs such as GPT-3 were limited to context windows of 2,048 tokens. The context window determines how much text the model can \"see\" at once when generating a response. Longer context windows allow LLMs to handle longer documents, maintain coherent conversations, and perform in-context learning with more examples. Modern LLMs have dramatically extended context windows. Claude 3.5 supports 200,000 tokens. Gemini 1.5 Pro supports up to 1 million tokens. These long-context models enable applications like summarizing entire codebases, analyzing lengthy legal documents, and processing long scientific papers. ### Positional Encoding [3] Since the Transformer contains no recurrence or convolution, it has no inherent notion of sequence order. Positional encodings are added to the input embeddings to inject information about the position of each token. The original paper used sine and cosine functions of different frequencies to generate these encodings. ## Encoder-Decoder Structure The original Transformer consists of an encoder and a decoder. The encoder maps an input sequence of symbols to a sequence of continuous representations. The decoder then generates an output sequence one symbol at a time, attending to both the encoder output and its own previous outputs. Each encoder layer contains a multi-head self-attention sublayer and a feed-forward sublayer. Each decoder layer contains an additional cross-attention sublayer that attends to the encoder output. ### Modular RAG [4] Decomposes the RAG pipeline into interchangeable modules for indexing, retrieval, reranking, and generation. This allows mixing and matching components for specific use cases. ## Key Challenges ### Chunking Strategy How documents are split into chunks significantly affects retrieval quality. Chunks that are too small lose context; chunks that are too large dilute relevance signals and may exceed context windows. Token-based sliding window chunking with overlap is a common approach to preserve context across boundaries. ### Retrieval Quality Dense retrieval can miss exact-match queries for named entities, IDs, or rare terms. Hybrid retrieval combining dense vectors with sparse keyword search (BM25) typically outperforms either approach alone on mixed query types. # Retrieval-Augmented Generation (RAG) [5] ## Overview Retrieval-Augmented Generation (RAG) is a technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time. It was introduced by Lewis et al. at Facebook AI Research"
+      },
+      "3_concise_instruction": {
+        "config_id": "3_concise_instruction",
+        "name": "Concise-Answer Instruction",
+        "description": "Optimized configuration with concise-answer instruction (3-4 sentences, no headings)",
+        "latency_s": 40.53,
+        "output_tokens": 163,
+        "clean_end": true,
+        "has_markdown_headings": false,
+        "reproduces_source_section": false,
+        "matching_source_snippets": [],
+        "is_refusal": false,
+        "answer": "To merge the two techniques so that neither blind spot dominates, one approach could be to integrate the self-attention mechanism and the multi-head attention mechanism. By combining the self-attention mechanism for capturing the importance of different tokens and the multi-head attention mechanism for attending to multiple representation subspaces, the model can better handle both codes and meaning. Additionally, using a modular RAG structure could help in this integration. By decomposing the RAG pipeline into interchangeable modules, the system can mix and match components for specific use cases, allowing for a more flexible and adaptable approach to handling different types of input and output. This modular structure can be further enhanced by incorporating the key challenges and solutions discussed in the evidence, such as chunking strategy and retrieval quality, to ensure that the model can effectively handle both codes and meaning."
+      },
+      "4_concise_plus_fp": {
+        "config_id": "4_concise_plus_fp",
+        "name": "Concise + Frequency Penalty",
+        "description": "Exploratory: Concise instruction + frequency_penalty=0.25",
+        "latency_s": 9.87,
+        "output_tokens": 83,
+        "clean_end": true,
+        "has_markdown_headings": false,
+        "reproduces_source_section": false,
+        "matching_source_snippets": [],
+        "is_refusal": false,
+        "answer": "To merge these two techniques, one could implement a hybrid approach that combines the strengths of both. For handling codes, use modular RAG to leverage external documents and context windows. For dealing with meaning, employ retrieval-Augmented Generation (RAG) to ground the LLM's outputs in relevant external references. This way, neither technique's blind spot dominates, and the system can effectively handle both aspects of the query."
+      }
+    }
+  }
+}

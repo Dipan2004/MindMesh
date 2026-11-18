@@ -216,6 +216,7 @@ export default function QuerySettings() {
                   <SelectContent>
                     <SelectGroup>
                       <SelectItem value="mix">{t('retrievePanel.querySettings.queryModeOptions.mix')}</SelectItem>
+                      <SelectItem value="mix_opt">{t('retrievePanel.querySettings.queryModeOptions.mix_opt')}</SelectItem>
                       <SelectItem value="hybrid">{t('retrievePanel.querySettings.queryModeOptions.hybrid')}</SelectItem>
                       <SelectItem value="naive">{t('retrievePanel.querySettings.queryModeOptions.naive')}</SelectItem>
                       <SelectItem value="local">{t('retrievePanel.querySettings.queryModeOptions.local')}</SelectItem>
@@ -226,7 +227,7 @@ export default function QuerySettings() {
                 </Select>
                 <ResetButton
                   onClick={() => handleReset('mode')}
-                  title="Reset to default (Mix)"
+                  title="Reset to default (MindMesh Mix)"
                 />
               </div>
               {showQualityWarning && (

@@ -214,7 +214,7 @@
     "fetchRetriesExhausted": "加载图数据失败。请刷新后重试。",
     "graphBuildFailed": "渲染图数据失败。请刷新后重试。",
     "statusDialog": {
-      "title": "LightRAG 服务器设置",
+      "title": "MindMesh 服务器设置",
       "description": "查看当前系统状态和连接信息"
     },
     "legend": "图例",
@@ -459,12 +459,13 @@
       "queryModeTooltip": "选择检索策略：\n• Naive：传统文本块向量检索\n• Local：侧重实体检索\n• Global：侧重关系检索\n• Hybrid：Local+Global\n• Mix：Local+Global+Naive\n• Bypass：跳过检索,把历史会话与当前问题送LLM",
       "queryModeWarning": "可能降低检索质量",
       "queryModeOptions": {
-        "naive": "Naive",
+        "naive": "MindMesh Dense",
         "local": "Local",
         "global": "Global",
-        "hybrid": "Hybrid",
-        "mix": "Mix",
-        "bypass": "Bypass"
+        "hybrid": "MindMesh Hybrid",
+        "mix": "MindMesh Mix",
+        "bypass": "MindMesh Graph",
+        "mix_opt": "MindMesh Mix Optimized"
       },
       "responseFormat": "响应格式",
       "responseFormatTooltip": "定义响应格式。例如：\n• 多段落\n• 单段落\n• 要点",

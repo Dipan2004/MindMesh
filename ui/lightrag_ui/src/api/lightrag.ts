@@ -177,7 +177,7 @@ export type LightragStatus = {
  * - "mix": Integrates knowledge graph and vector retrieval.
  * - "bypass": Bypasses knowledge retrieval and directly uses the LLM.
  */
-export type QueryMode = 'naive' | 'local' | 'global' | 'hybrid' | 'mix' | 'bypass'
+export type QueryMode = 'naive' | 'local' | 'global' | 'hybrid' | 'mix' | 'mix_opt' | 'bypass'
 
 export type Message = {
   role: 'user' | 'assistant' | 'system'

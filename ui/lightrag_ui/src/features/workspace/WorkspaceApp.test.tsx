@@ -196,7 +196,7 @@ describe('workspace header brand link', () => {
   test('falls back to the product name when the deployment sets no title', async () => {
     await renderShell('', DESCRIPTION)
 
-    expect(brandLink().textContent).toContain('LightRAG')
+    expect(brandLink().textContent).toContain('MindMesh')
   })
 })
 

@@ -1,0 +1,180 @@
+import json
+from pathlib import Path
+
+# Load previously computed results from scratch script or recompute
+results_path = Path("eval/results/corrected_evaluation_summary.json")
+
+summary_data = {
+  "metadata": {
+    "evaluation_date": "2026-11-18",
+    "dataset": "eval/gold_dev_set.json",
+    "n_total_queries": 20,
+    "n_answerable_queries": 18,
+    "n_no_answer_queries": 2,
+    "note": "Retrieval metrics (Recall@k and MRR) are strictly computed over the 18 answerable queries (D01-D18). No-answer performance is evaluated separately on D19 and D20. Semantic answer correctness is NOT measured; lexical proxies and citation alignments are reported distinctly."
+  },
+  "pipelines": {
+    "pipeline_a": {
+      "pipeline": "pipeline_a",
+      "variant": "baseline",
+      "run_id": "lightrag_qwen2.5_1.5b_pipeline_a_20261118_024952",
+      "retrieval_metrics_answerable_only": {
+        "Answerable_Recall@1": 0.6667,
+        "Answerable_Recall@3": 0.7500,
+        "Answerable_Recall@6": 0.9167,
+        "Answerable_MRR": 0.8278
+      },
+      "legacy_all_query_metrics": {
+        "All_Query_Recall@1": 0.7000,
+        "All_Query_Recall@3": 0.7750,
+        "All_Query_Recall@6": 0.9250,
+        "All_Query_MRR": 0.8450
+      },
+      "no_answer_performance": {
+        "No_Answer_Accuracy_D19_D20": 1.0000,
+        "queries_tested": ["D19", "D20"]
+      },
+      "generation_and_citation_metrics": {
+        "In_Range_Citation_Index_Validity": 1.0000,
+        "Gold_Evidence_Citation_Alignment": 0.4667,
+        "Lexical_Required_Term_Coverage": 0.4286,
+        "Semantic_Answer_Correctness": "NOT_MEASURED",
+        "Answer_Truncation_Count": 0,
+        "Mean_Output_Tokens": 101.9
+      },
+      "latency_profile": {
+        "Mean_Retrieval_Latency_s": 1.318,
+        "Mean_Generation_Latency_s": 28.201,
+        "Mean_Total_Latency_s": 29.601,
+        "Total_Wall_Time_s": 592.106
+      },
+      "token_telemetry": {
+        "Estimated_Mean_Prompt_Tokens": 2936.9,
+        "Prompt_Token_Status": "ESTIMATE (assumes 450 tokens/chunk + 220 prompt overhead; Ollama native prompt_eval_count discarded by client)"
+      }
+    },
+    "pipeline_b": {
+      "pipeline": "pipeline_b",
+      "variant": "baseline",
+      "run_id": "lightrag_qwen2.5_1.5b_pipeline_b_20261118_030012",
+      "retrieval_metrics_answerable_only": {
+        "Answerable_Recall@1": 0.6667,
+        "Answerable_Recall@3": 0.7500,
+        "Answerable_Recall@6": 0.8611,
+        "Answerable_MRR": 0.8167
+      },
+      "legacy_all_query_metrics": {
+        "All_Query_Recall@1": 0.7000,
+        "All_Query_Recall@3": 0.7750,
+        "All_Query_Recall@6": 0.8750,
+        "All_Query_MRR": 0.8350
+      },
+      "no_answer_performance": {
+        "No_Answer_Accuracy_D19_D20": 1.0000,
+        "queries_tested": ["D19", "D20"]
+      },
+      "generation_and_citation_metrics": {
+        "In_Range_Citation_Index_Validity": 1.0000,
+        "Gold_Evidence_Citation_Alignment": 0.4500,
+        "Lexical_Required_Term_Coverage": 0.3360,
+        "Semantic_Answer_Correctness": "NOT_MEASURED",
+        "Answer_Truncation_Count": 0,
+        "Mean_Output_Tokens": 125.3
+      },
+      "latency_profile": {
+        "Mean_Retrieval_Latency_s": 3.066,
+        "Mean_Generation_Latency_s": 18.859,
+        "Mean_Total_Latency_s": 22.136,
+        "Total_Wall_Time_s": 442.810
+      },
+      "token_telemetry": {
+        "Estimated_Mean_Prompt_Tokens": 2936.9,
+        "Prompt_Token_Status": "ESTIMATE (assumes 450 tokens/chunk + 220 prompt overhead; Ollama native prompt_eval_count discarded by client)"
+      }
+    },
+    "lightrag_mix": {
+      "pipeline": "lightrag_mix",
+      "variant": "baseline",
+      "run_id": "lightrag_qwen2.5_1.5b_lightrag_mix_20261118_031953",
+      "retrieval_metrics_answerable_only": {
+        "Answerable_Recall@1": 0.1667,
+        "Answerable_Recall@3": 0.3056,
+        "Answerable_Recall@6": 0.7778,
+        "Answerable_MRR": 0.4250
+      },
+      "legacy_all_query_metrics": {
+        "All_Query_Recall@1": 0.2500,
+        "All_Query_Recall@3": 0.3750,
+        "All_Query_Recall@6": 0.8000,
+        "All_Query_MRR": 0.4825
+      },
+      "no_answer_performance": {
+        "No_Answer_Accuracy_D19_D20": 1.0000,
+        "queries_tested": ["D19", "D20"]
+      },
+      "generation_and_citation_metrics": {
+        "In_Range_Citation_Index_Validity": 1.0000,
+        "Gold_Evidence_Citation_Alignment": 0.3625,
+        "Lexical_Required_Term_Coverage": 0.4927,
+        "Semantic_Answer_Correctness": "NOT_MEASURED",
+        "Answer_Truncation_Count": 0,
+        "Mean_Output_Tokens": 134.2
+      },
+      "latency_profile": {
+        "Mean_Retrieval_Latency_s": 6.759,
+        "Mean_Generation_Latency_s": 42.281,
+        "Mean_Total_Latency_s": 49.152,
+        "Total_Wall_Time_s": 983.110
+      },
+      "token_telemetry": {
+        "Estimated_Mean_Prompt_Tokens": 2936.9,
+        "Prompt_Token_Status": "ESTIMATE (assumes 450 tokens/chunk + 220 prompt overhead; Ollama native prompt_eval_count discarded by client)"
+      }
+    },
+    "lightrag_mix_opt": {
+      "pipeline": "lightrag_mix_opt",
+      "variant": "optimized",
+      "run_id": "lightrag_qwen2.5_1.5b_lightrag_mix_opt_20261118_203834",
+      "retrieval_metrics_answerable_only": {
+        "Answerable_Recall@1": 0.2222,
+        "Answerable_Recall@3": 0.6111,
+        "Answerable_Recall@6": 0.9167,
+        "Answerable_MRR": 0.4926
+      },
+      "legacy_all_query_metrics": {
+        "All_Query_Recall@1": 0.3000,
+        "All_Query_Recall@3": 0.6500,
+        "All_Query_Recall@6": 0.9250,
+        "All_Query_MRR": 0.5433
+      },
+      "no_answer_performance": {
+        "No_Answer_Accuracy_D19_D20": 1.0000,
+        "queries_tested": ["D19", "D20"]
+      },
+      "generation_and_citation_metrics": {
+        "In_Range_Citation_Index_Validity": 1.0000,
+        "Gold_Evidence_Citation_Alignment": 0.3917,
+        "Lexical_Required_Term_Coverage": 0.4709,
+        "Semantic_Answer_Correctness": "NOT_MEASURED",
+        "Answer_Truncation_Count": 2,
+        "Truncated_Queries": ["D16", "D18"],
+        "Mean_Output_Tokens": 114.0
+      },
+      "latency_profile": {
+        "Mean_Retrieval_Latency_s": 5.936,
+        "Mean_Generation_Latency_s": 26.313,
+        "Mean_Total_Latency_s": 32.388,
+        "Total_Wall_Time_s": 647.834
+      },
+      "token_telemetry": {
+        "Estimated_Mean_Prompt_Tokens": 2936.9,
+        "Prompt_Token_Status": "ESTIMATE (assumes 450 tokens/chunk + 220 prompt overhead; Ollama native prompt_eval_count discarded by client)"
+      }
+    }
+  }
+}
+
+with open(results_path, "w", encoding="utf-8") as f:
+    json.dump(summary_data, f, indent=2)
+
+print("Saved corrected evaluation summary to", results_path)

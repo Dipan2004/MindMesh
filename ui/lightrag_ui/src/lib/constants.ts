@@ -100,9 +100,9 @@ export const supportedFileTypes = {
 }
 
 export const SiteInfo = {
-  name: 'LightRAG',
+  name: 'MindMesh',
   home: '/',
-  github: 'https://github.com/HKUDS/LightRAG'
+  github: 'https://github.com/Dipan2004/MindMesh'
 }
 
 // --- Graph layout performance thresholds ------------------------------------

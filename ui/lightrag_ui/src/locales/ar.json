@@ -214,7 +214,7 @@
     "fetchRetriesExhausted": "فشل تحميل بيانات الرسم البياني. استخدم التحديث للمحاولة مرة أخرى.",
     "graphBuildFailed": "فشل عرض بيانات الرسم البياني. استخدم التحديث لإعادة المحاولة.",
     "statusDialog": {
-      "title": "إعدادات خادم LightRAG",
+      "title": "إعدادات خادم MindMesh",
       "description": "عرض حالة النظام الحالية ومعلومات الاتصال"
     },
     "legend": "المفتاح",
@@ -459,12 +459,13 @@
       "queryModeTooltip": "حدد استراتيجية الاسترجاع:\n• ساذج: استرجاع متجهي تقليدي لقطع النص\n• محلي: يركز على استرجاع الكيانات\n• عالمي: يركز على استرجاع العلاقات\n• مختلط: محلي+عالمي\n• مزيج: محلي+عالمي+ساذج\n• تجاوز: تخطي الاسترجاع، إرسال تاريخ المحادثة والسؤال الحالي إلى LLM",
       "queryModeWarning": "قد يقلل من جودة الاسترجاع",
       "queryModeOptions": {
-        "naive": "ساذج",
+        "naive": "MindMesh Dense",
         "local": "محلي",
         "global": "عالمي",
-        "hybrid": "مختلط",
-        "mix": "مزيج",
-        "bypass": "تجاوز"
+        "hybrid": "MindMesh Hybrid",
+        "mix": "MindMesh Mix",
+        "bypass": "MindMesh Graph",
+        "mix_opt": "MindMesh Mix Optimized"
       },
       "responseFormat": "تنسيق الرد",
       "responseFormatTooltip": "يحدد تنسيق الرد. أمثلة:\n• فقرات متعددة\n• فقرة واحدة\n• نقاط نقطية",

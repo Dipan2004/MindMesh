@@ -214,7 +214,7 @@
     "fetchRetriesExhausted": "Graphdaten konnten nicht geladen werden. Zum erneuten Versuch aktualisieren.",
     "graphBuildFailed": "Graphdaten konnten nicht gerendert werden. Zum erneuten Versuch aktualisieren.",
     "statusDialog": {
-      "title": "LightRAG Server-Einstellungen",
+      "title": "MindMesh Server-Einstellungen",
       "description": "Aktuellen Systemstatus und Verbindungsinformationen anzeigen"
     },
     "legend": "Legende",
@@ -459,12 +459,13 @@
       "queryModeTooltip": "Abfragestrategie auswählen:\n• Naive: Traditionelle Text-Chunk-Vektorabfrage\n• Local: Fokus auf Entitätsabfrage\n• Global: Fokus auf Beziehungsabfrage\n• Hybrid: Local+Global\n• Mix: Local+Global+Naive\n• Bypass: Abfrage überspringen, Konversationsverlauf und aktuelle Frage an LLM senden",
       "queryModeWarning": "Kann die Abrufqualität verringern",
       "queryModeOptions": {
-        "naive": "Naive",
+        "naive": "MindMesh Dense",
         "local": "Local",
         "global": "Global",
-        "hybrid": "Hybrid",
-        "mix": "Mix",
-        "bypass": "Bypass"
+        "hybrid": "MindMesh Hybrid",
+        "mix": "MindMesh Mix",
+        "bypass": "MindMesh Graph",
+        "mix_opt": "MindMesh Mix Optimized"
       },
       "responseFormat": "Antwortformat",
       "responseFormatTooltip": "Definiert das Antwortformat. Beispiele:\n• Mehrere Absätze\n• Einzelner Absatz\n• Aufzählungspunkte",

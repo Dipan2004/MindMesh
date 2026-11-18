@@ -1,0 +1,7 @@
+{
+  "n_queries": 20,
+  "avg_recall_at_k": 0.35,
+  "mrr": 0.2308,
+  "total_elapsed_s": 683.337,
+  "avg_query_latency_s": 34.167
+}

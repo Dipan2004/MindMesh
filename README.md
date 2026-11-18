@@ -30,6 +30,29 @@ python scripts/build_index.py --stage all       # run full indexing
 python scripts/run_query.py --pipeline b --mode local --query "your question"
 ```
 
+## Running MindMesh Web UI
+
+Start the FastAPI application serving the API and static React interface:
+
+```bash
+uvicorn graphrag_lite.api.main:app --port 8000
+```
+
+Navigate to: `http://localhost:8000/webui` in your browser.
+
+## Model-Selectable Experimental Runner
+
+Run reproducible retrieval evaluations with locally installed Ollama models:
+
+```bash
+python eval/run_lightrag_pipeline.py qwen2.5:1.5b --limit 2
+python eval/run_lightrag_pipeline.py qwen2.5:3b --pipeline lightrag_hybrid
+```
+
+## Attribution & Third-Party Notices
+
+MindMesh adapts graph retrieval concepts and the React interface from [HKUDS LightRAG](https://github.com/HKUDS/LightRAG) (MIT License). See [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md) for full attribution details.
+
 ## Non-negotiable rule while building
 
 No task gets marked done without:

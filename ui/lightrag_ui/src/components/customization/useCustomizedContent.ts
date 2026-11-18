@@ -175,7 +175,7 @@ export function useCustomizedContent(
     loading: false,
     direction: RTL_LANGUAGES.has(language) ? 'rtl' : 'ltr',
     logoUrl: defaultLogoUrl,
-    logoAlt: 'LightRAG',
+    logoAlt: 'MindMesh',
     welcomeMarkdown: t('workspace.welcome.defaultMarkdown'),
     queryEmptyMarkdown: t('workspace.queryEmpty.defaultMarkdown'),
     brandTitle: resolveBrandTitle(snapshot?.brand?.title, authStatusTitle),

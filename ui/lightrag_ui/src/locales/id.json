@@ -214,7 +214,7 @@
     "fetchRetriesExhausted": "Gagal memuat data graf. Gunakan refresh untuk mencoba lagi.",
     "graphBuildFailed": "Gagal menampilkan data graf. Gunakan refresh untuk mencoba lagi.",
     "statusDialog": {
-      "title": "Pengaturan Server LightRAG",
+      "title": "Pengaturan Server MindMesh",
       "description": "Lihat status sistem dan informasi koneksi saat ini"
     },
     "legend": "Legenda",
@@ -459,12 +459,13 @@
       "queryModeTooltip": "Pilih strategi retrieval:\n• Naive: Retrieval vector text chunk tradisional\n• Local: Fokus pada retrieval entity\n• Global: Fokus pada retrieval relasi\n• Hybrid: Local+Global\n• Mix: Local+Global+Naive\n• Bypass: Lewati retrieval, kirim riwayat percakapan dan pertanyaan saat ini ke LLM",
       "queryModeWarning": "Dapat mengurangi kualitas retrieval",
       "queryModeOptions": {
-        "naive": "Naive",
+        "naive": "MindMesh Dense",
         "local": "Local",
         "global": "Global",
-        "hybrid": "Hybrid",
-        "mix": "Mix",
-        "bypass": "Bypass"
+        "hybrid": "MindMesh Hybrid",
+        "mix": "MindMesh Mix",
+        "bypass": "MindMesh Graph",
+        "mix_opt": "MindMesh Mix Optimized"
       },
       "responseFormat": "Format Respons",
       "responseFormatTooltip": "Menentukan format respons. Contoh:\n• Beberapa Paragraf\n• Satu Paragraf\n• Poin-poin",

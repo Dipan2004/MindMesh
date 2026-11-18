@@ -38,6 +38,8 @@ from mindmesh.pipelines.lightrag_experimental.adapter import (
     LightRAGGlobalAdapter,
     LightRAGHybridAdapter,
     LightRAGMixAdapter,
+    LightRAGHybridOptAdapter,
+    LightRAGMixOptAdapter,
 )
 from mindmesh.pipelines.pipeline3_lightrag.adapter import Pipeline3LightRAGAdapter
 
@@ -52,6 +54,8 @@ PIPELINE_REGISTRY: dict[str, Type[PipelineAdapter]] = {
     "lightrag_global":     LightRAGGlobalAdapter,
     "lightrag_hybrid":     LightRAGHybridAdapter,
     "lightrag_mix":        LightRAGMixAdapter,
+    "lightrag_hybrid_opt": LightRAGHybridOptAdapter,
+    "lightrag_mix_opt":    LightRAGMixOptAdapter,
     "pipeline_3_lightrag": Pipeline3LightRAGAdapter,
 }
 

@@ -23,6 +23,6 @@ export function resolveBrandTitle(
     normalizedTitle(snapshotTitle) ??
     normalizedTitle(authStatusTitle) ??
     normalizedTitle(getRuntimeWebuiTitle()) ??
-    'LightRAG'
+    'MindMesh'
   )
 }

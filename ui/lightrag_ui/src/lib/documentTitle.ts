@@ -41,7 +41,7 @@
 import { getRuntimeWebuiTitle } from '@/lib/runtimeConfig'
 
 /** Shown when the deployment sets no `WEBUI_TITLE`. Matches the entry HTML. */
-export const DEFAULT_DOCUMENT_TITLE = 'LightRAG'
+export const DEFAULT_DOCUMENT_TITLE = 'MindMesh'
 
 const clean = (value: string | null | undefined): string => (value ?? '').trim()
 

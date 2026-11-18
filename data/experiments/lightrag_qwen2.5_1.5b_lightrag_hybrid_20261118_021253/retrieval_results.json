@@ -1,0 +1,33 @@
+{
+  "results": [
+    {
+      "query_id": "D01",
+      "query": "How does the self-attention mechanism compute attention scores?",
+      "gold_chunk_ids": [
+        "c81c2a06e4ee9667"
+      ],
+      "chunk_ids": [
+        "ab2692f1a112544f",
+        "5c56e059e8cebff9",
+        "a4a679c427829368",
+        "d49b99f9a418a0fb",
+        "c81c2a06e4ee9667",
+        "e146728cdddcf0e5"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation",
+        "transformer_architecture",
+        "vector_databases"
+      ],
+      "answer": "Self-Attention Mechanism [4] The self-attention mechanism computes attention scores between a token and every other token in a sequence. For each token, it computes three vectors: a Query (Q), a Key (K), and a Value (V). The attention score between two tokens is computed as the dot product of their Query and Key vectors, scaled by the square root of the key dimension. This allows every token to directly attend to every other token, regardless of their distance in the sequence.",
+      "retrieval_latency_s": 4.207,
+      "generation_latency_s": 37.017,
+      "total_latency_s": 43.022,
+      "errors": []
+    }
+  ],
+  "count": 1
+}
