@@ -1,0 +1,14 @@
+{
+  "model": "qwen2.5:1.5b",
+  "extraction_model": "qwen2.5:1.5b",
+  "gleaning_model": "qwen2.5:1.5b",
+  "keyword_model": "qwen2.5:1.5b",
+  "answer_model": "qwen2.5:1.5b",
+  "pipeline": "pipeline_a",
+  "mode": "hybrid",
+  "top_k": 6,
+  "generate_answer": true,
+  "timestamp": "20261119_030500",
+  "dataset": "eval/gold_dev_set.json",
+  "dry_run": false
+}

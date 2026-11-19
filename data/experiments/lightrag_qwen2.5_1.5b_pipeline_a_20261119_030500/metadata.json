@@ -1,0 +1,11 @@
+{
+  "model": "qwen2.5:1.5b",
+  "pipeline": "pipeline_a",
+  "mode": "hybrid",
+  "top_k": 6,
+  "n_queries": 20,
+  "total_elapsed_s": 55.125,
+  "recall_at_k": 0.925,
+  "mrr": 0.845,
+  "completed_at": "2026-11-19T03:05:56"
+}

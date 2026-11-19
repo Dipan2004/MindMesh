@@ -1,0 +1,22 @@
+{
+  "checks": {
+    "paragraphs==200": true,
+    "extraction records==200 unique": true,
+    "extraction ids == corpus ids": true,
+    "all 200 chunks in Zvec": true,
+    "Zvec text == corpus text": true,
+    "42 supporting facts": true,
+    "every SP chunk indexed": true,
+    "SP sentence matches paragraph sentence": true,
+    "SP title matches paragraph title": true,
+    "20 questions, 10/10": true,
+    "gold chunks inside each question context": true
+  },
+  "parse_failed_titles": [
+    "2-D (character)",
+    "Emilio Baglioni",
+    "Pride and Glory (album)",
+    "Best of Decade I: 1995\u20132005"
+  ],
+  "parse_failed_gold": []
+}

@@ -1,0 +1,670 @@
+[
+  {
+    "_id": "5ae31d5a5542990afbd1e0b1",
+    "question": "What famous composer was born in the town that hosts a festival of music and drama has featured Lilian Sukis?",
+    "answer": "Wolfgang Amadeus Mozart",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Lilian Sukis",
+        6
+      ],
+      [
+        "Salzburg Festival",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "681d8a379dc54c8a",
+      "de015879a1a8e42a"
+    ],
+    "context_chunk_ids": [
+      "e135f2e20308e863",
+      "3c9918fb62c08dfc",
+      "681d8a379dc54c8a",
+      "de015879a1a8e42a",
+      "5854eec81cd8ae74",
+      "54c4e158ee117648",
+      "d31633346194395b",
+      "95c365ca672cb565",
+      "c15d9808c4518469",
+      "97c4bcca4c11f434"
+    ]
+  },
+  {
+    "_id": "5a7b89a3554299294a54a9e3",
+    "question": "A Big Daddy is a fictional character in a series that has sold more than how many copies? ",
+    "answer": "25 million copies",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Big Daddy (BioShock)",
+        0
+      ],
+      [
+        "BioShock (series)",
+        7
+      ]
+    ],
+    "gold_chunk_ids": [
+      "2127506328e59596",
+      "ad6621586ff9f027"
+    ],
+    "context_chunk_ids": [
+      "b2140fa05ab7616d",
+      "7f2595edab3decbc",
+      "ad6621586ff9f027",
+      "d010d64c5585b76a",
+      "90495c9eba50216f",
+      "2127506328e59596",
+      "526701d3f7cf7c07",
+      "31423454b7a115c5",
+      "bbcb86d3cccd4eba",
+      "cbaeee2e2b70c684"
+    ]
+  },
+  {
+    "_id": "5a7344e95542991f9a20c6ce",
+    "question": "What song was number 4 on the charts when a song from FutureSex/LoveSounds was number 1?",
+    "answer": "Rudebox",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Rudebox (song)",
+        0
+      ],
+      [
+        "Rudebox (song)",
+        3
+      ],
+      [
+        "SexyBack",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "05213011ab94a3bd",
+      "0c51c0fd5fd6bc00"
+    ],
+    "context_chunk_ids": [
+      "5c073699af96adf4",
+      "3f4bccaad0651ede",
+      "bb756f0591039eba",
+      "55f8359be534869b",
+      "f21c075b3102cbb1",
+      "6714aaf75c6ababf",
+      "0c828e6a10a3f7a9",
+      "0c51c0fd5fd6bc00",
+      "129815da81af955b",
+      "05213011ab94a3bd"
+    ]
+  },
+  {
+    "_id": "5a8ba59a554299240d9c2058",
+    "question": "The Duke Steps Out stars an actress who was ranked tenth on a list of greatest female Hollywood stars in what year?",
+    "answer": "1999",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "The Duke Steps Out",
+        0
+      ],
+      [
+        "Joan Crawford",
+        2
+      ]
+    ],
+    "gold_chunk_ids": [
+      "00b646218603732e",
+      "a9d7761f73d9179f"
+    ],
+    "context_chunk_ids": [
+      "1321686acc66e514",
+      "6e2d6094a22befc0",
+      "78fd4cb76b773b67",
+      "ab9c0365b8dd8a08",
+      "40cef935b7b87026",
+      "00b646218603732e",
+      "2d55f8042ced7bb9",
+      "96192ef294603623",
+      "94cce23fe1daf1c0",
+      "a9d7761f73d9179f"
+    ]
+  },
+  {
+    "_id": "5a89007355429938390d4026",
+    "question": "What Brooklyn-based rapper has worked with both Rafeal Casal and Mos Def?",
+    "answer": "Talib Kweli",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Rafael Casal",
+        3
+      ],
+      [
+        "Mos Def",
+        2
+      ]
+    ],
+    "gold_chunk_ids": [
+      "643533cff5f45740",
+      "bb2ce097a67ead14"
+    ],
+    "context_chunk_ids": [
+      "22baaf955e3d521b",
+      "bb2ce097a67ead14",
+      "643533cff5f45740",
+      "f2f6bd8122079227",
+      "4a4d9b71b7761312",
+      "18204867dabae48d",
+      "81628c4e342f6c9a",
+      "850b6d47f0851c92",
+      "baf1c38e16339a33",
+      "b24a26a0e617e930"
+    ]
+  },
+  {
+    "_id": "5a86edcc55429960ec39b6da",
+    "question": "What actress portrayed Rachel Green on the sitcom \"Friends\" and starred in the movie \"She's Funny That Way\"?",
+    "answer": "Jennifer Aniston",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "She's Funny That Way (film)",
+        1
+      ],
+      [
+        "Jennifer Aniston",
+        2
+      ]
+    ],
+    "gold_chunk_ids": [
+      "14c64a26cf2ce506",
+      "c6d28b12dff33299"
+    ],
+    "context_chunk_ids": [
+      "1d759448fd704b25",
+      "c6d28b12dff33299",
+      "f2c59cdb49ec6e85",
+      "b1a1a41853d278db",
+      "14c64a26cf2ce506",
+      "8f5e44d5eaa0b180",
+      "cc9981f89b3d1923",
+      "702e5a74aed1bc94",
+      "6fd1b0be6c106a8b",
+      "c597fc325ac5879a"
+    ]
+  },
+  {
+    "_id": "5a7e1a5455429965cec5ea5f",
+    "question": "Moonlight starred the actor who played whom on the remake of Hawaii Five-0?",
+    "answer": "Steve McGarrett",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Moonlight (TV series)",
+        1
+      ],
+      [
+        "Alex O'Loughlin",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a4ceb8b6ffc33d70",
+      "cfd994121564872e"
+    ],
+    "context_chunk_ids": [
+      "6584eacfa9e28c91",
+      "3d49511f8c3edd63",
+      "8d0cc705139a206c",
+      "17b50df45a4d6de4",
+      "a4ceb8b6ffc33d70",
+      "9080b6dc20173833",
+      "cfd994121564872e",
+      "458defe9ee05720a",
+      "32bc1bb3818ef3ee",
+      "cddd6b4dd1338ff1"
+    ]
+  },
+  {
+    "_id": "5a7af32e55429931da12c99c",
+    "question": "The song \"Judgment Night\" was a collaboration between Onyx and the heavy metal band formed in which city?",
+    "answer": "Brooklyn, New York",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Judgment Night (soundtrack)",
+        3
+      ],
+      [
+        "Biohazard (band)",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "bae665d7e9f01c51",
+      "f129dad49448a4ca"
+    ],
+    "context_chunk_ids": [
+      "c3086eb96c659efa",
+      "1e68db603285a2db",
+      "f8da7928ef2145b8",
+      "95d74dc47e72f542",
+      "3ea974fe2459bf18",
+      "f129dad49448a4ca",
+      "6721554446d9968a",
+      "a1be31889d49283c",
+      "a5bd4df89e72d5b3",
+      "bae665d7e9f01c51"
+    ]
+  },
+  {
+    "_id": "5ae5b99a5542993aec5ec1ce",
+    "question": "Which American rock band was formed first, Soil or Drowning Pool?",
+    "answer": "Drowning Pool",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Soil (American band)",
+        0
+      ],
+      [
+        "Drowning Pool",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "2b4a74884d741640",
+      "9bf6c5d9ac078751"
+    ],
+    "context_chunk_ids": [
+      "9bf6c5d9ac078751",
+      "2b4a74884d741640",
+      "7830d4b4aeada632",
+      "e7ca1b057b3c3a05",
+      "95b512d4f2ca3a69",
+      "c543d9f719f81ba3",
+      "87c64cae2dacb9b9",
+      "d6eb6532f8d34a23",
+      "a04d0d1adf9fe998",
+      "2a19866561212519"
+    ]
+  },
+  {
+    "_id": "5adcfc135542990d50227d87",
+    "question": "The Legendary A&M Sessions contain five songs by the singer whose work was conducted with what band?",
+    "answer": "Magic Band",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "The Legendary A&amp;M Sessions",
+        0
+      ],
+      [
+        "Captain Beefheart",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "bfd5736316c414f0",
+      "dcda177a9a8b0ebd"
+    ],
+    "context_chunk_ids": [
+      "186f64d3b7829d32",
+      "3b4f852b856c096e",
+      "8933c34943bfdad2",
+      "30c8492e3f4360ee",
+      "f75b53e3e77141e7",
+      "401185441430caf4",
+      "dcda177a9a8b0ebd",
+      "879efd1bd02bdbeb",
+      "bfd5736316c414f0",
+      "a5ec979a388c24cf"
+    ]
+  },
+  {
+    "_id": "5a77720255429967ab10517f",
+    "question": "In what year did both Orson Scott Card's novel \"Ender's Game\" and Keri Hulme's \"The Bone People\" come out?",
+    "answer": "1985",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Keri Hulme",
+        1
+      ],
+      [
+        "Orson Scott Card",
+        2
+      ]
+    ],
+    "gold_chunk_ids": [
+      "b72b04661c1a92f6",
+      "c23448474d98242c"
+    ],
+    "context_chunk_ids": [
+      "b72b04661c1a92f6",
+      "6346895e57a90285",
+      "cab513250e896903",
+      "cdb45bf1a7348aa1",
+      "a9e4797c7484d429",
+      "2930b450b52cf755",
+      "6d24502c923a3644",
+      "47edadf6e6ee0fba",
+      "5641991848afac1d",
+      "c23448474d98242c"
+    ]
+  },
+  {
+    "_id": "5adc69ef554299438c868daf",
+    "question": "Are Kalenderhane Mosque and Galata Bridge both located in Istanbul?",
+    "answer": "yes",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Kalenderhane Mosque",
+        0
+      ],
+      [
+        "Galata Bridge",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "2f1b532952105657",
+      "97ed00f7e059e872"
+    ],
+    "context_chunk_ids": [
+      "8ce96a987e1bfdb2",
+      "97ed00f7e059e872",
+      "07827c20865c32a2",
+      "23642768860b1af7",
+      "16b955f58f248d00",
+      "feb4d8bd4527a1b5",
+      "2f1b532952105657",
+      "8a864c2a09d706a5",
+      "6013e704fcb7a673",
+      "d05fd6d6f995b106"
+    ]
+  },
+  {
+    "_id": "5ab6be2f55429954757d335c",
+    "question": "Zakk Wylde and Damon Albarn are both what?",
+    "answer": "singer, songwriter, and multi-instrumentalist",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Zakk Wylde",
+        0
+      ],
+      [
+        "Damon Albarn",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "09c1266d4add04e3",
+      "2da381f11665165b"
+    ],
+    "context_chunk_ids": [
+      "d79cc507887594f0",
+      "0d017a55dd95e10d",
+      "2da381f11665165b",
+      "647d44f6e0c49d5f",
+      "6f8cd692ca8c4c37",
+      "18aba0732cb837ca",
+      "09c1266d4add04e3",
+      "68693e8eeab9a15f",
+      "7e93ed6a30929710",
+      "dd67e43ec51498e9"
+    ]
+  },
+  {
+    "_id": "5a734db15542994cef4bc523",
+    "question": "Which musician was born first, Constantine Orbelian or Lili Chookasian?",
+    "answer": "Lili Chookasian",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Constantine Orbelian",
+        0
+      ],
+      [
+        "Lili Chookasian",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "185b3ac3a93315a8",
+      "c8c7ed513bc29557"
+    ],
+    "context_chunk_ids": [
+      "ab55f0972c573850",
+      "ddba7c8ee8c2f4a2",
+      "7ac08a74cbccd041",
+      "c8c7ed513bc29557",
+      "2c3049d8d75419f1",
+      "cebb948ca2b64e89",
+      "4e49b289111a751e",
+      "185b3ac3a93315a8",
+      "e7a3b85aaae283b2",
+      "5f6f3da94d6c3ec5"
+    ]
+  },
+  {
+    "_id": "5a7345ed5542992359bc32ce",
+    "question": "Which field of studies did Semyon Aranovich Gershgorin and Anatoly Maltsev work in?",
+    "answer": "He was a mathematician",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Semyon Aranovich Gershgorin",
+        0
+      ],
+      [
+        "Anatoly Maltsev",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a041460133d02683",
+      "c59938cdf2826d2c"
+    ],
+    "context_chunk_ids": [
+      "babc7677e763a2e0",
+      "3beb096e9c80a897",
+      "a041460133d02683",
+      "c0ea491e0d7c906a",
+      "8bfd0c36d4d7a77c",
+      "ab2182b1bd93ddc0",
+      "c59938cdf2826d2c",
+      "14dc54c96c492586",
+      "5fc31ffb146ddffb",
+      "f40ff7fcf0c6d4d5"
+    ]
+  },
+  {
+    "_id": "5a77afcd5542997042120adf",
+    "question": "Who is older Carrie Akre or Shifty Shellshock?",
+    "answer": "Carrie Akre",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Carrie Akre",
+        0
+      ],
+      [
+        "Shifty Shellshock",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "0d888cee944dc2cb",
+      "1e82acbea30954cf"
+    ],
+    "context_chunk_ids": [
+      "cc9810d79e9cd34d",
+      "1e82acbea30954cf",
+      "22072efff7c6e070",
+      "b18abfa9fd7927c5",
+      "0e3a5e1368eb79fe",
+      "605e16b648692dcc",
+      "e75c71d95fdb03f2",
+      "fb6d4773c5a537c1",
+      "0d888cee944dc2cb",
+      "f4e1b3dad9a27f75"
+    ]
+  },
+  {
+    "_id": "5a82accd55429966c78a6a78",
+    "question": "Are the Barton Mine and Hermiston-McCauley Mine located in The United States of America?",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Barton Mine",
+        0
+      ],
+      [
+        "Hermiston-McCauley Mine",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "9176f5e10fbd0a84",
+      "fa7cace353cf66be"
+    ],
+    "context_chunk_ids": [
+      "78a7fc54937a3252",
+      "fa7cace353cf66be",
+      "53b795222c7c739d",
+      "68bd3d3d89f94b86",
+      "7fe46afd6de65c3a",
+      "32c65ffbe028b14f",
+      "eb1a65c2888d2011",
+      "096a17c17e8970c6",
+      "5bb9c962d16bc1ef",
+      "9176f5e10fbd0a84"
+    ]
+  },
+  {
+    "_id": "5a8434445542996488c2e517",
+    "question": "Who has released more solo albums, Ozzy Osbourne or Curt Smith?",
+    "answer": "John Michael \"Ozzy\" Osbourne",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Ozzy Osbourne",
+        0
+      ],
+      [
+        "Ozzy Osbourne",
+        2
+      ],
+      [
+        "Curt Smith",
+        2
+      ]
+    ],
+    "gold_chunk_ids": [
+      "d6e257c954b25f79",
+      "e472a3dd7d5e3621"
+    ],
+    "context_chunk_ids": [
+      "4d51ae482748920f",
+      "4b76c540d4063666",
+      "8d4a7e958e831048",
+      "a336632347978a4e",
+      "9892ac5d3834396b",
+      "d6e257c954b25f79",
+      "5d1c1f9c0d5d3709",
+      "91eefb0bb72f64bb",
+      "5c2a0b0ed9938e1a",
+      "e472a3dd7d5e3621"
+    ]
+  },
+  {
+    "_id": "5abe76c255429965af743f15",
+    "question": "What profession does John Landis and Gore Verbinski have in common?",
+    "answer": "director",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "John Landis",
+        0
+      ],
+      [
+        "Gore Verbinski",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "b9bd21d7e3d5165f",
+      "ce0b55ad059115bf"
+    ],
+    "context_chunk_ids": [
+      "b9bd21d7e3d5165f",
+      "21409954ac9c2eae",
+      "ae226777521a6673",
+      "b3372712df8d7f5e",
+      "243e0ad68432f8c7",
+      "296babc127e69b3b",
+      "a6e65010d0d95983",
+      "05c8a9112bf1a9e4",
+      "ce0b55ad059115bf",
+      "534cebfeb057792f"
+    ]
+  },
+  {
+    "_id": "5add11935542994734353827",
+    "question": "Were the bands Skin Yard and Ostava from the U.S.?",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Skin Yard",
+        0
+      ],
+      [
+        "Ostava",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "5a71c96551feeedb",
+      "f214ceb752342b01"
+    ],
+    "context_chunk_ids": [
+      "ff51adc6561b5ed8",
+      "bb0ba4b3aa5dba2f",
+      "5a71c96551feeedb",
+      "9434d79f77345376",
+      "cae565d472109bc9",
+      "f214ceb752342b01",
+      "7990c5b328a154e9",
+      "8f7c543867f8149e",
+      "83900d84b46529a2",
+      "f6302076c8582b74"
+    ]
+  }
+]

@@ -1,4 +1,4 @@
-# ── Python ────────────────────────────────────────────────────────────────────
+﻿# â”€â”€ Python â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 __pycache__/
 *.py[cod]
 *.pyo
@@ -9,16 +9,16 @@ dist/
 build/
 .eggs/
 
-# ── Virtual environments ───────────────────────────────────────────────────────
+# â”€â”€ Virtual environments â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 .venv/
 venv/
 env/
 
-# ── Environment / secrets ─────────────────────────────────────────────────────
+# â”€â”€ Environment / secrets â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 .env
-# .env.example is intentionally kept — it documents required vars without values
+# .env.example is intentionally kept â€” it documents required vars without values
 
-# ── Data ──────────────────────────────────────────────────────────────────────
+# â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 # Raw corpus documents are local; add them manually per deployment
 data/raw/*
 !data/raw/.gitkeep
@@ -35,7 +35,7 @@ graphify-out/
 *.bak_*
 DOCUMENT.md.bak_20261013
 
-# ── Log and error files ───────────────────────────────────────────────────────
+# â”€â”€ Log and error files â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 *.log
 *.log.txt
 *_log.txt
@@ -47,10 +47,10 @@ chunking_ablation_err.txt
 dedup_markdown_log.txt
 dedup_markdown_err.txt
 
-# ── Ablation / eval outputs (generated) ───────────────────────────────────────
+# â”€â”€ Ablation / eval outputs (generated) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 eval/ablations/chunking_results.json
 
-# ── OS and editor ─────────────────────────────────────────────────────────────
+# â”€â”€ OS and editor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 .DS_Store
 Thumbs.db
 *.swp
@@ -58,30 +58,40 @@ Thumbs.db
 .idea/
 .vscode/
 
-# ── uv / pip ──────────────────────────────────────────────────────────────────
+# â”€â”€ uv / pip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 uv.lock
 .python-version
 
-# ── Test artifacts ────────────────────────────────────────────────────────────
+# â”€â”€ Test artifacts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
 .pytest_cache/
 .coverage
 htmlcov/
 
-# ── What IS tracked ───────────────────────────────────────────────────────────
-# README.md          ✓
-# PRD.md             ✓
-# ARCHITECTURE.md    ✓
-# CONFIG.md          ✓
-# TASKS.md           ✓
-# DOCUMENT.md        ✓
-# .env.example       ✓
-# pyproject.toml     ✓
-# src/               ✓  (all source code)
-# scripts/           ✓
-# eval/              ✓  (scripts and gold set, not generated outputs)
-# tests/             ✓
-# data/raw/.gitkeep  ✓  (placeholder so the directory exists on clone)
+# â”€â”€ What IS tracked â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+# README.md          âœ“
+# PRD.md             âœ“
+# ARCHITECTURE.md    âœ“
+# CONFIG.md          âœ“
+# TASKS.md           âœ“
+# DOCUMENT.md        âœ“
+# .env.example       âœ“
+# pyproject.toml     âœ“
+# src/               âœ“  (all source code)
+# scripts/           âœ“
+# eval/              âœ“  (scripts and gold set, not generated outputs)
+# tests/             âœ“
+# data/raw/.gitkeep  âœ“  (placeholder so the directory exists on clone)
 
-LightRAG/
-Zeno/
+# Vendored upstream checkout only (anchored: an unanchored 'LightRAG/' also
+# matched src/graphrag_lite/retrieval/lightrag/ on case-insensitive FS)
+/LightRAG/
+
+# HotpotQA raw dataset (downloaded, ~27 MB)
+data/benchmarks/hotpotqa/raw/
+/Zeno/
+
+
+# Benchmark runtime files (machine-local, regenerable)
+data/benchmarks/**/cache.db*
+data/benchmarks/.gpu_inference.lock
 

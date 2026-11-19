@@ -1,0 +1,66 @@
+{
+  "benchmark_dir": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42",
+  "extraction_model": "mistral:latest",
+  "extraction_model_info": {
+    "size_bytes": 4372824384,
+    "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+    "parameter_size": "7.2B",
+    "quantization": "Q4_K_M",
+    "family": "llama"
+  },
+  "embedding_model": "nomic-embed-text",
+  "embedding_dim": 768,
+  "gleanings": 0,
+  "chunks_total": 200,
+  "chunks_extracted": 200,
+  "chunks_parse_failed": 4,
+  "chunks_indexed": 200,
+  "entities_indexed": 1311,
+  "relationships_indexed": 1093,
+  "documents": 200,
+  "graph": {
+    "nodes": 1311,
+    "edges": 1093,
+    "weak_components": 326,
+    "largest_component": 129,
+    "isolated_nodes": 232,
+    "cross_document_nodes": 133,
+    "cross_document_edges": 12,
+    "documents_linked_via_shared_entities": 146
+  },
+  "timings": {
+    "graph_build_s": 0.016,
+    "collections_build_s": 59.485
+  },
+  "extraction_latency_sum_s": 7251.0,
+  "extraction_latency_mean_s": 36.26,
+  "ollama_ps_during_extraction": [
+    {
+      "model": "nomic-embed-text:latest",
+      "size_bytes": 335743549,
+      "size_vram_bytes": 335743549,
+      "gpu_fraction": 1.0,
+      "processor": "GPU",
+      "context_length": 2048
+    }
+  ],
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "cpu": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 24,
+    "ollama_version": "0.40.16",
+    "ram_gb": 15.6,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "memory_total_mib": 8188,
+        "memory_used_mib": 449,
+        "driver": "592.82"
+      }
+    ],
+    "cuda_driver_version": "13.1"
+  },
+  "smoke_test_limit": null,
+  "built_at": "2026-11-19T05:48:42"
+}

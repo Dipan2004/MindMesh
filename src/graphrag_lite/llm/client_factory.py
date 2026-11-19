@@ -32,18 +32,23 @@ class GrokClientStub:
         # Interface only: return a constant indicating it's a stub
         return "[Grok API Stub] Request received. (Interface only - no hosted call made)"
 
-def get_llm_client(mode: Literal["local", "api"], api_key: str | None = None) -> LLMClient:
+def get_llm_client(
+    mode: Literal["local", "api"],
+    api_key: str | None = None,
+    model: str | None = None,
+) -> LLMClient:
     """
     Factory to return the appropriate LLM client based on the mode.
 
-    - 'local': Returns an OllamaClient using the SLM_MODEL from config.
+    - 'local': Returns an OllamaClient using ``model`` when given (the exact
+      tag a caller selected -- never substituted), else SLM_MODEL from config.
     - 'api': Returns a GrokClientStub.
     """
     cfg = get_config()
 
     if mode == "local":
         return OllamaClient(
-            model=cfg.SLM_MODEL,
+            model=model or cfg.SLM_MODEL,
             temperature=cfg.EXTRACTION_TEMPERATURE,
             seed=cfg.EXTRACTION_SEED,
             num_predict=cfg.LLM_NUM_PREDICT,

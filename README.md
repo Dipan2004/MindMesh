@@ -40,6 +40,48 @@ uvicorn graphrag_lite.api.main:app --port 8000
 
 Navigate to: `http://localhost:8000/webui` in your browser.
 
+> **Local demo access only.** The web UI has no real authentication: enter any
+> name or choose *Continue as Guest*. The backend always issues a guest token.
+> This is for local research demonstrations. Do not expose this server on a
+> public network or deploy it as-is.
+
+## HotpotQA benchmark (pilot)
+
+Isolated from canonical data under `data/benchmarks/hotpotqa/`. Needs Ollama with the models
+installed locally (nothing is pulled automatically; cloud models are refused):
+
+```bash
+pip install -e ".[dev]" pyarrow
+ollama pull mistral
+ollama pull nomic-embed-text
+```
+
+1. Put the dev-distractor split in `data/benchmarks/hotpotqa/raw/`, either
+   `hotpot_dev_distractor_v1.json` (official) or the HF mirror parquet
+   `https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/main/distractor/validation-00000-of-00001.parquet`
+   saved as `hotpot_qa_distractor_validation.parquet`.
+2. Build the 20-question sample (10 bridge + 10 comparison, seed 42):
+   ```bash
+   python eval/hotpotqa/prepare_sample.py
+   ```
+3. Build the isolated index (LLM extraction is resumable; safe to re-run after an interruption):
+   ```bash
+   python eval/hotpotqa/build_index.py --model mistral:latest
+   ```
+4. Run all four pipelines (one GPU job at a time; resumable; results never overwritten):
+   ```bash
+   python eval/hotpotqa/run_benchmark.py --model mistral:latest
+   ```
+5. Optional checks:
+   ```bash
+   python eval/hotpotqa/verify_freeze.py data/benchmarks/hotpotqa/dev_distractor_20q_seed42/freeze_20261119_amend3
+   python eval/check_guest_api.py
+   ```
+
+Results: `data/benchmarks/hotpotqa/dev_distractor_20q_seed42/runs/<run_id>/` (`results.jsonl`,
+`summary.json`, `summary.md`, `run_config.json`). Pilot report:
+`eval/results/hotpotqa_pilot_report_20261119.md`.
+
 ## Model-Selectable Experimental Runner
 
 Run reproducible retrieval evaluations with locally installed Ollama models:

@@ -8,7 +8,8 @@ import { useAuthStore, useBackendState } from '@/stores/state'
 import { cn } from '@/lib/utils'
 import { useTranslation } from 'react-i18next'
 import { navigationService } from '@/services/navigation'
-import { ZapIcon, LogOutIcon, BookOpenIcon } from 'lucide-react'
+import { LogOutIcon, BookOpenIcon } from 'lucide-react'
+import BrandMark from '@/components/BrandMark'
 import GithubIcon from '@/components/icons/GithubIcon'
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from '@/components/ui/Tooltip'
 import TouchDescriptionPopover from '@/components/ui/TouchDescriptionPopover'
@@ -25,7 +26,10 @@ function NavigationTab({ value, currentTab, children }: NavigationTabProps) {
       value={value}
       className={cn(
         'cursor-pointer px-2 py-1 transition-all',
-        currentTab === value ? '!bg-emerald-400 !text-zinc-50' : 'hover:bg-background/60'
+        'rounded-md text-sm font-medium',
+        currentTab === value
+          ? '!bg-primary !text-primary-foreground shadow-sm'
+          : 'text-muted-foreground hover:bg-background/70 hover:text-foreground'
       )}
     >
       {children}
@@ -57,6 +61,12 @@ function TabsNavigation() {
 export default function SiteHeader() {
   const { t } = useTranslation()
   const { isGuestMode, coreVersion, apiVersion, username, webuiTitle, webuiDescription } = useAuthStore()
+  let demoName: string | null = null
+  try {
+    demoName = localStorage.getItem('MINDMESH-DEMO-NAME')
+  } catch {
+    demoName = null
+  }
   const theme = useSettingsStore.use.theme()
   // Tri-state on purpose — 'unknown' (no successful /health yet) hides the
   // entry point rather than guessing; see apiDocsCapability in stores/state.ts.
@@ -80,7 +90,7 @@ export default function SiteHeader() {
   }
 
   return (
-    <header className="border-border/40 bg-background/95 supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50 flex h-10 w-full border-b px-4 backdrop-blur">
+    <header className="border-border bg-card/90 supports-[backdrop-filter]:bg-card/75 sticky top-0 z-50 flex h-12 w-full border-b px-4 backdrop-blur-md">
       <div className="min-w-[200px] w-auto flex items-center">
         {/* Document-relative brand link: under HashRouter the pathname always
             names this entry, so this resolves back to THIS entry — never a
@@ -90,9 +100,9 @@ export default function SiteHeader() {
           <Tooltip>
             <TooltipTrigger asChild>
               <a href={entryHomeHref(window.location.pathname)} className="flex items-center">
-                <ZapIcon className="mr-2 size-4 text-emerald-400" aria-hidden="true" />
-                <span className="font-bold md:inline-block">{SiteInfo.name}</span>
-                {webuiTitle && (
+                <BrandMark className="mr-2 size-7" />
+                <span className="text-base font-semibold tracking-tight md:inline-block">{SiteInfo.name}</span>
+                {webuiTitle && webuiTitle !== SiteInfo.name && (
                   <>
                     <span className="mx-1 text-xs text-gray-500 dark:text-gray-400" aria-hidden="true">|</span>
                     <span className="text-sm font-medium">{webuiTitle}</span>
@@ -113,8 +123,12 @@ export default function SiteHeader() {
       <div className="flex h-10 flex-1 items-center justify-center">
         <TabsNavigation />
         {isGuestMode && (
-          <div className="ml-2 self-center px-2 py-1 text-xs bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200 rounded-md">
-            {t('login.guestMode', 'Guest Mode')}
+          <div
+            className="ml-3 flex items-center gap-1.5 self-center rounded-full border border-border bg-card px-2.5 py-0.5 text-xs font-medium text-muted-foreground"
+            title="Local demo mode: no authentication. Do not expose publicly."
+          >
+            <span className="size-1.5 rounded-full bg-emerald-500" aria-hidden="true" />
+            {demoName ? `Demo · ${demoName}` : 'Demo · Guest'}
           </div>
         )}
       </div>

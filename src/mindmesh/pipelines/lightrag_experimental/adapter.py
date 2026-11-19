@@ -1,5 +1,5 @@
 """
-lightrag_experimental/adapter.py — Adapters for MindMesh-native LightRAG retrievers.
+lightrag_experimental/adapter.py Ã¢â‚¬â€ Adapters for MindMesh-native LightRAG retrievers.
 
 These wrap the four experimental LightRAG-style retrievers already in
 src/graphrag_lite/retrieval/lightrag/:
@@ -22,6 +22,7 @@ They require an experiment directory with pre-built Zvec collections
 """
 from __future__ import annotations
 
+import logging
 import sys
 import time
 from pathlib import Path
@@ -31,6 +32,8 @@ ROOT = Path(__file__).resolve().parents[4]
 sys.path.insert(0, str(ROOT / "src"))
 
 from mindmesh.pipelines.base import PipelineAdapter, PipelineResult
+
+log = logging.getLogger(__name__)
 
 
 def _default_exp_dir() -> Path:
@@ -106,7 +109,7 @@ class _ExperimentalBase(PipelineAdapter):
             try:
                 from graphrag_lite.llm.client_factory import get_llm_client
                 from graphrag_lite.llm.generator import AnswerGenerator
-                client = get_llm_client("local")
+                client = get_llm_client("local", model=self.model)
                 if self.optimized and hasattr(client, "with_overrides"):
                     client = client.with_overrides(num_predict=512)
                 gen = AnswerGenerator(client=client)

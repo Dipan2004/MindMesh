@@ -1,0 +1,336 @@
+{
+  "5ae31d5a5542990afbd1e0b1": [
+    {
+      "title": "Lilian Sukis",
+      "sent_idx": 6,
+      "doc_id": "hp_2ca744774ceedeac",
+      "chunk_id": "de015879a1a8e42a",
+      "sentence": " She has also appeared as a guest artist with several major opera houses and opera festivals internationally, including the Bayreuth Festival, the Frankfurt Opera, Graz, the Hamburg State Opera, the Salzburg Festival, and the Vienna State Opera among others."
+    },
+    {
+      "title": "Salzburg Festival",
+      "sent_idx": 1,
+      "doc_id": "hp_c5aaed598f3bc692",
+      "chunk_id": "681d8a379dc54c8a",
+      "sentence": " It is held each summer (for five weeks starting in late July) within the Austrian town of Salzburg, the birthplace of Wolfgang Amadeus Mozart."
+    }
+  ],
+  "5a7b89a3554299294a54a9e3": [
+    {
+      "title": "Big Daddy (BioShock)",
+      "sent_idx": 0,
+      "doc_id": "hp_3f41b1c238b482c7",
+      "chunk_id": "2127506328e59596",
+      "sentence": "A Big Daddy is a fictional character in the \"BioShock\" series of video games."
+    },
+    {
+      "title": "BioShock (series)",
+      "sent_idx": 7,
+      "doc_id": "hp_c213367693959688",
+      "chunk_id": "ad6621586ff9f027",
+      "sentence": " With the release of \"BioShock Infinite\" selling over 11 million copies as of May 2015, the three games combined have more than 25 million copies sold."
+    }
+  ],
+  "5a7344e95542991f9a20c6ce": [
+    {
+      "title": "Rudebox (song)",
+      "sent_idx": 0,
+      "doc_id": "hp_ffd133ef3ba1fd16",
+      "chunk_id": "05213011ab94a3bd",
+      "sentence": "\"Rudebox\" is song by English musician Robbie Williams, from the his seventh studio album of the same name (2006)."
+    },
+    {
+      "title": "Rudebox (song)",
+      "sent_idx": 3,
+      "doc_id": "hp_ffd133ef3ba1fd16",
+      "chunk_id": "05213011ab94a3bd",
+      "sentence": " After the release of the CD single, it ascended 26 places to number 4, selling 24,821 copies, beaten by Nelly Furtado featuring Timbaland's \"Promiscuous\", Justin Timberlake's \"SexyBack\" and Scissor Sisters' \"I Don't Feel Like Dancin'\"."
+    },
+    {
+      "title": "SexyBack",
+      "sent_idx": 0,
+      "doc_id": "hp_c3aae0f5d44dec11",
+      "chunk_id": "0c51c0fd5fd6bc00",
+      "sentence": "\"SexyBack\" is a song recorded by American singer-songwriter Justin Timberlake for his second studio album, \"FutureSex/LoveSounds\" (2006)."
+    }
+  ],
+  "5a8ba59a554299240d9c2058": [
+    {
+      "title": "The Duke Steps Out",
+      "sent_idx": 0,
+      "doc_id": "hp_4620870b90cf03fd",
+      "chunk_id": "00b646218603732e",
+      "sentence": "The Duke Steps Out is a 1929 silent film starring William Haines and Joan Crawford."
+    },
+    {
+      "title": "Joan Crawford",
+      "sent_idx": 2,
+      "doc_id": "hp_1348b15738408dcc",
+      "chunk_id": "a9d7761f73d9179f",
+      "sentence": " In 1999, the American Film Institute ranked Crawford tenth on its list of the greatest female stars of Classic Hollywood Cinema."
+    }
+  ],
+  "5a89007355429938390d4026": [
+    {
+      "title": "Rafael Casal",
+      "sent_idx": 3,
+      "doc_id": "hp_3df6ce834b4f24bb",
+      "chunk_id": "bb2ce097a67ead14",
+      "sentence": " Casal has shared the stage with the likes of Common, Talib Kweli, Mos Def, KRS-One, Floetry, Kanye West, Saul Williams, Alanis Morissette, De La Soul, Dead Prez, George Clinton, Carole King, Lauryn Hill & numerous others, performing in front of crowds of up to 30,000."
+    },
+    {
+      "title": "Mos Def",
+      "sent_idx": 2,
+      "doc_id": "hp_7df4d2c802253b1b",
+      "chunk_id": "643533cff5f45740",
+      "sentence": " He subsequently formed the duo Black Star, alongside fellow Brooklyn-based rapper Talib Kweli, and they released their eponymous debut album in 1998."
+    }
+  ],
+  "5a86edcc55429960ec39b6da": [
+    {
+      "title": "She's Funny That Way (film)",
+      "sent_idx": 1,
+      "doc_id": "hp_29afcea943976657",
+      "chunk_id": "14c64a26cf2ce506",
+      "sentence": " The film stars Owen Wilson, Imogen Poots, Kathryn Hahn, Will Forte, Rhys Ifans and Jennifer Aniston."
+    },
+    {
+      "title": "Jennifer Aniston",
+      "sent_idx": 2,
+      "doc_id": "hp_7062cb7532c4e037",
+      "chunk_id": "c6d28b12dff33299",
+      "sentence": " Aniston gained worldwide recognition for portraying Rachel Green on the television sitcom \"Friends\" (1994–2004), a role which earned her a Primetime Emmy Award, a Golden Globe Award, and a Screen Actors Guild Award."
+    }
+  ],
+  "5a7e1a5455429965cec5ea5f": [
+    {
+      "title": "Moonlight (TV series)",
+      "sent_idx": 1,
+      "doc_id": "hp_ddb4be1f6446790d",
+      "chunk_id": "a4ceb8b6ffc33d70",
+      "sentence": " The series follows private investigator Mick St. John (Alex O'Loughlin), who was turned into a vampire by his bride Coraline (Shannyn Sossamon) on the couple's wedding night fifty-five years earlier."
+    },
+    {
+      "title": "Alex O'Loughlin",
+      "sent_idx": 0,
+      "doc_id": "hp_20060fbadf0d0f35",
+      "chunk_id": "cfd994121564872e",
+      "sentence": "Alex O'Loughlin (born 24 August 1976) is an Australian actor, who plays Lieutenant Commander Steve McGarrett on CBS' remake of the TV series \"Hawaii Five-0\"."
+    }
+  ],
+  "5a7af32e55429931da12c99c": [
+    {
+      "title": "Judgment Night (soundtrack)",
+      "sent_idx": 3,
+      "doc_id": "hp_743313a46a13f336",
+      "chunk_id": "f129dad49448a4ca",
+      "sentence": " The album peaked at #17 on the \"Billboard\" 200 and spawned four singles, \"Fallin'\" by Teenage Fanclub and De La Soul, \"Another Body Murdered\" by Faith No More and Boo-Yaa T.R.I.B.E., \"Just Another Victim\" by Helmet and House of Pain, and \"Judgment Night\" by Biohazard and Onyx."
+    },
+    {
+      "title": "Biohazard (band)",
+      "sent_idx": 0,
+      "doc_id": "hp_ce60b67f4cddfccc",
+      "chunk_id": "bae665d7e9f01c51",
+      "sentence": "Biohazard is an American heavy metal band formed in Brooklyn, New York in 1987."
+    }
+  ],
+  "5ae5b99a5542993aec5ec1ce": [
+    {
+      "title": "Soil (American band)",
+      "sent_idx": 0,
+      "doc_id": "hp_6d3fb3f9a8564cfc",
+      "chunk_id": "9bf6c5d9ac078751",
+      "sentence": "Soil, often typeset as SOiL, is an American rock band that was formed in Chicago, Illinois in 1997."
+    },
+    {
+      "title": "Drowning Pool",
+      "sent_idx": 0,
+      "doc_id": "hp_5ecd62dcccb5e178",
+      "chunk_id": "2b4a74884d741640",
+      "sentence": "Drowning Pool is an American rock band formed in Dallas, Texas in 1996."
+    }
+  ],
+  "5adcfc135542990d50227d87": [
+    {
+      "title": "The Legendary A&amp;M Sessions",
+      "sent_idx": 0,
+      "doc_id": "hp_a8e992223e8b3e96",
+      "chunk_id": "bfd5736316c414f0",
+      "sentence": "The Legendary A&M Sessions is an extended play featuring five songs by Captain Beefheart & His Magic Band, recorded early in their career for their original record label A&M Records."
+    },
+    {
+      "title": "Captain Beefheart",
+      "sent_idx": 1,
+      "doc_id": "hp_209c3d956df6b8bd",
+      "chunk_id": "dcda177a9a8b0ebd",
+      "sentence": " His musical work was conducted with a rotating ensemble of musicians called the Magic Band (1964–1982), with whom he recorded 13 studio albums."
+    }
+  ],
+  "5a77720255429967ab10517f": [
+    {
+      "title": "Keri Hulme",
+      "sent_idx": 1,
+      "doc_id": "hp_d58b292c062324be",
+      "chunk_id": "c23448474d98242c",
+      "sentence": " Her only novel, \"The Bone People\", won the Booker Prize in 1985."
+    },
+    {
+      "title": "Orson Scott Card",
+      "sent_idx": 2,
+      "doc_id": "hp_e66a1f54686744dd",
+      "chunk_id": "b72b04661c1a92f6",
+      "sentence": " His novel \"Ender's Game\" (1985) and its sequel \"Speaker for the Dead\" (1986) both won Hugo and Nebula Awards, making Card the only author to win both science fiction's top U.S. prizes in consecutive years."
+    }
+  ],
+  "5adc69ef554299438c868daf": [
+    {
+      "title": "Kalenderhane Mosque",
+      "sent_idx": 0,
+      "doc_id": "hp_db6d3a8033a7728c",
+      "chunk_id": "2f1b532952105657",
+      "sentence": "Kalenderhane Mosque (Turkish: \"Kalenderhane Camii\" ) is a former Eastern Orthodox church in Istanbul, converted into a mosque by the Ottomans."
+    },
+    {
+      "title": "Galata Bridge",
+      "sent_idx": 0,
+      "doc_id": "hp_b850b52a559af773",
+      "chunk_id": "97ed00f7e059e872",
+      "sentence": "The Galata Bridge (Turkish: \"Galata Köprüsü\" , ] ) is a bridge that spans the Golden Horn in Istanbul, Turkey."
+    }
+  ],
+  "5ab6be2f55429954757d335c": [
+    {
+      "title": "Zakk Wylde",
+      "sent_idx": 0,
+      "doc_id": "hp_352cd1599ea9ffbf",
+      "chunk_id": "09c1266d4add04e3",
+      "sentence": "Zakk Wylde (born Jeffrey Phillip Wielandt on January 14, 1967) is an American musician, singer, songwriter, multi-instrumentalist and occasional actor who is best known as the guitarist for Ozzy Osbourne, and founder of the heavy metal band Black Label Society."
+    },
+    {
+      "title": "Damon Albarn",
+      "sent_idx": 0,
+      "doc_id": "hp_c7ba2e25b7b36939",
+      "chunk_id": "2da381f11665165b",
+      "sentence": "Damon Albarn, OBE ( ; born 23 March 1968) is an English singer, songwriter, and multi-instrumentalist."
+    }
+  ],
+  "5a734db15542994cef4bc523": [
+    {
+      "title": "Constantine Orbelian",
+      "sent_idx": 0,
+      "doc_id": "hp_9b088777f58c1aa0",
+      "chunk_id": "185b3ac3a93315a8",
+      "sentence": "Constantine Garrievich Orbelian, Jr. (Armenian: Կոնստանտին Օրբելյան , Russian: Константин Гарриевич Орбелян , born San Francisco, 27 August 1956) is an American conductor and pianist of Armenian and Russian descent."
+    },
+    {
+      "title": "Lili Chookasian",
+      "sent_idx": 0,
+      "doc_id": "hp_bea168b1d94d1cf5",
+      "chunk_id": "c8c7ed513bc29557",
+      "sentence": "Lili Chookasian (August 1, 1921April 9, 2012) was an American contralto who appeared with many of the world's major symphony orchestras and opera houses."
+    }
+  ],
+  "5a7345ed5542992359bc32ce": [
+    {
+      "title": "Semyon Aranovich Gershgorin",
+      "sent_idx": 0,
+      "doc_id": "hp_9b099ecbc2af015a",
+      "chunk_id": "a041460133d02683",
+      "sentence": "Semyon Aronovich Gershgorin (August 24, 1901 – May 30, 1933) was a Soviet (born in Pruzhany, Belarus, Russian Empire) mathematician."
+    },
+    {
+      "title": "Anatoly Maltsev",
+      "sent_idx": 1,
+      "doc_id": "hp_d20ba85a57590c30",
+      "chunk_id": "c59938cdf2826d2c",
+      "sentence": " He was a mathematician noted for his work on the decidability of various algebraic groups. Malcev algebras (generalisations of Lie algebras) are named after him."
+    }
+  ],
+  "5a77afcd5542997042120adf": [
+    {
+      "title": "Carrie Akre",
+      "sent_idx": 0,
+      "doc_id": "hp_2afa90f7ec34b459",
+      "chunk_id": "0d888cee944dc2cb",
+      "sentence": "Carrie Akre (born September 24, 1966) is an American musician best known for her work with Seattle underground bands Hammerbox and Goodness."
+    },
+    {
+      "title": "Shifty Shellshock",
+      "sent_idx": 0,
+      "doc_id": "hp_c1c0a020ac369351",
+      "chunk_id": "1e82acbea30954cf",
+      "sentence": "Seth Brooks Binzer (born August 23, 1974), better known by his stage name Shifty Shellshock, is an American music artist, best known for being a co-founder and front man of the rap rock band Crazy Town, and their hit song \"Butterfly\"."
+    }
+  ],
+  "5a82accd55429966c78a6a78": [
+    {
+      "title": "Barton Mine",
+      "sent_idx": 0,
+      "doc_id": "hp_cb87b0d16a0cde34",
+      "chunk_id": "fa7cace353cf66be",
+      "sentence": "Barton Mine, also known as Net Lake Mine, is an abandoned surface and underground mine in Northeastern Ontario, Canada."
+    },
+    {
+      "title": "Hermiston-McCauley Mine",
+      "sent_idx": 0,
+      "doc_id": "hp_89ac0f0853f7eb1d",
+      "chunk_id": "9176f5e10fbd0a84",
+      "sentence": "Hermiston-McCauley Mine is a large abandoned underground gold mine in Strathy Township of Temagami, Northeastern Ontario, Canada."
+    }
+  ],
+  "5a8434445542996488c2e517": [
+    {
+      "title": "Ozzy Osbourne",
+      "sent_idx": 0,
+      "doc_id": "hp_20d467def1fec319",
+      "chunk_id": "e472a3dd7d5e3621",
+      "sentence": "John Michael \"Ozzy\" Osbourne (born 3 December 1948) is an English singer, songwriter, and actor."
+    },
+    {
+      "title": "Ozzy Osbourne",
+      "sent_idx": 2,
+      "doc_id": "hp_20d467def1fec319",
+      "chunk_id": "e472a3dd7d5e3621",
+      "sentence": " He was fired from Black Sabbath in 1979 and went on to have a successful solo career, releasing 11 studio albums, the first seven of which were all awarded multi-platinum certifications in the US."
+    },
+    {
+      "title": "Curt Smith",
+      "sent_idx": 2,
+      "doc_id": "hp_d203e5e340f2b0de",
+      "chunk_id": "d6e257c954b25f79",
+      "sentence": " As a solo artist, he has released four solo albums."
+    }
+  ],
+  "5abe76c255429965af743f15": [
+    {
+      "title": "John Landis",
+      "sent_idx": 0,
+      "doc_id": "hp_fbd6e371c19c3a71",
+      "chunk_id": "b9bd21d7e3d5165f",
+      "sentence": "John David Landis (born August 3, 1950) is an American film director, screenwriter, actor, and producer."
+    },
+    {
+      "title": "Gore Verbinski",
+      "sent_idx": 0,
+      "doc_id": "hp_1fbd60beb768a4ea",
+      "chunk_id": "ce0b55ad059115bf",
+      "sentence": "Gregor \"Gore\" Verbinski (born March 16, 1964) is an American film director, screenwriter, producer and musician."
+    }
+  ],
+  "5add11935542994734353827": [
+    {
+      "title": "Skin Yard",
+      "sent_idx": 0,
+      "doc_id": "hp_a8d8b97768a7a5ac",
+      "chunk_id": "f214ceb752342b01",
+      "sentence": "Skin Yard was an American grunge band from Seattle, Washington, who were active from 1985 to 1993."
+    },
+    {
+      "title": "Ostava",
+      "sent_idx": 0,
+      "doc_id": "hp_11404ff1b89fd680",
+      "chunk_id": "5a71c96551feeedb",
+      "sentence": "Ostava are an alternative rock band from Bulgaria."
+    }
+  ]
+}

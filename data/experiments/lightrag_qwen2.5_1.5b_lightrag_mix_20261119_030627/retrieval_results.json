@@ -1,0 +1,519 @@
+{
+  "results": [
+    {
+      "query_id": "D01",
+      "query": "How does the self-attention mechanism compute attention scores?",
+      "gold_chunk_ids": [
+        "c81c2a06e4ee9667"
+      ],
+      "chunk_ids": [
+        "c81c2a06e4ee9667",
+        "745e90bb807507b6",
+        "c3893b323a2ee3e1",
+        "a04b3d90e2da113b",
+        "a5123f467123650e",
+        "ab2692f1a112544f"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "transformer_architecture"
+      ],
+      "answer": "The self-attention mechanism computes attention scores as the dot product of the Query and Key vectors, scaled by the square root of the key dimension. [0]",
+      "retrieval_latency_s": 1.359,
+      "generation_latency_s": 0.531,
+      "total_latency_s": 3.14,
+      "errors": []
+    },
+    {
+      "query_id": "D02",
+      "query": "What is the Encoder-Decoder structure of the original Transformer?",
+      "gold_chunk_ids": [
+        "a885be6b749e39a1"
+      ],
+      "chunk_ids": [
+        "745e90bb807507b6",
+        "417905a71f013c88",
+        "4dcff615e7a2ceff",
+        "c81c2a06e4ee9667",
+        "32c85d7ec02b6b19",
+        "a885be6b749e39a1"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "large_language_models",
+        "retrieval_augmented_generation",
+        "transformer_architecture",
+        "vector_databases"
+      ],
+      "answer": "The original Transformer consists of an encoder and a decoder. The encoder maps an input sequence of symbols to a sequence of continuous representations. The decoder then generates an output sequence one symbol at a time, attending to both the encoder output and its own previous outputs. Each encoder layer contains a multi-head self-attention sublayer and a feed-forward sublayer. Each decoder layer contains an additional cross-attention sublayer that attends to the encoder output. [0]",
+      "retrieval_latency_s": 0.875,
+      "generation_latency_s": 0.969,
+      "total_latency_s": 1.844,
+      "errors": []
+    },
+    {
+      "query_id": "D03",
+      "query": "How are entities and relationships extracted from text in GraphRAG?",
+      "gold_chunk_ids": [
+        "6d878b7f56a99aa2"
+      ],
+      "chunk_ids": [
+        "a09f4455b7fef7fa",
+        "ab2692f1a112544f",
+        "0282ea8070392cd0",
+        "4e802a799a872699",
+        "3256abe3c09bca47",
+        "ba8440076ddd110a"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs"
+      ],
+      "answer": "Entities and relationships are extracted from text using graph neural networks (GNNs) that process sequences of words. GNNs iteratively aggregate information from neighboring nodes, capturing the context and relationships between entities and their attributes. [1] The process involves tokenizing the text into sequences of words, then passing these sequences through a series of layers in the GNN. Each layer processes the sequence differently, with the first layer focusing on local context and higher layers capturing more global information. [2] In the first layer, each node in the graph (representing an entity or relationship) is assigned a vector based on its position in the sequence. This initial vector captures the most basic features of the entity or relationship. [3] As the sequence moves through the layers, edges are added between nodes based on their relationships. For example, if two entities are mentioned in the same sentence, an edge is created between them. This edge is assigned a weight based on how strongly the entities are related. [4] The final output of the GNN is a set of vectors for each node in the graph, representing the extracted entities and relationships. These vectors can be used to answer questions by comparing them to the entities and relationships in the knowledge graph. [5] The process is iterative, with each layer refining the representation of entities and relationships based on the information learned from previous layers. This allows GNNs to effectively extract complex relationships and patterns from text data. [6]",
+      "retrieval_latency_s": 0.719,
+      "generation_latency_s": 2.218,
+      "total_latency_s": 2.937,
+      "errors": []
+    },
+    {
+      "query_id": "D04",
+      "query": "What is Wikidata and who maintains it?",
+      "gold_chunk_ids": [
+        "3256abe3c09bca47"
+      ],
+      "chunk_ids": [
+        "025a4d30df8706bc",
+        "b76780cc91220506",
+        "ab2692f1a112544f",
+        "3256abe3c09bca47",
+        "a04b3d90e2da113b",
+        "5a5f4b8aeeb5ae55"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "### Wikidata [3] Wikidata is a free, collaboratively edited knowledge base maintained by the Wikimedia Foundation. It serves as a central storage hub for structured data across all Wikimedia projects, including Wikipedia. Wikidata contains over 100 million data items and supports multiple languages. It was founded in 2012 with support from Google, Microsoft, and the Allen Institute for Artificial Intelligence.",
+      "retrieval_latency_s": 0.875,
+      "generation_latency_s": 0.891,
+      "total_latency_s": 1.766,
+      "errors": []
+    },
+    {
+      "query_id": "D05",
+      "query": "What are knowledge graph embedding methods like TransE and RotatE?",
+      "gold_chunk_ids": [
+        "4e802a799a872699"
+      ],
+      "chunk_ids": [
+        "a09f4455b7fef7fa",
+        "ab2692f1a112544f",
+        "4e802a799a872699",
+        "0282ea8070392cd0",
+        "417905a71f013c88",
+        "ba8440076ddd110a"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "TransE represents relationships as translations in embedding space. [1] RotatE represents relations as rotations in complex space. [2]",
+      "retrieval_latency_s": 0.625,
+      "generation_latency_s": 0.453,
+      "total_latency_s": 1.078,
+      "errors": []
+    },
+    {
+      "query_id": "D06",
+      "query": "What is Retrieval-Augmented Generation and why does it matter?",
+      "gold_chunk_ids": [
+        "33d32892fc640b3f"
+      ],
+      "chunk_ids": [
+        "d49b99f9a418a0fb",
+        "b744eeebc1934b70",
+        "71387ffa83db5d3c",
+        "e146728cdddcf0e5",
+        "7bac4d8e30f7b55c",
+        "33d32892fc640b3f"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "Retrieval-Augmented Generation (RAG) is a technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time. It was introduced by Lewis et al. at Facebook AI Research in the 2020 paper \"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.\" [0] RAG addresses several issues with traditional LLMs, including the training cutoff date, potential hallucinations, and the need for expensive retraining. It also supports citations, improving interpretability and trustworthiness. [1] RAG systems can be mixed and matched for specific use cases, making them modular. [2]",
+      "retrieval_latency_s": 0.625,
+      "generation_latency_s": 1.156,
+      "total_latency_s": 1.781,
+      "errors": []
+    },
+    {
+      "query_id": "D07",
+      "query": "How does HyDE improve retrieval quality in RAG systems?",
+      "gold_chunk_ids": [
+        "b744eeebc1934b70"
+      ],
+      "chunk_ids": [
+        "7bac4d8e30f7b55c",
+        "71387ffa83db5d3c",
+        "b744eeebc1934b70",
+        "33d32892fc640b3f",
+        "e146728cdddcf0e5",
+        "99f7ac4bdc89395d"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "HyDE (Hypothetical Document Embeddings) generates a hypothetical answer to the query first, then uses that as the retrieval query, often improving recall. [2]",
+      "retrieval_latency_s": 0.594,
+      "generation_latency_s": 0.485,
+      "total_latency_s": 1.079,
+      "errors": []
+    },
+    {
+      "query_id": "D08",
+      "query": "What is HNSW and how does it speed up approximate nearest neighbor search?",
+      "gold_chunk_ids": [
+        "417905a71f013c88"
+      ],
+      "chunk_ids": [
+        "d49b99f9a418a0fb",
+        "e146728cdddcf0e5",
+        "99f7ac4bdc89395d",
+        "417905a71f013c88",
+        "b744eeebc1934b70",
+        "a949df1c877b7163"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "[HNSW] is a hierarchical navigable small-world (HNSW) algorithm used in approximate nearest neighbor search. It builds a multi-layer graph where each layer is a navigable small-world network, allowing queries to start at the top layer and descend to progressively closer nodes, significantly reducing the time required for approximate nearest neighbor search.",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 0.719,
+      "total_latency_s": 1.328,
+      "errors": []
+    },
+    {
+      "query_id": "D09",
+      "query": "What is Direct Preference Optimization and how does it differ from RLHF?",
+      "gold_chunk_ids": [
+        "5c56e059e8cebff9"
+      ],
+      "chunk_ids": [
+        "d49b99f9a418a0fb",
+        "e146728cdddcf0e5",
+        "99f7ac4bdc89395d",
+        "a09f4455b7fef7fa",
+        "b76780cc91220506",
+        "32c85d7ec02b6b19"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "Direct Preference Optimization (DPO) is a method for fine-tuning language models that involves aligning the model's behavior with human preferences directly. It differs from Reinforcement Learning from Human Feedback (RLHF) in that it does not require human annotators to rank model responses. Instead, it uses proximal policy optimization (PPO) to maximize a learned reward signal based on human feedback, making it more efficient and scalable. [0] RLHF involves human annotators providing feedback on model responses, which is then used to train a reward model that the LLM is fine-tuned against. This process requires significant human effort and can be time-consuming. DPO, on the other hand, directly aligns the model's behavior with human preferences using PPO, making it more efficient and scalable. [1] RLHF is a supervised learning approach where the model is fine-tuned on a dataset of instruction-response pairs. DPO, in contrast, uses proximal policy optimization (PPO) to fine-tune the model based on a learned reward signal derived from human feedback. This makes DPO more efficient and scalable, especially for large language models. [2]",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 1.719,
+      "total_latency_s": 2.328,
+      "errors": []
+    },
+    {
+      "query_id": "D10",
+      "query": "How is a basic retrieval-augmented pipeline put together, and which chunking and retrieval-quality problems does it face?",
+      "gold_chunk_ids": [
+        "4dcff615e7a2ceff",
+        "7bac4d8e30f7b55c"
+      ],
+      "chunk_ids": [
+        "7bac4d8e30f7b55c",
+        "e146728cdddcf0e5",
+        "33d32892fc640b3f",
+        "71387ffa83db5d3c",
+        "b744eeebc1934b70",
+        "3256abe3c09bca47"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "retrieval_augmented_generation"
+      ],
+      "answer": "The basic retrieval-augmented pipeline involves several key components: [0] - **Dense Retriever**: Encodes both queries and documents into dense vector representations using a bi-encoder model. - **Document Store / Vector Index**: Stores retrieved documents in a vector index that supports fast approximate nearest neighbor search. - **Query Processing**: The system first retrieves relevant passages from the corpus, then conditions the LLM on both the question and the retrieved passages to produce a grounded answer. **Chunking Strategy**: - **Too Small**: Chunks that are too small lose context. - **Too Large**: Chunks that are too large dilute relevance signals and may exceed context windows. **Retrieval Quality**: - **Dense Retrieval**: Can miss exact-match queries for named entities, IDs, or rare terms. - **Hybrid Retrieval**: Combines dense vectors with sparse keyword search (BM25) typically outperforms either approach alone on mixed query types. **Chunking Strategy**: - **Too Small**: Chunks that are too small lose context. - **Too Large**: Chunks that are too large dilute relevance signals and may exceed context windows. **Retrieval Quality**: - **Dense Retrieval**: Can miss exact-match queries for named entities, IDs, or rare terms. - **Hybrid Retrieval**: Combines dense vectors with sparse keyword search (BM25) typically outperforms either approach alone on mixed query types.",
+      "retrieval_latency_s": 0.594,
+      "generation_latency_s": 2.156,
+      "total_latency_s": 2.75,
+      "errors": []
+    },
+    {
+      "query_id": "D11",
+      "query": "How did Google's Knowledge Graph come about, and what happened to Freebase afterwards?",
+      "gold_chunk_ids": [
+        "ba8440076ddd110a",
+        "b76780cc91220506"
+      ],
+      "chunk_ids": [
+        "ab2692f1a112544f",
+        "b76780cc91220506",
+        "ba8440076ddd110a",
+        "a09f4455b7fef7fa",
+        "0282ea8070392cd0",
+        "c3893b323a2ee3e1"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models"
+      ],
+      "answer": "Google popularized the term \"knowledge graph\" in 2012 when it launched the Google Knowledge Graph to enhance search results with structured entity information. This system contained over 500 million entities at launch and drew from sources including Freebase, Wikipedia, and the CIA World Factbook. [1] In 2016, Google shut down Freebase, the primary data source for the Google Knowledge Graph, and migrated its data to Wikidata. [2]",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 0.875,
+      "total_latency_s": 1.484,
+      "errors": []
+    },
+    {
+      "query_id": "D12",
+      "query": "How do FAISS and LanceDB differ in how they are deployed and what they support?",
+      "gold_chunk_ids": [
+        "d49b99f9a418a0fb",
+        "5a5f4b8aeeb5ae55"
+      ],
+      "chunk_ids": [
+        "99f7ac4bdc89395d",
+        "5a5f4b8aeeb5ae55",
+        "e146728cdddcf0e5",
+        "ab2692f1a112544f",
+        "b76780cc91220506",
+        "a949df1c877b7163"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "FAISS is an in-process solution that requires a server, supporting SQL-like queries alongside vector search. [1] LanceDB is an open-source, serverless vector database built on the Lance columnar format, running in-process with no server required, supporting SQL-like queries alongside vector search. [2]",
+      "retrieval_latency_s": 0.594,
+      "generation_latency_s": 0.672,
+      "total_latency_s": 1.266,
+      "errors": []
+    },
+    {
+      "query_id": "D13",
+      "query": "What is a knowledge graph, and which vector store does Microsoft's GraphRAG use by default?",
+      "gold_chunk_ids": [
+        "0282ea8070392cd0",
+        "5a5f4b8aeeb5ae55"
+      ],
+      "chunk_ids": [
+        "ab2692f1a112544f",
+        "a09f4455b7fef7fa",
+        "ba8440076ddd110a",
+        "4e802a799a872699",
+        "025a4d30df8706bc",
+        "0282ea8070392cd0"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "A knowledge graph is a structured representation of facts about entities and the relationships between them. It organizes information as a graph where nodes represent entities and edges represent typed relationships between those entities. [0] Pinecone is a managed, cloud-native vector database service. It handles infrastructure, scaling, and replication automatically. Pinecone supports metadata filtering alongside vector search, allowing queries like \"find the 10 most similar documents that also match filter: category='science'\". It is a popular choice for production RAG deployments that require managed infrastructure. [4] # Knowledge Graphs [5] ## Overview A knowledge graph is a structured representation of facts about entities and the relationships between them. It organizes information as a graph where nodes represent entities and edges represent typed relationships between those entities. Each edge carries a specific relationship type, such as \"founded_by,\" \"located_in,\" or \"works_at.\" Knowledge graphs allow machines to reason about the world in a structured way, enabling applications like question answering, recommendation systems, search engines, and AI assistants.",
+      "retrieval_latency_s": 0.594,
+      "generation_latency_s": 1.656,
+      "total_latency_s": 2.25,
+      "errors": []
+    },
+    {
+      "query_id": "D14",
+      "query": "In what year was the Transformer architecture introduced, and in what year was the RAG paper published?",
+      "gold_chunk_ids": [
+        "745e90bb807507b6",
+        "33d32892fc640b3f"
+      ],
+      "chunk_ids": [
+        "745e90bb807507b6",
+        "4dcff615e7a2ceff",
+        "71387ffa83db5d3c",
+        "c3893b323a2ee3e1",
+        "b76780cc91220506",
+        "33d32892fc640b3f"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation",
+        "transformer_architecture"
+      ],
+      "answer": "The Transformer Architecture was introduced in 2017. [0] The RAG paper was published in 2020. [1]",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 0.578,
+      "total_latency_s": 1.187,
+      "errors": []
+    },
+    {
+      "query_id": "D15",
+      "query": "How do knowledge graphs and retrieval-augmented generation each let a search system show where an answer came from?",
+      "gold_chunk_ids": [
+        "ab2692f1a112544f",
+        "71387ffa83db5d3c"
+      ],
+      "chunk_ids": [
+        "ab2692f1a112544f",
+        "a09f4455b7fef7fa",
+        "0282ea8070392cd0",
+        "ba8440076ddd110a",
+        "b76780cc91220506",
+        "fc0f4473d792a08f"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "Knowledge graphs provide structured information that can be used to answer questions by traversing graph paths to find answers. [0] Retrieval-augmented generation uses knowledge graphs to guide the search for answers, enhancing the accuracy and relevance of the results. [1]",
+      "retrieval_latency_s": 0.61,
+      "generation_latency_s": 0.578,
+      "total_latency_s": 1.188,
+      "errors": []
+    },
+    {
+      "query_id": "D16",
+      "query": "In its most basic arrangement, how are materials divided, turned into numbers, and searched when someone asks -- and what limitation does that arrangement have?",
+      "gold_chunk_ids": [
+        "4dcff615e7a2ceff"
+      ],
+      "chunk_ids": [
+        "6fc475866849cd38",
+        "a09f4455b7fef7fa",
+        "ab2692f1a112544f",
+        "33d32892fc640b3f",
+        "0282ea8070392cd0",
+        "c81c2a06e4ee9667"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "retrieval_augmented_generation",
+        "transformer_architecture"
+      ],
+      "answer": "## Structure and Representation [0] ### Nodes (Entities) Nodes represent discrete entities in the world. An entity has a unique identifier and a type (such as Person, Organization, Location, or Concept). Entities can have properties — attribute-value pairs that describe characteristics like birth date, population, or founded year. ### Edges (Relationships) Edges represent typed, directed relationships between entities. A relationship has a type label (such as \"employs,\" \"acquired,\" or \"is_a\"), a source entity, and a target entity. Edges can also carry properties such as timestamps indicating when a relationship was valid. ## Applications [1] ### Question Answering Knowledge graphs enable structured question answering by traversing graph paths to find answers. KGQA (Knowledge Graph Question Answering) systems convert natural language questions into structured graph queries (SPARQL) or use embedding-based lookup to find answer entities. ### Recommendation Systems Entities and their relationships in a knowledge graph provide rich side information for recommendation. A knowledge graph connecting movies, directors, actors, and genres allows a recommender system to explain why a film was recommended based on shared attributes with previously watched content. ### Search Enhancement Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. # Retrieval-Augmented Generation (RAG) [3] ## Overview Retrieval-Augmented Generation (RAG) is a technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time. It was introduced by Lewis et al. at Facebook AI Research in the 2020 paper \"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.\" The core idea is to combine a parametric memory component (the LLM's trained weights) with a non-parametric memory component (a searchable document corpus). When answering a question, the system first retrieves relevant passages from the corpus, then conditions the LLM on both the question and the retrieved passages to produce a grounded answer. # Knowledge Graphs [4] ## Overview A knowledge graph is a structured representation of facts about entities and the relationships between them. It organizes information as a graph where nodes represent entities (people, places, organizations, concepts) and edges represent typed relationships between those entities. Each edge carries a specific relationship type, such as \"founded_by,\" \"located_in,\" or \"works_at.\" Knowledge graphs allow machines to reason about the world in a structured way, enabling applications like question answering, recommendation systems, search engines, and AI assistants. ## Core Components [5] ### Self-Attention Mechanism The self-attention mechanism allows the model to weigh the importance of different tokens in a sequence when encoding a particular token. For each token, the model computes three vectors: a Query (Q), a Key (K), and a Value (V). The attention score between two tokens is computed as the dot product of their Query and Key vectors, scaled by the square root of the key dimension. The output for each position is a weighted sum of Value vectors, where the weights come from the softmax of the scaled dot-product attention scores. This lets every token directly attend to every other token, regardless of their distance in the sequence. ### Limitations The basic arrangement of materials, turned into numbers, and searched when someone asks is a simplified representation. It does not account for the complexities of the process, such as the need for specialized knowledge, the potential for errors in the conversion process, and the limitations of current technology in handling large amounts of data.",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 6.125,
+      "total_latency_s": 6.734,
+      "errors": []
+    },
+    {
+      "query_id": "D17",
+      "query": "Which later work carried this design beyond writing, and what happens to the workload once the input grows?",
+      "gold_chunk_ids": [
+        "4af3dc8c5da84fad"
+      ],
+      "chunk_ids": [
+        "c3893b323a2ee3e1",
+        "0e82efa9409ff33c",
+        "71387ffa83db5d3c",
+        "efaf36ff59adbf7d",
+        "ab2692f1a112544f",
+        "4dcff615e7a2ceff"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation"
+      ],
+      "answer": "Claude Series (Anthropic) developed the Claude series of LLMs with a focus on safety and alignment. [1] Claude models use Constitutional AI, a training methodology that uses a set of principles (a \"constitution\") to guide the model's behavior through AI feedback rather than relying solely on human feedback. [2] ## Context Windows and Long-Context Models [3] Early LLMs such as GPT-3 were limited to context windows of 2,048 tokens. The context window determines how much text the model can \"see\" at once when generating a response. Longer context windows allow LLMs to handle longer documents, maintain coherent conversations, and perform in-context learning with more examples. ### Search Enhancement [4] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Why RAG Matters [5] Large language models store knowledge implicitly in their weights during training. This creates several problems: the knowledge has a training cutoff date, it can be hallucinated or misremembered, and updating it requires expensive retraining. RAG addresses these issues by keeping knowledge external and retrievable, making it easy to update and verify. ## Large Language Models [6] ## Overview A large language model (LLM) is a type of machine learning model trained on vast quantities of text data to understand and generate human language. LLMs are based on the Transformer architecture and are characterized by having billions of parameters, enabling them to capture complex linguistic patterns, world knowledge, and reasoning capabilities. ### Search Enhancement [7] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges [8] ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency [9] Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics [10] Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. ### Reader / Generator [11] The generator is a sequence-to-sequence model that takes the concatenated query and retrieved passages as input and produces the final answer. In the original paper, BART was used as the generator. Modern RAG systems typically use instruction-tuned LLMs like GPT-4, Claude, or Llama. ## Variants [12] ### Naive RAG The simplest RAG pipeline: chunk documents into fixed-size pieces, embed them, store in a vector index, retrieve top-k at query time, and pass to the LLM. This approach suffers from chunking boundary issues and can miss multi-hop reasoning that requires connecting information across documents. ## Large Language Models [13] ## Overview A large language model (LLM) is a type of machine learning model trained on vast quantities of text data to understand and generate human language. LLMs are based on the Transformer architecture and are characterized by having billions of parameters, enabling them to capture complex linguistic patterns, world knowledge, and reasoning capabilities. ### Search Enhancement [14] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges [15] ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency [16] Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics [17] Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. ### Reader / Generator [18] The generator is a sequence-to-sequence model that takes the concatenated query and retrieved passages as input and produces the final answer. In the original paper, BART was used as the generator. Modern RAG systems typically use instruction-tuned LLMs like GPT-4, Claude, or Llama. ## Variants [19] ### Naive RAG The simplest RAG pipeline: chunk documents into fixed-size pieces, embed them, store in a vector index, retrieve top-k at query time, and pass to the LLM. This approach suffers from chunking boundary issues and can miss multi-hop reasoning that requires connecting information across documents. ## Large Language Models [20] ## Overview A large language model (LLM) is a type of machine learning model trained on vast quantities of text data to understand and generate human language. LLMs are based on the Transformer architecture and are characterized by having billions of parameters, enabling them to capture complex linguistic patterns, world knowledge, and reasoning capabilities. ### Search Enhancement [21] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges [22] ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency [23] Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics [24] Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. ### Reader / Generator [25] The generator is a sequence-to-sequence model that takes the concatenated query and retrieved passages as input and produces the final answer. In the original paper, BART was used as the generator. Modern RAG systems typically use instruction-tuned LLMs like GPT-4, Claude, or Llama. ## Variants [26] ### Naive RAG The simplest RAG pipeline: chunk documents into fixed-size pieces, embed them, store in a vector index, retrieve top-k at query time, and pass to the LLM. This approach suffers from chunking boundary issues and can miss multi-hop reasoning that requires connecting information across documents. ## Large Language Models [27] ## Overview A large language model (LLM) is a type of machine learning model trained on vast quantities of text data to understand and generate human language. LLMs are based on the Transformer architecture and are characterized by having billions of parameters, enabling them to capture complex linguistic patterns, world knowledge, and reasoning capabilities. ### Search Enhancement [28] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges [29] ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency [30] Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics [31] Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. ### Reader / Generator [32] The generator is a sequence-to-sequence model that takes the concatenated query and retrieved passages as input and produces the final answer. In the original paper, BART was used as the generator. Modern RAG systems typically use instruction-tuned LLMs like GPT-4, Claude, or Llama. ## Variants [33] ### Naive RAG The simplest RAG pipeline: chunk documents into fixed-size pieces, embed them, store in a vector index, retrieve top-k at query time, and pass to the LLM. This approach suffers from chunking boundary issues and can miss multi-hop reasoning that requires connecting information across documents. ## Large Language Models [34] ## Overview A large language model (LLM) is a type of machine learning model trained on vast quantities of text data to understand and generate human language. LLMs are based on the Transformer architecture and are characterized by having billions of parameters, enabling them to capture complex linguistic patterns, world knowledge, and reasoning capabilities. ### Search Enhancement [35] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges [36] ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency [37] Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics [38] Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. ### Reader / Generator [39] The generator is a sequence-to-sequence model that takes the concatenated query and retrieved passages as input and produces the final answer. In the original paper, BART was used as the generator. Modern RAG systems typically use instruction-tuned LLMs like GPT-4, Claude, or Llama. ## Variants [40] ### Naive RAG The simplest RAG pipeline: chunk documents into fixed-size pieces, embed them, store in a vector index, retrieve top-k at query time, and pass to the LLM. This approach suffers from chunking boundary issues and can miss multi-hop reasoning that requires connecting information across documents. ## Large Language Models [41] ## Overview A large language model (LLM) is a type of machine learning model trained on vast quantities of text data to understand and generate human language. LLMs are based on the Transformer architecture and are characterized by having billions of parameters, enabling them to capture complex linguistic patterns, world knowledge, and reasoning capabilities. ### Search Enhancement [42] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges [43] ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency [44] Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics [45] Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. ### Reader / Generator [46] The generator is a sequence-to-sequence model that takes the concatenated query and retrieved passages as input and produces the final answer. In the original paper, BART was used as the generator. Modern RAG systems typically use instruction-tuned LLMs like GPT-4, Claude, or Llama. ## Variants [47] ### Naive RAG The simplest RAG pipeline: chunk documents into fixed-size pieces, embed them, store in a vector index, retrieve top-k at query time, and pass to the LLM. This approach suffers from chunking boundary issues and can miss multi-hop reasoning that requires connecting information across documents. ## Large Language Models [48] ## Overview A large language model (LLM) is a type of machine learning model trained on vast quantities of text data to understand and generate human language. LLMs are based on the Transformer architecture and are characterized by having billions of parameters, enabling them to capture complex linguistic patterns, world knowledge, and reasoning capabilities. ### Search Enhancement [49] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges [50] ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency [51] Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics [52] Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. ### Reader / Generator [53] The generator is a sequence-to-sequence model that takes the concatenated query and retrieved passages as input and produces the final answer. In the original paper, BART was used as the generator. Modern RAG systems typically use instruction-tuned LLMs like GPT-4, Claude, or Llama. ## Variants [54] ### Naive RAG The simplest RAG pipeline: chunk documents into fixed-size pieces, embed them, store in a vector index, retrieve top-k at query time, and pass to the LLM. This approach suffers from chunking boundary issues and can miss multi-hop reasoning that requires connecting information across documents. ## Large Language Models [55] ## Overview A large language model (LLM) is a type of machine learning model trained on vast quantities of text data to understand and generate human language. LLMs are based on the Transformer architecture and are characterized by having billions of parameters, enabling them to capture complex linguistic patterns, world knowledge, and reasoning capabilities. ### Search Enhancement [56] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges [57] ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency [58] Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics [59] Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. ### Reader / Generator [60] The generator is a sequence-to-sequence model that takes the concatenated query and retrieved passages as input and produces the final answer. In the original paper, BART was used as the generator. Modern RAG systems typically use instruction-tuned LLMs like GPT-4, Claude, or Llama. ## Variants [61] ### Naive RAG The simplest RAG pipeline: chunk documents into fixed-size pieces, embed them, store in a vector index, retrieve top-k at query time, and pass to the LLM. This approach suffers from chunking boundary issues and can miss multi-hop reasoning that requires connecting information across documents. ## Large Language Models [62] ## Overview A large language model (LLM) is a type of machine learning model trained on vast quantities of text data to understand and generate human language. LLMs are based on the Transformer architecture and are characterized by having billions of parameters, enabling them to capture complex linguistic patterns, world knowledge, and reasoning capabilities. ### Search Enhancement [63] Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges [64] ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency [65] Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources.  [66]",
+      "retrieval_latency_s": 0.672,
+      "generation_latency_s": 27.313,
+      "total_latency_s": 27.985,
+      "errors": []
+    },
+    {
+      "query_id": "D18",
+      "query": "When one technique copes with codes and the second copes with meaning, how can the two be merged so that neither blind spot dominates?",
+      "gold_chunk_ids": [
+        "895ee8b439ed7d7b"
+      ],
+      "chunk_ids": [
+        "c81c2a06e4ee9667",
+        "4e802a799a872699",
+        "c3893b323a2ee3e1",
+        "6fc475866849cd38",
+        "a885be6b749e39a1",
+        "a949df1c877b7163"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "transformer_architecture",
+        "vector_databases"
+      ],
+      "answer": "The two techniques can be merged by using a hybrid approach that combines the strengths of both. For handling codes, one could use a code-based approach like Qdrant for efficient vector similarity search. For handling meaning, a semantic-based approach like Chroma could be used to embed and search for concepts and relationships. [0] By integrating Qdrant's vector similarity search capabilities with Chroma's semantic embedding and indexing, the system can effectively handle both codes and meaning. This hybrid approach ensures that neither blind spot dominates, providing a comprehensive solution for both code-based and semantic-based queries. [1]",
+      "retrieval_latency_s": 0.64,
+      "generation_latency_s": 1.078,
+      "total_latency_s": 1.718,
+      "errors": []
+    },
+    {
+      "query_id": "D19",
+      "query": "What is the training data cutoff date of GPT-4?",
+      "gold_chunk_ids": [],
+      "chunk_ids": [
+        "c3893b323a2ee3e1",
+        "b76780cc91220506",
+        "ab2692f1a112544f",
+        "efaf36ff59adbf7d",
+        "0e82efa9409ff33c",
+        "4dcff615e7a2ceff"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation"
+      ],
+      "answer": "I cannot answer this question based on the provided evidence.",
+      "retrieval_latency_s": 0.594,
+      "generation_latency_s": 0.375,
+      "total_latency_s": 0.969,
+      "errors": []
+    },
+    {
+      "query_id": "D20",
+      "query": "How much does Pinecone charge per month for a dedicated storage cluster?",
+      "gold_chunk_ids": [],
+      "chunk_ids": [
+        "025a4d30df8706bc",
+        "99f7ac4bdc89395d",
+        "3256abe3c09bca47",
+        "a949df1c877b7163",
+        "5a5f4b8aeeb5ae55",
+        "d49b99f9a418a0fb"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "I cannot answer this question based on the provided evidence.",
+      "retrieval_latency_s": 0.578,
+      "generation_latency_s": 0.375,
+      "total_latency_s": 0.953,
+      "errors": []
+    }
+  ],
+  "count": 20
+}

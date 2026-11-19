@@ -124,6 +124,15 @@ app.include_router(compat_router)
 # It outputs to ui/lightrag_ui_dist/ (adjusted in vite.config.ts).
 # When the dist directory doesn't exist the API still works; just no UI served.
 if _UI_BUILD_DIR.exists():
+    # Python's mimetypes reads the Windows registry, where .js is commonly
+    # mapped to text/plain.  Browsers refuse ES-module scripts served as
+    # text/plain, which left /webui blank on Windows.  Pin the web types.
+    import mimetypes
+    mimetypes.add_type("application/javascript", ".js")
+    mimetypes.add_type("application/javascript", ".mjs")
+    mimetypes.add_type("text/css", ".css")
+    mimetypes.add_type("image/svg+xml", ".svg")
+    mimetypes.add_type("application/wasm", ".wasm")
     app.mount("/webui", StaticFiles(directory=str(_UI_BUILD_DIR), html=True), name="webui")
     log.info("LightRAG UI served at /webui from %s", _UI_BUILD_DIR)
 else:

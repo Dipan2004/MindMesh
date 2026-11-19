@@ -1,0 +1,103 @@
+{
+  "base": "http://localhost:8000",
+  "results": [
+    {
+      "check": "GET /auth-status (guest, auth disabled)",
+      "pass": true,
+      "detail": "auth_mode=disabled",
+      "seconds": 0.0
+    },
+    {
+      "check": "POST /login (any username, no password check)",
+      "pass": true,
+      "detail": "status 200",
+      "seconds": 0.0
+    },
+    {
+      "check": "GET /webui/ (UI served)",
+      "pass": true,
+      "detail": "status 200",
+      "seconds": 0.0
+    },
+    {
+      "check": "GET /webui JS served as JavaScript",
+      "pass": true,
+      "detail": "assets/index-Dd7K3fKu.js",
+      "seconds": 0.02
+    },
+    {
+      "check": "GET /health",
+      "pass": true,
+      "detail": "healthy",
+      "seconds": 0.0
+    },
+    {
+      "check": "GET /ui/customization",
+      "pass": true,
+      "detail": "status 200",
+      "seconds": 0.0
+    },
+    {
+      "check": "POST /documents/paginated",
+      "pass": true,
+      "detail": "6 docs",
+      "seconds": 0.0
+    },
+    {
+      "check": "POST /documents/upload",
+      "pass": true,
+      "detail": "status 200",
+      "seconds": 0.0
+    },
+    {
+      "check": "uploaded file present in data/raw",
+      "pass": true,
+      "detail": "guest_api_check_1795048663.txt",
+      "seconds": 0.0
+    },
+    {
+      "check": "DELETE uploaded test document (cleanup)",
+      "pass": false,
+      "detail": "AttributeError: 'list' object has no attribute 'values'",
+      "seconds": 0.0
+    },
+    {
+      "check": "GET /graph/label/list",
+      "pass": true,
+      "detail": "50 labels",
+      "seconds": 0.01
+    },
+    {
+      "check": "GET /graphs (visualisation data)",
+      "pass": true,
+      "detail": "72 nodes, 30 edges",
+      "seconds": 0.0
+    },
+    {
+      "check": "POST /query mode=naive (MindMesh Dense)",
+      "pass": true,
+      "detail": "status 200, 140 chars",
+      "seconds": 2.75
+    },
+    {
+      "check": "POST /query mode=bypass (MindMesh Graph)",
+      "pass": true,
+      "detail": "status 200, 447 chars",
+      "seconds": 1.81
+    },
+    {
+      "check": "POST /query mode=mix (MindMesh Mix)",
+      "pass": true,
+      "detail": "status 200, 136 chars",
+      "seconds": 1.01
+    },
+    {
+      "check": "POST /query mode=mix_opt (MindMesh Mix Optimized)",
+      "pass": true,
+      "detail": "status 200, 136 chars",
+      "seconds": 0.78
+    }
+  ],
+  "passed": 15,
+  "total": 16
+}

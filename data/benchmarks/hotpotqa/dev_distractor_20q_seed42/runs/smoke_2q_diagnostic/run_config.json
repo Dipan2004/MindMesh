@@ -1,0 +1,138 @@
+{
+  "generation_model": "mistral:latest",
+  "generation_model_digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+  "index_model": "mistral:latest",
+  "embedding_model": "nomic-embed-text",
+  "pipelines": [
+    "pipeline_a",
+    "pipeline_b",
+    "lightrag_mix",
+    "lightrag_mix_opt"
+  ],
+  "top_k": 10,
+  "context_k": 5,
+  "generation_options": {
+    "temperature": 0.0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 256
+  },
+  "prompt_version": "hotpotqa-json-v1",
+  "question_ids": [
+    "5ae31d5a5542990afbd1e0b1",
+    "5a7b89a3554299294a54a9e3"
+  ],
+  "run_id": "smoke_2q_diagnostic",
+  "config_hash": "69880917",
+  "n_questions": 2,
+  "type_counts": {
+    "bridge": 2
+  },
+  "benchmark": {
+    "benchmark": "HotpotQA",
+    "split": "dev",
+    "setting": "distractor",
+    "corpus_scope": "20-question shared candidate corpus (union of the sampled questions' supplied gold + distractor paragraphs). NOT the official FullWiki setting.",
+    "n_questions": 20,
+    "n_bridge": 10,
+    "n_comparison": 10,
+    "seed": 42,
+    "sampling": "random.Random(seed).sample over records of each type sorted by _id",
+    "dataset_provenance": {
+      "source": "hf_parquet_mirror",
+      "url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/main/distractor/validation-00000-of-00001.parquet",
+      "file": "hotpot_qa_distractor_validation.parquet",
+      "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+      "n_records": 7405
+    },
+    "id_scheme": {
+      "doc_id": "hp_ + sha1(json([title, sentences]))[:16]",
+      "chunk_id": "sha1(doc_id + ':0')[:16]  (one chunk per paragraph)"
+    }
+  },
+  "corpus_stats": {
+    "paragraphs_supplied": 200,
+    "paragraphs_unique": 200,
+    "duplicates_removed": 0,
+    "unique_titles": 200,
+    "titles_with_multiple_versions": 0,
+    "sentences": 889,
+    "documents": 200,
+    "chunks": 200,
+    "chunking": "one chunk per Wikipedia paragraph (HotpotQA paragraphs are short)",
+    "supporting_facts_total": 42,
+    "supporting_facts_unresolved": 0
+  },
+  "index_dir": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest",
+  "index_stats": {
+    "chunks_indexed": 200,
+    "entities_indexed": 1311,
+    "relationships_indexed": 1093,
+    "documents": 200,
+    "chunks_parse_failed": 4,
+    "graph": {
+      "nodes": 1311,
+      "edges": 1093,
+      "weak_components": 326,
+      "largest_component": 129,
+      "isolated_nodes": 232,
+      "cross_document_nodes": 133,
+      "cross_document_edges": 12,
+      "documents_linked_via_shared_entities": 146
+    },
+    "timings": {
+      "graph_build_s": 0.016,
+      "collections_build_s": 59.485
+    },
+    "gleanings": 0,
+    "extraction_model": "mistral:latest"
+  },
+  "pipeline_labels": {
+    "pipeline_a": "MindMesh Dense",
+    "pipeline_b": "MindMesh Graph",
+    "lightrag_mix": "MindMesh Mix",
+    "lightrag_mix_opt": "MindMesh Mix Optimized"
+  },
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "cpu": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 24,
+    "ollama_version": "0.40.16",
+    "ram_gb": 15.6,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "memory_total_mib": 8188,
+        "memory_used_mib": 449,
+        "driver": "592.82"
+      }
+    ],
+    "cuda_driver_version": "13.1"
+  },
+  "started_at": "2026-11-19T05:49:11",
+  "ollama_ps_snapshots": [
+    {
+      "at": "2026-11-19T05:49:29",
+      "models": [
+        {
+          "model": "mistral:latest",
+          "size_bytes": 5500336864,
+          "size_vram_bytes": 5500336864,
+          "gpu_fraction": 1.0,
+          "processor": "GPU",
+          "context_length": 8192
+        },
+        {
+          "model": "nomic-embed-text:latest",
+          "size_bytes": 335743549,
+          "size_vram_bytes": 335743549,
+          "gpu_fraction": 1.0,
+          "processor": "GPU",
+          "context_length": 2048
+        }
+      ]
+    }
+  ],
+  "last_completed_at": "2026-11-19T05:49:29"
+}

@@ -1,0 +1,7 @@
+# Zvec / RocksDB collection files and experiment artefacts must be stored
+# byte-for-byte. With core.autocrlf=true (Git for Windows default) git
+# rewrote RocksDB "CURRENT" / "OPTIONS" files to CRLF on checkout, and Zvec
+# then refused to open them ("CURRENT file corrupted").  Mark these trees as
+# binary so a clone on any OS gets usable collections.
+backups/** -text
+data/** -text

@@ -131,6 +131,51 @@
   --sidebar-ring: hsl(217.2 91.2% 59.8%);
 }
 
+/* ── MindMesh theme ─────────────────────────────────────────────────────────
+   Monochrome: neutral greys, black (light) / white (dark) primary, colour
+   only in small status accents. Same selectors as above and declared later,
+   so these win; delete this block to restore the upstream palette. */
+:root {
+  --background: hsl(0 0% 96.5%);
+  --foreground: hsl(0 0% 9%);
+  --card: hsl(0 0% 100%);
+  --card-foreground: hsl(0 0% 9%);
+  --popover: hsl(0 0% 100%);
+  --popover-foreground: hsl(0 0% 9%);
+  --primary: hsl(0 0% 9%);
+  --primary-foreground: hsl(0 0% 100%);
+  --secondary: hsl(0 0% 94%);
+  --secondary-foreground: hsl(0 0% 12%);
+  --muted: hsl(0 0% 95%);
+  --muted-foreground: hsl(0 0% 42%);
+  --accent: hsl(0 0% 93%);
+  --accent-foreground: hsl(0 0% 9%);
+  --border: hsl(0 0% 89%);
+  --input: hsl(0 0% 87%);
+  --ring: hsl(0 0% 25%);
+  --radius: 0.85rem;
+}
+
+.dark {
+  --background: hsl(0 0% 4%);
+  --foreground: hsl(0 0% 95%);
+  --card: hsl(0 0% 9%);
+  --card-foreground: hsl(0 0% 95%);
+  --popover: hsl(0 0% 10%);
+  --popover-foreground: hsl(0 0% 95%);
+  --primary: hsl(0 0% 96%);
+  --primary-foreground: hsl(0 0% 8%);
+  --secondary: hsl(0 0% 14%);
+  --secondary-foreground: hsl(0 0% 95%);
+  --muted: hsl(0 0% 13%);
+  --muted-foreground: hsl(0 0% 62%);
+  --accent: hsl(0 0% 16%);
+  --accent-foreground: hsl(0 0% 96%);
+  --border: hsl(0 0% 16%);
+  --input: hsl(0 0% 19%);
+  --ring: hsl(0 0% 75%);
+}
+
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
@@ -178,7 +223,9 @@
     @apply border-border outline-ring/50;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Inter', 'Segoe UI Variable', 'Segoe UI', ui-sans-serif, system-ui, -apple-system, sans-serif;
+    font-feature-settings: 'cv11', 'ss01';
   }
 }
 

@@ -1,0 +1,521 @@
+{
+  "results": [
+    {
+      "query_id": "D01",
+      "query": "How does the self-attention mechanism compute attention scores?",
+      "gold_chunk_ids": [
+        "c81c2a06e4ee9667"
+      ],
+      "chunk_ids": [
+        "c81c2a06e4ee9667",
+        "745e90bb807507b6",
+        "c3893b323a2ee3e1",
+        "a04b3d90e2da113b",
+        "d49b99f9a418a0fb",
+        "33d32892fc640b3f"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation",
+        "transformer_architecture",
+        "vector_databases"
+      ],
+      "answer": "The self-attention mechanism computes attention scores as the dot product of its Query (Q) and Key (K) vectors, scaled by the square root of the key dimension. [0]",
+      "retrieval_latency_s": 1.141,
+      "generation_latency_s": 0.812,
+      "total_latency_s": 5.125,
+      "errors": []
+    },
+    {
+      "query_id": "D02",
+      "query": "What is the Encoder-Decoder structure of the original Transformer?",
+      "gold_chunk_ids": [
+        "a885be6b749e39a1"
+      ],
+      "chunk_ids": [
+        "745e90bb807507b6",
+        "417905a71f013c88",
+        "4dcff615e7a2ceff",
+        "c81c2a06e4ee9667",
+        "32c85d7ec02b6b19",
+        "e146728cdddcf0e5"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "large_language_models",
+        "retrieval_augmented_generation",
+        "transformer_architecture",
+        "vector_databases"
+      ],
+      "answer": "The original Transformer architecture uses an Encoder-Decoder structure. [0]",
+      "retrieval_latency_s": 0.641,
+      "generation_latency_s": 0.375,
+      "total_latency_s": 1.016,
+      "errors": []
+    },
+    {
+      "query_id": "D03",
+      "query": "How are entities and relationships extracted from text in GraphRAG?",
+      "gold_chunk_ids": [
+        "6d878b7f56a99aa2"
+      ],
+      "chunk_ids": [
+        "a09f4455b7fef7fa",
+        "ab2692f1a112544f",
+        "0282ea8070392cd0",
+        "3256abe3c09bca47",
+        "6d878b7f56a99aa2",
+        "4e802a799a872699"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs"
+      ],
+      "answer": "### GraphRAG [3] GraphRAG (Graph Representation and Aggregation) is a model that combines graph neural networks with attention mechanisms to extract entities and relationships from text. It uses a graph structure to represent the text, where nodes correspond to entities and relationships, and edges represent the relationships between them. The model learns to aggregate information from the text to predict the existence of entities and relationships, effectively extracting them in a structured manner.",
+      "retrieval_latency_s": 0.625,
+      "generation_latency_s": 0.843,
+      "total_latency_s": 1.468,
+      "errors": []
+    },
+    {
+      "query_id": "D04",
+      "query": "What is Wikidata and who maintains it?",
+      "gold_chunk_ids": [
+        "3256abe3c09bca47"
+      ],
+      "chunk_ids": [
+        "b76780cc91220506",
+        "025a4d30df8706bc",
+        "3256abe3c09bca47",
+        "a04b3d90e2da113b",
+        "5a5f4b8aeeb5ae55",
+        "ab2692f1a112544f"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "Wikidata is a free, collaboratively edited knowledge base maintained by the Wikimedia Foundation. [0] Wikidata contains over 100 million data items and supports multiple languages. [1]",
+      "retrieval_latency_s": 0.704,
+      "generation_latency_s": 0.546,
+      "total_latency_s": 1.25,
+      "errors": []
+    },
+    {
+      "query_id": "D05",
+      "query": "What are knowledge graph embedding methods like TransE and RotatE?",
+      "gold_chunk_ids": [
+        "4e802a799a872699"
+      ],
+      "chunk_ids": [
+        "a09f4455b7fef7fa",
+        "ab2692f1a112544f",
+        "0282ea8070392cd0",
+        "4e802a799a872699",
+        "417905a71f013c88",
+        "ba8440076ddd110a"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "## Knowledge Graph Embeddings [3] Knowledge graph embedding models represent entities and relationships as dense vectors in a continuous space, enabling downstream machine learning tasks. TransE, one of the earliest and most influential models, represents relationships as translations in embedding space: if (head, relation, tail) is a valid triple, then the head vector plus the relation vector should approximately equal the tail vector. Later models include RotatE (relations as rotations in complex space), DistMult (bilinear scoring), and ComplEx (complex-valued embeddings). These embeddings support tasks like link prediction (predicting missing relationships) and entity alignment (matching equivalent entities across different knowledge graphs).",
+      "retrieval_latency_s": 0.672,
+      "generation_latency_s": 1.125,
+      "total_latency_s": 1.797,
+      "errors": []
+    },
+    {
+      "query_id": "D06",
+      "query": "What is Retrieval-Augmented Generation and why does it matter?",
+      "gold_chunk_ids": [
+        "33d32892fc640b3f"
+      ],
+      "chunk_ids": [
+        "b744eeebc1934b70",
+        "d49b99f9a418a0fb",
+        "71387ffa83db5d3c",
+        "33d32892fc640b3f",
+        "e146728cdddcf0e5",
+        "7bac4d8e30f7b55c"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "Retrieval-Augmented Generation (RAG) is a technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time. It was introduced by Lewis et al. at Facebook AI Research in the 2020 paper \"Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks.\" [2] RAG systems also support citations — since the answer is grounded in specific retrieved passages, the system can point to exact source documents, improving interpretability and trustworthiness.",
+      "retrieval_latency_s": 0.625,
+      "generation_latency_s": 0.938,
+      "total_latency_s": 1.563,
+      "errors": []
+    },
+    {
+      "query_id": "D07",
+      "query": "How does HyDE improve retrieval quality in RAG systems?",
+      "gold_chunk_ids": [
+        "b744eeebc1934b70"
+      ],
+      "chunk_ids": [
+        "7bac4d8e30f7b55c",
+        "b744eeebc1934b70",
+        "33d32892fc640b3f",
+        "71387ffa83db5d3c",
+        "e146728cdddcf0e5",
+        "99f7ac4bdc89395d"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "HyDE (Hypothetical Document Embeddings) generates a hypothetical answer to the query first, then uses that as the retrieval query, often improving recall. [1]",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 0.485,
+      "total_latency_s": 1.094,
+      "errors": []
+    },
+    {
+      "query_id": "D08",
+      "query": "What is HNSW and how does it speed up approximate nearest neighbor search?",
+      "gold_chunk_ids": [
+        "417905a71f013c88"
+      ],
+      "chunk_ids": [
+        "d49b99f9a418a0fb",
+        "e146728cdddcf0e5",
+        "99f7ac4bdc89395d",
+        "417905a71f013c88",
+        "b744eeebc1934b70",
+        "d64267739e25869c"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "[H2] Hierarchical Navigable Small World (HNSW) is an advanced algorithm for approximate nearest neighbor search that significantly speeds up the process by building a multi-layer graph where each layer is a navigable small-world network. Queries start at the top layer and greedily descend to the bottom layer, following edges to progressively closer nodes. This approach achieves sub-millisecond query times on million-scale datasets, making it highly efficient for large-scale vector databases.",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 0.828,
+      "total_latency_s": 1.437,
+      "errors": []
+    },
+    {
+      "query_id": "D09",
+      "query": "What is Direct Preference Optimization and how does it differ from RLHF?",
+      "gold_chunk_ids": [
+        "5c56e059e8cebff9"
+      ],
+      "chunk_ids": [
+        "d49b99f9a418a0fb",
+        "e146728cdddcf0e5",
+        "99f7ac4bdc89395d",
+        "a09f4455b7fef7fa",
+        "b76780cc91220506",
+        "5c56e059e8cebff9"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "Direct Preference Optimization (DPO) is a more recent alternative to Reinforcement Learning with Human Feedback (RLHF) that eliminates the need for an explicit reward model and RL training loop. It directly optimizes the language model on preference pairs (chosen and rejected responses), making the training process simpler and more stable. DPO was introduced by Rafael Rafailov, Archit Sharma, Eric Mitchell, Christopher Manning, Stefano Ermon, and Chelsea Finn at Stanford University. [2]",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 0.86,
+      "total_latency_s": 1.469,
+      "errors": []
+    },
+    {
+      "query_id": "D10",
+      "query": "How is a basic retrieval-augmented pipeline put together, and which chunking and retrieval-quality problems does it face?",
+      "gold_chunk_ids": [
+        "4dcff615e7a2ceff",
+        "7bac4d8e30f7b55c"
+      ],
+      "chunk_ids": [
+        "7bac4d8e30f7b55c",
+        "e146728cdddcf0e5",
+        "33d32892fc640b3f",
+        "71387ffa83db5d3c",
+        "b744eeebc1934b70",
+        "99f7ac4bdc89395d"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "The basic retrieval-augmented pipeline involves several key components: [0] 1. **Dense Retriever**: This component encodes both the query and the documents into dense vector representations using a bi-encoder model. During the retrieval process, the query vector is compared against all document vectors using approximate nearest neighbor search. 2. **Document Store / Vector Index**: The retrieved documents are stored in a vector index that supports fast approximate nearest neighbor search. Common choices for this include FAISS, Pinecone, Weaviate, Chroma, and LanceDB. 3. **Retrieval-Augmented Generation (RAG)**: This technique combines a parametric memory component (the LLM's trained weights) with a non-parametric memory component (a searchable document corpus). When answering a question, the system first retrieves relevant passages from the corpus, then conditions the LLM on both the question and the retrieved passages to produce a grounded answer. 4. **Chunking Strategy**: How documents are split into chunks significantly affects retrieval quality. Chunks that are too small lose context; chunks that are too large dilute relevance signals and may exceed context windows. 5. **Retrieval Quality**: Dense retrieval can miss exact-match queries for named entities, IDs, or rare terms. Hybrid retrieval combining dense vectors with sparse keyword search (BM25) typically outperforms either approach alone on mixed query types. These components face several chunking and retrieval-quality problems: - **Chunking Strategy**: Chunks that are too small lose context; chunks that are too large dilute relevance signals and may exceed context windows. - **Retrieval Quality**: Dense retrieval can miss exact-match queries for named entities, IDs, or rare terms. Hybrid retrieval combining dense vectors with sparse keyword search (BM25) typically outperforms either approach alone on mixed query types.",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 2.61,
+      "total_latency_s": 3.219,
+      "errors": []
+    },
+    {
+      "query_id": "D11",
+      "query": "How did Google's Knowledge Graph come about, and what happened to Freebase afterwards?",
+      "gold_chunk_ids": [
+        "ba8440076ddd110a",
+        "b76780cc91220506"
+      ],
+      "chunk_ids": [
+        "b76780cc91220506",
+        "ab2692f1a112544f",
+        "ba8440076ddd110a",
+        "a09f4455b7fef7fa",
+        "0282ea8070392cd0",
+        "c3893b323a2ee3e1"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models"
+      ],
+      "answer": "Google popularized the term \"knowledge graph\" in 2012 when it launched the Google Knowledge Graph to enhance search results with structured entity information. This system contained over 500 million entities at launch and drew from sources including Freebase, Wikipedia, and the CIA World Factbook. [1] Freebase was a large collaborative knowledge base developed by Metaweb and acquired by Google in 2010. It was one of the primary data sources for the Google Knowledge Graph. Google shut down Freebase in 2016 and migrated its data to Wikidata. [0]",
+      "retrieval_latency_s": 0.593,
+      "generation_latency_s": 1.047,
+      "total_latency_s": 1.64,
+      "errors": []
+    },
+    {
+      "query_id": "D12",
+      "query": "How do FAISS and LanceDB differ in how they are deployed and what they support?",
+      "gold_chunk_ids": [
+        "d49b99f9a418a0fb",
+        "5a5f4b8aeeb5ae55"
+      ],
+      "chunk_ids": [
+        "99f7ac4bdc89395d",
+        "5a5f4b8aeeb5ae55",
+        "e146728cdddcf0e5",
+        "b76780cc91220506",
+        "ab2692f1a112544f",
+        "a949df1c877b7163"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "retrieval_augmented_generation",
+        "vector_databases"
+      ],
+      "answer": "FAISS is an in-process solution that requires a server, supporting SQL-like queries alongside vector search. [1] LanceDB is an open-source, serverless vector database built on the Lance columnar format, running in-process with no server required, supporting SQL-like queries alongside vector search. [2]",
+      "retrieval_latency_s": 0.563,
+      "generation_latency_s": 0.625,
+      "total_latency_s": 1.188,
+      "errors": []
+    },
+    {
+      "query_id": "D13",
+      "query": "What is a knowledge graph, and which vector store does Microsoft's GraphRAG use by default?",
+      "gold_chunk_ids": [
+        "0282ea8070392cd0",
+        "5a5f4b8aeeb5ae55"
+      ],
+      "chunk_ids": [
+        "ab2692f1a112544f",
+        "a09f4455b7fef7fa",
+        "4e802a799a872699",
+        "ba8440076ddd110a",
+        "b76780cc91220506",
+        "d64267739e25869c"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "A knowledge graph is a representation of real-world entities and their relationships as nodes and edges in a graph structure. [0] Microsoft's GraphRAG uses the Vectorstore by default. [1]",
+      "retrieval_latency_s": 0.578,
+      "generation_latency_s": 0.5,
+      "total_latency_s": 1.093,
+      "errors": []
+    },
+    {
+      "query_id": "D14",
+      "query": "In what year was the Transformer architecture introduced, and in what year was the RAG paper published?",
+      "gold_chunk_ids": [
+        "745e90bb807507b6",
+        "33d32892fc640b3f"
+      ],
+      "chunk_ids": [
+        "745e90bb807507b6",
+        "4dcff615e7a2ceff",
+        "c3893b323a2ee3e1",
+        "71387ffa83db5d3c",
+        "b76780cc91220506",
+        "33d32892fc640b3f"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation",
+        "transformer_architecture"
+      ],
+      "answer": "The Transformer Architecture was introduced in 2017. [0] The RAG paper was published in 2020. [1]",
+      "retrieval_latency_s": 0.594,
+      "generation_latency_s": 0.469,
+      "total_latency_s": 1.063,
+      "errors": []
+    },
+    {
+      "query_id": "D15",
+      "query": "How do knowledge graphs and retrieval-augmented generation each let a search system show where an answer came from?",
+      "gold_chunk_ids": [
+        "ab2692f1a112544f",
+        "71387ffa83db5d3c"
+      ],
+      "chunk_ids": [
+        "ab2692f1a112544f",
+        "a09f4455b7fef7fa",
+        "0282ea8070392cd0",
+        "ba8440076ddd110a",
+        "b76780cc91220506",
+        "fc0f4473d792a08f"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "Knowledge graphs provide structured information that can be used to answer questions by traversing graph paths to find answers. [0] Retrieval-augmented generation uses knowledge graphs to guide the search for answers, enhancing the accuracy and relevance of the results. [1]",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 0.61,
+      "total_latency_s": 1.219,
+      "errors": []
+    },
+    {
+      "query_id": "D16",
+      "query": "In its most basic arrangement, how are materials divided, turned into numbers, and searched when someone asks -- and what limitation does that arrangement have?",
+      "gold_chunk_ids": [
+        "4dcff615e7a2ceff"
+      ],
+      "chunk_ids": [
+        "6fc475866849cd38",
+        "a09f4455b7fef7fa",
+        "ab2692f1a112544f",
+        "33d32892fc640b3f",
+        "0282ea8070392cd0",
+        "c81c2a06e4ee9667"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "retrieval_augmented_generation",
+        "transformer_architecture"
+      ],
+      "answer": "## Structure and Representation [0] ### Nodes (Entities) Nodes represent discrete entities in the world. An entity has a unique identifier and a type (such as Person, Organization, Location, or Concept). Entities can have properties — attribute-value pairs that describe characteristics like birth date, population, or founded year. ### Edges (Relationships) Edges represent typed, directed relationships between entities. A relationship has a type label (such as \"employs,\" \"acquired,\" or \"is_a\"), a source entity, and a target entity. Edges can also carry properties such as timestamps indicating when a relationship was valid. ## Applications [1] ### Question Answering Knowledge graphs enable structured question answering by traversing graph paths to find answers. KGQA (Knowledge Graph Question Answering) systems convert natural language questions into structured graph queries (SPARQL) or use embedding-based lookup to find answer entities. ### Recommendation Systems Entities and their relationships in a knowledge graph provide rich side information for recommendation. A knowledge graph connecting movies, directors, actors, and genres allows a recommender system to explain why a film was recommended based on shared attributes with previously watched content. ### Search Enhancement Search engines use knowledge graphs to show structured information panels alongside traditional search results. When a user searches for a well-known person, organization, or place, the search engine can display structured facts (birth date, nationality, notable works) drawn directly from the knowledge graph. ## Key Challenges ### Incompleteness Most real-world knowledge graphs are incomplete — many true facts are missing. Freebase was estimated to be missing over 70% of birth places and 75% of nationalities for people in its database. Link prediction and knowledge base completion are active research areas addressing this. ### Noise and Inconsistency Automated extraction introduces errors. The same entity may appear under multiple names (coreference), and contradictory facts can coexist in a large graph built from diverse sources. ### Temporal Dynamics Real-world facts change over time. A person changes jobs, companies merge, and political boundaries shift. Temporal knowledge graphs add validity time intervals to edges to track when facts were true, but maintaining temporal consistency at scale remains challenging. # Retrieval-Augmented Generation (RAG) [3] ## Overview Retrieval-Augmented Generation (RAG) is a technique that enhances large language model outputs by grounding them in relevant external documents retrieved at query time. It was introduced by Lewis et al. at Facebook AI Research in the",
+      "retrieval_latency_s": 0.64,
+      "generation_latency_s": 3.438,
+      "total_latency_s": 4.078,
+      "errors": []
+    },
+    {
+      "query_id": "D17",
+      "query": "Which later work carried this design beyond writing, and what happens to the workload once the input grows?",
+      "gold_chunk_ids": [
+        "4af3dc8c5da84fad"
+      ],
+      "chunk_ids": [
+        "c3893b323a2ee3e1",
+        "71387ffa83db5d3c",
+        "4dcff615e7a2ceff",
+        "0e82efa9409ff33c",
+        "efaf36ff59adbf7d",
+        "ab2692f1a112544f"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation"
+      ],
+      "answer": "I cannot answer this question based on the provided evidence.",
+      "retrieval_latency_s": 0.625,
+      "generation_latency_s": 0.359,
+      "total_latency_s": 0.984,
+      "errors": []
+    },
+    {
+      "query_id": "D18",
+      "query": "When one technique copes with codes and the second copes with meaning, how can the two be merged so that neither blind spot dominates?",
+      "gold_chunk_ids": [
+        "895ee8b439ed7d7b"
+      ],
+      "chunk_ids": [
+        "c81c2a06e4ee9667",
+        "4e802a799a872699",
+        "6fc475866849cd38",
+        "c3893b323a2ee3e1",
+        "b76780cc91220506",
+        "d49b99f9a418a0fb"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "transformer_architecture",
+        "vector_databases"
+      ],
+      "answer": "I cannot answer this question based on the provided evidence.",
+      "retrieval_latency_s": 0.625,
+      "generation_latency_s": 0.36,
+      "total_latency_s": 0.985,
+      "errors": []
+    },
+    {
+      "query_id": "D19",
+      "query": "What is the training data cutoff date of GPT-4?",
+      "gold_chunk_ids": [],
+      "chunk_ids": [
+        "c3893b323a2ee3e1",
+        "b76780cc91220506",
+        "ab2692f1a112544f",
+        "efaf36ff59adbf7d",
+        "0e82efa9409ff33c",
+        "4dcff615e7a2ceff"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "large_language_models",
+        "retrieval_augmented_generation"
+      ],
+      "answer": "## Context Windows and Long-Context Models [4] The context window determines how much text the model can \"see\" at once when generating a response. Longer context windows allow LLMs to handle longer documents, maintain coherent conversations, and perform in-context learning with more examples.",
+      "retrieval_latency_s": 0.609,
+      "generation_latency_s": 0.672,
+      "total_latency_s": 1.281,
+      "errors": []
+    },
+    {
+      "query_id": "D20",
+      "query": "How much does Pinecone charge per month for a dedicated storage cluster?",
+      "gold_chunk_ids": [],
+      "chunk_ids": [
+        "025a4d30df8706bc",
+        "99f7ac4bdc89395d",
+        "3256abe3c09bca47",
+        "a949df1c877b7163",
+        "5a5f4b8aeeb5ae55",
+        "b76780cc91220506"
+      ],
+      "retrieved_count": 6,
+      "source_docs": [
+        "knowledge_graphs",
+        "vector_databases"
+      ],
+      "answer": "I cannot answer this question based on the provided evidence.",
+      "retrieval_latency_s": 0.578,
+      "generation_latency_s": 0.266,
+      "total_latency_s": 0.844,
+      "errors": []
+    }
+  ],
+  "count": 20
+}

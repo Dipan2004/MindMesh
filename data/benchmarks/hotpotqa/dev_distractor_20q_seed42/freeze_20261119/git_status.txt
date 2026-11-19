@@ -1,0 +1,12 @@
+﻿ M src/graphrag_lite/api/main.py
+ M src/graphrag_lite/llm/client_factory.py
+ M src/mindmesh/pipelines/lightrag_experimental/adapter.py
+ M src/mindmesh/pipelines/pipeline_a_adapter/adapter.py
+ M src/mindmesh/pipelines/pipeline_b_adapter/adapter.py
+ M ui/lightrag_ui/src/features/LoginPage.tsx
+ M ui/lightrag_ui/src/features/SiteHeader.test.tsx
+ M ui/lightrag_ui/src/features/SiteHeader.tsx
+?? eval/hotpotqa/
+?? eval/results/internal_dev_4pipelines_qwen2.5_1.5b_20261119.md
+?? src/graphrag_lite/retrieval/lightrag/
+?? src/mindmesh/benchmarks/

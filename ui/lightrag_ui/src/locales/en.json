@@ -411,7 +411,7 @@
   },
   "retrievePanel": {
     "chatMessage": {
-      "aiContentNotice": "AI-generated content — please verify.",
+      "aiContentNotice": "AI-generated content. Please verify.",
       "copyTooltip": "Copy to clipboard",
       "copyError": "Failed to copy text to clipboard",
       "copyEmpty": "No content to copy",
@@ -440,7 +440,7 @@
       "clear": "Clear",
       "send": "Send",
       "stop": "Stop",
-      "userTerminated": "User terminated — response may be incomplete",
+      "userTerminated": "Stopped by user. The response may be incomplete.",
       "placeholder": "Enter your query (Support prefix: /<Query Mode>)",
       "error": "Error: Failed to get response",
       "queryModeError": "Only supports the following query modes: {{modes}}",
@@ -532,7 +532,7 @@
   },
   "migration": {
     "failedTitle": "Failed to prepare local settings",
-    "failedBody": "Your saved settings could not be migrated to the new storage format. Nothing was lost — reload to try again.",
+    "failedBody": "Your saved settings could not be migrated to the new storage format. Nothing was lost. Reload to try again.",
     "dataLostTitle": "Some saved settings could not be recovered",
     "dataLostBody": "Browser storage was full, so some of your saved settings (theme, language, API key) could not be preserved and are no longer recoverable. Continuing will keep whatever survived and use defaults for the rest.",
     "continueAfterLoss": "Continue",

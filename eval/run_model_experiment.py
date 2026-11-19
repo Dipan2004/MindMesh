@@ -621,8 +621,13 @@ def build_experiment_collections(
         )
         for r, vec in zip(entity_records, ent_vecs)
     ]
+    # Zvec rejects more than 1024 docs per insert call; write in batches.
+    def _insert_batched(col, docs, batch=1000):
+        for i in range(0, len(docs), batch):
+            col.insert(docs[i:i + batch])
+
     if ent_docs:
-        ent_col.insert(ent_docs)
+        _insert_batched(ent_col, ent_docs)
         ent_col.flush()
     ent_col.close()
     _log.info("Entities collection: %d documents at %s", len(ent_docs), entities_dir)
@@ -711,7 +716,7 @@ def build_experiment_collections(
         for r, vec in zip(rel_records, rel_vecs)
     ]
     if rel_docs:
-        rel_col.insert(rel_docs)
+        _insert_batched(rel_col, rel_docs)
         rel_col.flush()
     rel_col.close()
     _log.info("Relationships collection: %d documents at %s", len(rel_docs), rels_dir)
@@ -771,7 +776,7 @@ def build_experiment_collections(
         for c, vec in zip(deduped_chunks, chunk_vecs)
     ]
     if chunk_docs:
-        chunk_col.insert(chunk_docs)
+        _insert_batched(chunk_col, chunk_docs)
         chunk_col.flush()
     chunk_col.close()
     _log.info("Chunks collection: %d documents at %s", len(chunk_docs), chunks_dir)

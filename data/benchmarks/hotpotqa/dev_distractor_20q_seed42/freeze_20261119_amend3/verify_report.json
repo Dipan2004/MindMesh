@@ -1,0 +1,17 @@
+{
+  "freeze_dir": "C:\\Users\\HP\\OneDrive\\Desktop\\MindMesh\\data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\freeze_20261119_amend3",
+  "git_head": "68b347514960b07d4df36da67000586b72ed387f",
+  "n_hashed": 68,
+  "check1_snapshot_files": 16,
+  "check1_not_in_manifest": [],
+  "check1_hash_mismatch": [],
+  "check2_patch_apply": "ok",
+  "check2_missing": [],
+  "check2_mismatch": [],
+  "check3_live_tree_changed": [],
+  "pass": {
+    "snapshot_covered": true,
+    "reproducible": true,
+    "live_tree_unchanged": true
+  }
+}

@@ -95,7 +95,7 @@ describe('admin header deployment identity', () => {
 
     // Document-relative: under a reverse-proxy prefix or the dev server's
     // file-per-entry layout this still resolves to THIS entry (entryHomeHref).
-    const link = screen.getByRole('link', { name: /LightRAG/ })
+    const link = screen.getByRole('link', { name: /MindMesh/ })
     expect(link.getAttribute('href')).toBe('./')
   })
 })

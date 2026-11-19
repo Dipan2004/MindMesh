@@ -1,5 +1,5 @@
 """
-Pipeline B adapter — structural graph filter + Zvec hybrid retrieval.
+Pipeline B adapter â€” structural graph filter + Zvec hybrid retrieval.
 
 Wraps graphrag_lite.retrieval.pipeline_b.retrieve_structural().
 No changes to the underlying implementation.
@@ -54,7 +54,7 @@ class PipelineBAdapter(PipelineAdapter):
         if generate_answer and evidence:
             from graphrag_lite.llm.client_factory import get_llm_client
             from graphrag_lite.llm.generator import AnswerGenerator
-            client = get_llm_client("local")
+            client = get_llm_client("local", model=self.model)
             gen = AnswerGenerator(client=client)
             ev_dicts = [{"text": e.text, "chunk_id": e.chunk_id} for e in evidence]
             t_gen = time.monotonic()

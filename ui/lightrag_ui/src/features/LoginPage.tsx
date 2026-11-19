@@ -18,6 +18,7 @@ import {
 } from '@/components/ui/Dialog'
 import { ScrollArea } from '@/components/ui/ScrollArea'
 import AppSettings from '@/components/AppSettings'
+import BrandMark from '@/components/BrandMark'
 import CustomizedMarkdown from '@/components/customization/CustomizedMarkdown'
 import CustomizedCopyright from '@/components/customization/CustomizedCopyright'
 import { useCustomizedContent } from '@/components/customization/useCustomizedContent'
@@ -62,6 +63,11 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
   // a different logo URL that should get its own load attempt.
   const [failedLogoUrl, setFailedLogoUrl] = useState<string | null>(null)
   const authCheckRef = useRef(false); // Prevent duplicate calls in Vite dev mode
+  // MindMesh local demo access: when the backend reports auth disabled, the
+  // page offers "enter any name" / "Continue as Guest" instead of a password
+  // form. This is NOT authentication -- local research/demo use only.
+  const [guestStatus, setGuestStatus] = useState<Awaited<ReturnType<typeof getAuthStatus>> | null>(null)
+  const [demoName, setDemoName] = useState('')
 
   // Fired in PARALLEL with the /auth-status probe below (both are effects of
   // this same mount), so the consent gate costs no serial round trip.
@@ -140,12 +146,12 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
           // covers the workspace entry's guest activation in
           // WorkspaceWelcome.handlePrimaryAction. Documented in
           // docs/ui_templates_example/README.md.
-          activateLoginIdentityFromToken(status.access_token)
-          login(status.access_token, true, status.core_version, status.api_version, status.webui_title || null, status.webui_description || null)
-          if (status.message) {
-            toast.info(status.message)
-          }
-          navigate('/')
+          //
+          // MindMesh: show the demo access card (any name, or guest) rather
+          // than activating silently, so the screen is explicit and never a
+          // password prompt. See enterDemo() below.
+          setGuestStatus(status)
+          setCheckingAuth(false)
           return
         }
 
@@ -176,6 +182,130 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
   // together, so on a reachable server this is the same single wait as before.
   if (checkingAuth || content.loading) {
     return null
+  }
+
+  const enterDemo = (name: string | null) => {
+    if (!guestStatus?.access_token) return
+    try {
+      if (name) localStorage.setItem('MINDMESH-DEMO-NAME', name)
+      else localStorage.removeItem('MINDMESH-DEMO-NAME')
+    } catch {
+      // storage unavailable (private mode) -- the name is cosmetic only
+    }
+    activateLoginIdentityFromToken(guestStatus.access_token)
+    login(
+      guestStatus.access_token,
+      true,
+      guestStatus.core_version,
+      guestStatus.api_version,
+      guestStatus.webui_title || null,
+      guestStatus.webui_description || null
+    )
+    navigate('/')
+  }
+
+  if (guestStatus) {
+    const trimmed = demoName.trim()
+    const pipelines = [
+      ['MindMesh Dense', 'Hybrid vector + BM25 chunk search'],
+      ['MindMesh Graph', 'Entity graph, BFS + PageRank filter'],
+      ['MindMesh Mix', 'Graph evidence merged with dense'],
+      ['MindMesh Mix Optimized', 'Dense-anchored, graph fills gaps'],
+    ]
+    return (
+      <div className="relative flex min-h-dvh w-full items-center justify-center bg-background p-4">
+        <div className="absolute top-4 right-4 z-10 flex items-center gap-2">
+          <AppSettings className="bg-card rounded-md border border-border" />
+        </div>
+
+        <div className="relative z-10 grid w-full max-w-4xl gap-3 md:grid-cols-[1.1fr_1fr]">
+          {/* brand panel: charcoal, viewfinder-style grid */}
+          <div className="relative flex flex-col justify-between gap-8 overflow-hidden rounded-2xl bg-neutral-950 p-8 text-neutral-100 ring-1 ring-black/5 md:p-10 dark:ring-white/10">
+            <div
+              aria-hidden="true"
+              className="pointer-events-none absolute inset-0 [background-image:linear-gradient(rgba(255,255,255,0.06)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.06)_1px,transparent_1px)] [background-size:56px_56px]"
+            />
+            <div className="relative flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <BrandMark className="size-9 text-white" nodeColor="#0a0a0a" />
+                <span className="text-xl font-semibold tracking-tight">MindMesh</span>
+              </div>
+              <span className="flex items-center gap-1.5 rounded-full border border-white/15 px-2.5 py-1 text-[11px] text-neutral-300">
+                <span className="size-1.5 rounded-full bg-emerald-400" aria-hidden="true" />
+                Local
+              </span>
+            </div>
+            <div className="relative space-y-3">
+              <h1 className="text-3xl leading-tight font-semibold tracking-tight md:text-[2.5rem]">
+                Graph-RAG,<br />measured honestly.
+              </h1>
+              <p className="max-w-sm text-sm leading-6 text-neutral-400">
+                Structural graph filtering, Zvec hybrid retrieval and a small local LLM,
+                running entirely on this machine.
+              </p>
+            </div>
+            <ul className="relative grid gap-2 text-sm sm:grid-cols-2">
+              {pipelines.map(([name, desc]) => (
+                <li key={name} className="rounded-xl border border-white/10 bg-white/[0.04] px-3 py-2.5">
+                  <div className="font-medium text-neutral-100">{name}</div>
+                  <div className="text-xs leading-5 text-neutral-400">{desc}</div>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* access panel */}
+          <div className="flex flex-col justify-center rounded-2xl border border-border bg-card p-8 shadow-sm md:p-10">
+            <div className="mb-6 space-y-1.5">
+              <h2 className="text-2xl font-semibold tracking-tight">Welcome</h2>
+              <p className="text-muted-foreground text-sm">
+                Enter any name to start, or continue as a guest.
+              </p>
+            </div>
+            <form
+              className="space-y-3"
+              onSubmit={(e) => {
+                e.preventDefault()
+                if (trimmed) enterDemo(trimmed)
+              }}
+            >
+              <label htmlFor="demo-name-input" className="text-sm font-medium">
+                Your name
+              </label>
+              <Input
+                id="demo-name-input"
+                aria-label="Your name"
+                placeholder="e.g. Archi"
+                value={demoName}
+                onChange={(e) => setDemoName(e.target.value)}
+                className="h-11 w-full"
+                autoFocus
+              />
+              <Button
+                type="submit"
+                className="h-11 w-full"
+                disabled={!trimmed}
+              >
+                Continue
+              </Button>
+              <div className="flex items-center gap-3 py-1">
+                <span className="h-px flex-1 bg-border" />
+                <span className="text-muted-foreground text-xs">or</span>
+                <span className="h-px flex-1 bg-border" />
+              </div>
+              <Button
+                type="button"
+                variant="outline"
+                className="h-11 w-full"
+                onClick={() => enterDemo(null)}
+              >
+                Continue as Guest
+              </Button>
+            </form>
+          </div>
+        </div>
+      </div>
+    )
   }
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
@@ -244,7 +374,7 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
       // chrome in 100vh, which can push the form under the toolbar; dvh
       // tracks the actually visible viewport, and min- lets small screens
       // scroll instead of clipping.
-      className="flex min-h-dvh w-full flex-col items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-100 dark:from-gray-900 dark:to-gray-800"
+      className="flex min-h-dvh w-full flex-col items-center justify-center bg-background"
       style={{
         padding:
           'calc(env(safe-area-inset-top) + 1rem) calc(env(safe-area-inset-right) + 1rem) calc(env(safe-area-inset-bottom) + 1rem) calc(env(safe-area-inset-left) + 1rem)'

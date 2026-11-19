@@ -1,0 +1,406 @@
+﻿diff --git a/.gitignore b/.gitignore
+index 554fd1b..1da99e6 100644
+--- a/.gitignore
++++ b/.gitignore
+@@ -1,4 +1,4 @@
+-# ── Python ────────────────────────────────────────────────────────────────────
++﻿# â”€â”€ Python â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ __pycache__/
+ *.py[cod]
+ *.pyo
+@@ -9,16 +9,16 @@ dist/
+ build/
+ .eggs/
+ 
+-# ── Virtual environments ───────────────────────────────────────────────────────
++# â”€â”€ Virtual environments â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ .venv/
+ venv/
+ env/
+ 
+-# ── Environment / secrets ─────────────────────────────────────────────────────
++# â”€â”€ Environment / secrets â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ .env
+-# .env.example is intentionally kept — it documents required vars without values
++# .env.example is intentionally kept â€” it documents required vars without values
+ 
+-# ── Data ──────────────────────────────────────────────────────────────────────
++# â”€â”€ Data â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ # Raw corpus documents are local; add them manually per deployment
+ data/raw/*
+ !data/raw/.gitkeep
+@@ -35,7 +35,7 @@ graphify-out/
+ *.bak_*
+ DOCUMENT.md.bak_20261013
+ 
+-# ── Log and error files ───────────────────────────────────────────────────────
++# â”€â”€ Log and error files â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ *.log
+ *.log.txt
+ *_log.txt
+@@ -47,10 +47,10 @@ chunking_ablation_err.txt
+ dedup_markdown_log.txt
+ dedup_markdown_err.txt
+ 
+-# ── Ablation / eval outputs (generated) ───────────────────────────────────────
++# â”€â”€ Ablation / eval outputs (generated) â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ eval/ablations/chunking_results.json
+ 
+-# ── OS and editor ─────────────────────────────────────────────────────────────
++# â”€â”€ OS and editor â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ .DS_Store
+ Thumbs.db
+ *.swp
+@@ -58,30 +58,35 @@ Thumbs.db
+ .idea/
+ .vscode/
+ 
+-# ── uv / pip ──────────────────────────────────────────────────────────────────
++# â”€â”€ uv / pip â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ uv.lock
+ .python-version
+ 
+-# ── Test artifacts ────────────────────────────────────────────────────────────
++# â”€â”€ Test artifacts â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
+ .pytest_cache/
+ .coverage
+ htmlcov/
+ 
+-# ── What IS tracked ───────────────────────────────────────────────────────────
+-# README.md          ✓
+-# PRD.md             ✓
+-# ARCHITECTURE.md    ✓
+-# CONFIG.md          ✓
+-# TASKS.md           ✓
+-# DOCUMENT.md        ✓
+-# .env.example       ✓
+-# pyproject.toml     ✓
+-# src/               ✓  (all source code)
+-# scripts/           ✓
+-# eval/              ✓  (scripts and gold set, not generated outputs)
+-# tests/             ✓
+-# data/raw/.gitkeep  ✓  (placeholder so the directory exists on clone)
++# â”€â”€ What IS tracked â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€â”€
++# README.md          âœ“
++# PRD.md             âœ“
++# ARCHITECTURE.md    âœ“
++# CONFIG.md          âœ“
++# TASKS.md           âœ“
++# DOCUMENT.md        âœ“
++# .env.example       âœ“
++# pyproject.toml     âœ“
++# src/               âœ“  (all source code)
++# scripts/           âœ“
++# eval/              âœ“  (scripts and gold set, not generated outputs)
++# tests/             âœ“
++# data/raw/.gitkeep  âœ“  (placeholder so the directory exists on clone)
+ 
+-LightRAG/
+-Zeno/
++# Vendored upstream checkout only (anchored: an unanchored 'LightRAG/' also
++# matched src/graphrag_lite/retrieval/lightrag/ on case-insensitive FS)
++/LightRAG/
++
++# HotpotQA raw dataset (downloaded, ~27 MB)
++data/benchmarks/hotpotqa/raw/
++/Zeno/
+ 
+diff --git a/src/graphrag_lite/api/main.py b/src/graphrag_lite/api/main.py
+index 5c0cfeb..b410f07 100644
+--- a/src/graphrag_lite/api/main.py
++++ b/src/graphrag_lite/api/main.py
+@@ -124,6 +124,15 @@ app.include_router(compat_router)
+ # It outputs to ui/lightrag_ui_dist/ (adjusted in vite.config.ts).
+ # When the dist directory doesn't exist the API still works; just no UI served.
+ if _UI_BUILD_DIR.exists():
++    # Python's mimetypes reads the Windows registry, where .js is commonly
++    # mapped to text/plain.  Browsers refuse ES-module scripts served as
++    # text/plain, which left /webui blank on Windows.  Pin the web types.
++    import mimetypes
++    mimetypes.add_type("application/javascript", ".js")
++    mimetypes.add_type("application/javascript", ".mjs")
++    mimetypes.add_type("text/css", ".css")
++    mimetypes.add_type("image/svg+xml", ".svg")
++    mimetypes.add_type("application/wasm", ".wasm")
+     app.mount("/webui", StaticFiles(directory=str(_UI_BUILD_DIR), html=True), name="webui")
+     log.info("LightRAG UI served at /webui from %s", _UI_BUILD_DIR)
+ else:
+diff --git a/src/graphrag_lite/llm/client_factory.py b/src/graphrag_lite/llm/client_factory.py
+index 27751c6..e80cf43 100644
+--- a/src/graphrag_lite/llm/client_factory.py
++++ b/src/graphrag_lite/llm/client_factory.py
+@@ -32,18 +32,23 @@ class GrokClientStub:
+         # Interface only: return a constant indicating it's a stub
+         return "[Grok API Stub] Request received. (Interface only - no hosted call made)"
+ 
+-def get_llm_client(mode: Literal["local", "api"], api_key: str | None = None) -> LLMClient:
++def get_llm_client(
++    mode: Literal["local", "api"],
++    api_key: str | None = None,
++    model: str | None = None,
++) -> LLMClient:
+     """
+     Factory to return the appropriate LLM client based on the mode.
+ 
+-    - 'local': Returns an OllamaClient using the SLM_MODEL from config.
++    - 'local': Returns an OllamaClient using ``model`` when given (the exact
++      tag a caller selected -- never substituted), else SLM_MODEL from config.
+     - 'api': Returns a GrokClientStub.
+     """
+     cfg = get_config()
+ 
+     if mode == "local":
+         return OllamaClient(
+-            model=cfg.SLM_MODEL,
++            model=model or cfg.SLM_MODEL,
+             temperature=cfg.EXTRACTION_TEMPERATURE,
+             seed=cfg.EXTRACTION_SEED,
+             num_predict=cfg.LLM_NUM_PREDICT,
+diff --git a/src/mindmesh/pipelines/lightrag_experimental/adapter.py b/src/mindmesh/pipelines/lightrag_experimental/adapter.py
+index 2380b62..790c4fe 100644
+--- a/src/mindmesh/pipelines/lightrag_experimental/adapter.py
++++ b/src/mindmesh/pipelines/lightrag_experimental/adapter.py
+@@ -1,5 +1,5 @@
+ """
+-lightrag_experimental/adapter.py — Adapters for MindMesh-native LightRAG retrievers.
++lightrag_experimental/adapter.py Ã¢â‚¬â€ Adapters for MindMesh-native LightRAG retrievers.
+ 
+ These wrap the four experimental LightRAG-style retrievers already in
+ src/graphrag_lite/retrieval/lightrag/:
+@@ -22,6 +22,7 @@ They require an experiment directory with pre-built Zvec collections
+ """
+ from __future__ import annotations
+ 
++import logging
+ import sys
+ import time
+ from pathlib import Path
+@@ -32,6 +33,8 @@ sys.path.insert(0, str(ROOT / "src"))
+ 
+ from mindmesh.pipelines.base import PipelineAdapter, PipelineResult
+ 
++log = logging.getLogger(__name__)
++
+ 
+ def _default_exp_dir() -> Path:
+     """Return the default experiment directory (Phase 1 validation results)."""
+@@ -106,7 +109,7 @@ class _ExperimentalBase(PipelineAdapter):
+             try:
+                 from graphrag_lite.llm.client_factory import get_llm_client
+                 from graphrag_lite.llm.generator import AnswerGenerator
+-                client = get_llm_client("local")
++                client = get_llm_client("local", model=self.model)
+                 if self.optimized and hasattr(client, "with_overrides"):
+                     client = client.with_overrides(num_predict=512)
+                 gen = AnswerGenerator(client=client)
+diff --git a/src/mindmesh/pipelines/pipeline_a_adapter/adapter.py b/src/mindmesh/pipelines/pipeline_a_adapter/adapter.py
+index 77a0e98..95457b1 100644
+--- a/src/mindmesh/pipelines/pipeline_a_adapter/adapter.py
++++ b/src/mindmesh/pipelines/pipeline_a_adapter/adapter.py
+@@ -1,5 +1,5 @@
+ """
+-Pipeline A adapter — flat vector-only baseline.
++Pipeline A adapter â€” flat vector-only baseline.
+ 
+ Wraps graphrag_lite.retrieval.pipeline_a.retrieve_flat().
+ No changes to the underlying implementation.
+@@ -57,7 +57,7 @@ class PipelineAAdapter(PipelineAdapter):
+         if generate_answer and evidence:
+             from graphrag_lite.llm.client_factory import get_llm_client
+             from graphrag_lite.llm.generator import AnswerGenerator
+-            client = get_llm_client("local")
++            client = get_llm_client("local", model=self.model)
+             gen = AnswerGenerator(client=client)
+             ev_dicts = [{"text": e.text, "chunk_id": e.chunk_id} for e in evidence]
+             t_gen = time.monotonic()
+diff --git a/src/mindmesh/pipelines/pipeline_b_adapter/adapter.py b/src/mindmesh/pipelines/pipeline_b_adapter/adapter.py
+index 6797cbd..ee89515 100644
+--- a/src/mindmesh/pipelines/pipeline_b_adapter/adapter.py
++++ b/src/mindmesh/pipelines/pipeline_b_adapter/adapter.py
+@@ -1,5 +1,5 @@
+ """
+-Pipeline B adapter — structural graph filter + Zvec hybrid retrieval.
++Pipeline B adapter â€” structural graph filter + Zvec hybrid retrieval.
+ 
+ Wraps graphrag_lite.retrieval.pipeline_b.retrieve_structural().
+ No changes to the underlying implementation.
+@@ -54,7 +54,7 @@ class PipelineBAdapter(PipelineAdapter):
+         if generate_answer and evidence:
+             from graphrag_lite.llm.client_factory import get_llm_client
+             from graphrag_lite.llm.generator import AnswerGenerator
+-            client = get_llm_client("local")
++            client = get_llm_client("local", model=self.model)
+             gen = AnswerGenerator(client=client)
+             ev_dicts = [{"text": e.text, "chunk_id": e.chunk_id} for e in evidence]
+             t_gen = time.monotonic()
+diff --git a/ui/lightrag_ui/src/features/LoginPage.tsx b/ui/lightrag_ui/src/features/LoginPage.tsx
+index c501083..fb3b07e 100644
+--- a/ui/lightrag_ui/src/features/LoginPage.tsx
++++ b/ui/lightrag_ui/src/features/LoginPage.tsx
+@@ -62,6 +62,11 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
+   // a different logo URL that should get its own load attempt.
+   const [failedLogoUrl, setFailedLogoUrl] = useState<string | null>(null)
+   const authCheckRef = useRef(false); // Prevent duplicate calls in Vite dev mode
++  // MindMesh local demo access: when the backend reports auth disabled, the
++  // page offers "enter any name" / "Continue as Guest" instead of a password
++  // form. This is NOT authentication -- local research/demo use only.
++  const [guestStatus, setGuestStatus] = useState<Awaited<ReturnType<typeof getAuthStatus>> | null>(null)
++  const [demoName, setDemoName] = useState('')
+ 
+   // Fired in PARALLEL with the /auth-status probe below (both are effects of
+   // this same mount), so the consent gate costs no serial round trip.
+@@ -140,12 +145,12 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
+           // covers the workspace entry's guest activation in
+           // WorkspaceWelcome.handlePrimaryAction. Documented in
+           // docs/ui_templates_example/README.md.
+-          activateLoginIdentityFromToken(status.access_token)
+-          login(status.access_token, true, status.core_version, status.api_version, status.webui_title || null, status.webui_description || null)
+-          if (status.message) {
+-            toast.info(status.message)
+-          }
+-          navigate('/')
++          //
++          // MindMesh: show the demo access card (any name, or guest) rather
++          // than activating silently, so the screen is explicit and never a
++          // password prompt. See enterDemo() below.
++          setGuestStatus(status)
++          setCheckingAuth(false)
+           return
+         }
+ 
+@@ -178,6 +183,82 @@ const LoginPage = ({ autoActivateGuest = true }: LoginPageProps) => {
+     return null
+   }
+ 
++  const enterDemo = (name: string | null) => {
++    if (!guestStatus?.access_token) return
++    try {
++      if (name) localStorage.setItem('MINDMESH-DEMO-NAME', name)
++      else localStorage.removeItem('MINDMESH-DEMO-NAME')
++    } catch {
++      // storage unavailable (private mode) -- the name is cosmetic only
++    }
++    activateLoginIdentityFromToken(guestStatus.access_token)
++    login(
++      guestStatus.access_token,
++      true,
++      guestStatus.core_version,
++      guestStatus.api_version,
++      guestStatus.webui_title || null,
++      guestStatus.webui_description || null
++    )
++    navigate('/')
++  }
++
++  if (guestStatus) {
++    const trimmed = demoName.trim()
++    return (
++      <div className="flex min-h-dvh w-full flex-col items-center justify-center bg-gradient-to-br from-emerald-50 to-teal-100 p-4 dark:from-gray-900 dark:to-gray-800">
++        <div className="absolute top-4 right-4 flex items-center gap-2">
++          <AppSettings className="bg-white/30 dark:bg-gray-800/30 backdrop-blur-sm rounded-md" />
++        </div>
++        <Card className="w-full max-w-[440px] shadow-lg">
++          <CardHeader className="flex items-center justify-center pb-4 pt-6">
++            <div className="text-center space-y-2">
++              <h1 className="text-3xl font-bold tracking-tight">MindMesh</h1>
++              <p className="text-muted-foreground text-sm">
++                Graph-RAG research demo
++              </p>
++            </div>
++          </CardHeader>
++          <CardContent className="px-8 pb-8">
++            <form
++              className="space-y-4"
++              onSubmit={(e) => {
++                e.preventDefault()
++                if (trimmed) enterDemo(trimmed)
++              }}
++            >
++              <Input
++                id="demo-name-input"
++                aria-label="Your name"
++                placeholder="Your name (any text)"
++                value={demoName}
++                onChange={(e) => setDemoName(e.target.value)}
++                className="h-11 w-full"
++                autoFocus
++              />
++              <Button type="submit" className="w-full h-11" disabled={!trimmed}>
++                Continue
++              </Button>
++              <Button
++                type="button"
++                variant="outline"
++                className="w-full h-11"
++                onClick={() => enterDemo(null)}
++              >
++                Continue as Guest
++              </Button>
++            </form>
++            <p className="text-muted-foreground mt-6 text-xs leading-5">
++              Local demo mode: no password, no email and no external sign-in.
++              The name is only shown on this device. This is not authentication;
++              do not expose this server publicly.
++            </p>
++          </CardContent>
++        </Card>
++      </div>
++    )
++  }
++
+   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+     e.preventDefault()
+     if (!username || !password) {
+diff --git a/ui/lightrag_ui/src/features/SiteHeader.test.tsx b/ui/lightrag_ui/src/features/SiteHeader.test.tsx
+index 4dffa37..c02dcfe 100644
+--- a/ui/lightrag_ui/src/features/SiteHeader.test.tsx
++++ b/ui/lightrag_ui/src/features/SiteHeader.test.tsx
+@@ -95,7 +95,7 @@ describe('admin header deployment identity', () => {
+ 
+     // Document-relative: under a reverse-proxy prefix or the dev server's
+     // file-per-entry layout this still resolves to THIS entry (entryHomeHref).
+-    const link = screen.getByRole('link', { name: /LightRAG/ })
++    const link = screen.getByRole('link', { name: /MindMesh/ })
+     expect(link.getAttribute('href')).toBe('./')
+   })
+ })
+diff --git a/ui/lightrag_ui/src/features/SiteHeader.tsx b/ui/lightrag_ui/src/features/SiteHeader.tsx
+index dfb200a..eac9e34 100644
+--- a/ui/lightrag_ui/src/features/SiteHeader.tsx
++++ b/ui/lightrag_ui/src/features/SiteHeader.tsx
+@@ -57,6 +57,12 @@ function TabsNavigation() {
+ export default function SiteHeader() {
+   const { t } = useTranslation()
+   const { isGuestMode, coreVersion, apiVersion, username, webuiTitle, webuiDescription } = useAuthStore()
++  let demoName: string | null = null
++  try {
++    demoName = localStorage.getItem('MINDMESH-DEMO-NAME')
++  } catch {
++    demoName = null
++  }
+   const theme = useSettingsStore.use.theme()
+   // Tri-state on purpose — 'unknown' (no successful /health yet) hides the
+   // entry point rather than guessing; see apiDocsCapability in stores/state.ts.
+@@ -92,7 +98,7 @@ export default function SiteHeader() {
+               <a href={entryHomeHref(window.location.pathname)} className="flex items-center">
+                 <ZapIcon className="mr-2 size-4 text-emerald-400" aria-hidden="true" />
+                 <span className="font-bold md:inline-block">{SiteInfo.name}</span>
+-                {webuiTitle && (
++                {webuiTitle && webuiTitle !== SiteInfo.name && (
+                   <>
+                     <span className="mx-1 text-xs text-gray-500 dark:text-gray-400" aria-hidden="true">|</span>
+                     <span className="text-sm font-medium">{webuiTitle}</span>
+@@ -113,8 +119,11 @@ export default function SiteHeader() {
+       <div className="flex h-10 flex-1 items-center justify-center">
+         <TabsNavigation />
+         {isGuestMode && (
+-          <div className="ml-2 self-center px-2 py-1 text-xs bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200 rounded-md">
+-            {t('login.guestMode', 'Guest Mode')}
++          <div
++            className="ml-2 self-center px-2 py-1 text-xs bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200 rounded-md"
++            title="Local demo mode: no authentication. Do not expose publicly."
++          >
++            {demoName ? `Demo · ${demoName}` : 'Demo · Guest'}
+           </div>
+         )}
+       </div>
