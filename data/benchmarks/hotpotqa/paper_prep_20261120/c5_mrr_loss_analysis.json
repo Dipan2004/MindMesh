@@ -1,0 +1,1287 @@
+{
+  "replay_matches_stored_rankings": 99,
+  "summary": {
+    "losses": 33,
+    "wins": 6,
+    "ties": 61,
+    "by_type_losses": {
+      "bridge": 13,
+      "comparison": 20
+    },
+    "dense_had_gold_at_rank1": 30,
+    "c5_still_has_gold_in_top10": 33,
+    "c5_gold_rank_distribution": {
+      "3": 11,
+      "2": 15,
+      "4": 5,
+      "5": 2
+    },
+    "demoted_gold_had_zero_support": 9,
+    "promoted_paragraphs_total": 60,
+    "promoted_from_expansion": 8,
+    "promoted_already_in_dense_top10": 57,
+    "losses_with_generic_or_short_anchor": 4,
+    "anchors_per_loss_median": 2,
+    "gold_record_entities_median_in_losses": 1,
+    "primary_cause_counts": {
+      "path-support ranking: gold supported but a non-gold paragraph scored higher": 19,
+      "expansion: an expansion paragraph outscored the gold": 5,
+      "graph path: gold has entities but none reachable from question anchors": 4,
+      "sparse extraction: gold record <=1 entity, no support": 4,
+      "sparse/failed extraction: gold paragraph has no valid record": 1
+    }
+  },
+  "counterfactual_mrr_post_hoc": {
+    "keep_dense_top1": 0.9075,
+    "rrf_dense_support": 0.8428,
+    "dense": 0.9067,
+    "c5_as_run": 0.7498,
+    "WARNING": "post-hoc on the same 100 questions: indicative only, cannot be reported as a result; any change must be validated on a new held-out question sample"
+  },
+  "losses": [
+    {
+      "qid": "5ab53ef1554299488d4d9920",
+      "type": "bridge",
+      "question": "In what directional area of Argentia would one find the Rio Hondo Department?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "4023165b97b30d1b",
+        "title": "Río Hondo Department",
+        "support": 0.0,
+        "entities_in_record": 4
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "255974268309be7d",
+          "title": "Rio Hondo (Southern New Mexico)",
+          "support": 11.0,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "39706fd17d18aa0c",
+          "title": "Rio Hondo (Northern New Mexico)",
+          "support": 4.583,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Rio Hondo"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "graph path: gold has entities but none reachable from question anchors"
+    },
+    {
+      "qid": "5a769b115542993569682c51",
+      "type": "bridge",
+      "question": "What American bluegrass singer performed the song Restless with The New Nashville Cats?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "dd57b3e345e8ca53",
+        "title": "Restless (Carl Perkins song)",
+        "support": 4.0,
+        "entities_in_record": 5
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "a099b3930b3ba4f5",
+          "title": "The New Nashville Cats",
+          "support": 5.0,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Restless",
+        "The New Nashville Cats"
+      ],
+      "generic_or_short_anchor": true,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5a7602d8554299109176e5fb",
+      "type": "bridge",
+      "question": "What actress and and writer starred with Jennifer Saunders in bothe \"The Supergrass\" and \"French and Saunders\"?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 4,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.25,
+      "demoted_gold": {
+        "chunk_id": "8f5e1ed518366291",
+        "title": "Dawn French",
+        "support": 0.5,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "2d1cd752b15a14fe",
+          "title": "Absolutely Fabulous (series 4)",
+          "support": 3.75,
+          "in_dense_top10": true,
+          "dense_rank": 8,
+          "from_expansion": true
+        },
+        {
+          "chunk_id": "0cba2f1e48972df0",
+          "title": "French and Saunders",
+          "support": 3.5,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "da03dc4aa612a116",
+          "title": "French and Saunders Still Alive",
+          "support": 2.583,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "French and Saunders",
+        "Jennifer Saunders",
+        "The Supergrass"
+      ],
+      "generic_or_short_anchor": true,
+      "cause": "expansion: an expansion paragraph outscored the gold"
+    },
+    {
+      "qid": "5ae4e2ca55429908b63264aa",
+      "type": "bridge",
+      "question": "Who founded the company that Robinsons-May is a subsidiary of ?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "6599befc2a7488c2",
+        "title": "Robinsons-May",
+        "support": 2.583,
+        "entities_in_record": 3
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "a4a90e9e8bea2ac1",
+          "title": "May Company California",
+          "support": 3.167,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Robinsons-May"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5a8c8828554299653c1aa0ae",
+      "type": "bridge",
+      "question": "Edward Fitzalan-Howard, 18th Duke of Norfolk is the son of what British Army general and peer",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "6517718c3566223d",
+        "title": "Edward Fitzalan-Howard, 18th Duke of Norfolk",
+        "support": 0.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "d5d5843a216fa828",
+          "title": "Duke of Norfolk",
+          "support": 4.5,
+          "in_dense_top10": true,
+          "dense_rank": 6,
+          "from_expansion": true
+        }
+      ],
+      "anchors": [
+        "Duke of Norfolk",
+        "Edward Fitzalan-Howard, 18th Duke of Norfolk"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "sparse extraction: gold record <=1 entity, no support"
+    },
+    {
+      "qid": "5ac372195542995ef918c194",
+      "type": "bridge",
+      "question": "Which major regional shopping centre in the western suburb of Indooroopilly in the City of Brisbane, Queensland, Australia  is served by TransLink bus routes?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "2dd066198b3cb968",
+        "title": "Indooroopilly Shopping Centre",
+        "support": 0.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "fbf61adc749de348",
+          "title": "Aspley bus station",
+          "support": 3.0,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "d6ef5d0717d77f30",
+          "title": "Inala bus station",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "TransLink",
+        "Queensland",
+        "Australia",
+        "City of Brisbane",
+        "Indooroopilly"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "sparse extraction: gold record <=1 entity, no support"
+    },
+    {
+      "qid": "5ab281f45542993be8fa9938",
+      "type": "bridge",
+      "question": "How old was William DuVall when Black Gives Way to Blue was certified gold by the RIAA?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "a02521ae2928a8dd",
+        "title": "Black Gives Way to Blue",
+        "support": 3.75,
+        "entities_in_record": 5
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "e152947c3cf74e57",
+          "title": "A Looking in View",
+          "support": 3.833,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "William DuVall",
+        "Black Gives Way to Blue"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5a86038455429960ec39b600",
+      "type": "bridge",
+      "question": "The winner of the the London Riders' Championship in 1953 scored how many points in the 1952 Individual Speedway World Championship?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "3f37f1d57cb3f639",
+        "title": "1952 Individual Speedway World Championship",
+        "support": 0.0,
+        "entities_in_record": null
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "1606e1aa9cfc722b",
+          "title": "1936 Individual Speedway World Championship",
+          "support": 1.0,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "London"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "sparse/failed extraction: gold paragraph has no valid record"
+    },
+    {
+      "qid": "5a7149cf5542994082a3e773",
+      "type": "bridge",
+      "question": "What 2015 British-Canadian-Irish romantic drama was Finola Dwyer a producer of?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "9c48cbccc18a0d76",
+        "title": "Brooklyn (film)",
+        "support": 0.0,
+        "entities_in_record": 9
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "fd23682473d95ea6",
+          "title": "Amanda Posey",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Finola Dwyer"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "graph path: gold has entities but none reachable from question anchors"
+    },
+    {
+      "qid": "5a773e3955429972597f14c9",
+      "type": "bridge",
+      "question": "Who was born in Ireland and has coached the captain of MLS club Colorado Rapids?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "9fbf6c6c7157eff1",
+        "title": "Tim Howard",
+        "support": 0.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "fa8b75f19429db6d",
+          "title": "Zach Thornton",
+          "support": 1.0,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Colorado Rapids"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "sparse extraction: gold record <=1 entity, no support"
+    },
+    {
+      "qid": "5adc6825554299438c868da1",
+      "type": "bridge",
+      "question": "The Governor of Santiago del Estero is a citizen of the province that is neighbored by which province on the north?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 4,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.25,
+      "demoted_gold": {
+        "chunk_id": "e5aa7223c4fd8868",
+        "title": "Governor of Santiago del Estero",
+        "support": 1.5,
+        "entities_in_record": 5
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "eee0658a37ea7481",
+          "title": "Santiago del Estero",
+          "support": 9.0,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "c4c74d93654d6651",
+          "title": "Vicecomodoro Ángel de la Paz Aragonés Airport",
+          "support": 3.083,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "edd44b1129c36be6",
+          "title": "Gerardo Zamora",
+          "support": 2.583,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Santiago del Estero",
+        "Governor of Santiago del Estero"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5adee8ff55429975fa854fb8",
+      "type": "bridge",
+      "question": "What dance competition television series features host and NFL reporter Erin Andrews?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "001f6fdf75f523a2",
+        "title": "Erin Andrews",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "ffb58debd6825270",
+          "title": "Samantha Ponder",
+          "support": 2.583,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Erin Andrews",
+        "Dance"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5abb8ebe5542993f40c73b2d",
+      "type": "bridge",
+      "question": "What British made dance competition television series franchise did Claudia Albertario appear on?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "11198ab313088443",
+        "title": "Dancing on Ice around the world",
+        "support": 0.0,
+        "entities_in_record": 5
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "73789dfc1fb7d82f",
+          "title": "Dance (Ratt song)",
+          "support": 1.0,
+          "in_dense_top10": false,
+          "dense_rank": null,
+          "from_expansion": true
+        }
+      ],
+      "anchors": [
+        "Dance"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "graph path: gold has entities but none reachable from question anchors"
+    },
+    {
+      "qid": "5ac00278554299012d1db56b",
+      "type": "comparison",
+      "question": "What profession do Raj Kapoor and Mike Cahill share?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "41e58b89c1397856",
+        "title": "Mike Cahill (director)",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "4df4b5295e67f801",
+          "title": "Aag (1948 film)",
+          "support": 5.417,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "16a91e591a40c438",
+          "title": "Kal Aaj Aur Kal",
+          "support": 4.333,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Raj Kapoor",
+        "Mike Cahill"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5adccaca5542994d58a2f6d5",
+      "type": "comparison",
+      "question": "Which of these is a genus of flowering plants, Anemopaegma or Semele?",
+      "dense_first_gold_rank": 2,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 0.5,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "8bddbf8ddd3d0f50",
+        "title": "Anemopaegma",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "e5eca2e6dd8b8b88",
+          "title": "Semele (plant)",
+          "support": 3.0,
+          "in_dense_top10": true,
+          "dense_rank": 1,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "e8e7eb907eb94958",
+          "title": "Gnetophyta",
+          "support": 2.583,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Semele",
+        "Anemopaegma",
+        "Flowering plants"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5ab6e865554299710c8d1fad",
+      "type": "comparison",
+      "question": "Between Danny Elfman and Fran Healy who has worked in more diverse fields?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "1870b32e305bfb77",
+        "title": "Danny Elfman",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "02e94c52db8f837e",
+          "title": "Wreckorder",
+          "support": 5.75,
+          "in_dense_top10": true,
+          "dense_rank": 7,
+          "from_expansion": true
+        },
+        {
+          "chunk_id": "8c1c86c18a223728",
+          "title": "Batman (score)",
+          "support": 4.833,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Fran Healy",
+        "Danny Elfman"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "expansion: an expansion paragraph outscored the gold"
+    },
+    {
+      "qid": "5ae114f155429901ffe4ad5c",
+      "type": "comparison",
+      "question": "Do the documentaries Hot Girls Wanted and The Truth According to Wikipedia have the same director?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "903bcebb130bdbec",
+        "title": "The Truth According to Wikipedia",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "4fbe89b0d5faec6f",
+          "title": "Hot Girls",
+          "support": 4.167,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Hot Girls",
+        "Hot Girls Wanted",
+        "The Truth According to Wikipedia"
+      ],
+      "generic_or_short_anchor": true,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5ab6087a554299110f2199be",
+      "type": "comparison",
+      "question": "Do both Korematsu v. United States and Chaplinsky v. New Hampshire cases regard the rights of U. S. citizens?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "e32ee493ed809ece",
+        "title": "Chaplinsky v. New Hampshire",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "c1e246687344e804",
+          "title": "Duncan v. Kahanamoku",
+          "support": 3.917,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "615cdfa10474d8b6",
+          "title": "Ex parte Endo",
+          "support": 3.167,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Korematsu v. United States",
+        "Chaplinsky v. New Hampshire"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5ae46b615542995dadf24327",
+      "type": "comparison",
+      "question": "Who has more scope of profession, Edward Dmytryk or Otto Preminger?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "82bcd4a397a999ac",
+        "title": "Otto Preminger",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "11399d9e6ed9e2a4",
+          "title": "Ingo Preminger",
+          "support": 3.167,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "468a7c3fd34321f3",
+          "title": "The Hawk (1935 film)",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Otto Preminger",
+        "Edward Dmytryk"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5ae492955542995ad6573daa",
+      "type": "comparison",
+      "question": "The rock band Sugar Ray began as a funk metal band, while the band Das Damen was considered what?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "ca10670f4e9a955b",
+        "title": "Sugar Ray",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "2b0c2ab47deb6703",
+          "title": "Sugar Ray (album)",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "349853336eca2d3b",
+          "title": "Lemonade and Brownies",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Sugar Ray",
+        "Das Damen"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5abbdb335542992ccd8e7fc1",
+      "type": "comparison",
+      "question": "Are NRG Energy and Raymond James Financial  based in Great Britain?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "0858b37893c7da84",
+        "title": "NRG Energy",
+        "support": 0.0,
+        "entities_in_record": 2
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "f4b9953ba7b9d810",
+          "title": "Pension administration in the United States",
+          "support": 9.583,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Raymond James Financial",
+        "Raymond James"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "graph path: gold has entities but none reachable from question anchors"
+    },
+    {
+      "qid": "5ade618e554299728e26c700",
+      "type": "comparison",
+      "question": "Both Tsai Ming-liang and Giacomo Gentilomo were involved with which profession?",
+      "dense_first_gold_rank": 3,
+      "c5_first_gold_rank": 4,
+      "mrr_dense": 0.3333333333333333,
+      "mrr_c5": 0.25,
+      "demoted_gold": {
+        "chunk_id": "00dc893068c44b63",
+        "title": "Giacomo Gentilomo",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "197489edd7e615b2",
+          "title": "Rebels of the Neon God",
+          "support": 6.0,
+          "in_dense_top10": true,
+          "dense_rank": 1,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "8869b7186fadb9af",
+          "title": "Vive L'Amour",
+          "support": 3.75,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "7bffd42be46931a1",
+          "title": "The River (1997 film)",
+          "support": 2.583,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Tsai Ming-liang",
+        "Giacomo Gentilomo"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5a837121554299123d8c2128",
+      "type": "comparison",
+      "question": "Q1: Which mountain is located in China, Kirat Chuli or Kangpenqing?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "e4b8cfa2e82ef0c0",
+        "title": "Kangpenqing",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "49deece00239c9e4",
+          "title": "Mingli Sar",
+          "support": 6.083,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "China",
+        "Kangpenqing",
+        "Kirat Chuli"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5a8cc7af554299653c1aa11e",
+      "type": "comparison",
+      "question": "who was part of the heavy metal band Ratt, Stephen Pearcy or Alexander O'Neal?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 5,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.2,
+      "demoted_gold": {
+        "chunk_id": "a5a1a3ab9a01f805",
+        "title": "Stephen Pearcy",
+        "support": 2.5,
+        "entities_in_record": 2
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "69ea2310084e6973",
+          "title": "Matt Thorr",
+          "support": 4.917,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "8efa335de18f3d03",
+          "title": "Vicious Delite",
+          "support": 4.083,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "1f1504795345835d",
+          "title": "Alexander (Alex Ebert album)",
+          "support": 4.0,
+          "in_dense_top10": false,
+          "dense_rank": null,
+          "from_expansion": true
+        },
+        {
+          "chunk_id": "4e0b38de0e3e7000",
+          "title": "Slip of the Lip",
+          "support": 3.167,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Alexander O'Neal",
+        "Stephen Pearcy",
+        "Ratt",
+        "Alexander"
+      ],
+      "generic_or_short_anchor": true,
+      "cause": "expansion: an expansion paragraph outscored the gold"
+    },
+    {
+      "qid": "5ac179bf5542994ab5c67d60",
+      "type": "comparison",
+      "question": "Are Castor et Pollux and Manon Lescaut composed by the same people?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "41a807c0946f5ef1",
+        "title": "Manon Lescaut (Puccini)",
+        "support": 3.5,
+        "entities_in_record": 4
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "62ee8e762a5f8458",
+          "title": "Manon Lescaut (Auber)",
+          "support": 4.5,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Manon Lescaut",
+        "Castor et Pollux"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5a8b59a65542995d1e6f137c",
+      "type": "comparison",
+      "question": "Are Stephen Frears and Jan Švankmajer from the same country?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "0c8775a403d78378",
+        "title": "Stephen Frears",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "39592b16dc8ece21",
+          "title": "Czech animation",
+          "support": 4.333,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Jan Švankmajer",
+        "Stephen Frears"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5a75383a5542996c70cfaeb3",
+      "type": "comparison",
+      "question": "Who was born first, Ulf Merbold or Mirosław Hermaszewski?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 2,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.5,
+      "demoted_gold": {
+        "chunk_id": "1dda59241bb9cd52",
+        "title": "Ulf Merbold",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "986fec5d5c4ec7fd",
+          "title": "Byron K. Lichtenberg",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Mirosław Hermaszewski",
+        "Ulf Merbold"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5a8b3c0055429949d91db4f8",
+      "type": "comparison",
+      "question": "IS Paul Sloane noted for directing more musicals than  Jacques Demy",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "27dd0cc4171a09f6",
+        "title": "Jacques Demy",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "f58d74090a79d846",
+          "title": "Lola (1961 film)",
+          "support": 2.583,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "3488ae8198c6ceab",
+          "title": "Model Shop (film)",
+          "support": 1.083,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Jacques Demy",
+        "Paul Sloane"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5a7542425542996c70cfaecc",
+      "type": "comparison",
+      "question": "Who was born first, Karen Joy Fowler or Bruce Chatwin?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 4,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.25,
+      "demoted_gold": {
+        "chunk_id": "a437d927bff0c11c",
+        "title": "Karen Joy Fowler",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "1c78b034028958a6",
+          "title": "Always (short story)",
+          "support": 4.0,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "960736ea8d07a2ff",
+          "title": "The Jane Austen Book Club (film)",
+          "support": 2.583,
+          "in_dense_top10": false,
+          "dense_rank": null,
+          "from_expansion": true
+        },
+        {
+          "chunk_id": "3cb5e197f21c88e2",
+          "title": "The Jane Austen Book Club",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Karen Joy Fowler",
+        "Bruce Chatwin"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "expansion: an expansion paragraph outscored the gold"
+    },
+    {
+      "qid": "5a7f22005542993067513656",
+      "type": "comparison",
+      "question": " Among Kele Okereke and Jon Hume who made the New Zealand band Evermore?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 5,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.2,
+      "demoted_gold": {
+        "chunk_id": "6f509af2f778eabe",
+        "title": "Kele Okereke",
+        "support": 0.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "71ac561d76e09011",
+          "title": "Bloc Party",
+          "support": 4.917,
+          "in_dense_top10": true,
+          "dense_rank": 6,
+          "from_expansion": true
+        },
+        {
+          "chunk_id": "d4587b7df6346e8b",
+          "title": "Dann Hume",
+          "support": 4.0,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "145e5d0c1408e198",
+          "title": "The Hunter (EP)",
+          "support": 3.667,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "bb2b762aba15f55a",
+          "title": "The Boxer (Kele Okereke album)",
+          "support": 2.5,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Kele Okereke",
+        "Jon Hume",
+        "Evermore",
+        "New Zealand"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "sparse extraction: gold record <=1 entity, no support"
+    },
+    {
+      "qid": "5a77afcd5542997042120adf",
+      "type": "comparison",
+      "question": "Who is older Carrie Akre or Shifty Shellshock?",
+      "dense_first_gold_rank": 2,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 0.5,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "0d888cee944dc2cb",
+        "title": "Carrie Akre",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "fb6d4773c5a537c1",
+          "title": "Happy Love Sick",
+          "support": 2.5,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "b18abfa9fd7927c5",
+          "title": "Invitation (Carrie Akre album)",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 1,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Carrie Akre",
+        "Shifty Shellshock"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    },
+    {
+      "qid": "5ab29c24554299449642c932",
+      "type": "comparison",
+      "question": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 4,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.25,
+      "demoted_gold": {
+        "chunk_id": "c214c2a3be6eb2a2",
+        "title": "Giuseppe Verdi",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "63570f207001f1f0",
+          "title": "Teatro Giuseppe Verdi",
+          "support": 3.75,
+          "in_dense_top10": true,
+          "dense_rank": 2,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "6f1f0a0b8ceacebf",
+          "title": "Ferdinando Provesi",
+          "support": 3.5,
+          "in_dense_top10": true,
+          "dense_rank": 3,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "177ec9b189005c78",
+          "title": "Giuseppe Verdi (film)",
+          "support": 2.583,
+          "in_dense_top10": true,
+          "dense_rank": 7,
+          "from_expansion": true
+        }
+      ],
+      "anchors": [
+        "Giuseppe Verdi",
+        "Ambroise Thomas"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "expansion: an expansion paragraph outscored the gold"
+    },
+    {
+      "qid": "5a7bacf35542997c3ec9724b",
+      "type": "comparison",
+      "question": "Who was born first, Jorge Amado or James Leo Herlihy?",
+      "dense_first_gold_rank": 1,
+      "c5_first_gold_rank": 3,
+      "mrr_dense": 1.0,
+      "mrr_c5": 0.3333333333333333,
+      "demoted_gold": {
+        "chunk_id": "725b8377e8f2c7a5",
+        "title": "James Leo Herlihy",
+        "support": 1.0,
+        "entities_in_record": 1
+      },
+      "promoted_non_gold": [
+        {
+          "chunk_id": "004b3a821c0eea89",
+          "title": "Zélia Gattai",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 4,
+          "from_expansion": false
+        },
+        {
+          "chunk_id": "3fb4165ab8df2c3b",
+          "title": "Sea of Death",
+          "support": 2.0,
+          "in_dense_top10": true,
+          "dense_rank": 5,
+          "from_expansion": false
+        }
+      ],
+      "anchors": [
+        "Jorge Amado",
+        "James Leo Herlihy"
+      ],
+      "generic_or_short_anchor": false,
+      "cause": "path-support ranking: gold supported but a non-gold paragraph scored higher"
+    }
+  ]
+}

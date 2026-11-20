@@ -1,0 +1,159 @@
+{
+  "model": "mistral:latest",
+  "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+  "parameter_size": "7.2B",
+  "quantization": "Q4_K_M",
+  "n_paragraphs": 30,
+  "paragraph_selection": "first N pilot paragraphs by chunk_id",
+  "arms": [
+    "baseline",
+    "C",
+    "BC"
+  ],
+  "client_kwargs": {
+    "model": "mistral:latest",
+    "options": {
+      "temperature": 0.0,
+      "seed": 42,
+      "num_predict": 4096,
+      "num_ctx": 8192,
+      "frequency_penalty": 0.25
+    }
+  },
+  "retry_penalties": [
+    0.5,
+    1.0
+  ],
+  "schema_C": {
+    "type": "object",
+    "properties": {
+      "entities": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "source_sentence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "type",
+            "description",
+            "source_sentence"
+          ]
+        }
+      },
+      "relationships": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "source_sentence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "target",
+            "type",
+            "description",
+            "source_sentence"
+          ]
+        }
+      }
+    },
+    "required": [
+      "entities",
+      "relationships"
+    ]
+  },
+  "schema_BC": {
+    "type": "object",
+    "properties": {
+      "entities": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "sentence_id": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "name",
+            "type",
+            "description",
+            "sentence_id"
+          ]
+        }
+      },
+      "relationships": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "sentence_id": {
+              "type": "integer"
+            }
+          },
+          "required": [
+            "source",
+            "target",
+            "type",
+            "description",
+            "sentence_id"
+          ]
+        }
+      }
+    },
+    "required": [
+      "entities",
+      "relationships"
+    ]
+  },
+  "prompt_BC_template": "You are an expert knowledge-graph builder.\nExtract all entities and relationships from the TEXT below.\n\nRules:\n1. For every entity, return: name, type (PERSON/ORGANIZATION/LOCATION/CONCEPT/TECHNOLOGY/EVENT/OTHER), a one-sentence description, and the sentence_id: the [number] of the sentence in the text where it appears.\n2. For every relationship, return: source entity name, target entity name, relationship type (an uppercase label like FOUNDED_BY / DEVELOPED_BY / PART_OF / USED_FOR / INTRODUCED_BY / SUCCESSOR_OF / LOCATED_IN / WORKS_AT / ACQUIRED_BY / other), a one-sentence description, and the sentence_id: the [number] of the sentence in the text where it appears.\n3. sentence_id must be the number shown in [brackets] before that sentence.\n4. Return ONLY valid JSON matching this exact schema \u2014 no markdown fences, no commentary:\n\n{{\n  \"entities\": [\n    {{\"name\": \"...\", \"type\": \"...\", \"description\": \"...\", \"sentence_id\": 0}}\n  ],\n  \"relationships\": [\n    {{\"source\": \"...\", \"target\": \"...\", \"type\": \"...\", \"description\": \"...\", \"sentence_id\": 0}}\n  ]\n}}\n\nTEXT:\n{chunk_text}\n",
+  "started_at": "2026-11-19T20:43:36"
+}

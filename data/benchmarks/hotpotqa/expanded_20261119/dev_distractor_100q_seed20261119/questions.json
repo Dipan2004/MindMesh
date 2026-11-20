@@ -1,0 +1,3451 @@
+[
+  {
+    "_id": "5ac0b6b15542996f0d89cc1e",
+    "question": "What's the name for the character also known as Holger Danske, from medieval French chansons de geste?",
+    "answer": "Ogier the Dane",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Holger Danske (disambiguation)",
+        0
+      ],
+      [
+        "Ogier the Dane",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "707fa67e1952a89d",
+      "b3a9c00150a552e2"
+    ],
+    "context_chunk_ids": [
+      "54cbfcfe8378cde7",
+      "bc44d364b9f11c58",
+      "2258b0521179bf91",
+      "bfab69ece7e4eac7",
+      "8fcb4a5f29ed4d18",
+      "9442dc9cbc7f70d6",
+      "850408ca66a7d9e6",
+      "b3a9c00150a552e2",
+      "528eebe85217e215",
+      "707fa67e1952a89d"
+    ]
+  },
+  {
+    "_id": "5ae74351554299572ea5479f",
+    "question": "What friend of a performance artist and professional wrestler has performed in the role of Tony Clifton?",
+    "answer": "Bob Zmuda",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Tony Clifton",
+        2
+      ],
+      [
+        "Andy Kaufman",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a8189041218c65c9",
+      "c6f60784815bbba5"
+    ],
+    "context_chunk_ids": [
+      "c6f60784815bbba5",
+      "beab562ef9fe8887",
+      "9fddbf6c969855ac",
+      "a487060ceea70598",
+      "8cf7327046599231",
+      "a57b9509e1d93532",
+      "107bd8714a8dad71",
+      "0118cdaa518de864",
+      "a8189041218c65c9",
+      "705eba0a7ea4213c"
+    ]
+  },
+  {
+    "_id": "5ac41ca75542991943173919",
+    "question": "How large of the area is the nature reserve south of Seacroft Esplanade?",
+    "answer": "4.3 km2",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Seacroft, Lincolnshire",
+        1
+      ],
+      [
+        "Seacroft, Lincolnshire",
+        2
+      ],
+      [
+        "Gibraltar Point",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "7547e33be5d5dab0",
+      "a241395280ad7f2b"
+    ],
+    "context_chunk_ids": [
+      "dca355f8299f1441",
+      "582723cb6f560140",
+      "7547e33be5d5dab0",
+      "71ca2b70887b01d6",
+      "95a3fc62833d3b04",
+      "77d9bd7c0fae6eb4",
+      "4295252a903b89a1",
+      "7e8e54bf23b59e38",
+      "a241395280ad7f2b",
+      "b2cecb19f962314a"
+    ]
+  },
+  {
+    "_id": "5ae7bdc05542993210983f29",
+    "question": "Which two Swiss attractions were the cause of the \"grand hotels\" in which Jakob Ragaz worked on? ",
+    "answer": "skiing and mountaineering",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Jakob Ragaz",
+        1
+      ],
+      [
+        "Tourism in Switzerland",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "262eba73cbbea175",
+      "f08df480ee1f1eb9"
+    ],
+    "context_chunk_ids": [
+      "c759b172d9ba0764",
+      "386e04a7f968f9b6",
+      "f08df480ee1f1eb9",
+      "a005ee5e6658f2c6",
+      "fbd09bf5bc7b0c64",
+      "9a2ccb6d8ae8ffb0",
+      "a9b5754861a849a2",
+      "cf3ed09c1d2f8654",
+      "262eba73cbbea175",
+      "0dce13f47d13eaac"
+    ]
+  },
+  {
+    "_id": "5ae129115542990adbacf722",
+    "question": "A Pair of Brown Eyes and Wild Mountain Thyme is based from what artists song?",
+    "answer": "Francis McPeake",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "A Pair of Brown Eyes",
+        2
+      ],
+      [
+        "Wild Mountain Thyme",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "1fcb72fd1832f8a4",
+      "b52105e0cc7ef21b"
+    ],
+    "context_chunk_ids": [
+      "1fcb72fd1832f8a4",
+      "b52105e0cc7ef21b",
+      "ca6d272d839305a7",
+      "ee3812aae430f03c",
+      "79f2e927bc5b3f09",
+      "a3f010c3ed689994",
+      "9ed3e6f68a811c70",
+      "e7139c22745359b8",
+      "4b7512b6f1c5cb80",
+      "f73ede2e8ae064dc"
+    ]
+  },
+  {
+    "_id": "5a8603f655429960ec39b601",
+    "question": "The composer of the music for the ballet \"The Seasons\"  was the director of what organization from 1905 to 1928?",
+    "answer": "Saint Petersburg Conservatory",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "The Seasons (ballet)",
+        0
+      ],
+      [
+        "Alexander Glazunov",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "9f4586d543bf0949",
+      "e64b24cbe66d981f"
+    ],
+    "context_chunk_ids": [
+      "b78dcabed6812ef8",
+      "9f4586d543bf0949",
+      "c60dfb89a8afd671",
+      "e64b24cbe66d981f",
+      "a78396980a135cb4",
+      "9d00c4570c3c8f48",
+      "7d4e3a512ec3ac2c",
+      "667cc3f7eec09440",
+      "19fd24643eea1f76",
+      "88dbc1f080e4265f"
+    ]
+  },
+  {
+    "_id": "5a72f74a55429901807daf59",
+    "question": "Which American comedian born on March 21, 1962, appeared in the movie \"Sleepless in Seattle?\"",
+    "answer": "Rosie O'Donnell",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Sleepless in Seattle",
+        0
+      ],
+      [
+        "Sleepless in Seattle",
+        1
+      ],
+      [
+        "Rosie O'Donnell",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "16036a4eab49fc98",
+      "5428f1cb20e5042d"
+    ],
+    "context_chunk_ids": [
+      "5428f1cb20e5042d",
+      "bd018a45665dcb2e",
+      "16036a4eab49fc98",
+      "6c9e11b0297de1c6",
+      "c46ea2c7633c54ee",
+      "ad11cd182c01e093",
+      "cf9dc8c2017a1f13",
+      "8cdd6a1597b3e1ae",
+      "fc0023c8ca0ec81c",
+      "0383bd36f57d412b"
+    ]
+  },
+  {
+    "_id": "5a8a09565542992d82986e66",
+    "question": "What regional capital town is close to the all female  Notre Dame High School in Fiapre?",
+    "answer": "Brong-Ahafo Region, Sunyani",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Notre Dame High School (Ghana)",
+        0
+      ],
+      [
+        "Fiapre",
+        0
+      ],
+      [
+        "Fiapre",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a2b2a3bb707bb842",
+      "eed6c2be6086f74b"
+    ],
+    "context_chunk_ids": [
+      "5a5115962ecded96",
+      "e1f93f4fdb5e61f5",
+      "62dbcbf4d4fa43a6",
+      "59f1fceefedd98a3",
+      "e7083278f65fe2f0",
+      "a2b2a3bb707bb842",
+      "491435d83c81db6f",
+      "eed6c2be6086f74b",
+      "379e79f8fef657ef",
+      "21c5f5a9893cff0d"
+    ]
+  },
+  {
+    "_id": "5ade51b45542997c77adedf4",
+    "question": "The Kansas City Wizards have had three home venues in Kansas City in their time.  Which was their first?",
+    "answer": "Arrowhead Stadium",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Children's Mercy Park",
+        0
+      ],
+      [
+        "Children's Mercy Park",
+        4
+      ],
+      [
+        "CommunityAmerica Ballpark",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a27e4bf63c5efe9b",
+      "c06f15f25688880b"
+    ],
+    "context_chunk_ids": [
+      "46d1dcb113cf375f",
+      "c06f15f25688880b",
+      "a27e4bf63c5efe9b",
+      "29dfa2df58a551ed",
+      "1dcb1ca9df627726",
+      "ea967b117448c7a9",
+      "4fff3c5799a91438",
+      "e6a59a32f07d004d",
+      "a5a5e072ef0dadfe",
+      "ca56de409a030dd6"
+    ]
+  },
+  {
+    "_id": "5ae66d515542992ae0d16346",
+    "question": "In what year was the singer who popularized \"I'll Keep the Lovelight Burning\" born?",
+    "answer": "1927",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "I'll Keep the Lovelight Burning",
+        0
+      ],
+      [
+        "Patti Page",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "bbfe6a719c1cc2a9",
+      "ef27f320448f191e"
+    ],
+    "context_chunk_ids": [
+      "b86877119b1982f2",
+      "b4d3f874cde3d202",
+      "ead4118602be8d9d",
+      "df83364e0d4a59c9",
+      "159b19643bce98d8",
+      "bbfe6a719c1cc2a9",
+      "4bb65110bd5235e2",
+      "73ee4754182774e7",
+      "ef27f320448f191e",
+      "297c3e9ada099ad7"
+    ]
+  },
+  {
+    "_id": "5abcee275542993a06baf9af",
+    "question": "What year did a director of a North Korean cinema film get kidnapped?",
+    "answer": "1978",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Pulgasari",
+        3
+      ],
+      [
+        "Cinema of North Korea",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "7cd59a2829630305",
+      "f5d5ccb7eff4c8c9"
+    ],
+    "context_chunk_ids": [
+      "7cd59a2829630305",
+      "8b133d46fe97fa0d",
+      "f5d5ccb7eff4c8c9",
+      "3b98f4b424fb0646",
+      "9196783ed67a5319",
+      "459ce873024f40a4",
+      "ab78baf12b2f8b16",
+      "52bc9c8a3edf5d97",
+      "23f9dd2e502dd2c8",
+      "95552dd280ce88ab"
+    ]
+  },
+  {
+    "_id": "5ab53ef1554299488d4d9920",
+    "question": "In what directional area of Argentia would one find the Rio Hondo Department?",
+    "answer": "north",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Río Hondo Department",
+        0
+      ],
+      [
+        "Río Hondo Department",
+        1
+      ],
+      [
+        "Santiago del Estero Province",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "2d1b699909d5d732",
+      "4023165b97b30d1b"
+    ],
+    "context_chunk_ids": [
+      "a2f7562b6d871ad4",
+      "2d1b699909d5d732",
+      "39706fd17d18aa0c",
+      "255974268309be7d",
+      "8062adddedc29c41",
+      "4023165b97b30d1b",
+      "f0615d70c859fc21",
+      "5d35062bea9f9d50",
+      "4794c1c9636159ee",
+      "75ff884d3fae85e2"
+    ]
+  },
+  {
+    "_id": "5a769b115542993569682c51",
+    "question": "What American bluegrass singer performed the song Restless with The New Nashville Cats?",
+    "answer": "Mark O'Connor",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Restless (Carl Perkins song)",
+        4
+      ],
+      [
+        "Mark O'Connor",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "83ff2598ffe55600",
+      "dd57b3e345e8ca53"
+    ],
+    "context_chunk_ids": [
+      "dd57b3e345e8ca53",
+      "e1bcf32c33d8b6b7",
+      "83ff2598ffe55600",
+      "39b1673d4de2e559",
+      "23d585cac1877284",
+      "63b2c11074f79f5e",
+      "a099b3930b3ba4f5",
+      "12b5fe23f857cd32",
+      "4cba1a343443cac4",
+      "821ef327cc48dc3b"
+    ]
+  },
+  {
+    "_id": "5a8ba3ff55429971feec4744",
+    "question": "Stokely Webster has paintings can be found at the official residence of whom?",
+    "answer": "Mayor of the City of New York",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Stokely Webster",
+        1
+      ],
+      [
+        "Gracie Mansion",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "1207dedf3633b579",
+      "3d263a06d589ae09"
+    ],
+    "context_chunk_ids": [
+      "d825b9ccce2e950e",
+      "ff48931294984b0c",
+      "8f43bdf21d1f96f0",
+      "f15b4d073be58d53",
+      "60d483d501d17f6f",
+      "1207dedf3633b579",
+      "3d263a06d589ae09",
+      "9f673348a0fb7a1f",
+      "f05b7044d350a953",
+      "91f35c37b306bce4"
+    ]
+  },
+  {
+    "_id": "5ae0f8a05542997b2ef7d0bc",
+    "question": "Phil Edwards is an American surfer from California whose photo appeared in the cover of what magazine which has over 3 million subscribers and is read by 23 million people each week?",
+    "answer": "Sports Illustrated",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Phil Edwards (surfer)",
+        0
+      ],
+      [
+        "Sports Illustrated",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "3f69a638a2ff7786",
+      "bbc12d32fc610206"
+    ],
+    "context_chunk_ids": [
+      "3f69a638a2ff7786",
+      "59dd49ed3ff1d13f",
+      "bbc12d32fc610206",
+      "830f5fe0561239db",
+      "bfcce5e0acb26b17",
+      "a13465975c9baab0",
+      "4d85f5b6d5cf6333",
+      "a1f0851f3db65768",
+      "95ce3af60d609d99",
+      "139ff0daddde19f6"
+    ]
+  },
+  {
+    "_id": "5a7602d8554299109176e5fb",
+    "question": "What actress and and writer starred with Jennifer Saunders in bothe \"The Supergrass\" and \"French and Saunders\"?",
+    "answer": "Dawn Roma French",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "The Supergrass",
+        1
+      ],
+      [
+        "Dawn French",
+        0
+      ],
+      [
+        "Dawn French",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "3490da9f777ecd88",
+      "8f5e1ed518366291"
+    ],
+    "context_chunk_ids": [
+      "f54971948ab8acd8",
+      "0a9ce939e4324315",
+      "3490da9f777ecd88",
+      "0cba2f1e48972df0",
+      "8f5e1ed518366291",
+      "55ab038a3c41aeea",
+      "da03dc4aa612a116",
+      "c11c9287534c04db",
+      "3fa71aaae5f778d3",
+      "2d1cd752b15a14fe"
+    ]
+  },
+  {
+    "_id": "5ae5caff554299546bf82f69",
+    "question": "The Russian route M9 forms a part of what European route that has a length of about 5320 km?",
+    "answer": "European route E 22",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "M9 highway (Russia)",
+        3
+      ],
+      [
+        "European route E22",
+        0
+      ],
+      [
+        "European route E22",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "048735b969f03581",
+      "2d8fd36c09df60bf"
+    ],
+    "context_chunk_ids": [
+      "697dec343c6a0907",
+      "52585d7d35bf885c",
+      "048735b969f03581",
+      "53eccf7b7bf86b26",
+      "e8bf05a0f017b3d6",
+      "5d5f281fa6cfe100",
+      "18271c355e7daa25",
+      "7d85ae2a06335fcd",
+      "2d8fd36c09df60bf",
+      "70054dbfb5decd76"
+    ]
+  },
+  {
+    "_id": "5ae4e2ca55429908b63264aa",
+    "question": "Who founded the company that Robinsons-May is a subsidiary of ?",
+    "answer": "David May",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Robinsons-May",
+        1
+      ],
+      [
+        "The May Department Stores Company",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "6599befc2a7488c2",
+      "7eaecb7c8ff690f9"
+    ],
+    "context_chunk_ids": [
+      "a4a90e9e8bea2ac1",
+      "f936ea1678ff51f5",
+      "6085be5766826ce9",
+      "7eaecb7c8ff690f9",
+      "0cc52c6f4ba06192",
+      "72a1812ec3e8f939",
+      "84fe3f5906b40992",
+      "590e8bd6ca347d80",
+      "6599befc2a7488c2",
+      "0ae16a4e4e4c0144"
+    ]
+  },
+  {
+    "_id": "5a8220db5542995ce29dccc1",
+    "question": "Which was secretary to President Richard Nixon: Rose Mary Woods or H. R. Haldeman?",
+    "answer": "Rose Mary Woods",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Rose Mary Woods",
+        0
+      ],
+      [
+        "H. R. Haldeman",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "7a98a826c469ba66",
+      "f87cc652bb7badbf"
+    ],
+    "context_chunk_ids": [
+      "f87cc652bb7badbf",
+      "54142f25de20997e",
+      "011991db30ac2dac",
+      "e30c7d10b2ec1fb2",
+      "17e54dbd5dd980bc",
+      "7a98a826c469ba66",
+      "2d33ed84f83873de",
+      "51c2cb97c1a1900f",
+      "d0b1e443837cd70f",
+      "922d12307dca0bd3"
+    ]
+  },
+  {
+    "_id": "5a8c8828554299653c1aa0ae",
+    "question": "Edward Fitzalan-Howard, 18th Duke of Norfolk is the son of what British Army general and peer",
+    "answer": "Miles Fitzalan-Howard, 17th Duke of Norfolk",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Edward Fitzalan-Howard, 18th Duke of Norfolk",
+        0
+      ],
+      [
+        "Miles Fitzalan-Howard, 17th Duke of Norfolk",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "6517718c3566223d",
+      "8130aa8415f90292"
+    ],
+    "context_chunk_ids": [
+      "d5d5843a216fa828",
+      "8130aa8415f90292",
+      "5339cb4abc2a7e68",
+      "4f25ba2d6f1f472e",
+      "6fef9448364c200c",
+      "004e4fd012a54ec8",
+      "82f681104648a1d9",
+      "c03507c2a0e02f2e",
+      "665f9238f1f644c5",
+      "6517718c3566223d"
+    ]
+  },
+  {
+    "_id": "5a7365b155429901807db02a",
+    "question": "Which war was HMS Clonmel in where over nine million combatants died?",
+    "answer": "World War I",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "HMS Clonmel (1918)",
+        0
+      ],
+      [
+        "World War I",
+        2
+      ]
+    ],
+    "gold_chunk_ids": [
+      "b344f42adf99d038",
+      "fc8924b200c0f580"
+    ],
+    "context_chunk_ids": [
+      "d43d20bf97a0fc28",
+      "bc64bf079d554c77",
+      "b24df285a9cc0262",
+      "f591b0cfb4d7763d",
+      "fc8924b200c0f580",
+      "0b6495ca8fb3c7ab",
+      "cd19157192f4048d",
+      "b344f42adf99d038",
+      "c88e8c3532f53397",
+      "9a7bbe63e18706e0"
+    ]
+  },
+  {
+    "_id": "5ae0d7315542990adbacf678",
+    "question": "Which avant-garde Japanese composer studied with John Cage and wrote Music for Electric Metronomes?",
+    "answer": "Toshi Ichiyanagi",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Music for Electric Metronomes",
+        0
+      ],
+      [
+        "Toshi Ichiyanagi",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "0d8ff17508c0bbc6",
+      "90b05205269973c5"
+    ],
+    "context_chunk_ids": [
+      "a288b38bfb013c0a",
+      "0098840943bb12b3",
+      "b647f648f08782f6",
+      "067f751361d00906",
+      "b7f8e7da447a5f1c",
+      "90b05205269973c5",
+      "bb303342f684188a",
+      "f317bf6030b1131e",
+      "0d8ff17508c0bbc6",
+      "46e2753873dd1884"
+    ]
+  },
+  {
+    "_id": "5ac1795f5542994ab5c67d5f",
+    "question": "Who is known for producing the documentary television series based on the book by science historian James Burke?",
+    "answer": "James Burke",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "James Burke (science historian)",
+        0
+      ],
+      [
+        "Connections (TV series)",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "d20f38d436444ac0",
+      "ff5da75d9754d424"
+    ],
+    "context_chunk_ids": [
+      "641da45da986e5ce",
+      "aff35d971d199517",
+      "f7949c0c0e713fa5",
+      "fee479fd980ac770",
+      "ff5da75d9754d424",
+      "ec87e3591d7acc99",
+      "f810a5fb38ef5d82",
+      "fcc0f6c36b9c6443",
+      "d72a40a6b4c5808e",
+      "d20f38d436444ac0"
+    ]
+  },
+  {
+    "_id": "5ac372195542995ef918c194",
+    "question": "Which major regional shopping centre in the western suburb of Indooroopilly in the City of Brisbane, Queensland, Australia  is served by TransLink bus routes?",
+    "answer": "Indooroopilly Shopping Centre",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Indooroopilly bus station",
+        0
+      ],
+      [
+        "Indooroopilly bus station",
+        1
+      ],
+      [
+        "Indooroopilly Shopping Centre",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "2dd066198b3cb968",
+      "338a75991da8943e"
+    ],
+    "context_chunk_ids": [
+      "73348332beb37e73",
+      "d45b60b7abaeaa6a",
+      "d6ef5d0717d77f30",
+      "ba730c4e66833a5a",
+      "2dd066198b3cb968",
+      "6257f1836522b4a7",
+      "338a75991da8943e",
+      "3a90b2ec007df76c",
+      "fbf61adc749de348",
+      "e46c2a621963ae57"
+    ]
+  },
+  {
+    "_id": "5ab281f45542993be8fa9938",
+    "question": "How old was William DuVall when Black Gives Way to Blue was certified gold by the RIAA?",
+    "answer": "William Bradley DuVall (born September 6, 1967)",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "William DuVall",
+        0
+      ],
+      [
+        "Black Gives Way to Blue",
+        4
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a02521ae2928a8dd",
+      "d4b180f1810dfb51"
+    ],
+    "context_chunk_ids": [
+      "ac14247b71085709",
+      "d4b180f1810dfb51",
+      "247fc32ae586a113",
+      "4943bcc30a38ea88",
+      "a02521ae2928a8dd",
+      "c77d6dbc2b68e499",
+      "e152947c3cf74e57",
+      "45cede6375eed8fe",
+      "0ab7d428406248fd",
+      "a5827a6383be59e3"
+    ]
+  },
+  {
+    "_id": "5a8e68b15542995085b3742d",
+    "question": "When was the earliest known pottery created in the country which was the native land of Admiral Yi Sun-sin, who conducted the Battle of Happo? ",
+    "answer": "around 8000 BC",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Battle of Happo",
+        0
+      ],
+      [
+        "Battle of Happo",
+        1
+      ],
+      [
+        "History of Korea",
+        0
+      ],
+      [
+        "History of Korea",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "1aaf25b79d68fe30",
+      "bf39df43067a80b1"
+    ],
+    "context_chunk_ids": [
+      "1aaf25b79d68fe30",
+      "14151d0231146059",
+      "97d42ce68ff1435a",
+      "bf39df43067a80b1",
+      "c7de5b4d4d75a945",
+      "a6aad735bf59fe92",
+      "c3d0968c45bdecd5",
+      "99c215cb87242ef5",
+      "4d06ff352195041a",
+      "68610c0d374404f2"
+    ]
+  },
+  {
+    "_id": "5ade063d5542997dc7907129",
+    "question": "What was the occupation of the man who founded the Huffman Historic District which is a part of the Historic Inner East neighborhood in Dayton, Ohio, Unoited States?",
+    "answer": "wealthy businessman",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Historic Inner East, Dayton, Ohio",
+        0
+      ],
+      [
+        "Huffman Historic District",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "74d72822b81604a9",
+      "bbb6119acb937cda"
+    ],
+    "context_chunk_ids": [
+      "0c32c75514abc0dc",
+      "74d72822b81604a9",
+      "015a08864b0b59a3",
+      "967deaf2512420da",
+      "bbb6119acb937cda",
+      "b3dd1a340e6929c9",
+      "909c6d3ef553b8b9",
+      "7bfcc18e594af3bb",
+      "7430715d26fd6b11",
+      "2d5dab65a3cc728c"
+    ]
+  },
+  {
+    "_id": "5add56a85542992200553abe",
+    "question": "Which New South Wales town is larger, Port Macquarie or Bonny Hills?",
+    "answer": "Port Macquarie",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Bonny Hills, New South Wales",
+        0
+      ],
+      [
+        "Bonny Hills, New South Wales",
+        1
+      ],
+      [
+        "Port Macquarie",
+        0
+      ],
+      [
+        "Port Macquarie",
+        3
+      ]
+    ],
+    "gold_chunk_ids": [
+      "17ec0b20721cd11e",
+      "6223f89935ee9cfe"
+    ],
+    "context_chunk_ids": [
+      "4149c8ff0afe3241",
+      "18cfadbc25fe419e",
+      "53f3bbd1c43e3155",
+      "6223f89935ee9cfe",
+      "1908956e32efc2d1",
+      "17ec0b20721cd11e",
+      "e1044c549e97de7c",
+      "de697cb94cf1954b",
+      "203bcd26d9746ba7",
+      "2b4451cce149d95e"
+    ]
+  },
+  {
+    "_id": "5a86038455429960ec39b600",
+    "question": "The winner of the the London Riders' Championship in 1953 scored how many points in the 1952 Individual Speedway World Championship?",
+    "answer": "14",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "1952 Individual Speedway World Championship",
+        0
+      ],
+      [
+        "Jack Young (speedway rider)",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "3f37f1d57cb3f639",
+      "c6546edc8fa1b181"
+    ],
+    "context_chunk_ids": [
+      "c6546edc8fa1b181",
+      "3f37f1d57cb3f639",
+      "fe777c0134c73b62",
+      "539ff347cbaa67c2",
+      "d6fe74a0006ca3d2",
+      "41d562b159afe9d1",
+      "e5d5a4b02c67ef13",
+      "1606e1aa9cfc722b",
+      "2c62b8e41effed53",
+      "5ade499ae57701ad"
+    ]
+  },
+  {
+    "_id": "5a771e3255429966f1a36c78",
+    "question": "What German computer repair technician may have inspired Diary of a Cannibal",
+    "answer": "Armin Meiwes",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Diary of a Cannibal",
+        0
+      ],
+      [
+        "Diary of a Cannibal",
+        1
+      ],
+      [
+        "Armin Meiwes",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "681088037d9bda6f",
+      "e4fc625ee54ece8f"
+    ],
+    "context_chunk_ids": [
+      "f068118f617846f8",
+      "2f0d266511dd6551",
+      "2f47939c7061409f",
+      "9ced057e330685fe",
+      "8006a94cf8cc9435",
+      "681088037d9bda6f",
+      "d9c7f79a6d0cc7cf",
+      "e4fc625ee54ece8f",
+      "ef4743de89955cae",
+      "cac905184bc0c138"
+    ]
+  },
+  {
+    "_id": "5a7149cf5542994082a3e773",
+    "question": "What 2015 British-Canadian-Irish romantic drama was Finola Dwyer a producer of?",
+    "answer": "Brooklyn",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Finola Dwyer",
+        0
+      ],
+      [
+        "Brooklyn (film)",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "3828ca4f693d4c11",
+      "9c48cbccc18a0d76"
+    ],
+    "context_chunk_ids": [
+      "fd23682473d95ea6",
+      "4854b8c779576962",
+      "c54f020dbb63aed4",
+      "3870700eb2329856",
+      "810ab9175e7a3cff",
+      "88b13c1a1462148c",
+      "3828ca4f693d4c11",
+      "6e2520e76c300111",
+      "9c48cbccc18a0d76",
+      "21b8d3828adf14e8"
+    ]
+  },
+  {
+    "_id": "5a87a47c5542994846c1cdbd",
+    "question": "What is the name of this French former footballer whom football fans refer the football player Wilfred Bamnjo to as?",
+    "answer": "Makélélé",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Wilfred Bamnjo",
+        0
+      ],
+      [
+        "Wilfred Bamnjo",
+        2
+      ],
+      [
+        "Claude Makélélé",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "7c7e004f8d4bc49c",
+      "da118e1ea3b59d0c"
+    ],
+    "context_chunk_ids": [
+      "da118e1ea3b59d0c",
+      "5ffaca7aaea4985f",
+      "231b1128e4163746",
+      "67993439885cea0d",
+      "e487f13bc27a273e",
+      "7774f7d0fd5a7c20",
+      "442043eeaf880949",
+      "0408279beae01682",
+      "45f30e37c1e59bea",
+      "7c7e004f8d4bc49c"
+    ]
+  },
+  {
+    "_id": "5a8725a15542996432c57230",
+    "question": "What other method of extending an ice hockey game exists other than the one used in the 1932 Allan Cup?",
+    "answer": "the shootout",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "1932 Allan Cup",
+        1
+      ],
+      [
+        "Overtime (ice hockey)",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "2f0c7a6928ef44b4",
+      "4bbb68cf46284da6"
+    ],
+    "context_chunk_ids": [
+      "ddf0ad92d8d0e27f",
+      "2f0c7a6928ef44b4",
+      "fecd6ff50a6d6817",
+      "8a85ab40137c3013",
+      "af23101286e3cc88",
+      "a9aaf20a5efa7119",
+      "8c9123487c66f805",
+      "727d9f658d48842e",
+      "c0af2c2509f54ce5",
+      "4bbb68cf46284da6"
+    ]
+  },
+  {
+    "_id": "5ac048cc554299294b218f73",
+    "question": "The major benefactor who donated money to build Archbold Gymnasium sold his oil company to whom?",
+    "answer": "John D Rockefeller's Standard Oil Company",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Archbold Gymnasium",
+        1
+      ],
+      [
+        "John Dustin Archbold",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "9a89f86e35e64ab2",
+      "bc2d20db8c1bfb47"
+    ],
+    "context_chunk_ids": [
+      "3bd8bdbee13ce970",
+      "9a89f86e35e64ab2",
+      "24745fbcaed93050",
+      "ccd58cad3084f5e2",
+      "1e58cf5b1819e294",
+      "6a2c948141d5f0d9",
+      "f2b57f4a59e6b366",
+      "bc2d20db8c1bfb47",
+      "d678fff36ab96232",
+      "d3eeaf18714a1e1a"
+    ]
+  },
+  {
+    "_id": "5a773e3955429972597f14c9",
+    "question": "Who was born in Ireland and has coached the captain of MLS club Colorado Rapids?",
+    "answer": "Des McAleenan",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Des McAleenan",
+        0
+      ],
+      [
+        "Des McAleenan",
+        1
+      ],
+      [
+        "Des McAleenan",
+        3
+      ],
+      [
+        "Tim Howard",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "161d23869a931c5c",
+      "9fbf6c6c7157eff1"
+    ],
+    "context_chunk_ids": [
+      "2fbe7eef52bbabf7",
+      "1221adbf4371c7a0",
+      "86885df86b4bec3d",
+      "9fbf6c6c7157eff1",
+      "fa8b75f19429db6d",
+      "161d23869a931c5c",
+      "20ae5e3b9a572fe9",
+      "43aad4e477f8ff50",
+      "8ec9e2e0b3532cdf",
+      "8d4b7cbdddb5b474"
+    ]
+  },
+  {
+    "_id": "5a80afcf554299485f5986b9",
+    "question": "Who else beside the  American university administrator and politician from the state of Oklahoma was part of the  Boren-McCurdy proposals?",
+    "answer": "David McCurdy",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Boren-McCurdy proposals",
+        0
+      ],
+      [
+        "David L. Boren",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "b07c76887be02f6e",
+      "e3f12262205bc9b4"
+    ],
+    "context_chunk_ids": [
+      "c61e317be1f763fa",
+      "f35ab4c4b3bafc46",
+      "af74dae8d5aba822",
+      "e3f12262205bc9b4",
+      "b07c76887be02f6e",
+      "777d709f2b113bd2",
+      "bf6beb2e41c2adee",
+      "3cd3c8487045d3d4",
+      "304723baf35bd7c6",
+      "1f441264283262f8"
+    ]
+  },
+  {
+    "_id": "5a901b985542995651fb50b0",
+    "question": "What is 3/4 of the budget of the agency who  placed ECT machines  in the Class III category coming from?",
+    "answer": "pharmaceutical companies",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Electroconvulsive therapy",
+        0
+      ],
+      [
+        "Electroconvulsive therapy",
+        3
+      ],
+      [
+        "Food and Drug Administration",
+        2
+      ]
+    ],
+    "gold_chunk_ids": [
+      "3217d56af62a1f79",
+      "f1c34effd9d073ea"
+    ],
+    "context_chunk_ids": [
+      "be299ee81d28318d",
+      "768d5a792dd04c0c",
+      "b7d2a8a0d65a6290",
+      "df2d0d5f172fe969",
+      "f1c34effd9d073ea",
+      "3217d56af62a1f79",
+      "782f2cb1f96e5a32",
+      "d24d4e77587afaf2",
+      "a871fb84038a99a1",
+      "0b2d1c38faa33c81"
+    ]
+  },
+  {
+    "_id": "5ab7d6ec5542995dae37e9b4",
+    "question": "When was the company that owns Bonifacio High Street founded?",
+    "answer": "1988",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Bonifacio High Street",
+        3
+      ],
+      [
+        "Ayala Malls",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "00d6e00c58449962",
+      "851db6962c10e795"
+    ],
+    "context_chunk_ids": [
+      "7ad43fdb3c803322",
+      "4eee42e99e11960b",
+      "f564de04eff9c006",
+      "efe0b69c1de30aee",
+      "c7e201cfcb080c0d",
+      "34f8dc09ce1efd26",
+      "ffad64e807ea3b1b",
+      "00d6e00c58449962",
+      "f59d19c59637dd92",
+      "851db6962c10e795"
+    ]
+  },
+  {
+    "_id": "5a712af15542994082a3e614",
+    "question": "Which show that premiered in May 2011 is hosted by someone with the birth name Richard Kirschner?",
+    "answer": "My Cat from Hell",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "My Cat from Hell",
+        0
+      ],
+      [
+        "Jackson Galaxy",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "18077b0a382d61f9",
+      "b379b7662d4706a2"
+    ],
+    "context_chunk_ids": [
+      "9eb7211bf3daab76",
+      "18077b0a382d61f9",
+      "7d7d42e40a8d63a0",
+      "3677f2377d74b300",
+      "9a00ccce99573238",
+      "de14dac6ee26309b",
+      "5d9df2b9303ace0a",
+      "b379b7662d4706a2",
+      "68f2669524935a0c",
+      "8668a35a82ba8929"
+    ]
+  },
+  {
+    "_id": "5ae685fd5542996d980e7bda",
+    "question": "Which magazine ranked the Indian Carnatic vocalist who collaborated with classical pianist Anil Srinivasan among 35 Game Changers under 35?",
+    "answer": "India Today",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Anil Srinivasan",
+        0
+      ],
+      [
+        "Anil Srinivasan",
+        1
+      ],
+      [
+        "Sikkil Gurucharan",
+        0
+      ],
+      [
+        "Sikkil Gurucharan",
+        4
+      ]
+    ],
+    "gold_chunk_ids": [
+      "054fd83d35ee6361",
+      "d2bfeca63abb17df"
+    ],
+    "context_chunk_ids": [
+      "e133f6d50efcfbac",
+      "52b6da4f2e6b4b78",
+      "0f45fd72ea12d7a5",
+      "2a6c0445ed82f42c",
+      "d2bfeca63abb17df",
+      "8b6a7287fdd98325",
+      "b5bdb7987b396578",
+      "054fd83d35ee6361",
+      "1dc246b063ed2b56",
+      "97edcc6d4aeb286e"
+    ]
+  },
+  {
+    "_id": "5a76d15e55429966f1a36bfa",
+    "question": "What actress from \"The House of Mirth\" played an FBI agent involved in the cover up of extraterrestrials?",
+    "answer": "Gillian Anderson",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "The X-Files (season 6)",
+        1
+      ],
+      [
+        "Gillian Anderson",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "38511f9e20cf7962",
+      "bbddb72a31487bd5"
+    ],
+    "context_chunk_ids": [
+      "e6ead40e0035e3ad",
+      "bbddb72a31487bd5",
+      "3fc5da1aa653543a",
+      "259a6531d9526bfc",
+      "e04e5b86f01e2f28",
+      "6a55b822cef44711",
+      "c718da7aed95bfa4",
+      "e73f7ce666aa44ac",
+      "38511f9e20cf7962",
+      "d4daa9d905f1b0e6"
+    ]
+  },
+  {
+    "_id": "5a7e1a2955429965cec5ea5d",
+    "question": "The Cinematic Orchestra was signed to the record label based in what city?",
+    "answer": "London",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "The Cinematic Orchestra",
+        1
+      ],
+      [
+        "Ninja Tune",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "596bf9fd0feb5196",
+      "86dbbff6a0d26c75"
+    ],
+    "context_chunk_ids": [
+      "a3f3558032a172fb",
+      "ec71908382284000",
+      "a971825b7f1c72e3",
+      "ce488a80e2770168",
+      "86dbbff6a0d26c75",
+      "1c1d19351df2d318",
+      "2eafd94ce17135d2",
+      "596bf9fd0feb5196",
+      "7fcbe97a0e441ab4",
+      "69a2a0f5e7fe210c"
+    ]
+  },
+  {
+    "_id": "5adc6825554299438c868da1",
+    "question": "The Governor of Santiago del Estero is a citizen of the province that is neighbored by which province on the north?",
+    "answer": "Salta",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Governor of Santiago del Estero",
+        0
+      ],
+      [
+        "Governor of Santiago del Estero",
+        2
+      ],
+      [
+        "Santiago del Estero Province",
+        0
+      ],
+      [
+        "Santiago del Estero Province",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "2d1b699909d5d732",
+      "e5aa7223c4fd8868"
+    ],
+    "context_chunk_ids": [
+      "685842ecaf52465b",
+      "eee0658a37ea7481",
+      "3e623f78834fd3ec",
+      "e5aa7223c4fd8868",
+      "1169ed720e69619f",
+      "edd44b1129c36be6",
+      "c4c74d93654d6651",
+      "248c25f8e90d936e",
+      "2d1b699909d5d732",
+      "1c837566de6c327a"
+    ]
+  },
+  {
+    "_id": "5a8fa32255429918e830d299",
+    "question": "What was the most famous post of the man who commanded American and French troops against German positions during the Battle of Saint-Mihiel?",
+    "answer": "commander of the American Expeditionary Force (AEF) on the Western Front",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Battle of Saint-Mihiel",
+        0
+      ],
+      [
+        "John J. Pershing",
+        0
+      ],
+      [
+        "John J. Pershing",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "3e06e403a963f53b",
+      "45856128b6a22257"
+    ],
+    "context_chunk_ids": [
+      "fed038ae0c566b69",
+      "3e06e403a963f53b",
+      "7e5b3cef653b1a82",
+      "8523c82e4a1e2345",
+      "d6bc7645824694ce",
+      "45856128b6a22257",
+      "2eb3f367156872ac",
+      "82f41c75b9724943",
+      "ee114cdffd80bb26",
+      "0c7dbfb126626c8b"
+    ]
+  },
+  {
+    "_id": "5a8595005542992a431d1b40",
+    "question": "What product is being built at a 107,000 acre industrial park for Tesla Motors?",
+    "answer": "lithium-ion battery",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Tahoe Reno Industrial Center",
+        0
+      ],
+      [
+        "Tahoe Reno Industrial Center",
+        2
+      ],
+      [
+        "Gigafactory 1",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "51ed4dfb52cf2e60",
+      "53d19b7b5423b1f7"
+    ],
+    "context_chunk_ids": [
+      "6acf624f54ca7f79",
+      "7ed2f23b7d77b089",
+      "47b19fbaa70c2777",
+      "53d19b7b5423b1f7",
+      "8d1ae06c7ff4736d",
+      "d0fb2c3c709ff033",
+      "e1d593be07df808c",
+      "06c3adf08bf6725c",
+      "51ed4dfb52cf2e60",
+      "e5fc7c6607c7f74d"
+    ]
+  },
+  {
+    "_id": "5a84c5545542991dd0999dee",
+    "question": "When did the car depicted on the cover of Pentastar: In the Style of Demons cease production?",
+    "answer": "1974",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Pentastar: In the Style of Demons",
+        0
+      ],
+      [
+        "Pentastar: In the Style of Demons",
+        4
+      ],
+      [
+        "Plymouth Barracuda",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "41dc5fb90be3013e",
+      "72ac89e8c5116567"
+    ],
+    "context_chunk_ids": [
+      "fe189654c6399c85",
+      "57f89dc3a18cfd92",
+      "72ac89e8c5116567",
+      "a8d265b466596a06",
+      "991c522ae470bacd",
+      "ef24deb7580a2b51",
+      "fa13ca5ccf4e8a1a",
+      "8cc7d20e86d527be",
+      "41dc5fb90be3013e",
+      "22da4e536a889168"
+    ]
+  },
+  {
+    "_id": "5adee8ff55429975fa854fb8",
+    "question": "What dance competition television series features host and NFL reporter Erin Andrews?",
+    "answer": "Dancing with the Stars",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Dancing with the Stars (U.S. TV series)",
+        0
+      ],
+      [
+        "Erin Andrews",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "001f6fdf75f523a2",
+      "1ae268ff3c0ca6ac"
+    ],
+    "context_chunk_ids": [
+      "6f28f99354276835",
+      "1ae268ff3c0ca6ac",
+      "001f6fdf75f523a2",
+      "e18b18a89628579b",
+      "da467109040d67f5",
+      "062d56d562b13557",
+      "ffb58debd6825270",
+      "a6d34da38f2e4327",
+      "11198ab313088443",
+      "0ed37f3f70846148"
+    ]
+  },
+  {
+    "_id": "5a8af11a55429950cd6afc21",
+    "question": "The Hoch Conservatory had the teacher on-staff who was the first to publicly perform any work by which composer?",
+    "answer": "Brahms",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Hoch Conservatory",
+        4
+      ],
+      [
+        "Clara Schumann",
+        4
+      ]
+    ],
+    "gold_chunk_ids": [
+      "8866c9256d91177d",
+      "933ccb664a9a5ee9"
+    ],
+    "context_chunk_ids": [
+      "56b872d3c4f62b7b",
+      "6edb4fdb819c98a3",
+      "35f0b94190768e0c",
+      "902ae288e12f1dfb",
+      "5978fb5d2c7a87fb",
+      "8866c9256d91177d",
+      "43c8b1224e31b404",
+      "4bfef8abd6a74664",
+      "933ccb664a9a5ee9",
+      "b7bf5da9d64a643c"
+    ]
+  },
+  {
+    "_id": "5a79cabc5542994f819ef0a1",
+    "question": "Who was the final champion of the Thailand Masters that was from Hong Kong?",
+    "answer": "Marco Fu",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Thailand Masters",
+        3
+      ],
+      [
+        "Marco Fu",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "40bdefa8eb4df2fe",
+      "9719756e39f01e98"
+    ],
+    "context_chunk_ids": [
+      "0c2b01bcaaa42708",
+      "4f018bc3fcafe69c",
+      "0fb0a4062ab720d1",
+      "897f999db778cfd7",
+      "40bdefa8eb4df2fe",
+      "e783910d896b84d9",
+      "47492e99181fe8a1",
+      "7074f7b060a6535a",
+      "841c093ae5da39c9",
+      "9719756e39f01e98"
+    ]
+  },
+  {
+    "_id": "5abb8ebe5542993f40c73b2d",
+    "question": "What British made dance competition television series franchise did Claudia Albertario appear on?",
+    "answer": "\"Dancing on Ice\" around the world",
+    "type": "bridge",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Claudia Albertario",
+        2
+      ],
+      [
+        "Dancing on Ice around the world",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "11198ab313088443",
+      "17bdebd96802cd57"
+    ],
+    "context_chunk_ids": [
+      "062d56d562b13557",
+      "1ae268ff3c0ca6ac",
+      "96e04c197c9ce333",
+      "0ed37f3f70846148",
+      "a6d34da38f2e4327",
+      "11198ab313088443",
+      "17bdebd96802cd57",
+      "2b519def9b11851e",
+      "6f28f99354276835",
+      "d4b687c75f256e9b"
+    ]
+  },
+  {
+    "_id": "5ac00278554299012d1db56b",
+    "question": "What profession do Raj Kapoor and Mike Cahill share?",
+    "answer": "director",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Raj Kapoor",
+        0
+      ],
+      [
+        "Mike Cahill (director)",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "41e58b89c1397856",
+      "656937d22d978bfd"
+    ],
+    "context_chunk_ids": [
+      "4df4b5295e67f801",
+      "9fd31a2bf7019c95",
+      "9587b01bee29deed",
+      "656937d22d978bfd",
+      "5523473172ebbffa",
+      "41e58b89c1397856",
+      "16a91e591a40c438",
+      "a1abbeeae15652d0",
+      "1621f78ea00aa2b4",
+      "0a8e3d3f676d8b89"
+    ]
+  },
+  {
+    "_id": "5adccaca5542994d58a2f6d5",
+    "question": "Which of these is a genus of flowering plants, Anemopaegma or Semele?",
+    "answer": "Anemopaegma",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Anemopaegma",
+        0
+      ],
+      [
+        "Semele",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "237c807e83e54ea2",
+      "8bddbf8ddd3d0f50"
+    ],
+    "context_chunk_ids": [
+      "0b6a1717369be2d5",
+      "328b606d106a5a36",
+      "8be93ea5f19db826",
+      "acac422bb08fd6af",
+      "237c807e83e54ea2",
+      "940bcdf581a12ef8",
+      "e8e7eb907eb94958",
+      "8bddbf8ddd3d0f50",
+      "e5eca2e6dd8b8b88",
+      "1f632d1e16d718cb"
+    ]
+  },
+  {
+    "_id": "5ab6e865554299710c8d1fad",
+    "question": "Between Danny Elfman and Fran Healy who has worked in more diverse fields?",
+    "answer": "Elfman",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Danny Elfman",
+        0
+      ],
+      [
+        "Fran Healy (musician)",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "1870b32e305bfb77",
+      "b495da896345a856"
+    ],
+    "context_chunk_ids": [
+      "992a86ff20688553",
+      "f0e4892b3b37bba4",
+      "b495da896345a856",
+      "8c1c86c18a223728",
+      "161799124afdf1e1",
+      "02e94c52db8f837e",
+      "f4459cecee69896e",
+      "1870b32e305bfb77",
+      "ea618fdd901514b3",
+      "8043cae2ef7b7fae"
+    ]
+  },
+  {
+    "_id": "5ae114f155429901ffe4ad5c",
+    "question": "Do the documentaries Hot Girls Wanted and The Truth According to Wikipedia have the same director?",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Hot Girls Wanted",
+        0
+      ],
+      [
+        "The Truth According to Wikipedia",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "903bcebb130bdbec",
+      "bf5bfb020d2a9309"
+    ],
+    "context_chunk_ids": [
+      "903bcebb130bdbec",
+      "fd13834eff44cf9c",
+      "9e7955d7c6c8fafa",
+      "2f5ba414c03fa6f6",
+      "da667b1f989f7816",
+      "4fbe89b0d5faec6f",
+      "e68c0632f8756f40",
+      "1900876eb0183fa0",
+      "f591d9caea3d5b63",
+      "bf5bfb020d2a9309"
+    ]
+  },
+  {
+    "_id": "5abe36aa5542993f32c2a08f",
+    "question": "Was American Scientist or Dwell published first?",
+    "answer": "American Scientist",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "American Scientist",
+        0
+      ],
+      [
+        "Dwell (magazine)",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "ab8bde31e9a15134",
+      "e3034f5ee568e837"
+    ],
+    "context_chunk_ids": [
+      "e3034f5ee568e837",
+      "0c36f0ee21621170",
+      "365c30c367aad924",
+      "c37f85d778697d1c",
+      "a257f50e0bcd3ee4",
+      "0f6cd2c39ceebefb",
+      "ab8bde31e9a15134",
+      "0b3e423aa680555d",
+      "df428fb68cf97b53",
+      "fd7d14febf5321c2"
+    ]
+  },
+  {
+    "_id": "5abc7bf75542993a06baf8f0",
+    "question": "Which has more species Laurus or Liriodendron?",
+    "answer": "Laurus",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Laurus",
+        0
+      ],
+      [
+        "Laurus",
+        1
+      ],
+      [
+        "Liriodendron",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "02e85a764b598b43",
+      "3a3894b0c2506647"
+    ],
+    "context_chunk_ids": [
+      "1680d6be464bcfe6",
+      "02e85a764b598b43",
+      "f0f758ffcef041f7",
+      "90e3a51e13c6358a",
+      "f0fe680fe359fc0b",
+      "eaaf032797ec83a6",
+      "220c45b80e9792e0",
+      "1ebe815f1bd477dc",
+      "3a3894b0c2506647",
+      "976ede3d58522907"
+    ]
+  },
+  {
+    "_id": "5ab6087a554299110f2199be",
+    "question": "Do both Korematsu v. United States and Chaplinsky v. New Hampshire cases regard the rights of U. S. citizens?",
+    "answer": "yes",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Korematsu v. United States",
+        0
+      ],
+      [
+        "Chaplinsky v. New Hampshire",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "c923a57087201126",
+      "e32ee493ed809ece"
+    ],
+    "context_chunk_ids": [
+      "f107c34d10795506",
+      "c923a57087201126",
+      "615cdfa10474d8b6",
+      "c1e246687344e804",
+      "e32ee493ed809ece",
+      "0ba5a45b986c419a",
+      "bd4c3187e0206f8a",
+      "eab3a4e28ecc70cf",
+      "63f34134976a8d32",
+      "24ee11559841f418"
+    ]
+  },
+  {
+    "_id": "5a866c04554299211dda2b25",
+    "question": "Are Pterostyrax and Dregea both native to Asia?",
+    "answer": "yes",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Pterostyrax",
+        0
+      ],
+      [
+        "Dregea",
+        0
+      ],
+      [
+        "Dregea",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "0ae20fe970e7c14c",
+      "b434d13cc8863180"
+    ],
+    "context_chunk_ids": [
+      "18ee4a00e65dd0d7",
+      "5a4b1080849ca551",
+      "fbf2e81187688813",
+      "578db93c2087665a",
+      "0ae20fe970e7c14c",
+      "d4e8ac5bda630039",
+      "ec6a06d2240b9f28",
+      "8d2f0f99801ebf15",
+      "220246b8aa2958db",
+      "b434d13cc8863180"
+    ]
+  },
+  {
+    "_id": "5ab8f4ee5542991b5579f091",
+    "question": "Which genus has more species, Lantana or Silybum?",
+    "answer": "Lantana",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Lantana",
+        0
+      ],
+      [
+        "Silybum",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "06967c45da7d01cb",
+      "e4f91f3cba1a9e61"
+    ],
+    "context_chunk_ids": [
+      "bd4cd076593153eb",
+      "1d65390cf7063363",
+      "e4f91f3cba1a9e61",
+      "06967c45da7d01cb",
+      "7af03c2a213d90d9"
+    ]
+  },
+  {
+    "_id": "5abbc4d255429931dba144fe",
+    "question": "Which genus of plant grows originally in Mexico and Guatemala, Phylica or Weldenia?",
+    "answer": "Weldenia",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Phylica",
+        0
+      ],
+      [
+        "Phylica",
+        2
+      ],
+      [
+        "Weldenia",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "6b62f66ee7182ec5",
+      "8fba6fc0a1ff107a"
+    ],
+    "context_chunk_ids": [
+      "954299a74c533cc7",
+      "4b63b68e70b8a72b",
+      "8fba6fc0a1ff107a",
+      "1184555da09f3dbe",
+      "b84d18605bb81aec",
+      "2e9e2f52b3abdd4f",
+      "c64585feaab7ebe5",
+      "6b62f66ee7182ec5",
+      "993393a5d9cfab3f",
+      "9c69666274cd8ce7"
+    ]
+  },
+  {
+    "_id": "5ae46b615542995dadf24327",
+    "question": "Who has more scope of profession, Edward Dmytryk or Otto Preminger?",
+    "answer": "Otto Ludwig Preminger",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Edward Dmytryk",
+        0
+      ],
+      [
+        "Otto Preminger",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "082328cae5bc4e3a",
+      "82bcd4a397a999ac"
+    ],
+    "context_chunk_ids": [
+      "5d85c27446c62606",
+      "a4bf6fd9b2b898ee",
+      "aa8c9ddffbfcfbbf",
+      "11399d9e6ed9e2a4",
+      "082328cae5bc4e3a",
+      "82bcd4a397a999ac",
+      "dcfaee24c767d698",
+      "f4d99f18a4f175d5",
+      "468a7c3fd34321f3",
+      "a8b92730b1dee94b"
+    ]
+  },
+  {
+    "_id": "5ae4b5935542995ad6573e27",
+    "question": "Which of these artist lives closer to Canada, Koshi Inaba or Jonathan Davis?",
+    "answer": "Jonathan Howsmon Davis",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Koshi Inaba",
+        0
+      ],
+      [
+        "Jonathan Davis",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "426fc5ed27199faa",
+      "fa89540a3b417420"
+    ],
+    "context_chunk_ids": [
+      "ca46c02b980db182",
+      "383c3a7435cb0e94",
+      "2b3a5af8f817eb3b",
+      "fa89540a3b417420",
+      "9ab4f8519ff3c1c3",
+      "013ecef0e3cecfa1",
+      "86a10bb482fcd4be",
+      "426fc5ed27199faa",
+      "6570bd376c908cac",
+      "b0ac20241108f871"
+    ]
+  },
+  {
+    "_id": "5ae492955542995ad6573daa",
+    "question": "The rock band Sugar Ray began as a funk metal band, while the band Das Damen was considered what?",
+    "answer": "alternative rock",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Das Damen",
+        0
+      ],
+      [
+        "Sugar Ray",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "2a770550ab855da2",
+      "ca10670f4e9a955b"
+    ],
+    "context_chunk_ids": [
+      "8cd652904b229d0e",
+      "2b0c2ab47deb6703",
+      "d2de0918bf1b22b8",
+      "ea9f0bb2bf44b926",
+      "349853336eca2d3b",
+      "8bcb056d4d4cad5f",
+      "a83c783458cb120f",
+      "c2fab40cef72276e",
+      "ca10670f4e9a955b",
+      "2a770550ab855da2"
+    ]
+  },
+  {
+    "_id": "5abbdb335542992ccd8e7fc1",
+    "question": "Are NRG Energy and Raymond James Financial  based in Great Britain?",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "NRG Energy",
+        0
+      ],
+      [
+        "Raymond James Financial",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "0858b37893c7da84",
+      "60146d8f881241fd"
+    ],
+    "context_chunk_ids": [
+      "acbedb4101c218db",
+      "44c0c5d2ca4184c5",
+      "ec44051678463a7a",
+      "b6874d56d2fdd648",
+      "93d5f57fa299a8d3",
+      "fb77db64cb286920",
+      "33a9a750a0cbc7b4",
+      "0858b37893c7da84",
+      "f4b9953ba7b9d810",
+      "60146d8f881241fd"
+    ]
+  },
+  {
+    "_id": "5a8b397955429971feec4674",
+    "question": "Are both John Corabi and David Byrne musicians?",
+    "answer": "yes",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "John Corabi",
+        0
+      ],
+      [
+        "David Byrne",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "46b571411ec4e1b3",
+      "b099992bd7f1b95e"
+    ],
+    "context_chunk_ids": [
+      "46b571411ec4e1b3",
+      "c9bbbe3c308c2b93",
+      "081d5098b0d99266",
+      "624e18b05fcc8d7f",
+      "c57fbc208f9c8aea",
+      "b099992bd7f1b95e",
+      "03f2b9a6c99b39e3",
+      "df7ef40b10735576",
+      "d7b89ee6722d4043",
+      "b2f9c45a132af4aa"
+    ]
+  },
+  {
+    "_id": "5ac44b47554299194317396c",
+    "question": "Which became a Cathedral first St Chad's Cathedral, Birmingham or Chelmsford Cathedral?",
+    "answer": "Metropolitan Cathedral Church and Basilica of Saint Chad",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "St Chad's Cathedral, Birmingham",
+        0
+      ],
+      [
+        "St Chad's Cathedral, Birmingham",
+        1
+      ],
+      [
+        "Chelmsford Cathedral",
+        0
+      ],
+      [
+        "Chelmsford Cathedral",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a46d15f8c3fc12ac",
+      "f2b68869424d089d"
+    ],
+    "context_chunk_ids": [
+      "74b0b5ae2ae36009",
+      "a46d15f8c3fc12ac",
+      "147b3f29c0fcd687",
+      "8920fade874a14dc",
+      "d5ff55241924fd08",
+      "ff4792dbca147fed",
+      "11a5bbb4b1c95f73",
+      "2d54d3fa9439ab8e",
+      "b450b5ae25bb633c",
+      "f2b68869424d089d"
+    ]
+  },
+  {
+    "_id": "5add5f925542997545bbbd48",
+    "question": "Tikkun and Moment are both what?",
+    "answer": "magazine",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Tikkun (magazine)",
+        0
+      ],
+      [
+        "Moment (magazine)",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "7156f0efb6184faa",
+      "db3e8c7571630455"
+    ],
+    "context_chunk_ids": [
+      "db3e8c7571630455",
+      "d05fccba660922a2",
+      "45f2af9ee3147719",
+      "7156f0efb6184faa",
+      "3853c8ec18df06f6",
+      "46b41533532c7444",
+      "866b0454e7429f00",
+      "8a8d64079e99ae06",
+      "c80672aca910bdd6",
+      "b15598f798e631b6"
+    ]
+  },
+  {
+    "_id": "5a8bd4d65542997f31a41dd8",
+    "question": "Are both American Zeitgeist and Michael Jackson's This Is It documentary films about entertainment?",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "American Zeitgeist",
+        1
+      ],
+      [
+        "Michael Jackson's This Is It",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "15dd7a954eb0a8f5",
+      "e8f7b78282274913"
+    ],
+    "context_chunk_ids": [
+      "4386b9386a9184fc",
+      "ead60ac581bfa1da",
+      "8fc2541873625ab9",
+      "824fceecb23d14cd",
+      "f1142eb95496f6b8",
+      "27c840a9f2ae6d8f",
+      "15dd7a954eb0a8f5",
+      "1757b3783d9ce887",
+      "d5a2870b4ae17d62",
+      "e8f7b78282274913"
+    ]
+  },
+  {
+    "_id": "5a8b8a745542995d1e6f13e4",
+    "question": "What is name of the city in Istanbul which has both Column of the Goths and Gül Mosque?",
+    "answer": "Turkey",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Gül Mosque",
+        0
+      ],
+      [
+        "Column of the Goths",
+        0
+      ],
+      [
+        "Column of the Goths",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "8567d31eef2db61e",
+      "dffd0908b3e87179"
+    ],
+    "context_chunk_ids": [
+      "dffd0908b3e87179",
+      "8567d31eef2db61e",
+      "2b745e897c8565f6",
+      "8f5d1ed038b51df1",
+      "1cbf4009842f5c2b",
+      "654007e469298406",
+      "f4b3646a27921496",
+      "3996f0dbbfdc0462",
+      "6e81cc2224f69a7f",
+      "c4ae848456d08dbd"
+    ]
+  },
+  {
+    "_id": "5ab5e024554299494045f097",
+    "question": "Were Joss Whedon and Norman Mailer both Americans?",
+    "answer": "yes",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Joss Whedon",
+        0
+      ],
+      [
+        "Norman Mailer",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "21e926e08f92273a",
+      "a9b706270ee53f26"
+    ],
+    "context_chunk_ids": [
+      "4da76e4d337b9c8c",
+      "a75812f45ba95804",
+      "3ff1cc4e3a35ef9a",
+      "2e07115923b71da0",
+      "21e926e08f92273a",
+      "4a2e2f9699b7b09e",
+      "645ac4bb539e8387",
+      "a9b706270ee53f26",
+      "d2f75ec874d75b32",
+      "cd990647fd5220d8"
+    ]
+  },
+  {
+    "_id": "5ade618e554299728e26c700",
+    "question": "Both Tsai Ming-liang and Giacomo Gentilomo were involved with which profession?",
+    "answer": "film director",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Tsai Ming-liang",
+        0
+      ],
+      [
+        "Tsai Ming-liang",
+        1
+      ],
+      [
+        "Giacomo Gentilomo",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "00dc893068c44b63",
+      "8489a252dab5e027"
+    ],
+    "context_chunk_ids": [
+      "35c0175244287063",
+      "197489edd7e615b2",
+      "8489a252dab5e027",
+      "8869b7186fadb9af",
+      "a02ee8f00c70f3d0",
+      "622ee3b62c51dc89",
+      "bf222019d166cecc",
+      "00dc893068c44b63",
+      "b9f1ded51398adc0",
+      "7bffd42be46931a1"
+    ]
+  },
+  {
+    "_id": "5abfd3ba5542994516f4550a",
+    "question": "Of the retired tennis players Ross Case and Slobodan Živojinović, which player reached a higher career-high singles ranking?",
+    "answer": "Ross Case",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Ross Case",
+        0
+      ],
+      [
+        "Slobodan Živojinović",
+        2
+      ]
+    ],
+    "gold_chunk_ids": [
+      "490dadce2e52df18",
+      "9f06e9e836369a70"
+    ],
+    "context_chunk_ids": [
+      "f15e52cd4eed7a68",
+      "15bc153260909107",
+      "9b7ed97fc332f36e",
+      "12c382642ec2c72f",
+      "f3bc6bdeb3b7f477",
+      "490dadce2e52df18",
+      "9f06e9e836369a70",
+      "72b8f48b7ecf936b",
+      "d03416aefc62fa72",
+      "4d09236de753d49e"
+    ]
+  },
+  {
+    "_id": "5a837121554299123d8c2128",
+    "question": "Q1: Which mountain is located in China, Kirat Chuli or Kangpenqing?",
+    "answer": "Kangpenqing (also Gang Benchhen) is a mountain in the Baiku Himalayas of Tibet, China.",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Kirat Chuli",
+        0
+      ],
+      [
+        "Kangpenqing",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "558ffc5b34f36add",
+      "e4b8cfa2e82ef0c0"
+    ],
+    "context_chunk_ids": [
+      "739d8f7ea6dfb06f",
+      "3e0be6b8920e20ac",
+      "49deece00239c9e4",
+      "14a2260d346f6ea1",
+      "e4b8cfa2e82ef0c0",
+      "d12957e9bb1b45a2",
+      "ec447bbd539a0aef",
+      "558ffc5b34f36add",
+      "b1b282e5386423ab",
+      "94d646829c3ad5f6"
+    ]
+  },
+  {
+    "_id": "5a839cb9554299123d8c2169",
+    "question": "Who has released more studio albums, 10 Years or Edward Sharpe and the Magnetic Zeros?",
+    "answer": "10 Years",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "10 Years (band)",
+        0
+      ],
+      [
+        "10 Years (band)",
+        3
+      ],
+      [
+        "Edward Sharpe and the Magnetic Zeros",
+        7
+      ]
+    ],
+    "gold_chunk_ids": [
+      "508eaa5477ac7bce",
+      "74228f58befa481c"
+    ],
+    "context_chunk_ids": [
+      "1f1504795345835d",
+      "d696d901bdf6b659",
+      "502d1ec5b75a536d",
+      "dda17d0e7f4566bd",
+      "8fa693f0549c8311",
+      "35b4acf5c74b48d4",
+      "508eaa5477ac7bce",
+      "74228f58befa481c",
+      "34f0716f90d6f2b6",
+      "dc43ddb5680fc323"
+    ]
+  },
+  {
+    "_id": "5ab44ab25542991779162c58",
+    "question": "What are both Camel Up and Outrage!?",
+    "answer": "board game",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Camel Up",
+        0
+      ],
+      [
+        "Outrage! (game)",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "00e6b97039cae14c",
+      "71c49276ac5957f8"
+    ],
+    "context_chunk_ids": [
+      "00e6b97039cae14c",
+      "71c49276ac5957f8",
+      "80b52c81ca855fef",
+      "c598b20051280564",
+      "c4aa14b79da7a5bc",
+      "0638fb6ada4b48b1",
+      "b645440e66e580ca",
+      "a0eaa1f65d7ed5d5",
+      "0c93ed0262a66f6f",
+      "0f4c26b19727d970"
+    ]
+  },
+  {
+    "_id": "5a8cc7af554299653c1aa11e",
+    "question": "who was part of the heavy metal band Ratt, Stephen Pearcy or Alexander O'Neal?",
+    "answer": "Stephen Pearcy",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Stephen Pearcy",
+        0
+      ],
+      [
+        "Stephen Pearcy",
+        1
+      ],
+      [
+        "Alexander O'Neal",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a5a1a3ab9a01f805",
+      "ce87e073e688d786"
+    ],
+    "context_chunk_ids": [
+      "69ea2310084e6973",
+      "66ad2e860f938fc7",
+      "a5a1a3ab9a01f805",
+      "6320f732c14ef885",
+      "1c9e0b6104c2f63d",
+      "73789dfc1fb7d82f",
+      "bb6e05f103a87cac",
+      "8efa335de18f3d03",
+      "4e0b38de0e3e7000",
+      "ce87e073e688d786"
+    ]
+  },
+  {
+    "_id": "5ac5199a5542994611c8b38a",
+    "question": "Can Stenocereus and Pachypodium both include tree like plants?",
+    "answer": "yes",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Stenocereus",
+        0
+      ],
+      [
+        "Stenocereus",
+        1
+      ],
+      [
+        "Stenocereus",
+        2
+      ],
+      [
+        "Stenocereus",
+        3
+      ],
+      [
+        "Pachypodium",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "c65de02bc9af4260",
+      "cfcc8f8ff86d83c3"
+    ],
+    "context_chunk_ids": [
+      "3dcbe023e23fe94c",
+      "7ebc949535085acd",
+      "c89e1a049224b1b0",
+      "4311709e1a9f0b6d",
+      "a9e806e2d99c31d9",
+      "6be220bfddc2114d",
+      "c65de02bc9af4260",
+      "4e083a006738f750",
+      "d0bb177e0eca5e20",
+      "cfcc8f8ff86d83c3"
+    ]
+  },
+  {
+    "_id": "5add60905542995b365fab1d",
+    "question": "What do Victor Salva and Emilio Fernández have in common?",
+    "answer": "director and screenwriter.",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Victor Salva",
+        0
+      ],
+      [
+        "Emilio Fernández",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "57f33f7a958bd3d9",
+      "e2bd3c61103e4d8b"
+    ],
+    "context_chunk_ids": [
+      "5caaa82e915cbb20",
+      "fd7329c42fd6e651",
+      "57f33f7a958bd3d9",
+      "4cb081bc0e3295ae",
+      "15bc36547e2dd368",
+      "f22987b0a2a07a86",
+      "e2bd3c61103e4d8b",
+      "c5b56d3da2c4d74b",
+      "5e0b47f6aaf060d0",
+      "3626aa418e38ab94"
+    ]
+  },
+  {
+    "_id": "5ac179bf5542994ab5c67d60",
+    "question": "Are Castor et Pollux and Manon Lescaut composed by the same people?",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Castor et Pollux",
+        0
+      ],
+      [
+        "Manon Lescaut (Puccini)",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "2ffde501defd0d3a",
+      "41a807c0946f5ef1"
+    ],
+    "context_chunk_ids": [
+      "8dbccb5758e54e3f",
+      "1a052a3777da7f37",
+      "bef25c1257301257",
+      "472783879983a24b",
+      "e5b8f20d23f949cd",
+      "5492b7c1b1697966",
+      "62ee8e762a5f8458",
+      "2ffde501defd0d3a",
+      "41a807c0946f5ef1",
+      "b9a0568248760524"
+    ]
+  },
+  {
+    "_id": "5a8b59a65542995d1e6f137c",
+    "question": "Are Stephen Frears and Jan Švankmajer from the same country?",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Stephen Frears",
+        0
+      ],
+      [
+        "Jan Švankmajer",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "0c8775a403d78378",
+      "199af7f0c12c9d9f"
+    ],
+    "context_chunk_ids": [
+      "78d702eb64aa0c99",
+      "1cbc56f52e93151e",
+      "0c8775a403d78378",
+      "a444120708251a3f",
+      "199af7f0c12c9d9f",
+      "7947a367f556d5b8",
+      "39592b16dc8ece21",
+      "f3d66ce3888765ed",
+      "c947b5f039c20a78",
+      "134ef8db403da064"
+    ]
+  },
+  {
+    "_id": "5a75383a5542996c70cfaeb3",
+    "question": "Who was born first, Ulf Merbold or Mirosław Hermaszewski?",
+    "answer": "Ulf Dietrich Merbold",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Ulf Merbold",
+        0
+      ],
+      [
+        "Mirosław Hermaszewski",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "1052cd6d62d88ef8",
+      "1dda59241bb9cd52"
+    ],
+    "context_chunk_ids": [
+      "ab55f0972c573850",
+      "ac2be10a775255be",
+      "ddba7c8ee8c2f4a2",
+      "1052cd6d62d88ef8",
+      "806d44b71bc8559d",
+      "986fec5d5c4ec7fd",
+      "1dda59241bb9cd52",
+      "2463a2e6b54ba2b9",
+      "e7a3b85aaae283b2",
+      "2c3049d8d75419f1"
+    ]
+  },
+  {
+    "_id": "5a739d8755429978a71e9048",
+    "question": "Which publication is older, the Stanford Chaparral or Dime Magazine? ",
+    "answer": "The Stanford Chaparral",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Dime Magazine",
+        0
+      ],
+      [
+        "Stanford Chaparral",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "6656ba65996693f7",
+      "b9a46aad0dc3eede"
+    ],
+    "context_chunk_ids": [
+      "232d1486ef3116d2",
+      "05587dc07657649b",
+      "f450f6caed97e558",
+      "c9bcac595ad54970",
+      "b9a46aad0dc3eede",
+      "2d777d1f8f167140",
+      "6656ba65996693f7",
+      "0f2d5a5e9d103a1e",
+      "c259ed4356f90311",
+      "b9e66f096d2d52e7"
+    ]
+  },
+  {
+    "_id": "5abdbabe5542993f32c2a028",
+    "question": "Are Affenpinscher and Villanuco de Las Encartaciones both breeds of dog?",
+    "answer": "yes",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Affenpinscher",
+        0
+      ],
+      [
+        "Villanuco de Las Encartaciones",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "00a34cf93fac489d",
+      "e020cb702daeb7ff"
+    ],
+    "context_chunk_ids": [
+      "7866e8332647c234",
+      "55d27173f6979788",
+      "00a34cf93fac489d",
+      "c416a15787294ca0",
+      "da2cebd3507fe424",
+      "6c5e6325ed3b9eba",
+      "25108324a3783908",
+      "9c96657c56b59858",
+      "f62cc3566a0b0ee0",
+      "e020cb702daeb7ff"
+    ]
+  },
+  {
+    "_id": "5a8b3c0055429949d91db4f8",
+    "question": "IS Paul Sloane noted for directing more musicals than  Jacques Demy",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Jacques Demy",
+        5
+      ],
+      [
+        "Paul Sloane (director)",
+        0
+      ],
+      [
+        "Paul Sloane (director)",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "0e4827edb0f6cbcd",
+      "27dd0cc4171a09f6"
+    ],
+    "context_chunk_ids": [
+      "8d587d634a322b19",
+      "57471210b669a2c2",
+      "8e856130db352aa4",
+      "3488ae8198c6ceab",
+      "a5fa71ec4370bfe1",
+      "0e4827edb0f6cbcd",
+      "380a38a9ac47b4e3",
+      "79ecca5757e35f6c",
+      "27dd0cc4171a09f6",
+      "f58d74090a79d846"
+    ]
+  },
+  {
+    "_id": "5a88a1475542997e5c09a646",
+    "question": "Which genus has more species, Salvia or Arachis?",
+    "answer": "Salvia",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Salvia",
+        0
+      ],
+      [
+        "Arachis",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "5634c2e12f5049d1",
+      "ba034880e13d7dbd"
+    ],
+    "context_chunk_ids": [
+      "5634c2e12f5049d1",
+      "6c8ea648c2d5ed76",
+      "993393a5d9cfab3f",
+      "4fb00b903790bf5f",
+      "d3f92c958cb5561c",
+      "e8d02ff7c47c6f13",
+      "ba034880e13d7dbd",
+      "a02f6c09a33fee66"
+    ]
+  },
+  {
+    "_id": "5a893fc855429951533612f0",
+    "question": "Are the Chien Français Blanc et Orange and Cretan Hound both used for hunting in packs?",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Chien Français Blanc et Orange",
+        1
+      ],
+      [
+        "Cretan Hound",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "23bea06c26701fe1",
+      "c2eabaef2329cb08"
+    ],
+    "context_chunk_ids": [
+      "6a4f265a07c810a2",
+      "434a4988e0d48510",
+      "c2eabaef2329cb08",
+      "a607c1419ccde322",
+      "64230ad5f64c09df",
+      "4fb94dbd625515c2",
+      "de5a56171a2e0728",
+      "23bea06c26701fe1",
+      "27ab68d978f43c6c",
+      "f80e060f5f51afc7"
+    ]
+  },
+  {
+    "_id": "5ade5a645542997c77adee0d",
+    "question": "Which city is at coastal county-level, Wenling or Ruili?",
+    "answer": "Wenling",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Wenling",
+        0
+      ],
+      [
+        "Ruili",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "105244edf12919e4",
+      "6cbf95d958c94cd7"
+    ],
+    "context_chunk_ids": [
+      "0473e71883947c27",
+      "105244edf12919e4",
+      "b445d8e4dd3011b8",
+      "551f221f922de162",
+      "9432ffb2818fa833",
+      "696929108fab1bcf",
+      "ff0f3f2e384a3a68",
+      "6cbf95d958c94cd7",
+      "f6e0ca7c3e63f550",
+      "0cb99287d9c2da80"
+    ]
+  },
+  {
+    "_id": "5adce3b95542990d50227d56",
+    "question": "What profession is shared by both Monty Banks and George Seaton?",
+    "answer": "film director",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Monty Banks",
+        0
+      ],
+      [
+        "George Seaton",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "1e569c2aa40d90c4",
+      "7aa9040c2a8f8aeb"
+    ],
+    "context_chunk_ids": [
+      "2d3317f023ec45c6",
+      "fb573f40a01941a2",
+      "1e569c2aa40d90c4",
+      "0429f47598da120a",
+      "9243d3da01ac4911",
+      "10a246716de6279a",
+      "7aa9040c2a8f8aeb",
+      "d929ba809a67fb56",
+      "9a7b28296d1097a8",
+      "486db429bc06b06e"
+    ]
+  },
+  {
+    "_id": "5a7458ff55429979e2882918",
+    "question": "That Darn Cat and Honey, I Blew Up the Kid are both what?",
+    "answer": "comedy",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "That Darn Cat (1997 film)",
+        0
+      ],
+      [
+        "Honey, I Blew Up the Kid",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "570e4aababa4f727",
+      "d841470ff7de5ff5"
+    ],
+    "context_chunk_ids": [
+      "97a79b79a3ae9091",
+      "4e0b5afeba15a2e6",
+      "83728c058facf91d",
+      "570e4aababa4f727",
+      "d841470ff7de5ff5",
+      "cd3dc8041fe2ba4b",
+      "dc5757b648896eba",
+      "3ee681daaaaf1d61",
+      "6f7849fc13c087db",
+      "15791e4c51cf1c4f"
+    ]
+  },
+  {
+    "_id": "5ae249925542994d89d5b3c1",
+    "question": "Which player Richard Gasquet or Jim Pugh  has won more mixed double Grand Slam titles ?",
+    "answer": "Jim Pugh",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Richard Gasquet",
+        1
+      ],
+      [
+        "Jim Pugh",
+        0
+      ],
+      [
+        "Jim Pugh",
+        1
+      ]
+    ],
+    "gold_chunk_ids": [
+      "7b5e0db5ada508ba",
+      "9427c18f95847c63"
+    ],
+    "context_chunk_ids": [
+      "430b814f8abe3ad2",
+      "e69c921a6e0f69d1",
+      "9427c18f95847c63",
+      "ee08f32775c2117b",
+      "cc00d89bd0ab005a",
+      "b07f6a48318ea8c0",
+      "c8cc566295efdc24",
+      "a082985ce6c40064",
+      "9d09b0720a059b02",
+      "7b5e0db5ada508ba"
+    ]
+  },
+  {
+    "_id": "5a7542425542996c70cfaecc",
+    "question": "Who was born first, Karen Joy Fowler or Bruce Chatwin?",
+    "answer": "Bruce Chatwin",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Karen Joy Fowler",
+        0
+      ],
+      [
+        "Bruce Chatwin",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a437d927bff0c11c",
+      "b14a713a662d5851"
+    ],
+    "context_chunk_ids": [
+      "b14a713a662d5851",
+      "ad844d39ed13dc56",
+      "3cb5e197f21c88e2",
+      "de861ff4d29e55f5",
+      "4baee91ee87397fc",
+      "a437d927bff0c11c",
+      "960736ea8d07a2ff",
+      "1c78b034028958a6",
+      "c247beb830b15400",
+      "1dd9dfe094f24a13"
+    ]
+  },
+  {
+    "_id": "5a7f22005542993067513656",
+    "question": " Among Kele Okereke and Jon Hume who made the New Zealand band Evermore?",
+    "answer": "Jon Hume",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Kele Okereke",
+        0
+      ],
+      [
+        "Jon Hume",
+        0
+      ],
+      [
+        "Jon Hume",
+        2
+      ]
+    ],
+    "gold_chunk_ids": [
+      "502a922827b4a3a3",
+      "6f509af2f778eabe"
+    ],
+    "context_chunk_ids": [
+      "6f509af2f778eabe",
+      "5a7629ff0f885755",
+      "bb2b762aba15f55a",
+      "d4c212cc890b725d",
+      "d4587b7df6346e8b",
+      "e5ddd6707aee70ac",
+      "bf8df350b104fc54",
+      "71ac561d76e09011",
+      "502a922827b4a3a3",
+      "145e5d0c1408e198"
+    ]
+  },
+  {
+    "_id": "5ac3126f5542995ef918c0e8",
+    "question": " Is it correct to state that Tetrapanax is an evergreen shrub as opposed to Hippophae which is a genus of sea buckthorns, a deciduous shrub?",
+    "answer": "yes",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Tetrapanax",
+        0
+      ],
+      [
+        "Hippophae",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "4bcf587974d76b12",
+      "76c5812c98da2210"
+    ],
+    "context_chunk_ids": [
+      "4bcf587974d76b12",
+      "cc7d1eb73c73bea4",
+      "ae8a20956c4e25a8",
+      "f7b345f78dfedaf4",
+      "ce5fc90c4d57decb",
+      "cffa64332d9d5303",
+      "76c5812c98da2210",
+      "a5aa45896dba5811",
+      "402abfe881c67ee7",
+      "19175e33feb82407"
+    ]
+  },
+  {
+    "_id": "5ab95dd8554299743d22eb13",
+    "question": "Which film came first The Strongest Man in the World or Candleshoe?",
+    "answer": "The Strongest Man in the World",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "The Strongest Man in the World",
+        0
+      ],
+      [
+        "Candleshoe",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "a3410e8d0b05e170",
+      "d023f3e4f264a122"
+    ],
+    "context_chunk_ids": [
+      "db784b086e9df3ea",
+      "9b0d62492a00ccff",
+      "a3410e8d0b05e170",
+      "241806d0ee3666dd",
+      "32542274ed783fb0",
+      "22af8bb1815b8995",
+      "fd867132c1c55e97",
+      "fb43fe49d9c01907",
+      "be86e96f0a793ea6",
+      "d023f3e4f264a122"
+    ]
+  },
+  {
+    "_id": "5a7d119d5542995ed0d165d5",
+    "question": "Who was born more recent.y,Gunnar Nelson or Florence Welch?",
+    "answer": "Florence Leontine Mary Welch",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Gunnar Nelson (musician)",
+        0
+      ],
+      [
+        "Florence Welch",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "0238c6f4d8a2d243",
+      "60339f6ec38309f3"
+    ],
+    "context_chunk_ids": [
+      "0238c6f4d8a2d243",
+      "60339f6ec38309f3",
+      "eacf230036b80618",
+      "1e3c115665e783ed",
+      "2055480b7468cc45",
+      "a0e37e5744f28418",
+      "692762cf78f5a878",
+      "95980d0e5191cb2e",
+      "4a33b3fb6c1ee1fa",
+      "4a9a4f6f83f32605"
+    ]
+  },
+  {
+    "_id": "5a77afcd5542997042120adf",
+    "question": "Who is older Carrie Akre or Shifty Shellshock?",
+    "answer": "Carrie Akre",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Carrie Akre",
+        0
+      ],
+      [
+        "Shifty Shellshock",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "0d888cee944dc2cb",
+      "1e82acbea30954cf"
+    ],
+    "context_chunk_ids": [
+      "cc9810d79e9cd34d",
+      "1e82acbea30954cf",
+      "22072efff7c6e070",
+      "b18abfa9fd7927c5",
+      "0e3a5e1368eb79fe",
+      "605e16b648692dcc",
+      "e75c71d95fdb03f2",
+      "fb6d4773c5a537c1",
+      "0d888cee944dc2cb",
+      "f4e1b3dad9a27f75"
+    ]
+  },
+  {
+    "_id": "5ab29c24554299449642c932",
+    "question": "Are Giuseppe Verdi and Ambroise Thomas both Opera composers ?",
+    "answer": "yes",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Giuseppe Verdi",
+        0
+      ],
+      [
+        "Ambroise Thomas",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "3facf7eaa59386bf",
+      "c214c2a3be6eb2a2"
+    ],
+    "context_chunk_ids": [
+      "533034d04e70403f",
+      "177ec9b189005c78",
+      "90aa0e3b675f8e93",
+      "c214c2a3be6eb2a2",
+      "63570f207001f1f0",
+      "3facf7eaa59386bf",
+      "8d79ffd0d3d5bd24",
+      "6f1f0a0b8ceacebf",
+      "2891147d16c383c0",
+      "a3324ed3bd44545e"
+    ]
+  },
+  {
+    "_id": "5abf12f25542997719eab667",
+    "question": "Are McFarland, USA and The Black Hole both sports films?",
+    "answer": "no",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "McFarland, USA",
+        0
+      ],
+      [
+        "The Black Hole",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "5adc5270c9844bc8",
+      "9d28f9473b12c4d8"
+    ],
+    "context_chunk_ids": [
+      "7e7db6cd424d1ca0",
+      "948a0917b69a52a4",
+      "e1493fe4a7e31d6c",
+      "85874c3e24dbd553",
+      "b630ca764564e39f",
+      "fa3f5736c05b811f",
+      "34ff5929268b9929",
+      "23b2ee36b2a2b6a0",
+      "5adc5270c9844bc8",
+      "9d28f9473b12c4d8"
+    ]
+  },
+  {
+    "_id": "5a7332935542991f9a20c67d",
+    "question": "Which board game was published most recently, Pirate's Cove or Catan?",
+    "answer": "Pirate's Cove",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Pirate's Cove",
+        0
+      ],
+      [
+        "Catan",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "356a6f2e14aa3674",
+      "492ee6567ec9e1c7"
+    ],
+    "context_chunk_ids": [
+      "03c733f6cd0d7d56",
+      "e7373ffc29a63cc4",
+      "155359f8ca0aea2f",
+      "356a6f2e14aa3674",
+      "4604dd9ff3227806",
+      "dbfe350afe445342",
+      "42769d289195cfc3",
+      "492ee6567ec9e1c7",
+      "d146a6f0cb5047a2",
+      "9a8b53c7a1a0a0b3"
+    ]
+  },
+  {
+    "_id": "5a7bacf35542997c3ec9724b",
+    "question": "Who was born first, Jorge Amado or James Leo Herlihy?",
+    "answer": "Jorge Leal Amado de Faria",
+    "type": "comparison",
+    "level": "hard",
+    "supporting_facts": [
+      [
+        "Jorge Amado",
+        0
+      ],
+      [
+        "James Leo Herlihy",
+        0
+      ]
+    ],
+    "gold_chunk_ids": [
+      "6ab1b1b0f987ea76",
+      "725b8377e8f2c7a5"
+    ],
+    "context_chunk_ids": [
+      "6ab1b1b0f987ea76",
+      "5b9d731909fa866e",
+      "4c25f680f6eeb3ba",
+      "eba842781d3e0f53",
+      "4b29c149db05337f",
+      "9f782a49a277f215",
+      "004b3a821c0eea89",
+      "725b8377e8f2c7a5",
+      "3fb4165ab8df2c3b",
+      "778c6f7f3382dee3"
+    ]
+  }
+]

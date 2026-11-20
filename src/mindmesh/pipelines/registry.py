@@ -42,6 +42,7 @@ from mindmesh.pipelines.lightrag_experimental.adapter import (
     LightRAGMixOptAdapter,
 )
 from mindmesh.pipelines.pipeline3_lightrag.adapter import Pipeline3LightRAGAdapter
+from mindmesh.pipelines.query_focused_adapter.adapter import QueryFocusedC5Adapter
 
 
 # ── Registry ──────────────────────────────────────────────────────────────────
@@ -57,6 +58,7 @@ PIPELINE_REGISTRY: dict[str, Type[PipelineAdapter]] = {
     "lightrag_hybrid_opt": LightRAGHybridOptAdapter,
     "lightrag_mix_opt":    LightRAGMixOptAdapter,
     "pipeline_3_lightrag": Pipeline3LightRAGAdapter,
+    "query_focused_c5":    QueryFocusedC5Adapter,    # prototype, 2026-11-19
 }
 
 

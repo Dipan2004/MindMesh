@@ -1,0 +1,13 @@
+{
+  "paragraphs_supplied": 993,
+  "paragraphs_unique": 985,
+  "duplicates_removed": 8,
+  "unique_titles": 985,
+  "titles_with_multiple_versions": 0,
+  "sentences": 3888,
+  "documents": 985,
+  "chunks": 985,
+  "chunking": "one chunk per Wikipedia paragraph (HotpotQA paragraphs are short)",
+  "supporting_facts_total": 239,
+  "supporting_facts_unresolved": 0
+}

@@ -1,0 +1,582 @@
+{
+ "failures": [
+  {
+   "chunk_id": "ca6d272d839305a7",
+   "title": "Bakhmull",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4066,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "d5a2870b4ae17d62",
+   "title": "Zeitgeist Films",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4071,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "3e0be6b8920e20ac",
+   "title": "Balamta",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4055,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "9442dc9cbc7f70d6",
+   "title": "Andrea da Barberino",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4092,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "ee08f32775c2117b",
+   "title": "Williams sisters",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4070,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "1dd9dfe094f24a13",
+   "title": "Writers of the Future",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4078,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "a8b92730b1dee94b",
+   "title": "Edward Snyder (cinematographer)",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4079,
+   "attempts": 2,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "de861ff4d29e55f5",
+   "title": "Readercon",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4074,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "9ab4f8519ff3c1c3",
+   "title": "List of Kekkaishi episodes",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4061,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "782f2cb1f96e5a32",
+   "title": "Cryo-electron tomography",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4084,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "18271c355e7daa25",
+   "title": "Hemus motorway",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4060,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "533034d04e70403f",
+   "title": "Bernhard Bötel",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4078,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "f1c34effd9d073ea",
+   "title": "Food and Drug Administration",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4073,
+   "attempts": 1,
+   "is_gold": true
+  },
+  {
+   "chunk_id": "2a6c0445ed82f42c",
+   "title": "Dr. Annavarapu Ramaswamy",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4074,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "e8d02ff7c47c6f13",
+   "title": "Leucophyllum frutescens",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4067,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "69a2a0f5e7fe210c",
+   "title": "Heartbeat Records",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4069,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "ead60ac581bfa1da",
+   "title": "Yair Qedar",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4082,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "dda17d0e7f4566bd",
+   "title": "Manimal Vinyl",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4076,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "c06f15f25688880b",
+   "title": "Children's Mercy Park",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4072,
+   "attempts": 1,
+   "is_gold": true
+  },
+  {
+   "chunk_id": "c60dfb89a8afd671",
+   "title": "Hans Brenaa",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4070,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "8d79ffd0d3d5bd24",
+   "title": "Armand Castelmary",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4066,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "3870700eb2329856",
+   "title": "Phil Dwyer (musician)",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4068,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "03f2b9a6c99b39e3",
+   "title": "Eric Singer Project",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4067,
+   "attempts": 3,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "2ffde501defd0d3a",
+   "title": "Castor et Pollux",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4069,
+   "attempts": 1,
+   "is_gold": true
+  },
+  {
+   "chunk_id": "570e4aababa4f727",
+   "title": "Honey, I Blew Up the Kid",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4079,
+   "attempts": 1,
+   "is_gold": true
+  },
+  {
+   "chunk_id": "0c2b01bcaaa42708",
+   "title": "Derek Currie",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4056,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "2258b0521179bf91",
+   "title": "Aymeri de Narbonne",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4072,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "7e5b3cef653b1a82",
+   "title": "The Battle of the Somme (film)",
+   "status": "failed_infra",
+   "kind": "failed_infra: HTTP 429: Provider returned error",
+   "completion_tokens": 0,
+   "attempts": 3,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "4b29c149db05337f",
+   "title": "Jubiabá",
+   "status": "failed_infra",
+   "kind": "failed_infra: HTTP 429: Provider returned error",
+   "completion_tokens": 0,
+   "attempts": 3,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "ec447bbd539a0aef",
+   "title": "Mount Lao",
+   "status": "failed_infra",
+   "kind": "failed_infra: HTTP 429: Provider returned error",
+   "completion_tokens": 0,
+   "attempts": 3,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "b099992bd7f1b95e",
+   "title": "John Corabi",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4072,
+   "attempts": 1,
+   "is_gold": true
+  },
+  {
+   "chunk_id": "4a2e2f9699b7b09e",
+   "title": "The Time of Our Time",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4085,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "7d85ae2a06335fcd",
+   "title": "European route E411",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4068,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "c259ed4356f90311",
+   "title": "Shocked and Amazed!",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4065,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "9a7bbe63e18706e0",
+   "title": "William Brown (Royal Navy officer)",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4068,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "6f509af2f778eabe",
+   "title": "Kele Okereke",
+   "status": "failed_infra",
+   "kind": "failed_infra: HTTP 429: Provider returned error",
+   "completion_tokens": 0,
+   "attempts": 3,
+   "is_gold": true
+  },
+  {
+   "chunk_id": "b7bf5da9d64a643c",
+   "title": "Hugo Heermann",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4053,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "bbddb72a31487bd5",
+   "title": "The X-Files (season 6)",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4067,
+   "attempts": 1,
+   "is_gold": true
+  },
+  {
+   "chunk_id": "0b3e423aa680555d",
+   "title": "Global Open Access Forum",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4061,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "8a8d64079e99ae06",
+   "title": "Neutron magnetic moment",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4047,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "220c45b80e9792e0",
+   "title": "Liriodendron chinense",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4066,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "f4b9953ba7b9d810",
+   "title": "Pension administration in the United States",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4068,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "705eba0a7ea4213c",
+   "title": "Rocío Boliver",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4065,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "da667b1f989f7816",
+   "title": "Mary Anne Franks",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4062,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "247fc32ae586a113",
+   "title": "Mandy Moore discography",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4069,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "bfab69ece7e4eac7",
+   "title": "Chanson de Guillaume",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4076,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "55d27173f6979788",
+   "title": "Samanta Schweblin",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4068,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "56b872d3c4f62b7b",
+   "title": "Hermann Zilcher",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4084,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "ec44051678463a7a",
+   "title": "Treaties of Reichenbach (1813)",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4066,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "c89e1a049224b1b0",
+   "title": "Parkia timoriana",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4063,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "24ee11559841f418",
+   "title": "Criminal law in the Waite Court",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4077,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "7af03c2a213d90d9",
+   "title": "Concinnia spinosa",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4078,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "067f751361d00906",
+   "title": "Koji Nakano (composer)",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4071,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "05587dc07657649b",
+   "title": "H. Bedford-Jones",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4069,
+   "attempts": 1,
+   "is_gold": false
+  },
+  {
+   "chunk_id": "806d44b71bc8559d",
+   "title": "Henrique Mecking",
+   "status": "failed_model",
+   "kind": "truncated (finish_reason=length)",
+   "completion_tokens": 4074,
+   "attempts": 1,
+   "is_gold": false
+  }
+ ],
+ "gold_paragraphs_total": 199,
+ "gold_paragraphs_failed": 7,
+ "affected_questions": [
+  {
+   "qid": "5ade51b45542997c77adedf4",
+   "type": "bridge",
+   "failed_gold": [
+    [
+     "Children's Mercy Park",
+     "failed_model"
+    ]
+   ],
+   "n_gold": 2
+  },
+  {
+   "qid": "5a901b985542995651fb50b0",
+   "type": "bridge",
+   "failed_gold": [
+    [
+     "Food and Drug Administration",
+     "failed_model"
+    ]
+   ],
+   "n_gold": 2
+  },
+  {
+   "qid": "5a76d15e55429966f1a36bfa",
+   "type": "bridge",
+   "failed_gold": [
+    [
+     "The X-Files (season 6)",
+     "failed_model"
+    ]
+   ],
+   "n_gold": 2
+  },
+  {
+   "qid": "5a8b397955429971feec4674",
+   "type": "comparison",
+   "failed_gold": [
+    [
+     "John Corabi",
+     "failed_model"
+    ]
+   ],
+   "n_gold": 2
+  },
+  {
+   "qid": "5ac179bf5542994ab5c67d60",
+   "type": "comparison",
+   "failed_gold": [
+    [
+     "Castor et Pollux",
+     "failed_model"
+    ]
+   ],
+   "n_gold": 2
+  },
+  {
+   "qid": "5a7458ff55429979e2882918",
+   "type": "comparison",
+   "failed_gold": [
+    [
+     "Honey, I Blew Up the Kid",
+     "failed_model"
+    ]
+   ],
+   "n_gold": 2
+  },
+  {
+   "qid": "5a7f22005542993067513656",
+   "type": "comparison",
+   "failed_gold": [
+    [
+     "Kele Okereke",
+     "failed_infra"
+    ]
+   ],
+   "n_gold": 2
+  }
+ ],
+ "extraction_first": "2026-11-20T22:55:46",
+ "extraction_last": "2026-11-20T23:05:38"
+}

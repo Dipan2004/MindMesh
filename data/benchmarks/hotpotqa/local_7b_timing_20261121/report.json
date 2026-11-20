@@ -1,0 +1,489 @@
+{
+  "label": "Small isolated local extraction timing experiment (n = 2 paragraphs). Not a benchmark. Agreement is not correctness. Projections are estimates.",
+  "created_at": "2026-11-21T01:14:48",
+  "paragraphs": [
+    {
+      "title": "New Mosque (Istanbul)",
+      "chars": 523
+    },
+    {
+      "title": "Rango (2011 film)",
+      "chars": 800
+    }
+  ],
+  "settings": {
+    "temperature": 0.0,
+    "seed": 42,
+    "num_predict": 4096,
+    "num_ctx": 8192,
+    "frequency_penalty": 0.25,
+    "retry_penalties": [
+      0.5,
+      1.0
+    ],
+    "think": null,
+    "gleanings": 0,
+    "stub_endpoints": false
+  },
+  "results": {
+    "qwen2.5:3b": {
+      "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+      "details": {
+        "parameter_size": "3.1B",
+        "quantization": "Q4_K_M",
+        "size": null
+      },
+      "load": {
+        "wall_s": 3.41,
+        "ollama_load_duration_s": 3.15
+      },
+      "ollama_ps_after_load": [
+        {
+          "model": "qwen2.5:3b",
+          "size_bytes": 2411577999,
+          "size_vram_bytes": 2411577999,
+          "gpu_fraction": 1.0,
+          "processor": "GPU",
+          "context_length": 8192
+        }
+      ],
+      "cache_version": "644b068b5b6c",
+      "hardware_during_extraction": {
+        "samples": 41,
+        "gpu_temp_c": {
+          "mean": 76.4,
+          "max": 82.0
+        },
+        "gpu_power_w": {
+          "mean": 84.4,
+          "max": 90.9
+        },
+        "gpu_mem_mib": {
+          "mean": 2419.0,
+          "max": 2419.0
+        },
+        "gpu_util": {
+          "mean": 87.0,
+          "max": 93.0
+        },
+        "sm_mhz": {
+          "mean": 2477.6,
+          "max": 2490.0
+        },
+        "cpu_pct": {
+          "mean": 7.4,
+          "max": 10.5
+        },
+        "ram_used_gb": {
+          "mean": 11.4,
+          "max": 11.43
+        }
+      },
+      "hardware_during_load": {
+        "samples": 3,
+        "gpu_temp_c": {
+          "mean": 55.7,
+          "max": 56.0
+        },
+        "gpu_power_w": {
+          "mean": 16.1,
+          "max": 19.22
+        },
+        "gpu_mem_mib": {
+          "mean": 1441.3,
+          "max": 2395.0
+        },
+        "gpu_util": {
+          "mean": 6.0,
+          "max": 18.0
+        },
+        "sm_mhz": {
+          "mean": 2370.0,
+          "max": 2370.0
+        },
+        "cpu_pct": {
+          "mean": 9.2,
+          "max": 11.8
+        },
+        "ram_used_gb": {
+          "mean": 11.2,
+          "max": 11.39
+        }
+      },
+      "paragraphs": [
+        {
+          "title": "New Mosque (Istanbul)",
+          "chars": 523,
+          "status": "ok",
+          "valid_json": true,
+          "wall_s": 24.891,
+          "attempts": 1,
+          "input_tokens": 411,
+          "output_tokens": 2419,
+          "decode_tok_s": 98.1,
+          "truncation_suspected": false,
+          "error": "",
+          "entities": 9,
+          "relationships": 5,
+          "provenance": {
+            "items": 14,
+            "with_source_sentence": 1.0,
+            "source_sentence_verbatim": 1.0
+          },
+          "agreement_vs_qwen2.5_3b": null,
+          "agreement_vs_gemini": {
+            "entities": {
+              "precision": 0.667,
+              "recall": 0.667,
+              "f1": 0.667,
+              "tp": 6,
+              "ref": 9,
+              "var": 9
+            },
+            "relationships": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "ref": 9,
+              "var": 5
+            }
+          },
+          "agreement_vs_mistral_baseline": {
+            "entities": {
+              "precision": 0.778,
+              "recall": 0.875,
+              "f1": 0.824,
+              "tp": 7,
+              "ref": 8,
+              "var": 9
+            },
+            "relationships": {
+              "precision": 0.6,
+              "recall": 0.75,
+              "f1": 0.667,
+              "tp": 3,
+              "ref": 4,
+              "var": 5
+            }
+          }
+        },
+        {
+          "title": "Rango (2011 film)",
+          "chars": 800,
+          "status": "ok",
+          "valid_json": true,
+          "wall_s": 18.406,
+          "attempts": 1,
+          "input_tokens": 500,
+          "output_tokens": 1782,
+          "decode_tok_s": 98.2,
+          "truncation_suspected": false,
+          "error": "",
+          "entities": 11,
+          "relationships": 0,
+          "provenance": {
+            "items": 11,
+            "with_source_sentence": 1.0,
+            "source_sentence_verbatim": 0.0
+          },
+          "agreement_vs_qwen2.5_3b": null,
+          "agreement_vs_gemini": null,
+          "agreement_vs_mistral_baseline": {
+            "entities": {
+              "precision": 0.909,
+              "recall": 0.588,
+              "f1": 0.714,
+              "tp": 10,
+              "ref": 17,
+              "var": 11
+            },
+            "relationships": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "ref": 16,
+              "var": 0
+            }
+          }
+        }
+      ]
+    },
+    "mistral:latest": {
+      "digest": "6577803aa9a036369e481d648a2baebb381ebc6e897f2bb9a766a2aa7bfbc1cf",
+      "details": {
+        "parameter_size": "7.2B",
+        "quantization": "Q4_K_M",
+        "size": null
+      },
+      "load": {
+        "wall_s": 4.24,
+        "ollama_load_duration_s": 4.04
+      },
+      "ollama_ps_after_load": [
+        {
+          "model": "mistral:latest",
+          "size_bytes": 5500336864,
+          "size_vram_bytes": 5500336864,
+          "gpu_fraction": 1.0,
+          "processor": "GPU",
+          "context_length": 8192
+        }
+      ],
+      "cache_version": "a56fbefdc054",
+      "hardware_during_extraction": {
+        "samples": 85,
+        "gpu_temp_c": {
+          "mean": 86.4,
+          "max": 89.0
+        },
+        "gpu_power_w": {
+          "mean": 89.6,
+          "max": 96.58
+        },
+        "gpu_mem_mib": {
+          "mean": 5367.0,
+          "max": 5367.0
+        },
+        "gpu_util": {
+          "mean": 96.0,
+          "max": 98.0
+        },
+        "sm_mhz": {
+          "mean": 2352.7,
+          "max": 2475.0
+        },
+        "cpu_pct": {
+          "mean": 7.6,
+          "max": 21.6
+        },
+        "ram_used_gb": {
+          "mean": 11.2,
+          "max": 11.37
+        }
+      },
+      "hardware_during_load": {
+        "samples": 4,
+        "gpu_temp_c": {
+          "mean": 67.5,
+          "max": 68.0
+        },
+        "gpu_power_w": {
+          "mean": 21.0,
+          "max": 25.39
+        },
+        "gpu_mem_mib": {
+          "mean": 3143.2,
+          "max": 4191.0
+        },
+        "gpu_util": {
+          "mean": 28.8,
+          "max": 83.0
+        },
+        "sm_mhz": {
+          "mean": 2400.0,
+          "max": 2490.0
+        },
+        "cpu_pct": {
+          "mean": 6.8,
+          "max": 8.5
+        },
+        "ram_used_gb": {
+          "mean": 10.9,
+          "max": 11.05
+        }
+      },
+      "paragraphs": [
+        {
+          "title": "New Mosque (Istanbul)",
+          "chars": 523,
+          "status": "ok",
+          "valid_json": true,
+          "wall_s": 32.157,
+          "attempts": 1,
+          "input_tokens": 481,
+          "output_tokens": 1619,
+          "decode_tok_s": 51.1,
+          "truncation_suspected": false,
+          "error": "",
+          "entities": 8,
+          "relationships": 4,
+          "provenance": {
+            "items": 12,
+            "with_source_sentence": 1.0,
+            "source_sentence_verbatim": 0.333
+          },
+          "agreement_vs_qwen2.5_3b": {
+            "entities": {
+              "precision": 0.875,
+              "recall": 0.778,
+              "f1": 0.824,
+              "tp": 7,
+              "ref": 9,
+              "var": 8
+            },
+            "relationships": {
+              "precision": 0.75,
+              "recall": 0.6,
+              "f1": 0.667,
+              "tp": 3,
+              "ref": 5,
+              "var": 4
+            }
+          },
+          "agreement_vs_gemini": {
+            "entities": {
+              "precision": 0.875,
+              "recall": 0.778,
+              "f1": 0.824,
+              "tp": 7,
+              "ref": 9,
+              "var": 8
+            },
+            "relationships": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "ref": 9,
+              "var": 4
+            }
+          },
+          "agreement_vs_mistral_baseline": {
+            "entities": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 8,
+              "ref": 8,
+              "var": 8
+            },
+            "relationships": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 4,
+              "ref": 4,
+              "var": 4
+            }
+          }
+        },
+        {
+          "title": "Rango (2011 film)",
+          "chars": 800,
+          "status": "ok",
+          "valid_json": true,
+          "wall_s": 56.437,
+          "attempts": 1,
+          "input_tokens": 562,
+          "output_tokens": 2806,
+          "decode_tok_s": 50.1,
+          "truncation_suspected": false,
+          "error": "",
+          "entities": 17,
+          "relationships": 16,
+          "provenance": {
+            "items": 33,
+            "with_source_sentence": 1.0,
+            "source_sentence_verbatim": 1.0
+          },
+          "agreement_vs_qwen2.5_3b": {
+            "entities": {
+              "precision": 0.588,
+              "recall": 0.909,
+              "f1": 0.714,
+              "tp": 10,
+              "ref": 11,
+              "var": 17
+            },
+            "relationships": {
+              "precision": 0.0,
+              "recall": 0.0,
+              "f1": 0.0,
+              "tp": 0,
+              "ref": 0,
+              "var": 16
+            }
+          },
+          "agreement_vs_gemini": null,
+          "agreement_vs_mistral_baseline": {
+            "entities": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 17,
+              "ref": 17,
+              "var": 17
+            },
+            "relationships": {
+              "precision": 1.0,
+              "recall": 1.0,
+              "f1": 1.0,
+              "tp": 16,
+              "ref": 16,
+              "var": 16
+            }
+          }
+        }
+      ]
+    }
+  },
+  "gemini_reference": [
+    {
+      "title": "New Mosque (Istanbul)",
+      "status": "ok",
+      "wall_s": 5.781,
+      "input_tokens": 398,
+      "output_tokens": 2376,
+      "cost_usd": 0.0009902,
+      "entities": 9,
+      "relationships": 9,
+      "provenance": {
+        "items": 18,
+        "with_source_sentence": 1.0,
+        "source_sentence_verbatim": 1.0
+      }
+    },
+    {
+      "title": "Rango (2011 film)",
+      "status": "failed_model",
+      "wall_s": 9.485,
+      "input_tokens": 482,
+      "output_tokens": 4065,
+      "cost_usd": 0.0016742,
+      "entities": 0,
+      "relationships": 0,
+      "provenance": null
+    }
+  ],
+  "projections": {
+    "basis": "PROJECTION, not measured: total = (sum of paragraph characters) x (measured wall seconds per character, mean over the 2 paragraphs, including retries); sequential, one model on one GPU; excludes thermal throttling, failures beyond those observed, and model load (added once).",
+    "corpus_985": {
+      "paragraphs": 985,
+      "chars_total": 522462,
+      "chars_mean": 530
+    },
+    "c5_workload_observed": {
+      "paragraphs": 516,
+      "chars_total": 249163,
+      "source": "main 100q C5 run cache (Gemini)"
+    },
+    "qwen2.5:3b": {
+      "s_per_char": 0.03273,
+      "full_985_hours": 4.75,
+      "c5_516_hours": 2.27
+    },
+    "mistral:latest": {
+      "s_per_char": 0.06696,
+      "full_985_hours": 9.72,
+      "c5_516_hours": 4.64
+    },
+    "gemini_measured_reference": {
+      "full_985": "about 10 min wall clock with 8 parallel requests; $0.703 (MEASURED)",
+      "c5_516": "2,195 s sequential = 0.61 h; $0.331 (MEASURED)",
+      "sum_of_request_times_s": 4576.8
+    }
+  },
+  "electricity": "not estimated: only GPU board power from nvidia-smi is available (no CPU/system meter), and it gave an implausible 501 W reading earlier in this session; GPU power is reported as indicative only."
+}

@@ -1,0 +1,23 @@
+{
+  "version": "d59e84cdc9a1",
+  "model": "qwen2.5:1.5b",
+  "digest": "65ec06548149b04c096a120e4a6da9d4017ea809c91734ea5631e89f96ddc57b",
+  "prompt_template_sha256": "0010d1e85e89c3efb87e19d67aceeba46161d67c42337cf0e23fea67dd79cbff",
+  "prompt_version": "mindmesh-extraction-original",
+  "config": {
+    "temperature": 0.0,
+    "seed": 42,
+    "num_predict": 4096,
+    "num_ctx": 8192,
+    "frequency_penalty": 0.25,
+    "retry_penalties": [
+      0.5,
+      1.0
+    ],
+    "think": null,
+    "gleanings": 0,
+    "stub_endpoints": false
+  },
+  "config_sha256": "d0d5f898c4c55bc5bee817c26921894cd4028e7103d5c837eb8a02afa1676b82",
+  "key": "sha256(paragraph text) within this version"
+}

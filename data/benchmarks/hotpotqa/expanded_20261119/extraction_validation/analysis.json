@@ -1,0 +1,977 @@
+{
+  "n_paired_paragraphs": 30,
+  "limitations": [
+    "No gold entity/relationship annotations exist for these paragraphs: quality = agreement with the baseline extraction (same model, current prompt) plus reference-free grounding checks, not correctness.",
+    "Entity matching uses MindMesh's normalised name (_norm); relationships match on normalised (source, target) pairs, with type compared separately. Paraphrased names count as disagreements.",
+    "Timing includes thermal throttling; arms are interleaved per paragraph to share thermal conditions."
+  ],
+  "arms": {
+    "baseline": {
+      "wall_s_mean": 24.4,
+      "wall_s_median": 23.41,
+      "wall_s_total": 732.1,
+      "output_tokens_mean": 1190.7,
+      "output_tokens_median": 1126.0,
+      "output_tokens_total": 35721,
+      "decode_tok_per_s": 50.3,
+      "parse_failures": 0,
+      "paragraphs_with_retries": 0,
+      "entities_total": 226,
+      "relationships_total": 162
+    },
+    "C": {
+      "wall_s_mean": 29.62,
+      "wall_s_median": 24.15,
+      "wall_s_total": 888.5,
+      "output_tokens_mean": 1173.4,
+      "output_tokens_median": 1120.5,
+      "output_tokens_total": 35202,
+      "decode_tok_per_s": 38.5,
+      "parse_failures": 0,
+      "paragraphs_with_retries": 0,
+      "entities_total": 228,
+      "relationships_total": 154,
+      "time_reduction_total_pct": -21.4,
+      "token_reduction_total_pct": 1.5,
+      "paired": {
+        "time_reduction_per_paragraph_median_pct": 0.9,
+        "time_reduction_per_paragraph_mean_pct": -22.1,
+        "time_reduction_mean_ci95_pct": [
+          -56.8,
+          2.7
+        ],
+        "paragraphs_faster": 19,
+        "paragraphs_slower": 11,
+        "token_reduction_per_paragraph_median_pct": 0.0,
+        "token_reduction_mean_ci95_pct": [
+          -4.7,
+          4.6
+        ],
+        "paragraphs_fewer_tokens": 12,
+        "paragraphs_more_tokens": 8,
+        "decode_tok_per_s_median": 50.8,
+        "time_reduction_total_pct_excluding_3_slowest_baseline": -21.1,
+        "share_of_time_saving_from_top3_paragraphs_pct": -3840600000000.0
+      }
+    },
+    "BC": {
+      "wall_s_mean": 13.51,
+      "wall_s_median": 11.52,
+      "wall_s_total": 405.3,
+      "output_tokens_mean": 661.4,
+      "output_tokens_median": 566.5,
+      "output_tokens_total": 19841,
+      "decode_tok_per_s": 51.1,
+      "parse_failures": 0,
+      "paragraphs_with_retries": 0,
+      "entities_total": 192,
+      "relationships_total": 135,
+      "time_reduction_total_pct": 44.6,
+      "token_reduction_total_pct": 44.5,
+      "paired": {
+        "time_reduction_per_paragraph_median_pct": 36.3,
+        "time_reduction_per_paragraph_mean_pct": 36.7,
+        "time_reduction_mean_ci95_pct": [
+          27.1,
+          45.3
+        ],
+        "paragraphs_faster": 27,
+        "paragraphs_slower": 3,
+        "token_reduction_per_paragraph_median_pct": 36.9,
+        "token_reduction_mean_ci95_pct": [
+          26.8,
+          45.4
+        ],
+        "paragraphs_fewer_tokens": 27,
+        "paragraphs_more_tokens": 3,
+        "decode_tok_per_s_median": 51.1,
+        "time_reduction_total_pct_excluding_3_slowest_baseline": 41.1,
+        "share_of_time_saving_from_top3_paragraphs_pct": 29.5
+      }
+    }
+  },
+  "quality_vs_baseline": {
+    "C": {
+      "entities_micro": {
+        "precision": 0.9559,
+        "recall": 0.9602,
+        "f1": 0.9581,
+        "tp": 217,
+        "baseline_items": 226,
+        "variant_items": 227
+      },
+      "relationships_micro": {
+        "precision": 0.8442,
+        "recall": 0.828,
+        "f1": 0.836,
+        "tp": 130,
+        "baseline_items": 157,
+        "variant_items": 154
+      },
+      "relationships_typed_micro": {
+        "precision": 0.7468,
+        "recall": 0.7325,
+        "f1": 0.7395,
+        "tp": 115,
+        "baseline_items": 157,
+        "variant_items": 154
+      },
+      "relationship_recall_per_paragraph_median": 1.0,
+      "paragraphs_losing_over_half_of_baseline_relationships": 4,
+      "duplicate_entities_within_paragraph": 1,
+      "duplicate_relationships_within_paragraph": 0,
+      "same_entity_different_type": 5,
+      "same_relationship_pair_different_type": 15,
+      "same_entity_different_source_sentence": 21,
+      "paragraphs_with_any_difference": 11,
+      "differences": [
+        {
+          "chunk_id": "05213011ab94a3bd",
+          "title": "Rudebox (song)",
+          "missing_entities": [],
+          "added_entities": [],
+          "missing_relationships": [],
+          "added_relationships": [
+            "rudebox (song) -> 2006"
+          ]
+        },
+        {
+          "chunk_id": "09c1266d4add04e3",
+          "title": "Zakk Wylde",
+          "missing_entities": [
+            "1994"
+          ],
+          "added_entities": [],
+          "missing_relationships": [
+            "1994 -> pride & glory",
+            "pride & glory -> zakk wylde",
+            "zakk wylde -> bulls-eye design"
+          ],
+          "added_relationships": [
+            "zakk wylde -> pride & glory"
+          ]
+        },
+        {
+          "chunk_id": "0d017a55dd95e10d",
+          "title": "Ravenous (soundtrack)",
+          "missing_entities": [],
+          "added_entities": [
+            "banjo"
+          ],
+          "missing_relationships": [],
+          "added_relationships": [
+            "ravenous (soundtrack) -> banjo"
+          ]
+        },
+        {
+          "chunk_id": "129815da81af955b",
+          "title": "Between Now and Forever",
+          "missing_entities": [
+            "i'm not supposed to love you anymore",
+            "sittin' on go",
+            "so much for pretending",
+            "that's another song"
+          ],
+          "added_entities": [
+            "riaa"
+          ],
+          "missing_relationships": [
+            "between now and forever -> 1996 in country music",
+            "between now and forever -> i'm not supposed to love you anymore",
+            "between now and forever -> sittin' on go",
+            "between now and forever -> so much for pretending",
+            "between now and forever -> that's another song"
+          ],
+          "added_relationships": [
+            "between now and forever -> riaa",
+            "bryan white -> between now and forever"
+          ]
+        },
+        {
+          "chunk_id": "1321686acc66e514",
+          "title": "Hortência Marcari",
+          "missing_entities": [
+            "hortência"
+          ],
+          "added_entities": [
+            "fiba hall of fame",
+            "hortência maria de fátima marcari",
+            "naismith memorial basketball hall of fame",
+            "women's basketball hall of fame"
+          ],
+          "missing_relationships": [],
+          "added_relationships": [
+            "hortência marcari -> fiba hall of fame",
+            "hortência marcari -> naismith memorial basketball hall of fame",
+            "hortência marcari -> paula",
+            "hortência marcari -> women's basketball hall of fame"
+          ]
+        },
+        {
+          "chunk_id": "18204867dabae48d",
+          "title": "Def Poetry Jam",
+          "missing_entities": [
+            "def comedy jam"
+          ],
+          "added_entities": [],
+          "missing_relationships": [
+            "def comedy jam -> russell simmons"
+          ],
+          "added_relationships": [
+            "def poetry jam -> bruce george",
+            "def poetry jam -> danny simmons",
+            "def poetry jam -> deborah pointer",
+            "def poetry jam -> russell simmons",
+            "def poetry jam -> stan lathan"
+          ]
+        },
+        {
+          "chunk_id": "186f64d3b7829d32",
+          "title": "Tenacious D Live",
+          "missing_entities": [],
+          "added_entities": [
+            "2012 rize of the fenix tour",
+            "2013 european tour"
+          ],
+          "missing_relationships": [
+            "tenacious d live -> columbia records",
+            "tenacious d live -> john spiker",
+            "tenacious d live -> tenacious d"
+          ],
+          "added_relationships": [
+            "columbia records -> tenacious d live",
+            "john spiker -> tenacious d live",
+            "tenacious d -> tenacious d live",
+            "tenacious d live -> 2012 rize of the fenix tour",
+            "tenacious d live -> 2013 european tour"
+          ]
+        },
+        {
+          "chunk_id": "2127506328e59596",
+          "title": "Big Daddy (BioShock)",
+          "missing_entities": [],
+          "added_entities": [],
+          "missing_relationships": [
+            "big daddy (bioshock) -> bioshock",
+            "big daddy (bioshock) -> irrational games"
+          ],
+          "added_relationships": [
+            "bioshock -> big daddy (bioshock)",
+            "irrational games -> big daddy (bioshock)"
+          ]
+        },
+        {
+          "chunk_id": "22072efff7c6e070",
+          "title": "Goodness (band)",
+          "missing_entities": [
+            "the rockfords"
+          ],
+          "added_entities": [],
+          "missing_relationships": [
+            "goodness (band) -> pearl jam"
+          ],
+          "added_relationships": [
+            "goodness (band) -> seattle, washington"
+          ]
+        },
+        {
+          "chunk_id": "22baaf955e3d521b",
+          "title": "Mos Def discography",
+          "missing_entities": [
+            "hot rap singles"
+          ],
+          "added_entities": [
+            "hot rap singles chart",
+            "self-titled debut album"
+          ],
+          "missing_relationships": [
+            "definition -> black star",
+            "definition -> hot rap singles"
+          ],
+          "added_relationships": [
+            "black star -> self-titled debut album",
+            "definition -> hot rap singles chart"
+          ]
+        },
+        {
+          "chunk_id": "243e0ad68432f8c7",
+          "title": "Rango (2011 film)",
+          "missing_entities": [],
+          "added_entities": [],
+          "missing_relationships": [
+            "rango -> abigail breslin",
+            "rango -> alfred molina",
+            "rango -> bill nighy",
+            "rango -> harry dean stanton",
+            "rango -> isla fisher",
+            "rango -> johnny depp",
+            "rango -> ned beatty",
+            "rango -> ray winstone",
+            "rango -> stephen root",
+            "rango -> timothy olyphant"
+          ],
+          "added_relationships": []
+        }
+      ]
+    },
+    "BC": {
+      "entities_micro": {
+        "precision": 0.8542,
+        "recall": 0.7257,
+        "f1": 0.7847,
+        "tp": 164,
+        "baseline_items": 226,
+        "variant_items": 192
+      },
+      "relationships_micro": {
+        "precision": 0.625,
+        "recall": 0.5096,
+        "f1": 0.5614,
+        "tp": 80,
+        "baseline_items": 157,
+        "variant_items": 128
+      },
+      "relationships_typed_micro": {
+        "precision": 0.4766,
+        "recall": 0.3885,
+        "f1": 0.4281,
+        "tp": 61,
+        "baseline_items": 157,
+        "variant_items": 128
+      },
+      "relationship_recall_per_paragraph_median": 0.3939,
+      "paragraphs_losing_over_half_of_baseline_relationships": 15,
+      "duplicate_entities_within_paragraph": 0,
+      "duplicate_relationships_within_paragraph": 7,
+      "same_entity_different_type": 6,
+      "same_relationship_pair_different_type": 19,
+      "same_entity_different_source_sentence": 148,
+      "paragraphs_with_any_difference": 26,
+      "differences": [
+        {
+          "chunk_id": "05213011ab94a3bd",
+          "title": "Rudebox (song)",
+          "missing_entities": [
+            "2006",
+            "rudebox (song)"
+          ],
+          "added_entities": [
+            "rudebox"
+          ],
+          "missing_relationships": [
+            "rudebox (song) -> robbie williams",
+            "rudebox (song) -> sly and robbie"
+          ],
+          "added_relationships": [
+            "rudebox -> robbie williams",
+            "rudebox -> sly and robbie"
+          ]
+        },
+        {
+          "chunk_id": "05c8a9112bf1a9e4",
+          "title": "Dariusz Wolski",
+          "missing_entities": [
+            "dariusz adam wolski",
+            "film and music video cinematographer",
+            "pirates of the caribbean film series",
+            "polish"
+          ],
+          "added_entities": [
+            "pirates of the caribbean"
+          ],
+          "missing_relationships": [
+            "dariusz wolski -> pirates of the caribbean film series"
+          ],
+          "added_relationships": [
+            "dariusz wolski -> pirates of the caribbean"
+          ]
+        },
+        {
+          "chunk_id": "07827c20865c32a2",
+          "title": "Hasan Fehmi",
+          "missing_entities": [
+            "istanbul"
+          ],
+          "added_entities": [],
+          "missing_relationships": [
+            "hasan fehmi -> istanbul"
+          ],
+          "added_relationships": []
+        },
+        {
+          "chunk_id": "096a17c17e8970c6",
+          "title": "Bagdad Mine",
+          "missing_entities": [
+            "azurite",
+            "chrysocolla",
+            "malachite",
+            "unincorporated community of bagdad",
+            "yavapai county, arizona"
+          ],
+          "added_entities": [
+            "yavapai county"
+          ],
+          "missing_relationships": [
+            "bagdad mine -> azurite",
+            "bagdad mine -> chalcopyrite",
+            "bagdad mine -> chrysocolla",
+            "bagdad mine -> malachite",
+            "bagdad mine -> molybdenite",
+            "bagdad mine -> unincorporated community of bagdad",
+            "bagdad mine -> yavapai county, arizona"
+          ],
+          "added_relationships": [
+            "bagdad mine -> yavapai county"
+          ]
+        },
+        {
+          "chunk_id": "09c1266d4add04e3",
+          "title": "Zakk Wylde",
+          "missing_entities": [
+            "1994",
+            "book of shadows",
+            "book of shadows ii",
+            "bulls-eye design"
+          ],
+          "added_entities": [],
+          "missing_relationships": [
+            "1994 -> pride & glory",
+            "jeffrey phillip wielandt -> zakk wylde",
+            "pride & glory -> zakk wylde",
+            "zakk wylde -> book of shadows",
+            "zakk wylde -> book of shadows ii",
+            "zakk wylde -> bulls-eye design"
+          ],
+          "added_relationships": [
+            "zakk wylde -> pride & glory"
+          ]
+        },
+        {
+          "chunk_id": "0c51c0fd5fd6bc00",
+          "title": "SexyBack",
+          "missing_entities": [],
+          "added_entities": [
+            "sex machine",
+            "sexyback"
+          ],
+          "missing_relationships": [],
+          "added_relationships": [
+            "sexyback -> david bowie",
+            "sexyback -> david byrne",
+            "sexyback -> jive records",
+            "sexyback -> justin timberlake",
+            "sexyback -> nate hills",
+            "sexyback -> tim mosley",
+            "sexyback -> timbaland"
+          ]
+        },
+        {
+          "chunk_id": "0c828e6a10a3f7a9",
+          "title": "I Want to Be Loved Like That",
+          "missing_entities": [
+            "gavin report",
+            "hot country songs charts",
+            "january 24, 1994",
+            "number 3",
+            "radio & records",
+            "rpm country tracks charts",
+            "september 1993"
+          ],
+          "added_entities": [],
+          "missing_relationships": [
+            "i want to be loved like that -> gavin report",
+            "i want to be loved like that -> hot country songs charts",
+            "i want to be loved like that -> january 24, 1994",
+            "i want to be loved like that -> number 3",
+            "i want to be loved like that -> radio & records",
+            "i want to be loved like that -> rpm country tracks charts"
+          ],
+          "added_relationships": []
+        },
+        {
+          "chunk_id": "0d017a55dd95e10d",
+          "title": "Ravenous (soundtrack)",
+          "missing_entities": [
+            "ravenous (soundtrack)"
+          ],
+          "added_entities": [
+            "ravenous"
+          ],
+          "missing_relationships": [
+            "ravenous (soundtrack) -> damon albarn",
+            "ravenous (soundtrack) -> michael nyman"
+          ],
+          "added_relationships": [
+            "ravenous -> damon albarn",
+            "ravenous -> michael nyman"
+          ]
+        },
+        {
+          "chunk_id": "0e3a5e1368eb79fe",
+          "title": "Starry Eyed Surprise",
+          "missing_entities": [
+            "2007"
+          ],
+          "added_entities": [],
+          "missing_relationships": [],
+          "added_relationships": []
+        },
+        {
+          "chunk_id": "129815da81af955b",
+          "title": "Between Now and Forever",
+          "missing_entities": [
+            "1996 in country music",
+            "i'm not supposed to love you anymore",
+            "sittin' on go",
+            "so much for pretending",
+            "that's another song"
+          ],
+          "added_entities": [
+            "1996",
+            "hot country songs",
+            "riaa"
+          ],
+          "missing_relationships": [
+            "between now and forever -> 1996 in country music",
+            "between now and forever -> i'm not supposed to love you anymore",
+            "between now and forever -> sittin' on go",
+            "between now and forever -> so much for pretending",
+            "between now and forever -> that's another song"
+          ],
+          "added_relationships": [
+            "between now and forever -> 1996",
+            "between now and forever -> hot country songs",
+            "between now and forever -> riaa"
+          ]
+        },
+        {
+          "chunk_id": "1321686acc66e514",
+          "title": "Hortência Marcari",
+          "missing_entities": [
+            "hortência",
+            "the queen"
+          ],
+          "added_entities": [
+            "hortência maria de fátima marcari"
+          ],
+          "missing_relationships": [],
+          "added_relationships": []
+        },
+        {
+          "chunk_id": "14dc54c96c492586",
+          "title": "Confrontation (TV series)",
+          "missing_entities": [
+            "confrontation (tv series)"
+          ],
+          "added_entities": [
+            "confrontation"
+          ],
+          "missing_relationships": [
+            "confrontation (tv series) -> semyon aranovich",
+            "confrontation (tv series) -> yulian semyonov"
+          ],
+          "added_relationships": [
+            "confrontation -> semyon aranovich",
+            "confrontation -> yulian semyonov"
+          ]
+        },
+        {
+          "chunk_id": "16b955f58f248d00",
+          "title": "That Man in Istanbul",
+          "missing_entities": [],
+          "added_entities": [
+            "colpo grosso a galata bridge",
+            "estambul 65",
+            "l'homme d'istamboul"
+          ],
+          "missing_relationships": [],
+          "added_relationships": []
+        },
+        {
+          "chunk_id": "17b50df45a4d6de4",
+          "title": "Steve McGarrett",
+          "missing_entities": [
+            "hawaii five-0 (5−0)"
+          ],
+          "added_entities": [
+            "hawaii five-o"
+          ],
+          "missing_relationships": [
+            "steve mcgarrett -> hawaii five-0 (5−0)"
+          ],
+          "added_relationships": [
+            "steve mcgarrett -> hawaii five-o"
+          ]
+        },
+        {
+          "chunk_id": "18204867dabae48d",
+          "title": "Def Poetry Jam",
+          "missing_entities": [],
+          "added_entities": [],
+          "missing_relationships": [
+            "def comedy jam -> russell simmons"
+          ],
+          "added_relationships": [
+            "def poetry jam -> bruce george",
+            "def poetry jam -> danny simmons",
+            "def poetry jam -> deborah pointer",
+            "def poetry jam -> def comedy jam",
+            "def poetry jam -> russell simmons",
+            "def poetry jam -> stan lathan"
+          ]
+        },
+        {
+          "chunk_id": "185b3ac3a93315a8",
+          "title": "Constantine Orbelian",
+          "missing_entities": [],
+          "added_entities": [],
+          "missing_relationships": [],
+          "added_relationships": [
+            "constantine orbelian -> armenian",
+            "constantine orbelian -> russian",
+            "constantine orbelian -> san francisco"
+          ]
+        },
+        {
+          "chunk_id": "186f64d3b7829d32",
+          "title": "Tenacious D Live",
+          "missing_entities": [
+            "january 15, 2016",
+            "november 27, 2015",
+            "tenacious d live"
+          ],
+          "added_entities": [],
+          "missing_relationships": [
+            "tenacious d live -> columbia records",
+            "tenacious d live -> john spiker",
+            "tenacious d live -> tenacious d"
+          ],
+          "added_relationships": []
+        },
+        {
+          "chunk_id": "18aba0732cb837ca",
+          "title": "Tomorrow Comes Today",
+          "missing_entities": [
+            "12d3"
+          ],
+          "added_entities": [
+            "2d",
+            "gorillaz (album)"
+          ],
+          "missing_relationships": [
+            "damon albarn -> tomorrow comes today",
+            "tomorrow comes today -> 12d3"
+          ],
+          "added_relationships": [
+            "tomorrow comes today -> 2d",
+            "tomorrow comes today -> gorillaz (album)"
+          ]
+        },
+        {
+          "chunk_id": "1d759448fd704b25",
+          "title": "Ross Geller",
+          "missing_entities": [
+            "dr. ross eustace geller",
+            "friends"
+          ],
+          "added_entities": [
+            "dr. ross eustace geller, ph.d.",
+            "entertainment weekly",
+            "sitcom",
+            "tv guide"
+          ],
+          "missing_relationships": [
+            "david schwimmer -> friends",
+            "dr. ross eustace geller -> david schwimmer",
+            "kevin bright -> friends"
+          ],
+          "added_relationships": [
+            "ross geller -> david schwimmer",
+            "ross geller -> dr. ross eustace geller, ph.d."
+          ]
+        },
+        {
+          "chunk_id": "1e68db603285a2db",
+          "title": "Just Another Victim",
+          "missing_entities": [],
+          "added_entities": [],
+          "missing_relationships": [
+            "boo-yaa t.r.i.b.e. -> just another victim",
+            "faith no more -> just another victim",
+            "t-ray -> just another victim"
+          ],
+          "added_relationships": [
+            "just another victim -> t-ray"
+          ]
+        },
+        {
+          "chunk_id": "1e82acbea30954cf",
+          "title": "Shifty Shellshock",
+          "missing_entities": [
+            "celebrity rehab",
+            "sober house"
+          ],
+          "added_entities": [],
+          "missing_relationships": [
+            "shifty shellshock -> celebrity rehab",
+            "shifty shellshock -> sober house"
+          ],
+          "added_relationships": []
+        },
+        {
+          "chunk_id": "2127506328e59596",
+          "title": "Big Daddy (BioShock)",
+          "missing_entities": [
+            "2k boston/2k australia",
+            "big daddy (bioshock)",
+            "bioshock 2"
+          ],
+          "added_entities": [
+            "big daddy"
+          ],
+          "missing_relationships": [
+            "big daddy (bioshock) -> bioshock",
+            "big daddy (bioshock) -> irrational games",
+            "bioshock 2 -> big daddy (bioshock)"
+          ],
+          "added_relationships": [
+            "big daddy -> bioshock",
+            "bioshock -> big daddy",
+            "irrational games -> big daddy"
+          ]
+        },
+        {
+          "chunk_id": "21409954ac9c2eae",
+          "title": "Deborah Nadoolman Landis",
+          "missing_entities": [
+            "max landis"
+          ],
+          "added_entities": [],
+          "missing_relationships": [
+            "deborah nadoolman landis -> animal house",
+            "deborah nadoolman landis -> max landis",
+            "deborah nadoolman landis -> raiders of the lost ark",
+            "deborah nadoolman landis -> the blues brothers",
+            "deborah nadoolman landis -> three amigos",
+            "john landis -> deborah nadoolman landis",
+            "max landis -> deborah nadoolman landis"
+          ],
+          "added_relationships": []
+        },
+        {
+          "chunk_id": "22072efff7c6e070",
+          "title": "Goodness (band)",
+          "missing_entities": [
+            "goodness (band)",
+            "hammerbox",
+            "pearl jam",
+            "seattle, washington",
+            "the rockfords"
+          ],
+          "added_entities": [
+            "goodness",
+            "mike mccready"
+          ],
+          "missing_relationships": [
+            "carrie akre -> hammerbox",
+            "goodness (band) -> carrie akre",
+            "goodness (band) -> chris friel",
+            "goodness (band) -> danny newcomb",
+            "goodness (band) -> fiia mcgann",
+            "goodness (band) -> garth reeves",
+            "goodness (band) -> pearl jam"
+          ],
+          "added_relationships": [
+            "carrie akre -> mike mccready",
+            "goodness -> carrie akre",
+            "goodness -> chris friel",
+            "goodness -> danny newcomb",
+            "goodness -> fiia mcgann",
+            "goodness -> garth reeves"
+          ]
+        },
+        {
+          "chunk_id": "22baaf955e3d521b",
+          "title": "Mos Def discography",
+          "missing_entities": [
+            "billboard hot 100",
+            "black star",
+            "definition",
+            "hot rap singles",
+            "mos def",
+            "yasiin bey"
+          ],
+          "added_entities": [
+            "yasiin bey / mos def"
+          ],
+          "missing_relationships": [
+            "definition -> billboard hot 100",
+            "definition -> black star",
+            "definition -> hot rap singles",
+            "mos def -> ces",
+            "mos def -> dcq",
+            "mos def -> hi-tek",
+            "mos def -> rawkus records",
+            "mos def -> talib kweli",
+            "mos def -> utd (urban thermo dynamics)"
+          ],
+          "added_relationships": []
+        },
+        {
+          "chunk_id": "23642768860b1af7",
+          "title": "New Mosque (Istanbul)",
+          "missing_entities": [
+            "eminönü quarter",
+            "golden horn",
+            "new mosque (istanbul)",
+            "new valide sultan mosque",
+            "turkey"
+          ],
+          "added_entities": [
+            "new mosque",
+            "valide sultan camii",
+            "yeni valide sultan mosque"
+          ],
+          "missing_relationships": [
+            "new mosque (istanbul) -> eminönü quarter",
+            "new mosque (istanbul) -> galata bridge",
+            "new mosque (istanbul) -> golden horn",
+            "new mosque (istanbul) -> istanbul"
+          ],
+          "added_relationships": [
+            "new mosque -> galata bridge",
+            "new mosque -> istanbul",
+            "new mosque -> valide sultan camii",
+            "new mosque -> valide sultan mosque",
+            "new mosque -> yeni valide sultan mosque"
+          ]
+        }
+      ]
+    }
+  },
+  "grounding": {
+    "baseline": {
+      "entity_name_in_text": 0.9823,
+      "relationship_endpoints_in_text": 0.9753,
+      "source_sentence_verbatim": 0.5902,
+      "paragraph_title_entity_extracted": "29/30"
+    },
+    "C": {
+      "entity_name_in_text": 0.9825,
+      "relationship_endpoints_in_text": 0.974,
+      "source_sentence_verbatim": 0.5707,
+      "paragraph_title_entity_extracted": "29/30"
+    },
+    "BC": {
+      "entity_name_in_text": 0.9844,
+      "relationship_endpoints_in_text": 0.9778,
+      "source_sentence_verbatim": 1.0,
+      "paragraph_title_entity_extracted": "29/30"
+    }
+  },
+  "thermal": {
+    "samples_5s": 315,
+    "temp_c_mean": 88.2,
+    "temp_c_max": 92.0,
+    "share_samples_ge_87c": 0.94,
+    "sm_clock_mhz_median": 1935.0,
+    "sm_clock_mhz_min": 1740.0,
+    "event_reasons": {
+      "0x0000000000000020": 295,
+      "0x0000000000000000": 16,
+      "0x0000000000000001": 3,
+      "0x0000000000000004": 1
+    },
+    "note": "telemetry started 20:13, ~5.5 min after validation start (first ~3 paragraphs not covered); event reason 0x20 = software thermal slowdown",
+    "interruptions": "Windows hibernated/rebooted the machine at 20:40:29 (thermal); the run stopped after 87/90 arm-runs and was resumed for the last paragraph at 20:43"
+  },
+  "qwen2.5_3b_BC": {
+    "model": "qwen2.5:3b",
+    "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "parameter_size": "3.1B",
+    "quantization": "Q4_K_M",
+    "n_paragraphs": 30,
+    "wall_s_mean": 5.3,
+    "wall_s_median": 4.43,
+    "wall_s_total": 159.0,
+    "output_tokens_mean": 474.5,
+    "output_tokens_total": 14235,
+    "decode_tok_per_s": 98.1,
+    "parse_failures": 0,
+    "paragraphs_with_retries": 0,
+    "entities_total": 154,
+    "relationships_total": 97,
+    "time_reduction_vs_mistral_baseline_pct": 78.3,
+    "token_reduction_vs_mistral_baseline_pct": 60.1,
+    "agreement_vs_mistral_baseline": {
+      "entities_micro": {
+        "precision": 0.7843,
+        "recall": 0.531,
+        "f1": 0.6332,
+        "tp": 120,
+        "baseline_items": 226,
+        "variant_items": 153
+      },
+      "relationships_micro": {
+        "precision": 0.3516,
+        "recall": 0.2038,
+        "f1": 0.2581,
+        "tp": 32,
+        "baseline_items": 157,
+        "variant_items": 91
+      },
+      "relationships_typed_micro": {
+        "precision": 0.1429,
+        "recall": 0.0828,
+        "f1": 0.1048,
+        "tp": 13,
+        "baseline_items": 157,
+        "variant_items": 91
+      },
+      "paragraphs_losing_over_half_of_mistral_relationships": 23
+    },
+    "time_reduction_vs_mistral_BC_pct": 60.8,
+    "token_reduction_vs_mistral_BC_pct": 28.3,
+    "agreement_vs_mistral_BC": {
+      "entities_micro": {
+        "precision": 0.7974,
+        "recall": 0.6354,
+        "f1": 0.7072,
+        "tp": 122,
+        "baseline_items": 192,
+        "variant_items": 153
+      },
+      "relationships_micro": {
+        "precision": 0.4835,
+        "recall": 0.3438,
+        "f1": 0.4018,
+        "tp": 44,
+        "baseline_items": 128,
+        "variant_items": 91
+      },
+      "relationships_typed_micro": {
+        "precision": 0.2418,
+        "recall": 0.1719,
+        "f1": 0.2009,
+        "tp": 22,
+        "baseline_items": 128,
+        "variant_items": 91
+      },
+      "paragraphs_losing_over_half_of_mistral_relationships": 16
+    },
+    "grounding": {
+      "entity_name_in_text": 0.9805,
+      "relationship_endpoints_in_text": 0.9691,
+      "source_sentence_verbatim": 1.0,
+      "paragraph_title_entity_extracted": "27/30"
+    },
+    "thermal": {
+      "samples_5s": 32,
+      "temp_c_mean": 87.6,
+      "temp_c_max": 90.0,
+      "share_samples_ge_87c": 0.875,
+      "sm_clock_mhz_median": 2145.0
+    },
+    "caveat": "qwen2.5:3b ran after the mistral arms (not interleaved), so its timing reflects a different thermal window; compare decode tok/s and output tokens as well as wall time."
+  }
+}

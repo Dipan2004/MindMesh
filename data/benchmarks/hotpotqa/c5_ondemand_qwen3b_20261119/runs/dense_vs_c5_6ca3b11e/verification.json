@@ -1,0 +1,42 @@
+{
+  "question_ids_match_questions_json": true,
+  "n_questions": 100,
+  "retrieval": {
+    "rows": 200,
+    "duplicates": 0,
+    "rows_with_errors": 0,
+    "pipeline_a": {
+      "rows": 100,
+      "missing": [],
+      "extra": []
+    },
+    "c5_ondemand": {
+      "rows": 100,
+      "missing": [],
+      "extra": []
+    },
+    "empty_retrieval": 0,
+    "c5_rows_missing_diagnostics": 0
+  },
+  "results": {
+    "rows": 200,
+    "duplicates": 0,
+    "rows_with_errors": 0,
+    "pipeline_a": {
+      "rows": 100,
+      "missing": [],
+      "extra": []
+    },
+    "c5_ondemand": {
+      "rows": 100,
+      "missing": [],
+      "extra": []
+    },
+    "generation_parse_failures": 5,
+    "generators": [
+      "qwen2.5:3b"
+    ]
+  },
+  "complete": true,
+  "finished_at": "2026-11-20T02:07:36"
+}

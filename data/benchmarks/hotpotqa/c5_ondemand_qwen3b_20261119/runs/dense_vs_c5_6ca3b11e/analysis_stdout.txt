@@ -1,0 +1,206 @@
+﻿{
+ "run_dir": "data\\benchmarks\\hotpotqa\\c5_ondemand_qwen3b_20261119\\runs\\dense_vs_c5_6ca3b11e",
+ "n_questions": 100,
+ "generator": "qwen2.5:3b",
+ "extractor": "qwen2.5:3b",
+ "cache_version": "644b068b5b6c",
+ "pipelines": {
+  "pipeline_a": {
+   "n": 100,
+   "recall@5": 0.925,
+   "recall@10": 0.99,
+   "mrr": 0.9067,
+   "all_gold_in_top10": 0.98,
+   "ans_em": 0.55,
+   "ans_f1": 0.6159,
+   "sp_prec": 0.4265,
+   "sp_recall": 0.2857,
+   "sp_f1": 0.32,
+   "joint_em": 0.05,
+   "joint_f1": 0.2165,
+   "retrieval_latency_s": 0.4859,
+   "generation_latency_s": 0.8461,
+   "total_latency_s": 1.332
+  },
+  "c5_ondemand": {
+   "n": 100,
+   "recall@5": 0.95,
+   "recall@10": 0.995,
+   "mrr": 0.7498,
+   "all_gold_in_top10": 0.99,
+   "ans_em": 0.5,
+   "ans_f1": 0.5688,
+   "sp_prec": 0.4027,
+   "sp_recall": 0.2795,
+   "sp_f1": 0.3103,
+   "joint_em": 0.04,
+   "joint_f1": 0.1968,
+   "retrieval_latency_s": 49.9827,
+   "generation_latency_s": 0.8161,
+   "total_latency_s": 50.7987
+  }
+ },
+ "by_type": {
+  "bridge": {
+   "pipeline_a": {
+    "n": 50,
+    "recall@5": 0.91,
+    "recall@10": 0.98,
+    "mrr": 0.96,
+    "all_gold_in_top10": 0.96,
+    "ans_f1": 0.5661,
+    "sp_f1": 0.319
+   },
+   "c5_ondemand": {
+    "n": 50,
+    "recall@5": 0.95,
+    "recall@10": 0.99,
+    "mrr": 0.8233,
+    "all_gold_in_top10": 0.98,
+    "ans_f1": 0.5151,
+    "sp_f1": 0.3575
+   }
+  },
+  "comparison": {
+   "pipeline_a": {
+    "n": 50,
+    "recall@5": 0.94,
+    "recall@10": 1.0,
+    "mrr": 0.8533,
+    "all_gold_in_top10": 1.0,
+    "ans_f1": 0.6657,
+    "sp_f1": 0.3209
+   },
+   "c5_ondemand": {
+    "n": 50,
+    "recall@5": 0.95,
+    "recall@10": 1.0,
+    "mrr": 0.6763,
+    "all_gold_in_top10": 1.0,
+    "ans_f1": 0.6224,
+    "sp_f1": 0.2632
+   }
+  }
+ },
+ "failures": {
+  "pipeline_a": {
+   "failed_retrieval": 0,
+   "failed_generation": 0,
+   "invalid_output": 2,
+   "empty_retrieval": 0
+  },
+  "c5_ondemand": {
+   "failed_retrieval": 0,
+   "failed_generation": 0,
+   "invalid_output": 3,
+   "empty_retrieval": 0
+  }
+ },
+ "c5_diagnostics": {
+  "paragraphs_selected_per_question": {
+   "mean": 5.43,
+   "median": 5.0,
+   "max": 9,
+   "total": 543
+  },
+  "valid_records_used_per_question": {
+   "mean": 5.37,
+   "median": 5.0,
+   "max": 9,
+   "total": 537
+  },
+  "selected_but_failed_extraction_per_question": {
+   "mean": 0.06,
+   "median": 0.0,
+   "max": 1,
+   "total": 6
+  },
+  "expansion_from_question_titles_per_question": {
+   "mean": 0.18,
+   "median": 0.0,
+   "max": 3,
+   "total": 18
+  },
+  "expansion_from_entity_titles_per_question": {
+   "mean": 0.25,
+   "median": 0.0,
+   "max": 4,
+   "total": 25
+  },
+  "graph_nodes": {
+   "mean": 18.0,
+   "median": 16.0,
+   "max": 45,
+   "total": 1800
+  },
+  "graph_edges": {
+   "mean": 9.78,
+   "median": 8.0,
+   "max": 30,
+   "total": 978
+  },
+  "questions_with_question_entity_anchor": 92,
+  "questions_falling_back_to_dense_order": 8,
+  "gold_paragraph_coverage_of_selection": 0.98,
+  "all_gold_selected": 96
+ },
+ "measured_extraction_cost": {
+  "label": "MEASURED: on-demand extraction actually performed in this run",
+  "unique_paragraphs_extracted": 507,
+  "share_of_corpus_extracted": 0.5147,
+  "status_counts": {
+   "ok": 501,
+   "failed_model": 6,
+   "failed_infra": 0
+  },
+  "failed_entries": [
+   {
+    "title": "Dom-Hotel",
+    "status": "failed_model",
+    "error": "ValueError: JSON parse error: Expecting ':' delimiter: line 23 column 23 (char 1012)\nExtracted string:\n{\n  \"entities\": ["
+   },
+   {
+    "title": "1952 Individual Speedway World Championship",
+    "status": "failed_model",
+    "error": "ValueError: JSON parse error: Expecting ':' delimiter: line 11 column 15 (char 430)\nExtracted string:\n{\n  \"entities\": [\n"
+   },
+   {
+    "title": "Peacefrog Records",
+    "status": "failed_model",
+    "error": "ValueError: JSON parse error: Expecting ',' delimiter: line 59 column 6 (char 15337)\nExtracted string:\n{\n  \"entities\": ["
+   },
+   {
+    "title": "Leung Po Shan",
+    "status": "failed_model",
+    "error": "ValueError: JSON parse error: Expecting ':' delimiter: line 17 column 27 (char 998)\nExtracted string:\n{\n  \"entities\": [\n"
+   },
+   {
+    "title": "Laurus novocanariensis",
+    "status": "failed_model",
+    "error": "ValueError: JSON parse error: Expecting ':' delimiter: line 17 column 15 (char 842)\nExtracted string:\n{\n  \"entities\": [\n"
+   },
+   {
+    "title": "Wild Bactrian camel",
+    "status": "failed_model",
+    "error": "ValueError: JSON parse error: Expecting ',' delimiter: line 7 column 55 (char 260)\nExtracted string:\n{\n  \"entities\": [\n "
+   }
+  ],
+  "extraction_wall_s_total": 4905.5,
+  "extraction_wall_s_per_paragraph": {
+   "mean": 9.6756,
+   "median": 5.844,
+   "max": 243.656,
+   "total": 4905.543
+  },
+  "extraction_output_tokens_per_paragraph": {
+   "mean": 764.3353,
+   "median": 524,
+   "max": 12288,
+   "total": 387518
+  },
+  "decode_tok_per_s": 81.0,
+  "entities_per_ok_paragraph": 3.81,
+  "relationships_per_ok_paragraph": 1.93,
+  "cache_lookups_total": 543,
+  "cache_hits_total
+C5 - Dense: {'recall@5': (0.025, [-0.005, 0.055]), 'recall@10': (0.005, [0.0, 0.015]), 'mrr': (-0.1568, [-0.2197, -0.0935]), 'all_gold_in_top10': (0.01, [0.0, 0.03]), 'ans_em': (-0.05, [-0.13, 0.03]), 'ans_f1': (-0.0472, [-0.131, 0.0363]), 'sp_f1': (-0.0096, [-0.0804, 0.062]), 'joint_f1': (-0.0197, [-0.0842, 0.0436]), 'retrieval_latency_s': (49.4967, [40.4025, 59.9112]), 'total_latency_s': (49.4667, [40.3677, 59.8784])}

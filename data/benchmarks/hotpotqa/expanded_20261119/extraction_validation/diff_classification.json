@@ -1,0 +1,1316 @@
+{
+  "reference": "mistral baseline (current prompt, unconstrained)",
+  "rule": "renamed = substring containment of normalised names; anything else not exact = missing",
+  "variants": {
+    "mistral C": {
+      "totals": {
+        "ent_ref": 226,
+        "ent_exact": 217,
+        "ent_renamed": 2,
+        "ent_missing": 7,
+        "rel_ref": 157,
+        "rel_exact": 130,
+        "rel_renamed_or_reversed": 7,
+        "rel_missing": 20,
+        "entity_recall_exact": 0.9602,
+        "entity_recall_incl_renamed": 0.969,
+        "relationship_recall_exact": 0.828,
+        "relationship_recall_incl_renamed": 0.8726,
+        "paragraphs_with_truly_missing_relationships": 6,
+        "paragraphs_missing_over_half_relationships_after_renames": 2
+      },
+      "per_paragraph": [
+        {
+          "ent_ref": 4,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "00b646218603732e"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 2,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "05213011ab94a3bd"
+        },
+        {
+          "ent_ref": 20,
+          "ent_exact": 20,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 16,
+          "rel_exact": 16,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "05c8a9112bf1a9e4"
+        },
+        {
+          "ent_ref": 5,
+          "ent_exact": 5,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 4,
+          "rel_exact": 4,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "07827c20865c32a2"
+        },
+        {
+          "ent_ref": 10,
+          "ent_exact": 10,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 9,
+          "rel_exact": 9,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "096a17c17e8970c6"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 8,
+          "ent_renamed": 0,
+          "ent_missing": 1,
+          "rel_ref": 8,
+          "rel_exact": 5,
+          "rel_renamed_or_reversed": 1,
+          "rel_missing": 2,
+          "missing_rel_examples": [
+            "1994 -> pride & glory",
+            "zakk wylde -> bulls-eye design"
+          ],
+          "chunk_id": "09c1266d4add04e3"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 9,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 1,
+          "rel_exact": 1,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0c51c0fd5fd6bc00"
+        },
+        {
+          "ent_ref": 13,
+          "ent_exact": 13,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 11,
+          "rel_exact": 11,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0c828e6a10a3f7a9"
+        },
+        {
+          "ent_ref": 3,
+          "ent_exact": 3,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 2,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0d017a55dd95e10d"
+        },
+        {
+          "ent_ref": 1,
+          "ent_exact": 1,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 0,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0d888cee944dc2cb"
+        },
+        {
+          "ent_ref": 10,
+          "ent_exact": 10,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 5,
+          "rel_exact": 5,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0e3a5e1368eb79fe"
+        },
+        {
+          "ent_ref": 8,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 4,
+          "rel_ref": 7,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 5,
+          "missing_rel_examples": [
+            "between now and forever -> 1996 in country music",
+            "between now and forever -> i'm not supposed to love you anymore",
+            "between now and forever -> sittin' on go",
+            "between now and forever -> so much for pretending"
+          ],
+          "chunk_id": "129815da81af955b"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 3,
+          "ent_renamed": 1,
+          "ent_missing": 0,
+          "rel_ref": 0,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "1321686acc66e514"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 9,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 8,
+          "rel_exact": 8,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "14c64a26cf2ce506"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 2,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "14dc54c96c492586"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "16b955f58f248d00"
+        },
+        {
+          "ent_ref": 5,
+          "ent_exact": 5,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 4,
+          "rel_exact": 4,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "17b50df45a4d6de4"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 8,
+          "ent_renamed": 0,
+          "ent_missing": 1,
+          "rel_ref": 3,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 1,
+          "missing_rel_examples": [
+            "def comedy jam -> russell simmons"
+          ],
+          "chunk_id": "18204867dabae48d"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 6,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 1,
+          "rel_exact": 1,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "185b3ac3a93315a8"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 6,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 3,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "186f64d3b7829d32"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "18aba0732cb837ca"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 6,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "1d759448fd704b25"
+        },
+        {
+          "ent_ref": 7,
+          "ent_exact": 7,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 6,
+          "rel_exact": 6,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "1e68db603285a2db"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 6,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 5,
+          "rel_exact": 5,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "1e82acbea30954cf"
+        },
+        {
+          "ent_ref": 5,
+          "ent_exact": 5,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 1,
+          "rel_renamed_or_reversed": 2,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "2127506328e59596"
+        },
+        {
+          "ent_ref": 8,
+          "ent_exact": 8,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 9,
+          "rel_exact": 9,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "21409954ac9c2eae"
+        },
+        {
+          "ent_ref": 10,
+          "ent_exact": 9,
+          "ent_renamed": 0,
+          "ent_missing": 1,
+          "rel_ref": 7,
+          "rel_exact": 6,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 1,
+          "missing_rel_examples": [
+            "goodness (band) -> pearl jam"
+          ],
+          "chunk_id": "22072efff7c6e070"
+        },
+        {
+          "ent_ref": 12,
+          "ent_exact": 11,
+          "ent_renamed": 1,
+          "ent_missing": 0,
+          "rel_ref": 9,
+          "rel_exact": 7,
+          "rel_renamed_or_reversed": 1,
+          "rel_missing": 1,
+          "missing_rel_examples": [
+            "definition -> black star"
+          ],
+          "chunk_id": "22baaf955e3d521b"
+        },
+        {
+          "ent_ref": 8,
+          "ent_exact": 8,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 4,
+          "rel_exact": 4,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "23642768860b1af7"
+        },
+        {
+          "ent_ref": 17,
+          "ent_exact": 17,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 16,
+          "rel_exact": 6,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 10,
+          "missing_rel_examples": [
+            "rango -> abigail breslin",
+            "rango -> alfred molina",
+            "rango -> bill nighy",
+            "rango -> harry dean stanton"
+          ],
+          "chunk_id": "243e0ad68432f8c7"
+        }
+      ]
+    },
+    "mistral BC": {
+      "totals": {
+        "ent_ref": 226,
+        "ent_exact": 164,
+        "ent_renamed": 14,
+        "ent_missing": 48,
+        "rel_ref": 157,
+        "rel_exact": 80,
+        "rel_renamed_or_reversed": 22,
+        "rel_missing": 55,
+        "entity_recall_exact": 0.7257,
+        "entity_recall_incl_renamed": 0.7876,
+        "relationship_recall_exact": 0.5096,
+        "relationship_recall_incl_renamed": 0.6497,
+        "paragraphs_with_truly_missing_relationships": 16,
+        "paragraphs_missing_over_half_relationships_after_renames": 8
+      },
+      "per_paragraph": [
+        {
+          "ent_ref": 4,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "00b646218603732e"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 2,
+          "ent_renamed": 1,
+          "ent_missing": 1,
+          "rel_ref": 2,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 2,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "05213011ab94a3bd"
+        },
+        {
+          "ent_ref": 20,
+          "ent_exact": 16,
+          "ent_renamed": 1,
+          "ent_missing": 3,
+          "rel_ref": 16,
+          "rel_exact": 15,
+          "rel_renamed_or_reversed": 1,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "05c8a9112bf1a9e4"
+        },
+        {
+          "ent_ref": 5,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 1,
+          "rel_ref": 4,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 1,
+          "missing_rel_examples": [
+            "hasan fehmi -> istanbul"
+          ],
+          "chunk_id": "07827c20865c32a2"
+        },
+        {
+          "ent_ref": 10,
+          "ent_exact": 5,
+          "ent_renamed": 1,
+          "ent_missing": 4,
+          "rel_ref": 9,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 1,
+          "rel_missing": 6,
+          "missing_rel_examples": [
+            "bagdad mine -> azurite",
+            "bagdad mine -> chalcopyrite",
+            "bagdad mine -> chrysocolla",
+            "bagdad mine -> malachite"
+          ],
+          "chunk_id": "096a17c17e8970c6"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 5,
+          "ent_renamed": 0,
+          "ent_missing": 4,
+          "rel_ref": 8,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 1,
+          "rel_missing": 5,
+          "missing_rel_examples": [
+            "1994 -> pride & glory",
+            "jeffrey phillip wielandt -> zakk wylde",
+            "zakk wylde -> book of shadows",
+            "zakk wylde -> book of shadows ii"
+          ],
+          "chunk_id": "09c1266d4add04e3"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 9,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 1,
+          "rel_exact": 1,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0c51c0fd5fd6bc00"
+        },
+        {
+          "ent_ref": 13,
+          "ent_exact": 6,
+          "ent_renamed": 0,
+          "ent_missing": 7,
+          "rel_ref": 11,
+          "rel_exact": 5,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 6,
+          "missing_rel_examples": [
+            "i want to be loved like that -> gavin report",
+            "i want to be loved like that -> hot country songs charts",
+            "i want to be loved like that -> january 24, 1994",
+            "i want to be loved like that -> number 3"
+          ],
+          "chunk_id": "0c828e6a10a3f7a9"
+        },
+        {
+          "ent_ref": 3,
+          "ent_exact": 2,
+          "ent_renamed": 1,
+          "ent_missing": 0,
+          "rel_ref": 2,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 2,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0d017a55dd95e10d"
+        },
+        {
+          "ent_ref": 1,
+          "ent_exact": 1,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 0,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0d888cee944dc2cb"
+        },
+        {
+          "ent_ref": 10,
+          "ent_exact": 9,
+          "ent_renamed": 0,
+          "ent_missing": 1,
+          "rel_ref": 5,
+          "rel_exact": 5,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0e3a5e1368eb79fe"
+        },
+        {
+          "ent_ref": 8,
+          "ent_exact": 3,
+          "ent_renamed": 1,
+          "ent_missing": 4,
+          "rel_ref": 7,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 1,
+          "rel_missing": 4,
+          "missing_rel_examples": [
+            "between now and forever -> i'm not supposed to love you anymore",
+            "between now and forever -> sittin' on go",
+            "between now and forever -> so much for pretending",
+            "between now and forever -> that's another song"
+          ],
+          "chunk_id": "129815da81af955b"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 2,
+          "ent_renamed": 1,
+          "ent_missing": 1,
+          "rel_ref": 0,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "1321686acc66e514"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 9,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 8,
+          "rel_exact": 8,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "14c64a26cf2ce506"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 3,
+          "ent_renamed": 1,
+          "ent_missing": 0,
+          "rel_ref": 2,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 2,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "14dc54c96c492586"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "16b955f58f248d00"
+        },
+        {
+          "ent_ref": 5,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 1,
+          "rel_ref": 4,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 1,
+          "missing_rel_examples": [
+            "steve mcgarrett -> hawaii five-0 (5−0)"
+          ],
+          "chunk_id": "17b50df45a4d6de4"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 9,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 1,
+          "missing_rel_examples": [
+            "def comedy jam -> russell simmons"
+          ],
+          "chunk_id": "18204867dabae48d"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 6,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 1,
+          "rel_exact": 1,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "185b3ac3a93315a8"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 3,
+          "ent_renamed": 0,
+          "ent_missing": 3,
+          "rel_ref": 3,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 3,
+          "missing_rel_examples": [
+            "tenacious d live -> columbia records",
+            "tenacious d live -> john spiker",
+            "tenacious d live -> tenacious d"
+          ],
+          "chunk_id": "186f64d3b7829d32"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 3,
+          "ent_renamed": 1,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 1,
+          "rel_renamed_or_reversed": 1,
+          "rel_missing": 1,
+          "missing_rel_examples": [
+            "damon albarn -> tomorrow comes today"
+          ],
+          "chunk_id": "18aba0732cb837ca"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 4,
+          "ent_renamed": 1,
+          "ent_missing": 1,
+          "rel_ref": 3,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 3,
+          "missing_rel_examples": [
+            "david schwimmer -> friends",
+            "dr. ross eustace geller -> david schwimmer",
+            "kevin bright -> friends"
+          ],
+          "chunk_id": "1d759448fd704b25"
+        },
+        {
+          "ent_ref": 7,
+          "ent_exact": 7,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 6,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 1,
+          "rel_missing": 2,
+          "missing_rel_examples": [
+            "boo-yaa t.r.i.b.e. -> just another victim",
+            "faith no more -> just another victim"
+          ],
+          "chunk_id": "1e68db603285a2db"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 2,
+          "rel_ref": 5,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 2,
+          "missing_rel_examples": [
+            "shifty shellshock -> celebrity rehab",
+            "shifty shellshock -> sober house"
+          ],
+          "chunk_id": "1e82acbea30954cf"
+        },
+        {
+          "ent_ref": 5,
+          "ent_exact": 2,
+          "ent_renamed": 1,
+          "ent_missing": 2,
+          "rel_ref": 3,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 3,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "2127506328e59596"
+        },
+        {
+          "ent_ref": 8,
+          "ent_exact": 7,
+          "ent_renamed": 0,
+          "ent_missing": 1,
+          "rel_ref": 9,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 7,
+          "missing_rel_examples": [
+            "deborah nadoolman landis -> animal house",
+            "deborah nadoolman landis -> max landis",
+            "deborah nadoolman landis -> raiders of the lost ark",
+            "deborah nadoolman landis -> the blues brothers"
+          ],
+          "chunk_id": "21409954ac9c2eae"
+        },
+        {
+          "ent_ref": 10,
+          "ent_exact": 5,
+          "ent_renamed": 1,
+          "ent_missing": 4,
+          "rel_ref": 7,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 5,
+          "rel_missing": 2,
+          "missing_rel_examples": [
+            "carrie akre -> hammerbox",
+            "goodness (band) -> pearl jam"
+          ],
+          "chunk_id": "22072efff7c6e070"
+        },
+        {
+          "ent_ref": 12,
+          "ent_exact": 6,
+          "ent_renamed": 2,
+          "ent_missing": 4,
+          "rel_ref": 9,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 9,
+          "missing_rel_examples": [
+            "definition -> billboard hot 100",
+            "definition -> black star",
+            "definition -> hot rap singles",
+            "mos def -> ces"
+          ],
+          "chunk_id": "22baaf955e3d521b"
+        },
+        {
+          "ent_ref": 8,
+          "ent_exact": 3,
+          "ent_renamed": 1,
+          "ent_missing": 4,
+          "rel_ref": 4,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 2,
+          "rel_missing": 2,
+          "missing_rel_examples": [
+            "new mosque (istanbul) -> eminönü quarter",
+            "new mosque (istanbul) -> golden horn"
+          ],
+          "chunk_id": "23642768860b1af7"
+        },
+        {
+          "ent_ref": 17,
+          "ent_exact": 17,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 16,
+          "rel_exact": 16,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "243e0ad68432f8c7"
+        }
+      ]
+    },
+    "qwen2.5:3b BC": {
+      "totals": {
+        "ent_ref": 226,
+        "ent_exact": 120,
+        "ent_renamed": 16,
+        "ent_missing": 90,
+        "rel_ref": 157,
+        "rel_exact": 32,
+        "rel_renamed_or_reversed": 14,
+        "rel_missing": 111,
+        "entity_recall_exact": 0.531,
+        "entity_recall_incl_renamed": 0.6018,
+        "relationship_recall_exact": 0.2038,
+        "relationship_recall_incl_renamed": 0.293,
+        "paragraphs_with_truly_missing_relationships": 22,
+        "paragraphs_missing_over_half_relationships_after_renames": 19
+      },
+      "per_paragraph": [
+        {
+          "ent_ref": 4,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 3,
+          "missing_rel_examples": [
+            "the duke steps out -> joan crawford",
+            "the duke steps out -> ucla film and tv archives",
+            "the duke steps out -> william haines"
+          ],
+          "chunk_id": "00b646218603732e"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 3,
+          "ent_renamed": 1,
+          "ent_missing": 0,
+          "rel_ref": 2,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 2,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "05213011ab94a3bd"
+        },
+        {
+          "ent_ref": 20,
+          "ent_exact": 14,
+          "ent_renamed": 1,
+          "ent_missing": 5,
+          "rel_ref": 16,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 16,
+          "missing_rel_examples": [
+            "dariusz wolski -> academy of motion picture arts and sciences",
+            "dariusz wolski -> aerosmith",
+            "dariusz wolski -> american society of cinematographers",
+            "dariusz wolski -> dark city"
+          ],
+          "chunk_id": "05c8a9112bf1a9e4"
+        },
+        {
+          "ent_ref": 5,
+          "ent_exact": 3,
+          "ent_renamed": 0,
+          "ent_missing": 2,
+          "rel_ref": 4,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 4,
+          "missing_rel_examples": [
+            "hasan fehmi -> committee of union and progress",
+            "hasan fehmi -> galata bridge",
+            "hasan fehmi -> istanbul",
+            "hasan fehmi -> serbestî"
+          ],
+          "chunk_id": "07827c20865c32a2"
+        },
+        {
+          "ent_ref": 10,
+          "ent_exact": 8,
+          "ent_renamed": 2,
+          "ent_missing": 0,
+          "rel_ref": 9,
+          "rel_exact": 1,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 8,
+          "missing_rel_examples": [
+            "bagdad mine -> arizona",
+            "bagdad mine -> azurite",
+            "bagdad mine -> chalcopyrite",
+            "bagdad mine -> chrysocolla"
+          ],
+          "chunk_id": "096a17c17e8970c6"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 5,
+          "rel_ref": 8,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 6,
+          "missing_rel_examples": [
+            "1994 -> pride & glory",
+            "jeffrey phillip wielandt -> zakk wylde",
+            "pride & glory -> zakk wylde",
+            "zakk wylde -> book of shadows"
+          ],
+          "chunk_id": "09c1266d4add04e3"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 9,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 1,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 1,
+          "missing_rel_examples": [
+            "justin timberlake -> futuresex/lovesounds"
+          ],
+          "chunk_id": "0c51c0fd5fd6bc00"
+        },
+        {
+          "ent_ref": 13,
+          "ent_exact": 6,
+          "ent_renamed": 0,
+          "ent_missing": 7,
+          "rel_ref": 11,
+          "rel_exact": 5,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 6,
+          "missing_rel_examples": [
+            "i want to be loved like that -> gavin report",
+            "i want to be loved like that -> hot country songs charts",
+            "i want to be loved like that -> january 24, 1994",
+            "i want to be loved like that -> number 3"
+          ],
+          "chunk_id": "0c828e6a10a3f7a9"
+        },
+        {
+          "ent_ref": 3,
+          "ent_exact": 3,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 2,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0d017a55dd95e10d"
+        },
+        {
+          "ent_ref": 1,
+          "ent_exact": 1,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 0,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0d888cee944dc2cb"
+        },
+        {
+          "ent_ref": 10,
+          "ent_exact": 7,
+          "ent_renamed": 0,
+          "ent_missing": 3,
+          "rel_ref": 5,
+          "rel_exact": 5,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "0e3a5e1368eb79fe"
+        },
+        {
+          "ent_ref": 8,
+          "ent_exact": 3,
+          "ent_renamed": 0,
+          "ent_missing": 5,
+          "rel_ref": 7,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 5,
+          "missing_rel_examples": [
+            "between now and forever -> 1996 in country music",
+            "between now and forever -> i'm not supposed to love you anymore",
+            "between now and forever -> sittin' on go",
+            "between now and forever -> so much for pretending"
+          ],
+          "chunk_id": "129815da81af955b"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 2,
+          "ent_renamed": 1,
+          "ent_missing": 1,
+          "rel_ref": 0,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "1321686acc66e514"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 7,
+          "ent_renamed": 0,
+          "ent_missing": 2,
+          "rel_ref": 8,
+          "rel_exact": 6,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 2,
+          "missing_rel_examples": [
+            "she's funny that way -> louise stratten",
+            "she's funny that way -> peter bogdanovich"
+          ],
+          "chunk_id": "14c64a26cf2ce506"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 2,
+          "ent_renamed": 1,
+          "ent_missing": 1,
+          "rel_ref": 2,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 2,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "14dc54c96c492586"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 0,
+          "rel_ref": 3,
+          "rel_exact": 3,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "16b955f58f248d00"
+        },
+        {
+          "ent_ref": 5,
+          "ent_exact": 1,
+          "ent_renamed": 0,
+          "ent_missing": 4,
+          "rel_ref": 4,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 4,
+          "missing_rel_examples": [
+            "alex o'loughlin -> steve mcgarrett",
+            "jack lord -> steve mcgarrett",
+            "steve mcgarrett -> detective danny 'danno' williams",
+            "steve mcgarrett -> hawaii five-0 (5−0)"
+          ],
+          "chunk_id": "17b50df45a4d6de4"
+        },
+        {
+          "ent_ref": 9,
+          "ent_exact": 8,
+          "ent_renamed": 0,
+          "ent_missing": 1,
+          "rel_ref": 3,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 3,
+          "missing_rel_examples": [
+            "def comedy jam -> russell simmons",
+            "def poetry jam -> hbo",
+            "def poetry jam -> mos def"
+          ],
+          "chunk_id": "18204867dabae48d"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 3,
+          "ent_renamed": 3,
+          "ent_missing": 0,
+          "rel_ref": 1,
+          "rel_exact": 1,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 0,
+          "missing_rel_examples": [],
+          "chunk_id": "185b3ac3a93315a8"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 3,
+          "ent_renamed": 0,
+          "ent_missing": 3,
+          "rel_ref": 3,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 2,
+          "rel_missing": 1,
+          "missing_rel_examples": [
+            "tenacious d live -> tenacious d"
+          ],
+          "chunk_id": "186f64d3b7829d32"
+        },
+        {
+          "ent_ref": 4,
+          "ent_exact": 2,
+          "ent_renamed": 1,
+          "ent_missing": 1,
+          "rel_ref": 3,
+          "rel_exact": 1,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 2,
+          "missing_rel_examples": [
+            "damon albarn -> tomorrow comes today",
+            "tomorrow comes today -> 12d3"
+          ],
+          "chunk_id": "18aba0732cb837ca"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 1,
+          "ent_renamed": 1,
+          "ent_missing": 4,
+          "rel_ref": 3,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 3,
+          "missing_rel_examples": [
+            "david schwimmer -> friends",
+            "dr. ross eustace geller -> david schwimmer",
+            "kevin bright -> friends"
+          ],
+          "chunk_id": "1d759448fd704b25"
+        },
+        {
+          "ent_ref": 7,
+          "ent_exact": 5,
+          "ent_renamed": 0,
+          "ent_missing": 2,
+          "rel_ref": 6,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 4,
+          "missing_rel_examples": [
+            "boo-yaa t.r.i.b.e. -> just another victim",
+            "faith no more -> just another victim",
+            "just another victim -> helmet",
+            "just another victim -> house of pain"
+          ],
+          "chunk_id": "1e68db603285a2db"
+        },
+        {
+          "ent_ref": 6,
+          "ent_exact": 2,
+          "ent_renamed": 0,
+          "ent_missing": 4,
+          "rel_ref": 5,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 5,
+          "missing_rel_examples": [
+            "crazy town -> butterfly",
+            "seth brooks binzer -> crazy town",
+            "seth brooks binzer -> shifty shellshock",
+            "shifty shellshock -> celebrity rehab"
+          ],
+          "chunk_id": "1e82acbea30954cf"
+        },
+        {
+          "ent_ref": 5,
+          "ent_exact": 2,
+          "ent_renamed": 1,
+          "ent_missing": 2,
+          "rel_ref": 3,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 1,
+          "rel_missing": 2,
+          "missing_rel_examples": [
+            "big daddy (bioshock) -> bioshock",
+            "bioshock 2 -> big daddy (bioshock)"
+          ],
+          "chunk_id": "2127506328e59596"
+        },
+        {
+          "ent_ref": 8,
+          "ent_exact": 4,
+          "ent_renamed": 0,
+          "ent_missing": 4,
+          "rel_ref": 9,
+          "rel_exact": 2,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 7,
+          "missing_rel_examples": [
+            "deborah nadoolman landis -> animal house",
+            "deborah nadoolman landis -> max landis",
+            "deborah nadoolman landis -> raiders of the lost ark",
+            "deborah nadoolman landis -> the blues brothers"
+          ],
+          "chunk_id": "21409954ac9c2eae"
+        },
+        {
+          "ent_ref": 10,
+          "ent_exact": 5,
+          "ent_renamed": 1,
+          "ent_missing": 4,
+          "rel_ref": 7,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 5,
+          "rel_missing": 2,
+          "missing_rel_examples": [
+            "carrie akre -> hammerbox",
+            "goodness (band) -> pearl jam"
+          ],
+          "chunk_id": "22072efff7c6e070"
+        },
+        {
+          "ent_ref": 12,
+          "ent_exact": 3,
+          "ent_renamed": 2,
+          "ent_missing": 7,
+          "rel_ref": 9,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 2,
+          "rel_missing": 7,
+          "missing_rel_examples": [
+            "definition -> billboard hot 100",
+            "definition -> black star",
+            "definition -> hot rap singles",
+            "mos def -> ces"
+          ],
+          "chunk_id": "22baaf955e3d521b"
+        },
+        {
+          "ent_ref": 8,
+          "ent_exact": 1,
+          "ent_renamed": 0,
+          "ent_missing": 7,
+          "rel_ref": 4,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 4,
+          "missing_rel_examples": [
+            "new mosque (istanbul) -> eminönü quarter",
+            "new mosque (istanbul) -> galata bridge",
+            "new mosque (istanbul) -> golden horn",
+            "new mosque (istanbul) -> istanbul"
+          ],
+          "chunk_id": "23642768860b1af7"
+        },
+        {
+          "ent_ref": 17,
+          "ent_exact": 0,
+          "ent_renamed": 1,
+          "ent_missing": 16,
+          "rel_ref": 16,
+          "rel_exact": 0,
+          "rel_renamed_or_reversed": 0,
+          "rel_missing": 16,
+          "missing_rel_examples": [
+            "rango -> abigail breslin",
+            "rango -> alfred molina",
+            "rango -> bill nighy",
+            "rango -> dirt"
+          ],
+          "chunk_id": "243e0ad68432f8c7"
+        }
+      ]
+    }
+  }
+}

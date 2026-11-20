@@ -1,0 +1,10 @@
+[
+  {
+    "model": "qwen3:4b",
+    "size_bytes": 3877571133,
+    "size_vram_bytes": 3877571133,
+    "gpu_fraction": 1.0,
+    "processor": "GPU",
+    "context_length": 8192
+  }
+]

@@ -1,0 +1,88 @@
+{
+  "n_paragraphs": 30,
+  "ollama_ps": [
+    {
+      "model": "mistral:latest",
+      "size_bytes": 5500336864,
+      "size_vram_bytes": 5500336864,
+      "gpu_fraction": 1.0,
+      "processor": "GPU",
+      "context_length": 8192
+    }
+  ],
+  "arms": {
+    "baseline": {
+      "wall_s_mean": 24.4,
+      "wall_s_median": 23.41,
+      "wall_s_total": 732.1,
+      "output_tokens_mean": 1190.7,
+      "decode_tok_per_s": 50.3,
+      "parse_failures": 0,
+      "paragraphs_needing_retry": 0,
+      "entities_total": 226,
+      "relationships_total": 162,
+      "entity_recall_vs_pilot": 0.9612,
+      "entity_precision_vs_pilot": 0.9867,
+      "relationship_recall_vs_pilot": 0.8951,
+      "relationship_precision_vs_pilot": 0.9236,
+      "entity_recall_vs_fresh_baseline": 1.0,
+      "relationship_recall_vs_fresh_baseline": 1.0,
+      "source_sentence_verbatim_rate": 0.5902
+    },
+    "C": {
+      "wall_s_mean": 29.62,
+      "wall_s_median": 24.15,
+      "wall_s_total": 888.5,
+      "output_tokens_mean": 1173.4,
+      "decode_tok_per_s": 38.5,
+      "parse_failures": 0,
+      "paragraphs_needing_retry": 0,
+      "entities_total": 228,
+      "relationships_total": 154,
+      "entity_recall_vs_pilot": 0.9569,
+      "entity_precision_vs_pilot": 0.978,
+      "relationship_recall_vs_pilot": 0.858,
+      "relationship_precision_vs_pilot": 0.9026,
+      "entity_recall_vs_fresh_baseline": 0.9602,
+      "relationship_recall_vs_fresh_baseline": 0.828,
+      "source_sentence_verbatim_rate": 0.5707,
+      "time_reduction_vs_baseline": -0.2136,
+      "gate": {
+        "time_reduction_ge_25pct": false,
+        "entity_recall_vs_baseline_ge_0.90": true,
+        "relationship_recall_vs_baseline_ge_0.85": false,
+        "parse_failures_not_higher": true,
+        "verbatim_rate_not_lower": false
+      },
+      "passes_gate": false
+    },
+    "BC": {
+      "wall_s_mean": 13.51,
+      "wall_s_median": 11.52,
+      "wall_s_total": 405.3,
+      "output_tokens_mean": 661.4,
+      "decode_tok_per_s": 51.1,
+      "parse_failures": 0,
+      "paragraphs_needing_retry": 0,
+      "entities_total": 192,
+      "relationships_total": 135,
+      "entity_recall_vs_pilot": 0.7112,
+      "entity_precision_vs_pilot": 0.8594,
+      "relationship_recall_vs_pilot": 0.4938,
+      "relationship_precision_vs_pilot": 0.625,
+      "entity_recall_vs_fresh_baseline": 0.7257,
+      "relationship_recall_vs_fresh_baseline": 0.5096,
+      "source_sentence_verbatim_rate": 1.0,
+      "time_reduction_vs_baseline": 0.4464,
+      "gate": {
+        "time_reduction_ge_25pct": true,
+        "entity_recall_vs_baseline_ge_0.90": false,
+        "relationship_recall_vs_baseline_ge_0.85": false,
+        "parse_failures_not_higher": true,
+        "verbatim_rate_not_lower": true
+      },
+      "passes_gate": false
+    }
+  },
+  "finished_at": "2026-11-19T20:45:50"
+}

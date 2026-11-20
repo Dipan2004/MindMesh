@@ -1,0 +1,23 @@
+{
+  "benchmark": "HotpotQA",
+  "split": "dev",
+  "setting": "distractor",
+  "corpus_scope": "100-question shared candidate corpus (union of the sampled questions' supplied gold + distractor paragraphs). NOT the official FullWiki setting.",
+  "n_questions": 100,
+  "n_bridge": 50,
+  "n_comparison": 50,
+  "seed": 20261119,
+  "sampling": "nested: random.Random(seed).sample(pool, 100) per type (bridge drawn first, then comparison, one RNG; pools sorted by _id); keep the first n_bridge / n_comparison of each draw",
+  "draw_per_type": 100,
+  "dataset_provenance": {
+    "source": "hf_parquet_mirror",
+    "url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/main/distractor/validation-00000-of-00001.parquet",
+    "file": "hotpot_qa_distractor_validation.parquet",
+    "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+    "n_records": 7405
+  },
+  "id_scheme": {
+    "doc_id": "hp_ + sha1(json([title, sentences]))[:16]",
+    "chunk_id": "sha1(doc_id + ':0')[:16]  (one chunk per paragraph)"
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "pipeline_a": {
+    "n": 100,
+    "recall@5": 0.925,
+    "recall@10": 0.99,
+    "mrr": 0.9067,
+    "all_gold_in_top10": 0.98,
+    "ans_em": 0.51,
+    "ans_f1": 0.5693,
+    "sp_prec": 0.3807,
+    "sp_recall": 0.2595,
+    "sp_f1": 0.2865,
+    "joint_em": 0.03,
+    "joint_f1": 0.1849,
+    "retrieval_latency_s": 0.3259,
+    "generation_latency_s": 0.7706,
+    "total_latency_s": 1.0965
+  },
+  "c5_ondemand": {
+    "n": 100,
+    "recall@5": 0.945,
+    "recall@10": 1.0,
+    "mrr": 0.7862,
+    "all_gold_in_top10": 1.0,
+    "ans_em": 0.54,
+    "ans_f1": 0.6044,
+    "sp_prec": 0.2806,
+    "sp_recall": 0.2212,
+    "sp_f1": 0.2281,
+    "joint_em": 0.04,
+    "joint_f1": 0.1603,
+    "retrieval_latency_s": 22.3027,
+    "generation_latency_s": 0.7024,
+    "total_latency_s": 23.0052
+  }
+}

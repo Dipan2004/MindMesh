@@ -1,0 +1,100 @@
+{
+  "first_stage_queries": {
+    "pipeline_a": 100,
+    "c5_ondemand": 100
+  },
+  "fallback_queries_vector_only": {
+    "pipeline_a": 4,
+    "c5_ondemand": 4
+  },
+  "hybrid_hnsw_bm25_queries": {
+    "pipeline_a": 96,
+    "c5_ondemand": 96
+  },
+  "fallback_rate": {
+    "pipeline_a": 0.04,
+    "c5_ondemand": 0.04
+  },
+  "affected_question_ids": [
+    "5a7602d8554299109176e5fb",
+    "5a8220db5542995ce29dccc1",
+    "5a837121554299123d8c2128",
+    "5a84c5545542991dd0999dee"
+  ],
+  "fallback_in": "both",
+  "same_questions_fell_back_in_both": true,
+  "warning_lines_total": 8,
+  "warning_messages": [
+    "field-prefixed queries are not supported",
+    "fts syntax error [1 17 extraneous input 'and' expecting {NOT, '+', '-', '(', DQUOTA_STRING"
+  ],
+  "dense_first_stage_identical_questions": 100,
+  "dense_first_stage_differs": [],
+  "method": "warnings attributed to the next retrieval row in the raw log; nothing re-queried",
+  "events": [
+    {
+      "question_no": 16,
+      "pipeline": "pipeline_a",
+      "qid": "5a7602d8554299109176e5fb",
+      "warnings": [
+        "fts syntax error [1 17 extraneous input 'and' expecting {NOT, '+', '-', '(', DQUOTA_STRING"
+      ]
+    },
+    {
+      "question_no": 16,
+      "pipeline": "c5_ondemand",
+      "qid": "5a7602d8554299109176e5fb",
+      "warnings": [
+        "fts syntax error [1 17 extraneous input 'and' expecting {NOT, '+', '-', '(', DQUOTA_STRING"
+      ]
+    },
+    {
+      "question_no": 19,
+      "pipeline": "pipeline_a",
+      "qid": "5a8220db5542995ce29dccc1",
+      "warnings": [
+        "field-prefixed queries are not supported"
+      ]
+    },
+    {
+      "question_no": 19,
+      "pipeline": "c5_ondemand",
+      "qid": "5a8220db5542995ce29dccc1",
+      "warnings": [
+        "field-prefixed queries are not supported"
+      ]
+    },
+    {
+      "question_no": 46,
+      "pipeline": "pipeline_a",
+      "qid": "5a84c5545542991dd0999dee",
+      "warnings": [
+        "field-prefixed queries are not supported"
+      ]
+    },
+    {
+      "question_no": 46,
+      "pipeline": "c5_ondemand",
+      "qid": "5a84c5545542991dd0999dee",
+      "warnings": [
+        "field-prefixed queries are not supported"
+      ]
+    },
+    {
+      "question_no": 73,
+      "pipeline": "pipeline_a",
+      "qid": "5a837121554299123d8c2128",
+      "warnings": [
+        "field-prefixed queries are not supported"
+      ]
+    },
+    {
+      "question_no": 73,
+      "pipeline": "c5_ondemand",
+      "qid": "5a837121554299123d8c2128",
+      "warnings": [
+        "field-prefixed queries are not supported"
+      ]
+    }
+  ]
+}

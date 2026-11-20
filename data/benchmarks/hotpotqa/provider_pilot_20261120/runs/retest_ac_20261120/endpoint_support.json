@@ -1,0 +1,77 @@
+{
+  "model": "google/gemini-2.5-flash-lite",
+  "required_parameters": [
+    "structured_outputs",
+    "response_format",
+    "seed",
+    "temperature",
+    "max_tokens"
+  ],
+  "endpoints": [
+    {
+      "provider_name": "Google AI Studio",
+      "tag": "google-ai-studio/flex",
+      "supported_parameters": [
+        "reasoning",
+        "include_reasoning",
+        "structured_outputs",
+        "response_format",
+        "max_tokens",
+        "temperature",
+        "top_p",
+        "seed",
+        "tools",
+        "tool_choice",
+        "stop"
+      ],
+      "pricing_prompt": "0.00000005",
+      "pricing_completion": "0.0000002",
+      "missing": [],
+      "frequency_penalty_supported": false
+    },
+    {
+      "provider_name": "Google AI Studio",
+      "tag": "google-ai-studio",
+      "supported_parameters": [
+        "reasoning",
+        "include_reasoning",
+        "structured_outputs",
+        "response_format",
+        "max_tokens",
+        "temperature",
+        "top_p",
+        "seed",
+        "tools",
+        "tool_choice",
+        "stop"
+      ],
+      "pricing_prompt": "0.0000001",
+      "pricing_completion": "0.0000004",
+      "missing": [],
+      "frequency_penalty_supported": false
+    },
+    {
+      "provider_name": "Google AI Studio",
+      "tag": "google-ai-studio/priority",
+      "supported_parameters": [
+        "reasoning",
+        "include_reasoning",
+        "structured_outputs",
+        "response_format",
+        "max_tokens",
+        "temperature",
+        "top_p",
+        "seed",
+        "tools",
+        "tool_choice",
+        "stop"
+      ],
+      "pricing_prompt": "0.00000018",
+      "pricing_completion": "0.00000072",
+      "missing": [],
+      "frequency_penalty_supported": false
+    }
+  ],
+  "any_endpoint_supports_all": true,
+  "checked_at": "2026-11-20T22:47:08"
+}

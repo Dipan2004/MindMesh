@@ -1,0 +1,11 @@
+{
+  "corpus": "C:\\Users\\HP\\OneDrive\\Desktop\\MindMesh\\data\\benchmarks\\hotpotqa\\expanded_20261119\\dev_distractor_100q_seed20261119\\corpus.jsonl",
+  "corpus_sha256": "cb878fe560c405a95a6d332a73f975744c7554a22b0e372cfcc9b182ad450a90",
+  "paragraphs": 985,
+  "embedding_model": "nomic-embed-text",
+  "embedding_dim": 768,
+  "collection": "chunks (HNSW text_vec + BM25 text)",
+  "llm_extraction": false,
+  "embed_s": 27.9,
+  "built_at": "2026-11-19T22:37:24"
+}

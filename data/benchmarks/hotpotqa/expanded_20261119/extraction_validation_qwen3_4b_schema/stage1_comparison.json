@@ -1,0 +1,136 @@
+{
+  "model": "qwen3:4b",
+  "digest": "359d7dd4bcdab3d86b87d73ac27966f4dbb9f5efdfcc75d34a8764a09474fae7",
+  "quantization": "Q4_K_M",
+  "parameter_size": "4.0B",
+  "think": false,
+  "n_paragraphs": 30,
+  "speed": {
+    "qwen3:4b (original prompt + JSON schema)": {
+      "wall_s_mean": 30.59,
+      "wall_s_median": 23.98,
+      "wall_s_total": 917.6,
+      "output_tokens_mean": 1739.4,
+      "decode_tok_per_s": 56.8,
+      "parse_failures": 1,
+      "paragraphs_with_retries": 1,
+      "entities": 254,
+      "relationships": 197
+    },
+    "mistral baseline (original prompt)": {
+      "wall_s_mean": 24.4,
+      "wall_s_median": 23.41,
+      "wall_s_total": 732.1,
+      "output_tokens_mean": 1190.7,
+      "decode_tok_per_s": 50.3,
+      "parse_failures": 0,
+      "paragraphs_with_retries": 0,
+      "entities": 226,
+      "relationships": 162
+    },
+    "qwen2.5:3b (B+C prompt, reference only)": {
+      "wall_s_mean": 5.3,
+      "wall_s_median": 4.43,
+      "wall_s_total": 159.0,
+      "output_tokens_mean": 474.5,
+      "decode_tok_per_s": 98.1,
+      "parse_failures": 0,
+      "paragraphs_with_retries": 0,
+      "entities": 154,
+      "relationships": 97
+    }
+  },
+  "agreement_vs_mistral_baseline": {
+    "qwen3:4b (original prompt + JSON schema)": {
+      "entities_micro": {
+        "precision": 0.623,
+        "recall": 0.7512,
+        "f1": 0.6811,
+        "tp": 157,
+        "baseline_items": 209,
+        "variant_items": 252
+      },
+      "relationships_micro": {
+        "precision": 0.2806,
+        "recall": 0.3901,
+        "f1": 0.3264,
+        "tp": 55,
+        "baseline_items": 141,
+        "variant_items": 196
+      },
+      "entity_recall_incl_renames": 0.7611,
+      "relationship_recall_incl_renames": 0.4841,
+      "paragraphs_missing_over_half_rels_after_renames": 11
+    },
+    "mistral C (noise-floor reference)": {
+      "entities_micro": {
+        "precision": 0.9559,
+        "recall": 0.9602,
+        "f1": 0.9581,
+        "tp": 217,
+        "baseline_items": 226,
+        "variant_items": 227
+      },
+      "relationships_micro": {
+        "precision": 0.8442,
+        "recall": 0.828,
+        "f1": 0.836,
+        "tp": 130,
+        "baseline_items": 157,
+        "variant_items": 154
+      },
+      "entity_recall_incl_renames": 0.969,
+      "relationship_recall_incl_renames": 0.8726,
+      "paragraphs_missing_over_half_rels_after_renames": 2
+    },
+    "qwen2.5:3b (B+C prompt)": {
+      "entities_micro": {
+        "precision": 0.7843,
+        "recall": 0.531,
+        "f1": 0.6332,
+        "tp": 120,
+        "baseline_items": 226,
+        "variant_items": 153
+      },
+      "relationships_micro": {
+        "precision": 0.3516,
+        "recall": 0.2038,
+        "f1": 0.2581,
+        "tp": 32,
+        "baseline_items": 157,
+        "variant_items": 91
+      },
+      "entity_recall_incl_renames": 0.6018,
+      "relationship_recall_incl_renames": 0.293,
+      "paragraphs_missing_over_half_rels_after_renames": 19
+    }
+  },
+  "grounding": {
+    "qwen3:4b": {
+      "entity_name_in_text": 0.9882,
+      "rel_endpoints_in_text": 0.9848,
+      "evidence_sentence_verbatim": 0.9047
+    },
+    "mistral baseline": {
+      "entity_name_in_text": 0.9823,
+      "rel_endpoints_in_text": 0.9753,
+      "evidence_sentence_verbatim": 0.5902
+    }
+  },
+  "gpu": {
+    "temp_c_mean": 85.4,
+    "temp_c_max": 91.0,
+    "sm_clock_mhz_median": 1980.0
+  },
+  "ollama_ps": [
+    {
+      "model": "qwen3:4b",
+      "size_bytes": 3877571133,
+      "size_vram_bytes": 3877571133,
+      "gpu_fraction": 1.0,
+      "processor": "GPU",
+      "context_length": 8192
+    }
+  ],
+  "caveat": "agreement with Mistral, not correctness (no gold annotations); qwen2.5:3b row used a different (B+C) prompt"
+}

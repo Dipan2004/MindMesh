@@ -1,0 +1,93 @@
+{
+  "version": "0ebefda5fcc8",
+  "provider": "openrouter",
+  "model": "google/gemini-2.5-flash-lite",
+  "base_url": "https://openrouter.ai/api/v1",
+  "endpoint": "/chat/completions",
+  "prompt_template_sha256": "0010d1e85e89c3efb87e19d67aceeba46161d67c42337cf0e23fea67dd79cbff",
+  "prompt_version": "mindmesh-extraction-original",
+  "schema_sha256": "5e15bcc2de5bd80085db070d1d84ab999567077ceecaddafa949918e769feb7e",
+  "schema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {
+      "entities": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "source_sentence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "name",
+            "type",
+            "description",
+            "source_sentence"
+          ]
+        }
+      },
+      "relationships": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "source": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "source_sentence": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "target",
+            "type",
+            "description",
+            "source_sentence"
+          ]
+        }
+      }
+    },
+    "required": [
+      "entities",
+      "relationships"
+    ]
+  },
+  "config": {
+    "temperature": 0.0,
+    "seed": 42,
+    "max_tokens": 4096,
+    "reasoning_enabled": false,
+    "require_parameters": true,
+    "max_retries": 2,
+    "frequency_penalty": "not sent (unsupported by the endpoints)",
+    "response_format": "json_schema strict",
+    "messages": "single user message = prompt",
+    "gleanings": 0,
+    "stub_endpoints": false
+  },
+  "config_sha256": "712c5fd0c50c14540d21dd3c889bbe0d4f3f303fca6d9ec83dd9b3b42bc6bed3",
+  "key": "sha256(paragraph text) within this version"
+}

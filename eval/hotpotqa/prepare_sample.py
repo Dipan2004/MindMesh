@@ -25,7 +25,8 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 
 from mindmesh.benchmarks.hotpotqa.dataset import (  # noqa: E402
-    build_corpus, load_dev_distractor, map_supporting_facts, sample_questions, write_benchmark,
+    build_corpus, load_dev_distractor, map_supporting_facts, sample_questions,
+    sample_questions_nested, write_benchmark,
 )
 
 RAW_DIR = ROOT / "data" / "benchmarks" / "hotpotqa" / "raw"
@@ -37,13 +38,24 @@ def main(argv=None) -> int:
     ap.add_argument("--n-comparison", type=int, default=10)
     ap.add_argument("--seed", type=int, default=42)
     ap.add_argument("--out", type=Path, default=None)
+    ap.add_argument("--draw-per-type", type=int, default=None,
+                    help="nested sampling: draw this many per type once, keep the first n of each "
+                         "(smaller samples with the same seed are prefix-subsets of larger ones)")
     args = ap.parse_args(argv)
 
     n = args.n_bridge + args.n_comparison
     out = args.out or ROOT / "data" / "benchmarks" / "hotpotqa" / f"dev_distractor_{n}q_seed{args.seed}"
 
     records, prov = load_dev_distractor(RAW_DIR)
-    sample = sample_questions(records, args.n_bridge, args.n_comparison, args.seed)
+    if args.draw_per_type:
+        sample = sample_questions_nested(records, args.draw_per_type, args.n_bridge,
+                                         args.n_comparison, args.seed)
+        sampling_desc = (f"nested: random.Random(seed).sample(pool, {args.draw_per_type}) per type "
+                         f"(bridge drawn first, then comparison, one RNG; pools sorted by _id); "
+                         f"keep the first n_bridge / n_comparison of each draw")
+    else:
+        sample = sample_questions(records, args.n_bridge, args.n_comparison, args.seed)
+        sampling_desc = "random.Random(seed).sample over records of each type sorted by _id"
     paras, stats = build_corpus(sample)
     sp_map = map_supporting_facts(sample, paras)
 
@@ -61,7 +73,8 @@ def main(argv=None) -> int:
         "n_bridge": args.n_bridge,
         "n_comparison": args.n_comparison,
         "seed": args.seed,
-        "sampling": "random.Random(seed).sample over records of each type sorted by _id",
+        "sampling": sampling_desc,
+        "draw_per_type": args.draw_per_type,
         "dataset_provenance": prov,
         "id_scheme": {
             "doc_id": "hp_ + sha1(json([title, sentences]))[:16]",

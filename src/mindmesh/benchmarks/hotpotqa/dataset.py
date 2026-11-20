@@ -92,6 +92,25 @@ def sample_questions(records: list[dict], n_bridge: int, n_comparison: int, seed
     return out
 
 
+def sample_questions_nested(records: list[dict], draw_per_type: int, n_bridge: int,
+                            n_comparison: int, seed: int) -> list[dict]:
+    """
+    Nested stratified sample: draw ``draw_per_type`` questions of each type once
+    (bridge first, then comparison, one RNG), then keep the first ``n_bridge`` /
+    ``n_comparison`` of each draw.  Any smaller sample made with the same seed
+    and draw size is a strict prefix-subset of a larger one, so an expanded
+    experiment contains the earlier one exactly.
+    """
+    if n_bridge > draw_per_type or n_comparison > draw_per_type:
+        raise ValueError("n_bridge / n_comparison cannot exceed draw_per_type")
+    rng = random.Random(seed)
+    draws = {}
+    for qtype in ("bridge", "comparison"):
+        pool = sorted((r for r in records if r["type"] == qtype), key=lambda r: r["_id"])
+        draws[qtype] = rng.sample(pool, draw_per_type)
+    return draws["bridge"][:n_bridge] + draws["comparison"][:n_comparison]
+
+
 # ── Corpus ───────────────────────────────────────────────────────────────────
 
 @dataclass
@@ -207,6 +226,16 @@ def write_benchmark(bench_dir: Path, sample: list[dict], paras: list[Paragraph],
     (bench_dir / "supporting_fact_map.json").write_text(json.dumps(sp_map, indent=2, ensure_ascii=False), encoding="utf-8")
     (bench_dir / "corpus_stats.json").write_text(json.dumps(stats, indent=2), encoding="utf-8")
     (bench_dir / "benchmark_config.json").write_text(json.dumps(config, indent=2), encoding="utf-8")
+
+
+def load_corpus(bench_dir: Path) -> list[Paragraph]:
+    """
+    Load ONLY the paragraph corpus (corpus.jsonl): title, sentences, text, IDs.
+    Used by offline graph construction so it cannot read questions, answers or
+    supporting facts (no label leakage into the graph).
+    """
+    paras = [Paragraph(**json.loads(l)) for l in (Path(bench_dir) / "corpus.jsonl").read_text(encoding="utf-8").splitlines() if l.strip()]
+    return paras
 
 
 def load_benchmark(bench_dir: Path) -> dict[str, Any]:

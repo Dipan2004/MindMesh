@@ -1,0 +1,144 @@
+{
+  "generation_model": "qwen2.5:3b",
+  "generation_model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "index_model": "google/gemini-2.5-flash-lite",
+  "embedding_model": "nomic-embed-text",
+  "pipelines": [
+    "pipeline_a",
+    "pipeline_b",
+    "lightrag_mix",
+    "lightrag_mix_opt"
+  ],
+  "top_k": 10,
+  "context_k": 5,
+  "generation_options": {
+    "temperature": 0.0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 256
+  },
+  "prompt_version": "hotpotqa-json-v2-schema",
+  "question_ids": [
+    "5ac0b6b15542996f0d89cc1e",
+    "5ae74351554299572ea5479f"
+  ],
+  "run_id": "smoke_4pipe_2q",
+  "config_hash": "f9d5a728",
+  "n_questions": 2,
+  "type_counts": {
+    "bridge": 2
+  },
+  "benchmark": {
+    "benchmark": "HotpotQA",
+    "split": "dev",
+    "setting": "distractor",
+    "corpus_scope": "100-question shared candidate corpus (union of the sampled questions' supplied gold + distractor paragraphs). NOT the official FullWiki setting.",
+    "n_questions": 100,
+    "n_bridge": 50,
+    "n_comparison": 50,
+    "seed": 20261119,
+    "sampling": "nested: random.Random(seed).sample(pool, 100) per type (bridge drawn first, then comparison, one RNG; pools sorted by _id); keep the first n_bridge / n_comparison of each draw",
+    "draw_per_type": 100,
+    "dataset_provenance": {
+      "source": "hf_parquet_mirror",
+      "url": "https://huggingface.co/datasets/hotpotqa/hotpot_qa/resolve/main/distractor/validation-00000-of-00001.parquet",
+      "file": "hotpot_qa_distractor_validation.parquet",
+      "sha256": "c20b638ca82b21d04fe12e14ff417ad05153d4d215a65de54497fca4e972f7c6",
+      "n_records": 7405
+    },
+    "id_scheme": {
+      "doc_id": "hp_ + sha1(json([title, sentences]))[:16]",
+      "chunk_id": "sha1(doc_id + ':0')[:16]  (one chunk per paragraph)"
+    }
+  },
+  "corpus_stats": {
+    "paragraphs_supplied": 993,
+    "paragraphs_unique": 985,
+    "duplicates_removed": 8,
+    "unique_titles": 985,
+    "titles_with_multiple_versions": 0,
+    "sentences": 3888,
+    "documents": 985,
+    "chunks": 985,
+    "chunking": "one chunk per Wikipedia paragraph (HotpotQA paragraphs are short)",
+    "supporting_facts_total": 239,
+    "supporting_facts_unresolved": 0
+  },
+  "index_dir": "data\\benchmarks\\hotpotqa\\expanded_20261119\\dev_distractor_100q_seed20261119\\index\\openrouter__google_gemini-2.5-flash-lite",
+  "index_stats": {
+    "chunks_indexed": 985,
+    "entities_indexed": 6234,
+    "relationships_indexed": 6661,
+    "documents": 985,
+    "chunks_parse_failed": 55,
+    "graph": {
+      "nodes": 6234,
+      "edges": 6661,
+      "weak_components": 575,
+      "largest_component": 4341,
+      "isolated_nodes": 339,
+      "cross_document_nodes": 706,
+      "cross_document_edges": 137,
+      "documents_linked_via_shared_entities": 801
+    },
+    "timings": {
+      "extracted_now": 0,
+      "extraction_wall_s": 0.0,
+      "workers": 8,
+      "cache_dir": "C:\\Users\\HP\\OneDrive\\Desktop\\MindMesh\\data\\benchmarks\\hotpotqa\\expanded_20261119\\dev_distractor_100q_seed20261119\\index\\openrouter__google_gemini-2.5-flash-lite\\extraction_cache\\openrouter\\c801e9eaa4fa",
+      "cache_version": "c801e9eaa4fa",
+      "graph_build_s": 0.094,
+      "collections_build_s": 359.422
+    },
+    "gleanings": 0,
+    "extraction_model": "google/gemini-2.5-flash-lite"
+  },
+  "pipeline_labels": {
+    "pipeline_a": "MindMesh Dense",
+    "pipeline_b": "MindMesh Graph",
+    "lightrag_mix": "MindMesh Mix",
+    "lightrag_mix_opt": "MindMesh Mix Optimized"
+  },
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "cpu": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 24,
+    "ollama_version": "0.40.16",
+    "ram_gb": 15.6,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "memory_total_mib": 8188,
+        "memory_used_mib": 451,
+        "driver": "592.82"
+      }
+    ],
+    "cuda_driver_version": "13.1"
+  },
+  "started_at": "2026-11-20T23:15:29",
+  "ollama_ps_snapshots": [
+    {
+      "at": "2026-11-20T23:15:50",
+      "models": [
+        {
+          "model": "qwen2.5:3b",
+          "size_bytes": 2411577999,
+          "size_vram_bytes": 2411577999,
+          "gpu_fraction": 1.0,
+          "processor": "GPU",
+          "context_length": 8192
+        },
+        {
+          "model": "nomic-embed-text:latest",
+          "size_bytes": 335743549,
+          "size_vram_bytes": 335743549,
+          "gpu_fraction": 1.0,
+          "processor": "GPU",
+          "context_length": 2048
+        }
+      ]
+    }
+  ],
+  "last_completed_at": "2026-11-20T23:15:50"
+}

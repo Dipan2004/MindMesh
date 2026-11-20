@@ -34,7 +34,7 @@ ROOT = Path(__file__).resolve().parents[2]
 sys.path.insert(0, str(ROOT / "src"))
 sys.path.insert(0, str(ROOT / "eval"))
 
-from mindmesh.benchmarks.hotpotqa.dataset import load_benchmark  # noqa: E402
+from mindmesh.benchmarks.hotpotqa.dataset import load_corpus  # noqa: E402
 from mindmesh.benchmarks.hotpotqa.env import CHUNKING_TAG, activate_index  # noqa: E402
 from mindmesh.benchmarks.hotpotqa.runtime import (  # noqa: E402
     GpuLock, hardware_info, ollama_ps, resolve_local_model, unload_model,
@@ -64,7 +64,8 @@ def run_extraction(paras, model, out_jsonl: Path, gleanings: int, limit: int | N
         todo = todo[: max(0, limit - len(done))]
     print(f"[extract] {len(done)} chunks already extracted, {len(todo)} to go (model={model}, gleanings={gleanings})")
 
-    think = False if model.startswith(("qwen3", "qwen3.5")) else cfg.effective_think()
+    from mindmesh.model_config import think_for
+    think = think_for(model)   # qwen3*: False; others: configured default (unchanged)
     client = OllamaClient(
         model=model, temperature=cfg.EXTRACTION_TEMPERATURE, seed=cfg.EXTRACTION_SEED,
         timeout=cfg.LLM_TIMEOUT_S, num_predict=cfg.LLM_NUM_PREDICT, num_ctx=cfg.LLM_NUM_CTX,
@@ -102,6 +103,49 @@ def run_extraction(paras, model, out_jsonl: Path, gleanings: int, limit: int | N
             "extraction_wall_s": round(time.monotonic() - t_all, 1)}
 
 
+def run_extraction_openrouter(paras, settings, index_dir: Path, out_jsonl: Path, limit: int | None,
+                              workers: int) -> dict:
+    """OpenRouter extraction into a provider-specific cache; NO local fallback.
+
+    The cache (one entry per paragraph content hash) is the source of truth and makes the build
+    resumable without duplicate requests. extractions.jsonl is rewritten from the cache in corpus
+    order after every invocation. A failed paragraph (truncated at max_tokens, invalid JSON after
+    retries, provider error) is recorded with _parse_error and contributes no graph records."""
+    from concurrent.futures import ThreadPoolExecutor, as_completed
+    from graphrag_lite.retrieval.provider_extraction import OpenRouterExtractionCache
+    cache = OpenRouterExtractionCache(index_dir / "extraction_cache", settings)
+    todo = [p for p in paras if cache.get(p.text) is None]
+    if limit is not None:
+        n_done = sum(cache.get(p.text) is not None for p in paras)
+        todo = todo[: max(0, limit - n_done)]
+    print(f"[extract] openrouter {settings.model}: {len(paras) - len(todo)} cached, {len(todo)} to go, {workers} workers")
+    t_all = time.monotonic()
+    as_para = lambda p: {"chunk_id": p.chunk_id, "doc_id": p.doc_id, "title": p.title, "text": p.text}  # noqa: E731
+    with ThreadPoolExecutor(max_workers=workers) as ex:
+        futs = {ex.submit(cache.extract, as_para(p), "offline_build"): p for p in todo}
+        for i, f in enumerate(as_completed(futs), 1):
+            e = f.result(); p = futs[f]
+            print(f"  [{i}/{len(todo)}] {p.title[:40]!r}: {e['status']} {len(e['entities'])} ent, "
+                  f"{len(e['relationships'])} rel, {e['request_wall_s']:.1f}s, ${e['cost_usd'] or 0:.5f}", flush=True)
+    wall = round(time.monotonic() - t_all, 1)
+    with open(out_jsonl, "w", encoding="utf-8") as fh:
+        for p in paras:
+            e = cache.get(p.text)
+            if e is None:
+                continue
+            rec = {"chunk_id": p.chunk_id, "doc_id": p.doc_id, "chunk_index": 0, "text": p.text, "title": p.title,
+                   "extraction_model": settings.model, "extraction_provider": "openrouter",
+                   "actual_model": e["actual_model"], "upstream_provider": e["upstream_provider"],
+                   "cache_version": e["cache_version"], "entities": e["entities"], "relationships": e["relationships"],
+                   "latency_s": e["request_wall_s"], "attempts": e["attempts"], "prompt_tokens": e["prompt_tokens"],
+                   "completion_tokens": e["completion_tokens"], "cost_usd": e["cost_usd"]}
+            if e["status"] != "ok":
+                rec["_parse_error"] = f"{e['status']}: {e['error'][:300]}"
+            fh.write(json.dumps(rec, ensure_ascii=False) + "\n")
+    return {"extracted_now": len(todo), "extraction_wall_s": wall, "workers": workers,
+            "cache_dir": str(cache.dir), "cache_version": cache.version}
+
+
 def graph_metrics(G) -> dict:
     import networkx as nx
     cross_nodes = sum(1 for _, d in G.nodes(data=True) if len(d.get("source_docs", set())) >= 2)
@@ -131,18 +175,38 @@ def graph_metrics(G) -> dict:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--model", required=True, help="exact local Ollama tag used for entity extraction")
+    ap.add_argument("--model", default=None,
+                    help="exact local Ollama tag used for entity extraction "
+                         "(default: 'extraction' in config/models.json)")
     ap.add_argument("--bench-dir", type=Path, default=DEFAULT_BENCH)
     ap.add_argument("--gleanings", type=int, default=0,
                     help="gleaning passes per chunk (default 0 for the benchmark; canonical MindMesh uses 1)")
     ap.add_argument("--limit", type=int, default=None, help="extract at most N chunks in total (smoke test)")
     ap.add_argument("--skip-extraction", action="store_true", help="rebuild graph/collections from existing extractions")
+    ap.add_argument("--provider", choices=["ollama", "openrouter"], default="ollama",
+                    help="openrouter: model from config/extraction_provider.json, no local fallback")
+    ap.add_argument("--workers", type=int, default=8, help="parallel OpenRouter requests")
     args = ap.parse_args(argv)
 
     args.bench_dir = args.bench_dir.resolve()
-    model, model_info = resolve_local_model(args.model)
-    bench = load_benchmark(args.bench_dir)
-    index_dir = args.bench_dir / "index" / slug(model)
+    if args.model is None:
+        from mindmesh.model_config import load_model_assignments
+        args.model = load_model_assignments().extraction
+    or_settings = None
+    if args.provider == "openrouter":
+        from graphrag_lite.retrieval import provider_extraction as PE
+        or_settings = PE.load_provider_settings().openrouter
+        if not PE.api_key_available(or_settings):
+            print(f"[REFUSED] {or_settings.api_key_env} not set", file=sys.stderr)
+            return 1
+        model = or_settings.model
+        model_info = {"provider": "openrouter", "digest": None, "base_url": or_settings.base_url}
+    else:
+        model, model_info = resolve_local_model(args.model)
+    # Leakage guard: offline graph construction reads ONLY corpus.jsonl (paragraph text + IDs),
+    # never questions.json, answers or supporting-fact maps.
+    paragraphs = load_corpus(args.bench_dir)
+    index_dir = args.bench_dir / "index" / (slug(model) if or_settings is None else "openrouter__" + slug(model))
     index_dir.mkdir(parents=True, exist_ok=True)
     activate_index(index_dir)
     from graphrag_lite.config import get_config
@@ -153,9 +217,14 @@ def main(argv=None) -> int:
     timings = {}
     with GpuLock(f"hotpotqa build_index {model}"):
         if not args.skip_extraction:
-            timings.update(run_extraction(bench["paragraphs"], model, ext_path, args.gleanings, args.limit))
+            if or_settings is not None:
+                timings.update(run_extraction_openrouter(paragraphs, or_settings, index_dir, ext_path,
+                                                         args.limit, args.workers))
+            else:
+                timings.update(run_extraction(paragraphs, model, ext_path, args.gleanings, args.limit))
         ps_after_extract = ollama_ps()
-        unload_model(model)
+        if or_settings is None:
+            unload_model(model)
 
         records = [json.loads(l) for l in ext_path.read_text(encoding="utf-8").splitlines() if l.strip()]
         clean = [r for r in records if "_parse_error" not in r]
@@ -164,7 +233,7 @@ def main(argv=None) -> int:
         extracted_ids = {r["chunk_id"] for r in records}
         chunk_records = list(records) + [
             {"chunk_id": p.chunk_id, "doc_id": p.doc_id, "chunk_index": 0, "text": p.text}
-            for p in bench["paragraphs"] if p.chunk_id not in extracted_ids and args.limit is None
+            for p in paragraphs if p.chunk_id not in extracted_ids and args.limit is None
         ]
         if args.limit is not None:
             # smoke test: index only the extracted subset
@@ -206,7 +275,7 @@ def main(argv=None) -> int:
         "embedding_model": cfg.EMBEDDING_MODEL,
         "embedding_dim": coll.get("embedding_dim"),
         "gleanings": args.gleanings,
-        "chunks_total": len(bench["paragraphs"]),
+        "chunks_total": len(paragraphs),
         "chunks_extracted": len(records),
         "chunks_parse_failed": n_fail,
         "chunks_indexed": coll["chunk_count"],
@@ -222,6 +291,29 @@ def main(argv=None) -> int:
         "smoke_test_limit": args.limit,
         "built_at": time.strftime("%Y-%m-%dT%H:%M:%S"),
     }
+    # Offline build costs, kept separate from any online (query-time) measurement.
+    offline = {
+        "label": "OFFLINE graph construction (done once, before evaluation); not part of query latency",
+        "extraction_model": model, "extraction_model_digest": model_info.get("digest"),
+        "inputs_read": ["corpus.jsonl"], "questions_or_labels_read": False,
+        "extraction": {"paragraphs": len(records), "failed": n_fail,
+                       "time_s_total": round(sum(ext_lat), 1),
+                       "time_s_mean_per_paragraph": round(sum(ext_lat) / len(ext_lat), 2) if ext_lat else 0,
+                       "this_invocation": {k: v for k, v in timings.items() if k.startswith("extract")}},
+        "graph_construction_s": timings.get("graph_build_s"),
+        "embedding_and_collections_s": timings.get("collections_build_s"),
+        "persisted": ["extractions.jsonl", "graph.graphml", "entities/", "relationships/", "chunks/",
+                      "relationship_records.json"],
+    }
+    if or_settings is not None:
+        offline["extraction"].update({
+            "provider": "openrouter", "fallback": "none (failures recorded, never substituted)",
+            "note": "time_s_total sums per-request wall times; requests ran in parallel, see this_invocation",
+            "prompt_tokens": sum(r.get("prompt_tokens") or 0 for r in records),
+            "completion_tokens": sum(r.get("completion_tokens") or 0 for r in records),
+            "cost_usd": round(sum(r.get("cost_usd") or 0 for r in records), 6),
+            "failed_ids": [r["chunk_id"] for r in records if "_parse_error" in r]})
+    (index_dir / "offline_build_report.json").write_text(json.dumps(offline, indent=2), encoding="utf-8")
     (index_dir / "graph_metrics.json").write_text(json.dumps(gm, indent=2), encoding="utf-8")
     (index_dir / "index_meta.json").write_text(json.dumps(meta, indent=2, default=str), encoding="utf-8")
     print(json.dumps({k: meta[k] for k in ("chunks_indexed", "entities_indexed", "relationships_indexed",

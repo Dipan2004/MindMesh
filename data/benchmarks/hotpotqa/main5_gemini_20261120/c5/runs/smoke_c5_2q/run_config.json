@@ -1,0 +1,170 @@
+{
+  "generator": "qwen2.5:3b",
+  "generator_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "extractor": "google/gemini-2.5-flash-lite",
+  "extractor_digest": null,
+  "cache_version": "c801e9eaa4fa",
+  "top_k": 10,
+  "context_k": 5,
+  "generation_options": {
+    "temperature": 0.0,
+    "seed": 42,
+    "num_ctx": 8192,
+    "num_predict": 256
+  },
+  "prompt_version": "hotpotqa-json-v2-schema",
+  "question_ids": [
+    "5ac0b6b15542996f0d89cc1e",
+    "5ae74351554299572ea5479f"
+  ],
+  "pipelines": [
+    "pipeline_a",
+    "c5_ondemand"
+  ],
+  "extractor_provider": "openrouter",
+  "config_hash": "43355bff",
+  "bench_dir": "data\\benchmarks\\hotpotqa\\expanded_20261119\\dev_distractor_100q_seed20261119",
+  "dense_index": {
+    "corpus": "C:\\Users\\HP\\OneDrive\\Desktop\\MindMesh\\data\\benchmarks\\hotpotqa\\expanded_20261119\\dev_distractor_100q_seed20261119\\corpus.jsonl",
+    "corpus_sha256": "cb878fe560c405a95a6d332a73f975744c7554a22b0e372cfcc9b182ad450a90",
+    "paragraphs": 985,
+    "embedding_model": "nomic-embed-text",
+    "embedding_dim": 768,
+    "collection": "chunks (HNSW text_vec + BM25 text)",
+    "llm_extraction": false,
+    "embed_s": 25.4,
+    "built_at": "2026-11-20T22:57:06"
+  },
+  "cache_dir": "data\\benchmarks\\hotpotqa\\main5_gemini_20261120\\c5\\smoke_extraction_cache\\openrouter\\c801e9eaa4fa",
+  "cache_meta": {
+    "version": "c801e9eaa4fa",
+    "provider": "openrouter",
+    "model": "google/gemini-2.5-flash-lite",
+    "base_url": "https://openrouter.ai/api/v1",
+    "endpoint": "/chat/completions",
+    "prompt_template_sha256": "0010d1e85e89c3efb87e19d67aceeba46161d67c42337cf0e23fea67dd79cbff",
+    "prompt_version": "mindmesh-extraction-original",
+    "schema_sha256": "5e15bcc2de5bd80085db070d1d84ab999567077ceecaddafa949918e769feb7e",
+    "schema": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entities": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "source_sentence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "name",
+              "type",
+              "description",
+              "source_sentence"
+            ]
+          }
+        },
+        "relationships": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "source": {
+                "type": "string"
+              },
+              "target": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              },
+              "description": {
+                "type": "string"
+              },
+              "source_sentence": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "source",
+              "target",
+              "type",
+              "description",
+              "source_sentence"
+            ]
+          }
+        }
+      },
+      "required": [
+        "entities",
+        "relationships"
+      ]
+    },
+    "config": {
+      "temperature": 0.0,
+      "seed": 42,
+      "max_tokens": 4096,
+      "reasoning_enabled": false,
+      "require_parameters": true,
+      "max_retries": 2,
+      "length_cutoff_policy": "no retry (deterministic request)",
+      "frequency_penalty": "not sent (unsupported by the endpoints)",
+      "response_format": "json_schema strict",
+      "messages": "single user message = prompt",
+      "gleanings": 0,
+      "stub_endpoints": false
+    },
+    "config_sha256": "ecadff5aa060aaba911457d5216c9ecfa7696cf50d71fc17e338be61f1f3f549",
+    "key": "sha256(paragraph text) within this version"
+  },
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "cpu": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 24,
+    "ollama_version": "0.40.16",
+    "ram_gb": 15.6,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "memory_total_mib": 8188,
+        "memory_used_mib": 451,
+        "driver": "592.82"
+      }
+    ],
+    "cuda_driver_version": "13.1"
+  },
+  "started_at": "2026-11-20T23:15:52",
+  "ollama_ps_end": [
+    {
+      "model": "qwen2.5:3b",
+      "size_bytes": 2411577999,
+      "size_vram_bytes": 2411577999,
+      "gpu_fraction": 1.0,
+      "processor": "GPU",
+      "context_length": 8192
+    },
+    {
+      "model": "nomic-embed-text:latest",
+      "size_bytes": 335743549,
+      "size_vram_bytes": 335743549,
+      "gpu_fraction": 1.0,
+      "processor": "GPU",
+      "context_length": 2048
+    }
+  ],
+  "finished_at": "2026-11-20T23:16:39"
+}

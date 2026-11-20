@@ -1,0 +1,60 @@
+{
+  "benchmark_dir": "data\\benchmarks\\hotpotqa\\expanded_20261119\\dev_distractor_100q_seed20261119",
+  "extraction_model": "google/gemini-2.5-flash-lite",
+  "extraction_model_info": {
+    "provider": "openrouter",
+    "digest": null,
+    "base_url": "https://openrouter.ai/api/v1"
+  },
+  "embedding_model": "nomic-embed-text",
+  "embedding_dim": 768,
+  "gleanings": 0,
+  "chunks_total": 985,
+  "chunks_extracted": 985,
+  "chunks_parse_failed": 55,
+  "chunks_indexed": 985,
+  "entities_indexed": 6234,
+  "relationships_indexed": 6661,
+  "documents": 985,
+  "graph": {
+    "nodes": 6234,
+    "edges": 6661,
+    "weak_components": 575,
+    "largest_component": 4341,
+    "isolated_nodes": 339,
+    "cross_document_nodes": 706,
+    "cross_document_edges": 137,
+    "documents_linked_via_shared_entities": 801
+  },
+  "timings": {
+    "extracted_now": 0,
+    "extraction_wall_s": 0.0,
+    "workers": 8,
+    "cache_dir": "C:\\Users\\HP\\OneDrive\\Desktop\\MindMesh\\data\\benchmarks\\hotpotqa\\expanded_20261119\\dev_distractor_100q_seed20261119\\index\\openrouter__google_gemini-2.5-flash-lite\\extraction_cache\\openrouter\\c801e9eaa4fa",
+    "cache_version": "c801e9eaa4fa",
+    "graph_build_s": 0.094,
+    "collections_build_s": 359.422
+  },
+  "extraction_latency_sum_s": 4576.8,
+  "extraction_latency_mean_s": 4.65,
+  "ollama_ps_during_extraction": [],
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "cpu": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 24,
+    "ollama_version": "0.40.16",
+    "ram_gb": 15.6,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "memory_total_mib": 8188,
+        "memory_used_mib": 451,
+        "driver": "592.82"
+      }
+    ],
+    "cuda_driver_version": "13.1"
+  },
+  "smoke_test_limit": null,
+  "built_at": "2026-11-20T23:11:48"
+}

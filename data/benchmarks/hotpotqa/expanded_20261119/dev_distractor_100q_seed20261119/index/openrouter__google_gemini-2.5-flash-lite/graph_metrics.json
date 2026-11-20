@@ -1,0 +1,10 @@
+{
+  "nodes": 6234,
+  "edges": 6661,
+  "weak_components": 575,
+  "largest_component": 4341,
+  "isolated_nodes": 339,
+  "cross_document_nodes": 706,
+  "cross_document_edges": 137,
+  "documents_linked_via_shared_entities": 801
+}

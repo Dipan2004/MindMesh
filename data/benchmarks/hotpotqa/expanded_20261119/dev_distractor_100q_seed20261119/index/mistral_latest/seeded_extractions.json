@@ -1,0 +1,20 @@
+{
+  "note": "extractions reused by identical chunk_id from earlier indexes built with the same model (mistral:latest), same extraction code and settings, gleanings 0",
+  "count": 14,
+  "sources": {
+    "e75c71d95fdb03f2": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "2c3049d8d75419f1": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "0d888cee944dc2cb": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "605e16b648692dcc": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "e7a3b85aaae283b2": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "fb6d4773c5a537c1": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "b18abfa9fd7927c5": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "cc9810d79e9cd34d": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "f4e1b3dad9a27f75": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "ab55f0972c573850": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "1e82acbea30954cf": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "0e3a5e1368eb79fe": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "22072efff7c6e070": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl",
+    "ddba7c8ee8c2f4a2": "data\\benchmarks\\hotpotqa\\dev_distractor_20q_seed42\\index\\mistral_latest\\extractions.jsonl"
+  }
+}

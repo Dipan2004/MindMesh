@@ -1,0 +1,6 @@
+{
+  "_comment": "MindMesh model assignments (multi-model architecture, approved 2026-11-20). Command-line flags override these. Only exact locally installed Ollama tags; nothing is pulled automatically.",
+  "extraction": "qwen3:4b",
+  "generation": "qwen2.5:1.5b",
+  "embedding": "nomic-embed-text"
+}

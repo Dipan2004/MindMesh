@@ -48,6 +48,9 @@ PIPELINES = {
     "lightrag_mix": "MindMesh Mix",
     "lightrag_mix_opt": "MindMesh Mix Optimized",
 }
+# Selectable with --pipelines but NOT part of the default set (the default stays the four above).
+EXTRA_PIPELINES = {"query_focused_c5": "MindMesh Query-Focused (prototype)"}
+ALL_LABELS = {**PIPELINES, **EXTRA_PIPELINES}
 METRIC_KEYS = [
     "recall@1", "recall@3", "recall@5", "recall@10", "mrr", "all_gold_in_top10",
     "ans_em", "ans_f1", "sp_prec", "sp_recall", "sp_f1", "sp_em", "joint_em", "joint_f1",
@@ -62,7 +65,7 @@ def slug(s: str) -> str:
 
 def run_question(adapter, pname, q, paras_by_chunk, model, top_k, context_k, gen_options) -> dict:
     t0 = time.monotonic()
-    rec = {"pipeline": pname, "pipeline_label": PIPELINES[pname], "qid": q["_id"],
+    rec = {"pipeline": pname, "pipeline_label": ALL_LABELS[pname], "qid": q["_id"],
            "type": q["type"], "question": q["question"], "gold_answer": q["answer"],
            "gold_chunk_ids": q["gold_chunk_ids"], "gold_sp": q["supporting_facts"], "errors": []}
     try:
@@ -70,6 +73,8 @@ def run_question(adapter, pname, q, paras_by_chunk, model, top_k, context_k, gen
         retrieved = res.chunk_ids[:top_k]
         rec["retrieval_latency_s"] = round(res.retrieval_latency_s, 4)
         rec["errors"].extend(res.errors)
+        if isinstance(res.raw_output, dict):        # only pipelines that emit diagnostics
+            rec["retrieval_diagnostics"] = res.raw_output
     except Exception as exc:  # noqa: BLE001
         retrieved = []
         rec["retrieval_latency_s"] = round(time.monotonic() - t0, 4)
@@ -105,11 +110,11 @@ def run_question(adapter, pname, q, paras_by_chunk, model, top_k, context_k, gen
 
 def summarize(rows: list[dict]) -> dict:
     out = {}
-    for pname in PIPELINES:
+    for pname in ALL_LABELS:
         prow = [r for r in rows if r["pipeline"] == pname]
         if not prow:
             continue
-        agg = {"label": PIPELINES[pname], "n": len(prow),
+        agg = {"label": ALL_LABELS[pname], "n": len(prow),
                "n_errors": sum(1 for r in prow if r["errors"]),
                "n_generation_parse_fail": sum(1 for r in prow if not r.get("generation_parse_ok"))}
         for k in METRIC_KEYS:
@@ -153,10 +158,16 @@ def summary_markdown(summary: dict, cfg: dict) -> str:
 
 def main(argv=None) -> int:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--model", required=True, help="exact local Ollama tag for answer generation")
-    ap.add_argument("--index-model", default=None, help="extraction model of the index to use (default: --model)")
+    ap.add_argument("--model", default=None,
+                    help="exact local Ollama tag for answer generation (if omitted: 'generation' in "
+                         "config/models.json, and the index defaults to its 'extraction' model)")
+    ap.add_argument("--index-model", default=None,
+                    help="extraction model of the index to use (default: --model if given, else "
+                         "'extraction' in config/models.json)")
     ap.add_argument("--bench-dir", type=Path, default=DEFAULT_BENCH)
-    ap.add_argument("--pipelines", nargs="+", default=list(PIPELINES), choices=list(PIPELINES))
+    ap.add_argument("--index-dir", type=Path, default=None,
+                    help="explicit index directory (e.g. an OpenRouter-built index); overrides --index-model")
+    ap.add_argument("--pipelines", nargs="+", default=list(PIPELINES), choices=list(ALL_LABELS))
     ap.add_argument("--top-k", type=int, default=10, help="retrieval depth (Recall@10 needs >=10)")
     ap.add_argument("--context-k", type=int, default=5, help="retrieved paragraphs passed to the generator")
     ap.add_argument("--num-ctx", type=int, default=8192)
@@ -166,9 +177,18 @@ def main(argv=None) -> int:
     args = ap.parse_args(argv)
 
     args.bench_dir = args.bench_dir.resolve()
+    if args.model is None:                       # multi-model defaults from config/models.json
+        from mindmesh.model_config import load_model_assignments
+        ma = load_model_assignments()
+        args.model = ma.generation
+        args.index_model = args.index_model or ma.extraction
     model, model_info = resolve_local_model(args.model)
-    index_model, _ = resolve_local_model(args.index_model or args.model)
-    index_dir = args.bench_dir / "index" / slug(index_model)
+    if args.index_dir is not None:
+        index_dir = args.index_dir.resolve()
+        index_model = json.loads((index_dir / "index_meta.json").read_text(encoding="utf-8"))["extraction_model"]
+    else:
+        index_model, _ = resolve_local_model(args.index_model or args.model)   # unchanged when --model is given
+        index_dir = args.bench_dir / "index" / slug(index_model)
     if not (index_dir / "index_meta.json").exists():
         print(f"[REFUSED] No index at {index_dir}. Run eval/hotpotqa/build_index.py --model {index_model}", file=sys.stderr)
         return 1
@@ -212,7 +232,7 @@ def main(argv=None) -> int:
                    index_stats={k: index_meta.get(k) for k in (
                        "chunks_indexed", "entities_indexed", "relationships_indexed", "documents",
                        "chunks_parse_failed", "graph", "timings", "gleanings", "extraction_model")},
-                   pipeline_labels={p: PIPELINES[p] for p in args.pipelines},
+                   pipeline_labels={p: ALL_LABELS[p] for p in args.pipelines},
                    hardware=hardware_info(), started_at=time.strftime("%Y-%m-%dT%H:%M:%S"))
     if not cfg_path.exists():
         cfg_path.write_text(json.dumps(run_cfg, indent=2, default=str), encoding="utf-8")
@@ -242,7 +262,7 @@ def main(argv=None) -> int:
                 fh.flush()
                 if ps_snapshot is None:
                     ps_snapshot = ollama_ps()
-                print(f"  [{i}/{len(todo)}] {PIPELINES[pname]:<24} {q['_id']} R@10={rec['recall@10']:.2f} "
+                print(f"  [{i}/{len(todo)}] {ALL_LABELS[pname]:<24} {q['_id']} R@10={rec['recall@10']:.2f} "
                       f"EM={rec['ans_em']:.0f} F1={rec['ans_f1']:.2f} SP-F1={rec['sp_f1']:.2f} "
                       f"pred={rec['pred_answer'][:40]!r} gold={q['answer'][:30]!r} "
                       f"({rec['total_latency_s']:.1f}s){' ERR' if rec['errors'] else ''}", flush=True)

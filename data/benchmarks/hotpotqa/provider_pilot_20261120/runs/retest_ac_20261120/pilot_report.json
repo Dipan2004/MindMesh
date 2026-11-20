@@ -1,0 +1,210 @@
+{
+  "label": "SMALL PROVIDER TIMING AND EXTRACTION-QUALITY PILOT (n=2 paragraphs). Not a benchmark conclusion. No answer-quality comparison. Agreement is not correctness.",
+  "created_at": "2026-11-20T22:48:32",
+  "paragraph_selection": "median and 90th-percentile length among the 30 E3 paragraphs (pilot corpus)",
+  "prompt_template_sha256": "0010d1e85e89c3efb87e19d67aceeba46161d67c42337cf0e23fea67dd79cbff",
+  "schema_sha256": "5e15bcc2de5bd80085db070d1d84ab999567077ceecaddafa949918e769feb7e",
+  "openrouter": {
+    "requested_model": "google/gemini-2.5-flash-lite",
+    "base_url": "https://openrouter.ai/api/v1",
+    "endpoint": "/chat/completions",
+    "cache_version": "c801e9eaa4fa",
+    "config": {
+      "temperature": 0.0,
+      "seed": 42,
+      "max_tokens": 4096,
+      "reasoning_enabled": false,
+      "require_parameters": true,
+      "max_retries": 2,
+      "length_cutoff_policy": "no retry (deterministic request)",
+      "frequency_penalty": "not sent (unsupported by the endpoints)",
+      "response_format": "json_schema strict",
+      "messages": "single user message = prompt",
+      "gleanings": 0,
+      "stub_endpoints": false
+    },
+    "valid_json_rate": "1/2",
+    "wall_s_mean": 5.781,
+    "total_cost_usd": 0.0026644,
+    "fallbacks": 1,
+    "fallback_detail": [
+      {
+        "chunk_id": "243e0ad68432f8c7",
+        "title": "Rango (2011 film)",
+        "used_provider": "ollama",
+        "fallback_status": "ok",
+        "openrouter_error": "output truncated at max_tokens=4096 (finish_reason=length); not retried"
+      }
+    ]
+  },
+  "ollama": {
+    "model": "qwen2.5:3b",
+    "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "cache_version": "644b068b5b6c",
+    "config": {
+      "temperature": 0.0,
+      "seed": 42,
+      "num_predict": 4096,
+      "num_ctx": 8192,
+      "frequency_penalty": 0.25,
+      "retry_penalties": [
+        0.5,
+        1.0
+      ],
+      "think": null,
+      "gleanings": 0,
+      "stub_endpoints": false
+    },
+    "valid_rate": "2/2",
+    "wall_s_mean": 33.539
+  },
+  "paragraphs": [
+    {
+      "chunk_id": "23642768860b1af7",
+      "title": "New Mosque (Istanbul)",
+      "chars": 523,
+      "openrouter": {
+        "status": "ok",
+        "json_valid": true,
+        "wall_s": 5.781,
+        "prompt_tokens": 398,
+        "output_tokens": 2376,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0009902,
+        "retries": 0,
+        "actual_model": "google/gemini-2.5-flash-lite",
+        "upstream_provider": "Google AI Studio",
+        "entities": 9,
+        "relationships": 9
+      },
+      "ollama_qwen2.5_3b": {
+        "status": "ok",
+        "wall_s": 31.0,
+        "prompt_tokens": 411,
+        "output_tokens": 2958,
+        "attempts": 1,
+        "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+        "entities": 9,
+        "relationships": 5
+      },
+      "agreement_gemini_vs_qwen": {
+        "entities": {
+          "precision": 0.667,
+          "recall": 0.667,
+          "f1": 0.667,
+          "tp": 6,
+          "ref_items": 9,
+          "var_items": 9
+        },
+        "relationships": {
+          "precision": 0.0,
+          "recall": 0.0,
+          "f1": 0.0,
+          "tp": 0,
+          "ref_items": 5,
+          "var_items": 9
+        }
+      },
+      "agreement_vs_mistral_baseline_reference": {
+        "gemini": {
+          "entities": {
+            "precision": 0.778,
+            "recall": 0.875,
+            "f1": 0.824,
+            "tp": 7,
+            "ref_items": 8,
+            "var_items": 9
+          },
+          "relationships": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "tp": 0,
+            "ref_items": 4,
+            "var_items": 9
+          }
+        },
+        "qwen2.5:3b": {
+          "entities": {
+            "precision": 0.778,
+            "recall": 0.875,
+            "f1": 0.824,
+            "tp": 7,
+            "ref_items": 8,
+            "var_items": 9
+          },
+          "relationships": {
+            "precision": 0.6,
+            "recall": 0.75,
+            "f1": 0.667,
+            "tp": 3,
+            "ref_items": 4,
+            "var_items": 5
+          }
+        }
+      }
+    },
+    {
+      "chunk_id": "243e0ad68432f8c7",
+      "title": "Rango (2011 film)",
+      "chars": 800,
+      "openrouter": {
+        "status": "failed_model",
+        "json_valid": false,
+        "wall_s": 9.485,
+        "prompt_tokens": 482,
+        "output_tokens": 4065,
+        "reasoning_tokens": 0,
+        "cost_usd": 0.0016742,
+        "retries": 0,
+        "actual_model": "google/gemini-2.5-flash-lite",
+        "upstream_provider": "Google AI Studio",
+        "entities": 0,
+        "relationships": 0
+      },
+      "ollama_qwen2.5_3b": {
+        "status": "ok",
+        "wall_s": 36.078,
+        "prompt_tokens": 500,
+        "output_tokens": 3301,
+        "attempts": 1,
+        "model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+        "entities": 16,
+        "relationships": 15
+      },
+      "agreement_gemini_vs_qwen": null,
+      "agreement_vs_mistral_baseline_reference": {
+        "gemini": null,
+        "qwen2.5:3b": {
+          "entities": {
+            "precision": 0.938,
+            "recall": 0.882,
+            "f1": 0.909,
+            "tp": 15,
+            "ref_items": 17,
+            "var_items": 16
+          },
+          "relationships": {
+            "precision": 0.0,
+            "recall": 0.0,
+            "f1": 0.0,
+            "tp": 0,
+            "ref_items": 16,
+            "var_items": 15
+          }
+        }
+      }
+    }
+  ],
+  "fallback_selftest": null,
+  "power_before": {
+    "battery_status": "2",
+    "battery_status_meaning": "1 = discharging (on battery), 2 = on AC",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU, 61, P8, 3105 MHz"
+  },
+  "power_after": {
+    "battery_status": "2",
+    "battery_status_meaning": "1 = discharging (on battery), 2 = on AC",
+    "gpu": "NVIDIA GeForce RTX 4060 Laptop GPU, 83, P0, 3105 MHz"
+  }
+}

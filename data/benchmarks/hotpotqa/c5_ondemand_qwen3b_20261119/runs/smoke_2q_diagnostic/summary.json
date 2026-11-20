@@ -1,0 +1,36 @@
+{
+  "pipeline_a": {
+    "n": 2,
+    "recall@5": 1.0,
+    "recall@10": 1.0,
+    "mrr": 1.0,
+    "all_gold_in_top10": 1.0,
+    "ans_em": 1.0,
+    "ans_f1": 1.0,
+    "sp_prec": 0.5,
+    "sp_recall": 0.25,
+    "sp_f1": 0.3333,
+    "joint_em": 0.0,
+    "joint_f1": 0.3333,
+    "retrieval_latency_s": 0.281,
+    "generation_latency_s": 0.578,
+    "total_latency_s": 0.859
+  },
+  "c5_ondemand": {
+    "n": 2,
+    "recall@5": 1.0,
+    "recall@10": 1.0,
+    "mrr": 1.0,
+    "all_gold_in_top10": 1.0,
+    "ans_em": 1.0,
+    "ans_f1": 1.0,
+    "sp_prec": 0.5,
+    "sp_recall": 0.25,
+    "sp_f1": 0.3333,
+    "joint_em": 0.0,
+    "joint_f1": 0.3333,
+    "retrieval_latency_s": 31.508,
+    "generation_latency_s": 0.508,
+    "total_latency_s": 32.016
+  }
+}
