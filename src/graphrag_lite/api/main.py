@@ -85,6 +85,12 @@ async def lifespan(app: FastAPI):
         cfg.PIPELINE_B_SCOPE,
     )
 
+    # 3. Live index: uploaded documents are indexed automatically (background thread,
+    #    so the server starts serving immediately; queries use it once it is ready).
+    import threading
+    from graphrag_lite.api import live_index
+    threading.Thread(target=live_index.startup, name="live-index-startup", daemon=True).start()
+
     yield  # ── application is now serving requests ──────────────────────
 
     # Shutdown

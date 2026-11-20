@@ -1,0 +1,29 @@
+{
+  "label": "OFFLINE graph construction (done once, before evaluation); not part of query latency",
+  "extraction_model": "qwen2.5:3b",
+  "extraction_model_digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+  "inputs_read": [
+    "corpus.jsonl"
+  ],
+  "questions_or_labels_read": false,
+  "extraction": {
+    "paragraphs": 6,
+    "failed": 0,
+    "time_s_total": 56.2,
+    "time_s_mean_per_paragraph": 9.37,
+    "this_invocation": {
+      "extracted_now": 6,
+      "extraction_wall_s": 56.2
+    }
+  },
+  "graph_construction_s": 0.0,
+  "embedding_and_collections_s": 2.875,
+  "persisted": [
+    "extractions.jsonl",
+    "graph.graphml",
+    "entities/",
+    "relationships/",
+    "chunks/",
+    "relationship_records.json"
+  ]
+}

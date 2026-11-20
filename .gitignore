@@ -95,3 +95,6 @@ data/benchmarks/hotpotqa/raw/
 data/benchmarks/**/cache.db*
 data/benchmarks/.gpu_inference.lock
 
+
+# Live web-app index (runtime data, rebuilt from data/raw uploads)
+/data/live_index/

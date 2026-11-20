@@ -1,0 +1,309 @@
+[
+  {
+    "rel_id": "rel_00000",
+    "source_entity": "Panama Canal",
+    "target_entity": "Agua Clara Locks",
+    "rel_type": "PART_OF",
+    "all_types": [
+      "PART_OF"
+    ],
+    "description": "Agua Clara Locks are part of the Panama Canal system.",
+    "weight": 1,
+    "chunk_ids": [
+      "cea62c09c54ebb18"
+    ],
+    "doc_ids": [
+      "hp_fc18f9bfeafb4ad2"
+    ],
+    "source_doc": "hp_fc18f9bfeafb4ad2"
+  },
+  {
+    "rel_id": "rel_00001",
+    "source_entity": "Panama Canal",
+    "target_entity": "Cocoli Locks",
+    "rel_type": "PART_OF",
+    "all_types": [
+      "PART_OF"
+    ],
+    "description": "Cocoli Locks are part of the Panama Canal system.",
+    "weight": 1,
+    "chunk_ids": [
+      "cea62c09c54ebb18"
+    ],
+    "doc_ids": [
+      "hp_fc18f9bfeafb4ad2"
+    ],
+    "source_doc": "hp_fc18f9bfeafb4ad2"
+  },
+  {
+    "rel_id": "rel_00002",
+    "source_entity": "Ferdinand de Lesseps",
+    "target_entity": "Panama Canal",
+    "rel_type": "FOUNDED_BY",
+    "all_types": [
+      "FOUNDED_BY",
+      "PART_OF"
+    ],
+    "description": "Ferdinand de Lesseps led the project to build the Panama Canal.",
+    "weight": 2,
+    "chunk_ids": [
+      "11244e0939bd5300"
+    ],
+    "doc_ids": [
+      "hp_b81c660e7e08cae6"
+    ],
+    "source_doc": "hp_b81c660e7e08cae6"
+  },
+  {
+    "rel_id": "rel_00003",
+    "source_entity": "Ferdinand de Lesseps",
+    "target_entity": "Yellow Fever",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "Yellow Fever was a problem that hindered the construction of the Panama Canal.",
+    "weight": 1,
+    "chunk_ids": [
+      "11244e0939bd5300"
+    ],
+    "doc_ids": [
+      "hp_b81c660e7e08cae6"
+    ],
+    "source_doc": "hp_b81c660e7e08cae6"
+  },
+  {
+    "rel_id": "rel_00004",
+    "source_entity": "Ferdinand de Lesseps",
+    "target_entity": "Malaria",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "Malaria was a problem that hindered the construction of the Panama Canal.",
+    "weight": 1,
+    "chunk_ids": [
+      "11244e0939bd5300"
+    ],
+    "doc_ids": [
+      "hp_b81c660e7e08cae6"
+    ],
+    "source_doc": "hp_b81c660e7e08cae6"
+  },
+  {
+    "rel_id": "rel_00005",
+    "source_entity": "France",
+    "target_entity": "Ferdinand de Lesseps",
+    "rel_type": "FOUNDED_BY",
+    "all_types": [
+      "FOUNDED_BY"
+    ],
+    "description": "France supported Ferdinand de Lesseps' efforts to build the canal.",
+    "weight": 1,
+    "chunk_ids": [
+      "11244e0939bd5300"
+    ],
+    "doc_ids": [
+      "hp_b81c660e7e08cae6"
+    ],
+    "source_doc": "hp_b81c660e7e08cae6"
+  },
+  {
+    "rel_id": "rel_00006",
+    "source_entity": "United States",
+    "target_entity": "Panama Canal",
+    "rel_type": "FOUNDED_BY",
+    "all_types": [
+      "FOUNDED_BY"
+    ],
+    "description": "The United States took over the project to build the Panama Canal in 1904",
+    "weight": 1,
+    "chunk_ids": [
+      "f4303e0167d12798"
+    ],
+    "doc_ids": [
+      "hp_c69cf471cb591ee9"
+    ],
+    "source_doc": "hp_c69cf471cb591ee9"
+  },
+  {
+    "rel_id": "rel_00007",
+    "source_entity": "United States",
+    "target_entity": "Panama Canal Authority",
+    "rel_type": "ACQUIRED_BY",
+    "all_types": [
+      "ACQUIRED_BY"
+    ],
+    "description": "The United States acquired control of the Panama Canal Authority.",
+    "weight": 1,
+    "chunk_ids": [
+      "7bf1e0d9c075ffa9"
+    ],
+    "doc_ids": [
+      "hp_ce5cb4168a3ba0d5"
+    ],
+    "source_doc": "hp_ce5cb4168a3ba0d5"
+  },
+  {
+    "rel_id": "rel_00008",
+    "source_entity": "United States",
+    "target_entity": "Panama",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "The United States controlled the canal and its surrounding area.",
+    "weight": 1,
+    "chunk_ids": [
+      "7bf1e0d9c075ffa9"
+    ],
+    "doc_ids": [
+      "hp_ce5cb4168a3ba0d5"
+    ],
+    "source_doc": "hp_ce5cb4168a3ba0d5"
+  },
+  {
+    "rel_id": "rel_00009",
+    "source_entity": "John Frank Stevens",
+    "target_entity": "Panama Canal",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "John Frank Stevens supported building a canal with locks instead of a sea-level design",
+    "weight": 1,
+    "chunk_ids": [
+      "f4303e0167d12798"
+    ],
+    "doc_ids": [
+      "hp_c69cf471cb591ee9"
+    ],
+    "source_doc": "hp_c69cf471cb591ee9"
+  },
+  {
+    "rel_id": "rel_00010",
+    "source_entity": "George Washington Goethals",
+    "target_entity": "Panama Canal",
+    "rel_type": "SUCCESSOR_OF",
+    "all_types": [
+      "SUCCESSOR_OF"
+    ],
+    "description": "George Washington Goethals succeeded John Frank Stevens as the leader of the project to completion",
+    "weight": 1,
+    "chunk_ids": [
+      "f4303e0167d12798"
+    ],
+    "doc_ids": [
+      "hp_c69cf471cb591ee9"
+    ],
+    "source_doc": "hp_c69cf471cb591ee9"
+  },
+  {
+    "rel_id": "rel_00011",
+    "source_entity": "William C. Gorgas",
+    "target_entity": "Panama Canal",
+    "rel_type": "USED_FOR",
+    "all_types": [
+      "USED_FOR"
+    ],
+    "description": "William C. Gorgas directed a sanitation campaign to control disease among the workforce",
+    "weight": 1,
+    "chunk_ids": [
+      "f4303e0167d12798"
+    ],
+    "doc_ids": [
+      "hp_c69cf471cb591ee9"
+    ],
+    "source_doc": "hp_c69cf471cb591ee9"
+  },
+  {
+    "rel_id": "rel_00012",
+    "source_entity": "David du Bose Gaillard",
+    "target_entity": "Panama Canal",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "David du Bose Gaillard was the engineer in charge of the Culebra Cut section of the canal and died before it opened",
+    "weight": 1,
+    "chunk_ids": [
+      "f4303e0167d12798"
+    ],
+    "doc_ids": [
+      "hp_c69cf471cb591ee9"
+    ],
+    "source_doc": "hp_c69cf471cb591ee9"
+  },
+  {
+    "rel_id": "rel_00013",
+    "source_entity": "Gatun Dam",
+    "target_entity": "Gatun Lake",
+    "rel_type": "PART_OF",
+    "all_types": [
+      "PART_OF"
+    ],
+    "description": "The Gatun Dam created Gatun Lake",
+    "weight": 1,
+    "chunk_ids": [
+      "cac1b610d8cdbd6b"
+    ],
+    "doc_ids": [
+      "hp_6aa8afe67f89e68e"
+    ],
+    "source_doc": "hp_6aa8afe67f89e68e"
+  },
+  {
+    "rel_id": "rel_00014",
+    "source_entity": "Panama",
+    "target_entity": "United States",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "Panama was the recipient of control over the canal.",
+    "weight": 1,
+    "chunk_ids": [
+      "7bf1e0d9c075ffa9"
+    ],
+    "doc_ids": [
+      "hp_ce5cb4168a3ba0d5"
+    ],
+    "source_doc": "hp_ce5cb4168a3ba0d5"
+  },
+  {
+    "rel_id": "rel_00015",
+    "source_entity": "Jimmy Carter",
+    "target_entity": "Panama",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "Jimmy Carter was a leader of the United States.",
+    "weight": 1,
+    "chunk_ids": [
+      "7bf1e0d9c075ffa9"
+    ],
+    "doc_ids": [
+      "hp_ce5cb4168a3ba0d5"
+    ],
+    "source_doc": "hp_ce5cb4168a3ba0d5"
+  },
+  {
+    "rel_id": "rel_00016",
+    "source_entity": "Omar Torrijos",
+    "target_entity": "Panama",
+    "rel_type": "LOCATED_IN",
+    "all_types": [
+      "LOCATED_IN"
+    ],
+    "description": "Omar Torrijos was a leader of Panama.",
+    "weight": 1,
+    "chunk_ids": [
+      "7bf1e0d9c075ffa9"
+    ],
+    "doc_ids": [
+      "hp_ce5cb4168a3ba0d5"
+    ],
+    "source_doc": "hp_ce5cb4168a3ba0d5"
+  }
+]

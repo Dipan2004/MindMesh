@@ -140,16 +140,29 @@ def _list_all_docs() -> list[dict]:
                     did = _doc_id(f.name)
                     created_iso = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime(stat.st_ctime))
                     updated_iso = time.strftime("%Y-%m-%dT%H:%M:%S", time.localtime(stat.st_mtime))
+                    from graphrag_lite.api import live_index
+                    li = live_index.doc_status(f.name) or {}
+                    # Real indexing state: pending / processing / processed / failed
+                    st = li.get("status") or "pending"
+                    summary = f"Uploaded document: {f.stem}"
+                    if st == "processing":
+                        summary += f" ({li.get('stage', 'processing')})"
+                    elif st == "processed":
+                        summary += f" ({li.get('entities', 0)} entities, {li.get('relationships', 0)} relationships)"
                     docs_by_id[did] = {
                         "id": did,
-                        "content_summary": f"Uploaded document: {f.stem}",
+                        "content_summary": summary,
                         "content_length": stat.st_size,
-                        "status": "processed",
+                        "status": st,
                         "created_at": created_iso,
-                        "updated_at": updated_iso,
-                        "chunks_count": max(1, stat.st_size // 500),
+                        "updated_at": li.get("updated_at", updated_iso),
+                        "chunks_count": li.get("chunks"),
+                        "error_msg": li.get("error"),
+                        "track_id": li.get("track_id"),
                         "file_path": f"data/raw/{f.name}",
-                        "metadata": {"file_name": f.name, "size": stat.st_size},
+                        "metadata": {"file_name": f.name, "size": stat.st_size,
+                                     "index_version": li.get("index_version"),
+                                     "processing_s": li.get("duration_s")},
                     }
                 except Exception as exc:
                     log.warning("Could not stat file %s: %s", f, exc)
@@ -248,17 +261,20 @@ async def supported_file_types():
 
 @compat_router.get("/documents/pipeline_status")
 async def pipeline_status():
-    """Returns document processing pipeline status."""
+    """Returns the live indexing pipeline status (uploads are indexed in the background)."""
+    from graphrag_lite.api import live_index
+    s = live_index.pipeline_status()
     return {
-        "busy": False,
-        "job_name": "idle",
-        "job_start": None,
+        "busy": s["busy"],
+        "job_name": s["job_name"],
+        "job_start": s["job_start"],
         "docs": len(_list_all_docs()),
-        "batchs": 0,
-        "cur_batch": 0,
+        "batchs": s["queued"] + (1 if s["busy"] else 0),
+        "cur_batch": 1 if s["busy"] else 0,
         "cancellation_requested": False,
-        "latest_message": "MindMesh pipeline is idle",
-        "history_messages": [],
+        "latest_message": s["latest_message"],
+        "history_messages": s["history_messages"],
+        "active_index_version": s["active_version"],
     }
 
 
@@ -290,11 +306,19 @@ async def reprocess_failed():
 
 @compat_router.get("/documents/track_status/{track_id}")
 async def get_track_status(track_id: str):
+    from graphrag_lite.api import live_index
+    d = live_index.track_status(track_id)
+    docs = [] if d is None else [{
+        "id": d["id"], "status": d.get("status"), "content_summary": d.get("stage", ""),
+        "content_length": d.get("content_length", 0), "chunks_count": d.get("chunks"),
+        "error_msg": d.get("error"), "file_path": f"data/raw/{d.get('file_name', '')}",
+        "created_at": d.get("created_at"), "updated_at": d.get("updated_at"),
+    }]
     return {
         "track_id": track_id,
-        "documents": [],
-        "total_count": 0,
-        "status_summary": {"processed": 0},
+        "documents": docs,
+        "total_count": len(docs),
+        "status_summary": {docs[0]["status"]: 1} if docs else {},
     }
 
 
@@ -318,10 +342,12 @@ async def upload_document(file: UploadFile = File(...)):
 
     doc_id_val = _doc_id(file.filename)
     log.info("Document uploaded: %s (%d bytes)", file.filename, len(content))
+    from graphrag_lite.api import live_index
+    track = live_index.enqueue_file(dest)
     return {
         "status": "success",
-        "message": f"File '{file.filename}' uploaded successfully to data/raw/.",
-        "track_id": doc_id_val,
+        "message": f"File '{file.filename}' uploaded; indexing started (chunking, extraction, graph, embeddings).",
+        "track_id": track,
         "id": doc_id_val,
         "file_name": file.filename,
         "size": len(content),
@@ -342,22 +368,25 @@ async def insert_text(req: TextInsertRequest):
     filename = f"text_{int(time.time())}.txt"
     dest = _RAW_DIR / filename
     dest.write_text(req.text, encoding="utf-8")
-    doc_id_val = _doc_id(filename)
+    from graphrag_lite.api import live_index
+    track = live_index.enqueue_file(dest)
     return {
         "status": "success",
-        "message": f"Text saved as {filename}",
-        "track_id": doc_id_val,
+        "message": f"Text saved as {filename}; indexing started",
+        "track_id": track,
     }
 
 
 @compat_router.post("/documents/texts")
 async def insert_texts(req: TextsInsertRequest):
     _RAW_DIR.mkdir(parents=True, exist_ok=True)
+    from graphrag_lite.api import live_index
     track_id = f"batch_{int(time.time())}"
     for i, t in enumerate(req.texts):
         filename = f"text_{int(time.time())}_{i}.txt"
         dest = _RAW_DIR / filename
         dest.write_text(t, encoding="utf-8")
+        track_id = live_index.enqueue_file(dest)
     return {
         "status": "success",
         "message": f"Inserted {len(req.texts)} text snippets",
@@ -416,6 +445,8 @@ async def delete_documents(req: DeleteDocsRequest):
                 try:
                     f.unlink()
                     deleted.append(f.name)
+                    from graphrag_lite.api import live_index
+                    live_index.enqueue_remove(f.name)   # rebuild the index without it
                 except Exception as exc:
                     log.warning("Failed to delete %s: %s", f, exc)
     return {
@@ -439,7 +470,8 @@ def _load_graph():
     import io, contextlib
     from graphrag_lite.graph.builder import build_graph, load_extractions
 
-    ext_path = _CACHE_DIR / "extractions.jsonl"
+    from graphrag_lite.api import live_index
+    ext_path = live_index.graph_extractions_path() or (_CACHE_DIR / "extractions.jsonl")
     if not ext_path.exists():
         return None
 

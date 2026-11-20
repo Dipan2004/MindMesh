@@ -1,0 +1,85 @@
+{
+  "benchmark_dir": "data\\demo\\panama_canal_20261121",
+  "extraction_model": "qwen2.5:3b",
+  "extraction_model_info": {
+    "size_bytes": 1929912432,
+    "digest": "357c53fb659c5076de1d65ccb0b397446227b71a42be9d1603d46168015c9e4b",
+    "parameter_size": "3.1B",
+    "quantization": "Q4_K_M",
+    "family": "qwen2"
+  },
+  "embedding_model": "nomic-embed-text",
+  "embedding_dim": 768,
+  "gleanings": 0,
+  "chunks_total": 6,
+  "chunks_extracted": 6,
+  "chunks_parse_failed": 0,
+  "chunks_indexed": 6,
+  "entities_indexed": 25,
+  "relationships_indexed": 17,
+  "documents": 6,
+  "graph": {
+    "nodes": 25,
+    "edges": 17,
+    "weak_components": 9,
+    "largest_component": 16,
+    "isolated_nodes": 7,
+    "cross_document_nodes": 2,
+    "cross_document_edges": 0,
+    "documents_linked_via_shared_entities": 6
+  },
+  "timings": {
+    "extracted_now": 6,
+    "failures_now": 0,
+    "extraction_wall_s": 56.2,
+    "graph_build_s": 0.0,
+    "collections_build_s": 2.875
+  },
+  "extraction_latency_sum_s": 56.2,
+  "extraction_latency_mean_s": 9.37,
+  "ollama_ps_during_extraction": [
+    {
+      "model": "qwen2.5:3b",
+      "size_bytes": 2411577999,
+      "size_vram_bytes": 2411577999,
+      "gpu_fraction": 1.0,
+      "processor": "GPU",
+      "context_length": 8192
+    },
+    {
+      "model": "qwen2.5:1.5b",
+      "size_bytes": 1367059988,
+      "size_vram_bytes": 1367059988,
+      "gpu_fraction": 1.0,
+      "processor": "GPU",
+      "context_length": 8192
+    },
+    {
+      "model": "nomic-embed-text:latest",
+      "size_bytes": 335743549,
+      "size_vram_bytes": 335743549,
+      "gpu_fraction": 1.0,
+      "processor": "GPU",
+      "context_length": 2048
+    }
+  ],
+  "hardware": {
+    "os": "Windows-10-10.0.26200-SP0",
+    "python": "3.11.9",
+    "cpu": "Intel64 Family 6 Model 191 Stepping 2, GenuineIntel",
+    "logical_cpus": 24,
+    "ollama_version": "0.40.16",
+    "ram_gb": 15.6,
+    "gpus": [
+      {
+        "name": "NVIDIA GeForce RTX 4060 Laptop GPU",
+        "memory_total_mib": 8188,
+        "memory_used_mib": 1874,
+        "driver": "592.82"
+      }
+    ],
+    "cuda_driver_version": "13.1"
+  },
+  "smoke_test_limit": null,
+  "built_at": "2026-11-21T01:48:31"
+}

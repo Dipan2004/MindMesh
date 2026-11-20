@@ -1,0 +1,288 @@
+<?xml version='1.0' encoding='utf-8'?>
+<graphml xmlns="http://graphml.graphdrawing.org/xmlns" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://graphml.graphdrawing.org/xmlns http://graphml.graphdrawing.org/xmlns/1.0/graphml.xsd"><key id="d8" for="edge" attr.name="source_doc" attr.type="string"/>
+<key id="d7" for="edge" attr.name="source_sentences" attr.type="string"/>
+<key id="d6" for="edge" attr.name="description" attr.type="string"/>
+<key id="d5" for="edge" attr.name="types" attr.type="string"/>
+<key id="d4" for="node" attr.name="stub" attr.type="boolean"/>
+<key id="d3" for="node" attr.name="source_docs" attr.type="string"/>
+<key id="d2" for="node" attr.name="source_sentences" attr.type="string"/>
+<key id="d1" for="node" attr.name="descriptions" attr.type="string"/>
+<key id="d0" for="node" attr.name="type" attr.type="string"/>
+<graph edgedefault="directed"><node id="Panama Canal">
+  <data key="d0">ORGANIZATION</data>
+  <data key="d1">[{"text": "An artificial waterway in Panama connecting the Atlantic Ocean to the Pacific Ocean", "chunk_id": "8510dd491ded17fd", "doc_id": "hp_8eeef4aceec9479e"}, {"text": "A canal across the isthmus of Panama, mentioned in the context of the French attempt to build it.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}, {"text": "A waterway in Panama connecting the Atlantic and Pacific Oceans", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}, {"text": "A waterway in Panama connecting the Atlantic and Pacific Oceans", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}, {"text": "A waterway in Panama connecting the Atlantic and Pacific Oceans.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}, {"text": "A waterway in Panama that connects the Atlantic and Pacific Oceans.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2"}]</data>
+  <data key="d2">[{"text": "The Panama Canal is an artificial waterway in Panama that connects the Atlantic Ocean, through the Caribbean Sea, with the Pacific Ocean. It cuts across the Isthmus of Panama and is about 82 kilometres (51 miles) long.", "chunk_id": "8510dd491ded17fd", "doc_id": "hp_8eeef4aceec9479e"}, {"text": "Panama Canal: The French attempt", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}, {"text": "Panama Canal: The American construction", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}, {"text": "Panama Canal: How the canal works", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}, {"text": "Panama Canal: Transfer to Panama", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}, {"text": "Panama therefore built a third set of larger locks. The expanded canal opened on 26 June 2016.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2"}]</data>
+  <data key="d3">["hp_6aa8afe67f89e68e", "hp_8eeef4aceec9479e", "hp_b81c660e7e08cae6", "hp_c69cf471cb591ee9", "hp_ce5cb4168a3ba0d5", "hp_fc18f9bfeafb4ad2"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Ferdinand de Lesseps">
+  <data key="d0">PERSON</data>
+  <data key="d1">[{"text": "A French diplomat who had earlier developed the Suez Canal in Egypt and led the first serious attempt to build a canal across the isthmus of Panama.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d2">[{"text": "The project was led by Ferdinand de Lesseps, the diplomat who had earlier developed the Suez Canal in Egypt.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d3">["hp_b81c660e7e08cae6"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Suez Canal">
+  <data key="d0">ORGANIZATION</data>
+  <data key="d1">[{"text": "A canal in Egypt, mentioned in the context of Ferdinand de Lesseps' earlier work.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d2">[{"text": "The project was led by Ferdinand de Lesseps, the diplomat who had earlier developed the Suez Canal in Egypt.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d3">["hp_b81c660e7e08cae6"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="France">
+  <data key="d0">ORGANIZATION</data>
+  <data key="d1">[{"text": "The country that made the first serious attempt to build a canal across the isthmus of Panama.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d2">[{"text": "France made the first serious attempt to build a canal across the isthmus.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d3">["hp_b81c660e7e08cae6"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Yellow Fever">
+  <data key="d0">CONCEPT</data>
+  <data key="d1">[{"text": "A tropical disease that killed thousands of workers during the French attempt to build the Panama Canal.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d2">[{"text": "Tropical diseases, especially yellow fever and malaria, killed thousands of workers.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d3">["hp_b81c660e7e08cae6"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Malaria">
+  <data key="d0">CONCEPT</data>
+  <data key="d1">[{"text": "A tropical disease that killed thousands of workers during the French attempt to build the Panama Canal.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d2">[{"text": "Tropical diseases, especially yellow fever and malaria, killed thousands of workers.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6"}]</data>
+  <data key="d3">["hp_b81c660e7e08cae6"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="United States">
+  <data key="d0">ORGANIZATION</data>
+  <data key="d1">[{"text": "A country in North America", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}, {"text": "A country in North America.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d2">[{"text": "The United States took over the project in 1904, shortly after Panama became independent from Colombia.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}, {"text": "For most of the twentieth century the United States controlled the canal and the surrounding Canal Zone.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d3">["hp_c69cf471cb591ee9", "hp_ce5cb4168a3ba0d5"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Colombia">
+  <data key="d0">LOCATION</data>
+  <data key="d1">[{"text": "A country in South America", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d2">[{"text": "Panama became independent from Colombia.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d3">["hp_c69cf471cb591ee9"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="John Frank Stevens">
+  <data key="d0">PERSON</data>
+  <data key="d1">[{"text": "A person who reorganized the work on the canal project", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d2">[{"text": "John Frank Stevens reorganised the work and supported building a canal with locks instead of a sea-level design.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d3">["hp_c69cf471cb591ee9"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="George Washington Goethals">
+  <data key="d0">PERSON</data>
+  <data key="d1">[{"text": "A person who led the project to completion as the successor of John Frank Stevens", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d2">[{"text": "In 1907 he was succeeded by George Washington Goethals, an officer of the United States Army Corps of Engineers, who led the project to completion.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d3">["hp_c69cf471cb591ee9"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="William C. Gorgas">
+  <data key="d0">PERSON</data>
+  <data key="d1">[{"text": "A person who directed a sanitation campaign to control disease among the workforce", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d2">[{"text": "William C. Gorgas, a United States Army physician, directed a sanitation campaign that drained standing water, controlled mosquitoes and greatly reduced yellow fever and malaria among the workforce.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d3">["hp_c69cf471cb591ee9"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="David du Bose Gaillard">
+  <data key="d0">PERSON</data>
+  <data key="d1">[{"text": "An engineer who was in charge of the Culebra Cut section of the canal and died before it opened", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d2">[{"text": "The most difficult section was the Culebra Cut, a deep excavation through the continental divide. It was later renamed the Gaillard Cut after David du Bose Gaillard, the engineer in charge of that section, who died before the canal opened.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9"}]</data>
+  <data key="d3">["hp_c69cf471cb591ee9"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Gatun Dam">
+  <data key="d0">ORGANIZATION</data>
+  <data key="d1">[{"text": "A dam built by engineers to create Gatun Lake", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d2">[{"text": "Engineers built the Gatun Dam on the Chagres River, which created Gatun Lake.", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d3">["hp_6aa8afe67f89e68e"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Gatun Lake">
+  <data key="d0">LOCATION</data>
+  <data key="d1">[{"text": "An artificial lake created by the Gatun Dam", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d2">[{"text": "Engineers built the Gatun Dam on the Chagres River, which created Gatun Lake.", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d3">["hp_6aa8afe67f89e68e"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Chagres River">
+  <data key="d0">LOCATION</data>
+  <data key="d1">[{"text": "A river where the Gatun Dam was built", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d2">[{"text": "Engineers built the Gatun Dam on the Chagres River, which created Gatun Lake.", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d3">["hp_6aa8afe67f89e68e"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Atlantic Ocean">
+  <data key="d0">LOCATION</data>
+  <data key="d1">[{"text": "One of the oceans connected by the Panama Canal", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d2">[{"text": "ships are raised from sea level to the lake by sets of locks, cross the lake and the Gaillard Cut, and are then lowered back to sea level on the other side.", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d3">["hp_6aa8afe67f89e68e"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Pacific Ocean">
+  <data key="d0">LOCATION</data>
+  <data key="d1">[{"text": "The other ocean connected by the Panama Canal", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d2">[{"text": "ships are raised from sea level to the lake by sets of locks, cross the lake and the Gaillard Cut, and are then lowered back to sea level on the other side.", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d3">["hp_6aa8afe67f89e68e"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="SS Ancon">
+  <data key="d0">OTHER</data>
+  <data key="d1">[{"text": "A cargo ship that made the first official transit of the Panama Canal", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d2">[{"text": "The canal officially opened on 15 August 1914, when the cargo ship SS Ancon made the first official transit.", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e"}]</data>
+  <data key="d3">["hp_6aa8afe67f89e68e"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Panama">
+  <data key="d0">LOCATION</data>
+  <data key="d1">[{"text": "A country in Central America.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d2">[{"text": "In 1977 United States President Jimmy Carter and Panamanian leader Omar Torrijos signed the Torrijos-Carter Treaties, which arranged for control of the canal to pass to Panama.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d3">["hp_ce5cb4168a3ba0d5"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Jimmy Carter">
+  <data key="d0">PERSON</data>
+  <data key="d1">[{"text": "A former President of the United States.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d2">[{"text": "In 1977 United States President Jimmy Carter and Panamanian leader Omar Torrijos signed the Torrijos-Carter Treaties, which arranged for control of the canal to pass to Panama.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d3">["hp_ce5cb4168a3ba0d5"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Omar Torrijos">
+  <data key="d0">PERSON</data>
+  <data key="d1">[{"text": "A Panamanian leader.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d2">[{"text": "In 1977 United States President Jimmy Carter and Panamanian leader Omar Torrijos signed the Torrijos-Carter Treaties, which arranged for control of the canal to pass to Panama.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d3">["hp_ce5cb4168a3ba0d5"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Panama Canal Authority">
+  <data key="d0">ORGANIZATION</data>
+  <data key="d1">[{"text": "An agency of the Panamanian government responsible for operating the Panama Canal.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d2">[{"text": "Since then the canal has been run by the Panama Canal Authority, an agency of the Panamanian government.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5"}]</data>
+  <data key="d3">["hp_ce5cb4168a3ba0d5"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Agua Clara Locks">
+  <data key="d0">LOCATION</data>
+  <data key="d1">[{"text": "A location in the Panama Canal system.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2"}]</data>
+  <data key="d2">[{"text": "The new Agua Clara Locks on the Atlantic side and the Cocoli Locks on the Pacific side can handle much larger vessels, known as Neopanamax ships.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2"}]</data>
+  <data key="d3">["hp_fc18f9bfeafb4ad2"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Cocoli Locks">
+  <data key="d0">LOCATION</data>
+  <data key="d1">[{"text": "A location in the Panama Canal system.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2"}]</data>
+  <data key="d2">[{"text": "The new Agua Clara Locks on the Atlantic side and the Cocoli Locks on the Pacific side can handle much larger vessels, known as Neopanamax ships.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2"}]</data>
+  <data key="d3">["hp_fc18f9bfeafb4ad2"]</data>
+  <data key="d4">False</data>
+</node>
+<node id="Neopanamax ships">
+  <data key="d0">CONCEPT</data>
+  <data key="d1">[{"text": "A type of ship that can use the expanded Panama Canal.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2"}]</data>
+  <data key="d2">[{"text": "The new Agua Clara Locks on the Atlantic side and the Cocoli Locks on the Pacific side can handle much larger vessels, known as Neopanamax ships.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2"}]</data>
+  <data key="d3">["hp_fc18f9bfeafb4ad2"]</data>
+  <data key="d4">False</data>
+</node>
+<edge source="Panama Canal" target="Agua Clara Locks">
+  <data key="d5">["PART_OF"]</data>
+  <data key="d6">Agua Clara Locks are part of the Panama Canal system.</data>
+  <data key="d7">[{"text": "The new Agua Clara Locks on the Atlantic side and the Cocoli Locks on the Pacific side can handle much larger vessels, known as Neopanamax ships.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2", "type": "PART_OF"}]</data>
+  <data key="d8">hp_fc18f9bfeafb4ad2</data>
+</edge>
+<edge source="Panama Canal" target="Cocoli Locks">
+  <data key="d5">["PART_OF"]</data>
+  <data key="d6">Cocoli Locks are part of the Panama Canal system.</data>
+  <data key="d7">[{"text": "The new Agua Clara Locks on the Atlantic side and the Cocoli Locks on the Pacific side can handle much larger vessels, known as Neopanamax ships.", "chunk_id": "cea62c09c54ebb18", "doc_id": "hp_fc18f9bfeafb4ad2", "type": "PART_OF"}]</data>
+  <data key="d8">hp_fc18f9bfeafb4ad2</data>
+</edge>
+<edge source="Ferdinand de Lesseps" target="Panama Canal">
+  <data key="d5">["FOUNDED_BY", "PART_OF"]</data>
+  <data key="d6">Ferdinand de Lesseps led the project to build the Panama Canal.</data>
+  <data key="d7">[{"text": "The project was led by Ferdinand de Lesseps, the diplomat who had earlier developed the Suez Canal in Egypt.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6", "type": "FOUNDED_BY"}, {"text": "The project was led by Ferdinand de Lesseps, the diplomat who had earlier developed the Suez Canal in Egypt.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6", "type": "PART_OF"}]</data>
+  <data key="d8">hp_b81c660e7e08cae6</data>
+</edge>
+<edge source="Ferdinand de Lesseps" target="Yellow Fever">
+  <data key="d5">["USED_FOR"]</data>
+  <data key="d6">Yellow Fever was a problem that hindered the construction of the Panama Canal.</data>
+  <data key="d7">[{"text": "Tropical diseases, especially yellow fever and malaria, killed thousands of workers.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6", "type": "USED_FOR"}]</data>
+  <data key="d8">hp_b81c660e7e08cae6</data>
+</edge>
+<edge source="Ferdinand de Lesseps" target="Malaria">
+  <data key="d5">["USED_FOR"]</data>
+  <data key="d6">Malaria was a problem that hindered the construction of the Panama Canal.</data>
+  <data key="d7">[{"text": "Tropical diseases, especially yellow fever and malaria, killed thousands of workers.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6", "type": "USED_FOR"}]</data>
+  <data key="d8">hp_b81c660e7e08cae6</data>
+</edge>
+<edge source="France" target="Ferdinand de Lesseps">
+  <data key="d5">["FOUNDED_BY"]</data>
+  <data key="d6">France supported Ferdinand de Lesseps' efforts to build the canal.</data>
+  <data key="d7">[{"text": "France made the first serious attempt to build a canal across the isthmus. The project was led by Ferdinand de Lesseps, the diplomat who had earlier developed the Suez Canal in Egypt.", "chunk_id": "11244e0939bd5300", "doc_id": "hp_b81c660e7e08cae6", "type": "FOUNDED_BY"}]</data>
+  <data key="d8">hp_b81c660e7e08cae6</data>
+</edge>
+<edge source="United States" target="Panama Canal">
+  <data key="d5">["FOUNDED_BY"]</data>
+  <data key="d6">The United States took over the project to build the Panama Canal in 1904</data>
+  <data key="d7">[{"text": "The United States took over the project in 1904, shortly after Panama became independent from Colombia.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9", "type": "FOUNDED_BY"}]</data>
+  <data key="d8">hp_c69cf471cb591ee9</data>
+</edge>
+<edge source="United States" target="Panama Canal Authority">
+  <data key="d5">["ACQUIRED_BY"]</data>
+  <data key="d6">The United States acquired control of the Panama Canal Authority.</data>
+  <data key="d7">[{"text": "For most of the twentieth century the United States controlled the canal and the surrounding Canal Zone.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5", "type": "ACQUIRED_BY"}]</data>
+  <data key="d8">hp_ce5cb4168a3ba0d5</data>
+</edge>
+<edge source="United States" target="Panama">
+  <data key="d5">["LOCATED_IN"]</data>
+  <data key="d6">The United States controlled the canal and its surrounding area.</data>
+  <data key="d7">[{"text": "For most of the twentieth century the United States controlled the canal and the surrounding Canal Zone.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5", "type": "LOCATED_IN"}]</data>
+  <data key="d8">hp_ce5cb4168a3ba0d5</data>
+</edge>
+<edge source="John Frank Stevens" target="Panama Canal">
+  <data key="d5">["USED_FOR"]</data>
+  <data key="d6">John Frank Stevens supported building a canal with locks instead of a sea-level design</data>
+  <data key="d7">[{"text": "John Frank Stevens reorganised the work and supported building a canal with locks instead of a sea-level design.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9", "type": "USED_FOR"}]</data>
+  <data key="d8">hp_c69cf471cb591ee9</data>
+</edge>
+<edge source="George Washington Goethals" target="Panama Canal">
+  <data key="d5">["SUCCESSOR_OF"]</data>
+  <data key="d6">George Washington Goethals succeeded John Frank Stevens as the leader of the project to completion</data>
+  <data key="d7">[{"text": "In 1907 he was succeeded by George Washington Goethals, an officer of the United States Army Corps of Engineers, who led the project to completion.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9", "type": "SUCCESSOR_OF"}]</data>
+  <data key="d8">hp_c69cf471cb591ee9</data>
+</edge>
+<edge source="William C. Gorgas" target="Panama Canal">
+  <data key="d5">["USED_FOR"]</data>
+  <data key="d6">William C. Gorgas directed a sanitation campaign to control disease among the workforce</data>
+  <data key="d7">[{"text": "William C. Gorgas, a United States Army physician, directed a sanitation campaign that drained standing water, controlled mosquitoes and greatly reduced yellow fever and malaria among the workforce.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9", "type": "USED_FOR"}]</data>
+  <data key="d8">hp_c69cf471cb591ee9</data>
+</edge>
+<edge source="David du Bose Gaillard" target="Panama Canal">
+  <data key="d5">["LOCATED_IN"]</data>
+  <data key="d6">David du Bose Gaillard was the engineer in charge of the Culebra Cut section of the canal and died before it opened</data>
+  <data key="d7">[{"text": "The most difficult section was the Culebra Cut, a deep excavation through the continental divide. It was later renamed the Gaillard Cut after David du Bose Gaillard, the engineer in charge of that section, who died before the canal opened.", "chunk_id": "f4303e0167d12798", "doc_id": "hp_c69cf471cb591ee9", "type": "LOCATED_IN"}]</data>
+  <data key="d8">hp_c69cf471cb591ee9</data>
+</edge>
+<edge source="Gatun Dam" target="Gatun Lake">
+  <data key="d5">["PART_OF"]</data>
+  <data key="d6">The Gatun Dam created Gatun Lake</data>
+  <data key="d7">[{"text": "Engineers built the Gatun Dam on the Chagres River, which created Gatun Lake.", "chunk_id": "cac1b610d8cdbd6b", "doc_id": "hp_6aa8afe67f89e68e", "type": "PART_OF"}]</data>
+  <data key="d8">hp_6aa8afe67f89e68e</data>
+</edge>
+<edge source="Panama" target="United States">
+  <data key="d5">["LOCATED_IN"]</data>
+  <data key="d6">Panama was the recipient of control over the canal.</data>
+  <data key="d7">[{"text": "In 1977 United States President Jimmy Carter and Panamanian leader Omar Torrijos signed the Torrijos-Carter Treaties, which arranged for control of the canal to pass to Panama.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5", "type": "LOCATED_IN"}]</data>
+  <data key="d8">hp_ce5cb4168a3ba0d5</data>
+</edge>
+<edge source="Jimmy Carter" target="Panama">
+  <data key="d5">["LOCATED_IN"]</data>
+  <data key="d6">Jimmy Carter was a leader of the United States.</data>
+  <data key="d7">[{"text": "In 1977 United States President Jimmy Carter and Panamanian leader Omar Torrijos signed the Torrijos-Carter Treaties, which arranged for control of the canal to pass to Panama.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5", "type": "LOCATED_IN"}]</data>
+  <data key="d8">hp_ce5cb4168a3ba0d5</data>
+</edge>
+<edge source="Omar Torrijos" target="Panama">
+  <data key="d5">["LOCATED_IN"]</data>
+  <data key="d6">Omar Torrijos was a leader of Panama.</data>
+  <data key="d7">[{"text": "In 1977 United States President Jimmy Carter and Panamanian leader Omar Torrijos signed the Torrijos-Carter Treaties, which arranged for control of the canal to pass to Panama.", "chunk_id": "7bf1e0d9c075ffa9", "doc_id": "hp_ce5cb4168a3ba0d5", "type": "LOCATED_IN"}]</data>
+  <data key="d8">hp_ce5cb4168a3ba0d5</data>
+</edge>
+</graph></graphml>

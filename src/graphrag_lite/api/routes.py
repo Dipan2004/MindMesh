@@ -317,7 +317,8 @@ async def query_endpoint(req: QueryRequest, request: Request) -> QueryResponse:
 
     try:
         from mindmesh.pipelines.registry import build_adapter
-        adapter = build_adapter(pipe_name, model=cfg.SLM_MODEL, top_k=top_k)
+        from graphrag_lite.api import live_index
+        adapter = build_adapter(pipe_name, model=cfg.SLM_MODEL, top_k=top_k, exp_dir=live_index.active_dir())
         result = await run_in_threadpool(
             adapter.query,
             question=req.query,
@@ -385,7 +386,8 @@ async def query_stream_endpoint(req: QueryRequest, request: Request):
             top_k = req.top_k or 6
 
             from mindmesh.pipelines.registry import build_adapter
-            adapter = build_adapter(pipe_name, model=cfg.SLM_MODEL, top_k=top_k)
+            from graphrag_lite.api import live_index
+            adapter = build_adapter(pipe_name, model=cfg.SLM_MODEL, top_k=top_k, exp_dir=live_index.active_dir())
 
             # Retrieve evidence
             result = await run_in_threadpool(
